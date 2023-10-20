@@ -1,10 +1,8 @@
 <div class="sidebar py-3" id="sidebar">
          
         <ul class="list-unstyled">
-              <li class="sidebar-list-item"><a class="sidebar-link text-muted active" href="{{url('/')}}" data-bs-target="#dashboardsDropdown" role="button" aria-expanded="true" data-bs-toggle="collapse"> 
-                      <svg class="svg-icon svg-icon-md ">
-                        <use xlink:href="icons/orion-svg-sprite.71e9f5f2.svg#real-estate-1"> </use>
-                      </svg><span class="sidebar-link-title">Dashboards </span></a>
+              <li class="sidebar-list-item"><a class="sidebar-link text-muted active" href="{{url('/')}}"  > 
+                       <span class="sidebar-link-title">Dashboards </span></a>
                  
               </li>
               <li class="sidebar-list-item"><a class="sidebar-link text-muted " href="#" data-bs-target="#cmsDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"> 
