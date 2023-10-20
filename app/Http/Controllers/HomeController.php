@@ -9,4 +9,7 @@ class HomeController extends Controller
     public function home(){
         return view('admin.pages.dashboard');
     }
+    public function login(){
+        return view('admin.pages.adminLogin');
+    }
 }

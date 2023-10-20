@@ -6,7 +6,7 @@
               <div class="dropdown-header text-gray-700">
                 <h6 class="text-uppercase font-weight-bold">Akik Hossain</h6><small>Web Developer</small>
               </div>
-              <div class="dropdown-divider"></div><a class="dropdown-item" href="login.html">Logout</a>
+              <div class="dropdown-divider"></div><a class="dropdown-item" href="{{url('/login')}}">Logout</a>
             </div>
           </li>
         </ul>

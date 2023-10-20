@@ -18,6 +18,7 @@ use App\Http\controllers\viewEmployeeController;
 */
 
 Route::get('/',[HomeController::class,'home']);
+Route::get('/login',[HomeController::class,'login']);
 Route::get('/manageEmployee/addEmployee',[manageEmployeeController::class,'addEmployee']);
 Route::get('/manageEmployee/viewEmployee',[viewEmployeeController::class,'viewEmployee']);
  
