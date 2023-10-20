@@ -11,7 +11,7 @@
                         <span class="sidebar-link-title">Manage Employee </span></a>
                 <ul class="sidebar-menu list-unstyled collapse " id="cmsDropdown">
                   <li class="sidebar-list-item"><a class="sidebar-link text-muted" href="{{url('/manageEmployee/addEmployee')}}">Add Employee</a></li>
-                  <li class="sidebar-list-item"><a class="sidebar-link text-muted" href="#">View Employee</a></li>
+                  <li class="sidebar-list-item"><a class="sidebar-link text-muted" href="{{url('/manageEmployee/viewEmployee')}}">View Employee</a></li>
                    
                 </ul>
               </li>

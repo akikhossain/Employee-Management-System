@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\HomeController;
 use App\Http\controllers\manageEmployeeController;
+use App\Http\controllers\viewEmployeeController;
  
 
 /*
@@ -18,4 +19,5 @@ use App\Http\controllers\manageEmployeeController;
 
 Route::get('/',[HomeController::class,'home']);
 Route::get('/manageEmployee/addEmployee',[manageEmployeeController::class,'addEmployee']);
+Route::get('/manageEmployee/viewEmployee',[viewEmployeeController::class,'viewEmployee']);
  
