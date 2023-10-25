@@ -77,11 +77,6 @@
                                             <label class="form-check-label" for="form2Example31"> Remember me </label>
                                         </div>
                                     </div>
-
-                                    <div class="col">
-                                        <!-- Simple link -->
-                                        <a href="#!">Forgot password?</a>
-                                    </div>
                                 </div>
 
                                 <!-- Submit button -->

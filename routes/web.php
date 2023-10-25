@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\HomeController;
 use App\Http\controllers\manageEmployeeController;
@@ -22,3 +23,5 @@ Route::get('/login', [HomeController::class, 'login']);
 Route::get('/manageEmployee/addEmployee', [manageEmployeeController::class, 'addEmployee']);
 Route::post('/manageEmployee/addEmployee/store', [manageEmployeeController::class, 'store']);
 Route::get('/manageEmployee/viewEmployee', [viewEmployeeController::class, 'viewEmployee']);
+Route::get('/attendance/addAttendance', [AttendanceController::class, 'attendance'])->name('attendance.addAttendance');
+Route::get('/attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');

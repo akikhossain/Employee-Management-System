@@ -30,7 +30,8 @@
         <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#">
                 <span class="sidebar-link-title fs-5">Payroll</span></a>
         </li>
-        <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#">
+        <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted "
+                href="{{ route('attendance.addAttendance') }}">
                 <span class="sidebar-link-title fs-5 ">Attendance</span></a>
         </li>
     </ul>

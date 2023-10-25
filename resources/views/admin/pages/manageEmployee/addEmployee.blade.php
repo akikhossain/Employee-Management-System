@@ -60,14 +60,14 @@
                                     <label class="form-label mt-2" for="form11Example7">Additional information</label>
                                 </div>
 
-                                <!-- Checkbox -->
+                                {{-- <!-- Checkbox -->
                                 <div class="form-check d-flex justify-content-center mb-2">
                                     <input class="form-check-input me-2" type="checkbox" value="" id="form11Example8"
                                         checked />
                                     <label class="form-check-label" for="form11Example8">
                                         Create an account?
                                     </label>
-                                </div>
+                                </div> --}}
                                 <div class="text-center">
                                     <button type="submit"
                                         class="btn btn-info p-3 text-lg  rounded col-md-10">Submit</button>
