@@ -90,17 +90,15 @@ Follow the steps below to set up and run the Employee Management System on your 
 5.  **Database Migrations**: Run the database migrations to create the necessary tables.
 
     ```bash
-     php artisan migrate
+      php artisan migrate
 
     ```
 
 6.  **Seed Data (Optional)**: If you'd like to populate the system with sample data, run the seeders.
 
-               ```bash
+    ```bash
 
-    php artisan db:seed
-
-    ```
+      php artisan db:seed
 
     ```
 
