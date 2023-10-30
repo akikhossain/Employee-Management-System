@@ -18,13 +18,14 @@
                             <h5 class="mb-0 text-font text-uppercase">Submit Employee Attendance</h5>
                         </div>
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="{{ route('addAttendance.store') }}" method="post">
                                 @csrf
                                 <div class="row mb-4">
                                     <div class="col">
                                         <div class="form-outline">
                                             <label class="form-label mt-2" for="form11Example1">Employee Name</label>
-                                            <input type="text" id="form11Example1" name="name" class="form-control" />
+                                            <input type="text" id="form11Example1" name="employee_name"
+                                                class="form-control" />
                                         </div>
                                     </div>
                                 </div>
@@ -32,19 +33,19 @@
                                 {{-- date input --}}
                                 <div class="form-outline mb-4">
                                     <label class="form-label mt-2" for="form11Example1">Select Date</label>
-                                    <input type="date" id="form11Example1" name="name" class="form-control" />
+                                    <input type="date" id="form11Example1" name="select_date" class="form-control" />
                                 </div>
 
                                 <!-- In Time input -->
                                 <div class="form-outline mb-4">
                                     <label class="form-label mt-2" for="form11Example1">Sign IN Time</label>
-                                    <input type="time" id="form11Example1" name="time" class="form-control" />
+                                    <input type="time" id="form11Example1" name="sign_in" class="form-control" />
                                 </div>
 
                                 <!-- Out Time input -->
                                 <div class="form-outline mb-4">
                                     <label class="form-label mt-2" for="form11Example1">Sign Out Time</label>
-                                    <input type="time" id="form11Example1" name="time" class="form-control" />
+                                    <input type="time" id="form11Example1" name="sign_out" class="form-control" />
                                 </div>
 
                                 {{-- <!-- Checkbox -->

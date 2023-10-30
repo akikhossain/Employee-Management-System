@@ -13,7 +13,6 @@
                 <tr>
                     <th>ID NO</th>
                     <th>Employee Name</th>
-                    <th>Designation</th>
                     <th>Date</th>
                     <th>Sign In</th>
                     <th>Sign Out</th>
@@ -21,66 +20,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <div>
-                            <p class="fw-bold mb-1">01</p>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Akik Hossain</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Web Developer</p>
-                    </td>
-                    <td>20.10.2023</td>
-                    <td>9.30 AM</td>
-                    <td>5.15 PM</td>
-                    <td>
-                        <a class="btn btn-success" href="">Edit</a>
-                        <a class="btn btn-danger" href="">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <p class="fw-bold mb-1">01</p>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Lionel Messi</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Software Engineer</p>
-                    </td>
-                    <td>20.10.2023</td>
-                    <td>8.30 AM</td>
-                    <td>6.15 PM</td>
-                    <td>
-                        <a class="btn btn-success" href="">Edit</a>
-                        <a class="btn btn-danger" href="">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <p class="fw-bold mb-1">01</p>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Mohammad Salah</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Junior Web Developer</p>
-                    </td>
-                    <td>20.10.2023</td>
-                    <td>10.30 AM</td>
-                    <td>4.15 PM</td>
-                    <td>
-                        <a class="btn btn-success" href="">Edit</a>
-                        <a class="btn btn-danger" href="">Delete</a>
-                    </td>
-                </tr>
+                @foreach ($attendances as $key => $attendance)
+                    <tr>
+                        <td>
+                            <div>
+                                <p class="fw-bold mb-1">{{ $key + 1 }}</p>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">{{ $attendance->employee_name }}</p>
+                        </td>
+                        <td>{{ $attendance->select_date }}</td>
+                        <td>{{ $attendance->sign_in }}</td>
+                        <td>{{ $attendance->sign_out }}</td>
+                        <td>
+                            <a class="btn btn-success" href="">Edit</a>
+                            <a class="btn btn-danger" href="">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+
             </tbody>
         </table>
     </div>
