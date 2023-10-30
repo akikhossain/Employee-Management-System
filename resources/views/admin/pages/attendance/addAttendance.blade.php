@@ -30,6 +30,16 @@
                                     </div>
                                 </div>
 
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <label class="form-label mt-2" for="form11Example1">Designation</label>
+                                            <input type="text" id="form11Example1" name="designation"
+                                                class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
                                 {{-- date input --}}
                                 <div class="form-outline mb-4">
                                     <label class="form-label mt-2" for="form11Example1">Select Date</label>

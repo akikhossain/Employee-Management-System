@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
             $table->string('employee_name', 20);
+            $table->string('designation', 20);
             $table->date('select_date');
             $table->time('sign_in');
             $table->time('sign_out');

@@ -21,6 +21,7 @@ class AttendanceController extends Controller
         // dd($request->all());
         Attendance::create([
             'employee_name' => $request->employee_name,
+            'designation' => $request->designation,
             'select_date' => $request->select_date,
             'sign_in' => $request->sign_in,
             'sign_out' => $request->sign_out,

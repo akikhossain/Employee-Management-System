@@ -8,11 +8,12 @@
         </div>
     </div>
     <div class="container my-5 py-5">
-        <table class="table align-middle mb-0 bg-white">
+        <table class="table align-middle mb-4 text-center  bg-white">
             <thead class="bg-light">
                 <tr>
                     <th>ID NO</th>
                     <th>Employee Name</th>
+                    <th>Designation</th>
                     <th>Date</th>
                     <th>Sign In</th>
                     <th>Sign Out</th>
@@ -30,6 +31,9 @@
                         <td>
                             <p class="fw-normal mb-1">{{ $attendance->employee_name }}</p>
                         </td>
+                        <td>
+                            <p class="fw-normal mb-1">{{ $attendance->designation }}</p>
+                        </td>
                         <td>{{ $attendance->select_date }}</td>
                         <td>{{ $attendance->sign_in }}</td>
                         <td>{{ $attendance->sign_out }}</td>
@@ -42,5 +46,8 @@
 
             </tbody>
         </table>
+        <div class="w-25 mx-auto ">
+            {{ $attendances->links() }}
+        </div>
     </div>
 @endsection
