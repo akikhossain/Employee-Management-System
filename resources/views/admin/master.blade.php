@@ -47,7 +47,7 @@
         </div>
 
         {{-- footer starts from here --}}
-        <footer class="bg-dark flex-grow-0 h-25 text-center text-white w-100">
+        <footer class="bg-dark flex-grow-0  text-center text-white w-100">
             <!-- Grid container -->
             <div class="container p-4 pb-0">
                 <!-- Section: Social media -->

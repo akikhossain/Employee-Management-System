@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-header">
         <h1 class="page-heading">dashboard</h1>
-        <p>Hello, Akik!! Welcome to HR Platform </p>
+        <p class="fw-bold ">Hello, Akik!! Welcome to HR Platform👋 </p>
     </div>
     <section class="mb-3 mb-lg-5">
         <div class="row mb-3">
