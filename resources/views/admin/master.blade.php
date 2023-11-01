@@ -38,7 +38,7 @@
 
 
             <div class="page-holder bg-gray-100">
-                <div class="container-fluid mb-xxl-5   px-lg-4 px-xl-5">
+                <div class="container-fluid mb-xxl-5 flex-grow-1 h-75   px-lg-4 px-xl-5">
 
                     @yield('content')
 
@@ -46,7 +46,8 @@
             </div>
         </div>
 
-        <footer class="bg-dark h-25 text-center text-white w-100">
+        {{-- footer starts from here --}}
+        <footer class="bg-dark flex-grow-0 h-25 text-center text-white w-100">
             <!-- Grid container -->
             <div class="container p-4 pb-0">
                 <!-- Section: Social media -->
@@ -77,7 +78,7 @@
             <!-- Copyright -->
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
                 © 2023 Copyright: Employee Management System |
-                <a class="text-white" href="https://mdbootstrap.com/">Akik Hossain</a>
+                <a class="text-white" href="https://github.com/akikhossain">Akik Hossain</a>
             </div>
         </footer>
 
