@@ -21,7 +21,7 @@
                             <form action="{{ route('addAttendance.store') }}" method="post">
                                 @csrf
                                 <div class="row mb-4">
-                                    <div class="col">
+                                    <div class=" col">
                                         <div class="form-outline">
                                             <label class="form-label mt-2" for="form11Example1">Employee Name</label>
                                             <input type="text" id="form11Example1" name="employee_name"

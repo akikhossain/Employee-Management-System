@@ -11,7 +11,7 @@
         <table class="table align-middle mb-4 text-center  bg-white">
             <thead class="bg-light">
                 <tr>
-                    <th>ID NO</th>
+                    <th>SL NO</th>
                     <th>Employee Name</th>
                     <th>Designation</th>
                     <th>Date</th>

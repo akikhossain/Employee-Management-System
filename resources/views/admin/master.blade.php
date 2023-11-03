@@ -92,6 +92,10 @@
         <script src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/chart.js/Chart.min.js"></script>
         <script src="js/charts-defaults.8a5fcd99.js"></script>
         <script src="js/index-default.50a9efee.js"></script>
+
+        {{-- Font Awesome Kit --}}
+        <script src="https://kit.fontawesome.com/5c95e5cc68.js" crossorigin="anonymous"></script>
+
         <!-- Main Theme JS File-->
         <script src="js/theme.87f0a411.js"></script>
         <!-- Prism for syntax highlighting-->

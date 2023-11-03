@@ -20,9 +20,9 @@ use App\Http\controllers\viewEmployeeController;
 
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/login', [HomeController::class, 'login']);
-Route::get('/manageEmployee/addEmployee', [manageEmployeeController::class, 'addEmployee']);
-Route::post('/manageEmployee/addEmployee/store', [manageEmployeeController::class, 'store']);
-Route::get('/manageEmployee/viewEmployee', [viewEmployeeController::class, 'viewEmployee']);
+Route::get('/manageEmployee/addEmployee', [manageEmployeeController::class, 'addEmployee'])->name('manageEmployee.addEmployee');
+Route::post('/manageEmployee/addEmployee/store', [manageEmployeeController::class, 'store'])->name('manageEmployee.addEmployee.store');
+Route::get('/manageEmployee/viewEmployee', [viewEmployeeController::class, 'viewEmployee'])->name('manageEmployee.ViewEmployee');
 Route::get('/attendance/addAttendance', [AttendanceController::class, 'attendance'])->name('attendance.addAttendance');
 Route::post('/addAttendance/store', [AttendanceController::class, 'store'])->name('addAttendance.store');
 Route::get('/attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');

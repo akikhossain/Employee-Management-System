@@ -9,7 +9,7 @@ class viewEmployeeController extends Controller
 {
     public function viewEmployee()
     {
-        $employees = Employee::all();
+        $employees = Employee::paginate(5);
         return view('admin.pages.manageEmployee.viewEmployee', compact('employees'));
     }
 }
