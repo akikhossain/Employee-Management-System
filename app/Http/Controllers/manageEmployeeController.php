@@ -19,6 +19,7 @@ class manageEmployeeController extends Controller
         $validate = Validator::make($request->all(), [
             'name' => 'required',
             'employee_id' => 'required',
+            'department' => 'required',
             'password' => 'required',
             'designation' => 'required',
             'email' => 'required',
@@ -38,6 +39,7 @@ class manageEmployeeController extends Controller
         Employee::create([
             'name' => $request->name,
             'employee_id' => $request->employee_id,
+            'department' => $request->department,
             'password' => $request->password,
             'designation' => $request->designation,
             'email' => $request->email,

@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\DesignationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\HomeController;
 use App\Http\controllers\manageEmployeeController;
+use App\Http\Controllers\OrganizationController;
 use App\Http\controllers\viewEmployeeController;
 
 
@@ -26,3 +28,5 @@ Route::get('/manageEmployee/viewEmployee', [viewEmployeeController::class, 'view
 Route::get('/attendance/addAttendance', [AttendanceController::class, 'attendance'])->name('attendance.addAttendance');
 Route::post('/addAttendance/store', [AttendanceController::class, 'store'])->name('addAttendance.store');
 Route::get('/attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');
+Route::get('/organization/department', [OrganizationController::class, 'department'])->name('organization.department');
+Route::get('/organization/designation', [DesignationController::class, 'designation'])->name('organization.designation');

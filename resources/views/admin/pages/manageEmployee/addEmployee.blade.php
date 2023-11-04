@@ -22,7 +22,7 @@
                             <form action="{{ route('manageEmployee.addEmployee.store') }}" method="post">
                                 @csrf
                                 <div class="row mb-4">
-                                    <div class=" col-md-6">
+                                    <div class=" col-md-4">
                                         <div class="form-outline">
                                             <label class="form-label mt-2" for="form11Example1">Employee Name</label>
                                             <input required type="text" id="form11Example1" name="name"
@@ -34,7 +34,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class=" col-md-6">
+                                    <div class=" col-md-4">
                                         <div class="form-outline">
                                             <label class="form-label mt-2" for="form11Example1">Employee ID</label>
                                             <input required type="text" id="form11Example1" name="employee_id"
@@ -42,6 +42,18 @@
                                         </div>
                                         <div class="mt-2">
                                             @error('employee_id')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-4">
+                                        <div class="form-outline">
+                                            <label class="form-label mt-2" for="form11Example1">Department</label>
+                                            <input required type="text" id="form11Example1" name="department"
+                                                class="form-control" />
+                                        </div>
+                                        <div class="mt-2">
+                                            @error('department')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
@@ -130,7 +142,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-center">
+                                <div class="text-center w-50 mx-auto">
                                     <button type="submit"
                                         class="btn btn-info p-3 text-lg  rounded col-md-10">Submit</button>
                                 </div>

@@ -8,13 +8,14 @@
                 Employee</a>
         </div>
     </div>
-    <div class="container my-5 py-5">
-        <table class="table align-middle text-center  mb-0 bg-white">
+    <div class="  my-5 py-5">
+        <table class="table align-middle text-center w-100 bg-white">
             <thead class="bg-light">
                 <tr>
                     <th>SL NO</th>
                     <th>Employee Name</th>
                     <th>Employee ID</th>
+                    <th>Department</th>
                     <th>Designation</th>
                     <th>Password</th>
                     <th>Phone</th>
@@ -35,6 +36,7 @@
                         </td>
                         <td>{{ $employee->name }}</td>
                         <td>{{ $employee->employee_id }}</td>
+                        <td>{{ $employee->department }}</td>
                         <td>{{ $employee->designation }}</td>
                         <td>{{ $employee->password }}</td>
                         <td>{{ $employee->phone }}</td>

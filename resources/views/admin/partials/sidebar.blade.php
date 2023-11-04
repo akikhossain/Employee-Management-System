@@ -19,10 +19,19 @@
             </ul>
         </li>
 
-        {{-- Department --}}
-        <li class="sidebar-list-item py-2 border"><a class="sidebar-link text-muted " href="#"><i
+        {{-- Organization --}}
+        <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#"
+                data-bs-target="#widgetsDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
                     class="fa-solid fa-building me-2"></i>
-                <span class="sidebar-link-title fs-5">Department</span></a>
+                <span class="sidebar-link-title fs-5">Organization</span></a>
+            <ul class="sidebar-menu   list-unstyled collapse " id="widgetsDropdown">
+                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted"
+                        href="{{ route('organization.department') }}">Department</a>
+                </li>
+                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted"
+                        href="{{ route('organization.designation') }}">Designation</a>
+                </li>
+            </ul>
         </li>
 
         {{-- Task --}}
@@ -63,7 +72,7 @@
         </li>
 
         {{-- Example --}}
-        <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#"
+        {{-- <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#"
                 data-bs-target="#widgetsDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse">
                 <span class="sidebar-link-title fs-5">Example</span></a>
             <ul class="sidebar-menu   list-unstyled collapse " id="widgetsDropdown">
@@ -73,7 +82,7 @@
                 <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted" href="widgets-data.html">Data</a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
     </ul>
 
 </div>
