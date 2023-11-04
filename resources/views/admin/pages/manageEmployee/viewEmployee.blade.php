@@ -12,6 +12,7 @@
         <table class="table align-middle text-center  mb-0 bg-white">
             <thead class="bg-light">
                 <tr>
+                    <th>SL NO</th>
                     <th>Employee Name</th>
                     <th>Employee ID</th>
                     <th>Designation</th>
@@ -25,8 +26,13 @@
             </thead>
             <tbody>
 
-                @foreach ($employees as $employee)
+                @foreach ($employees as $key => $employee)
                     <tr>
+                        <td>
+                            <div>
+                                <p class="fw-bold mb-1">{{ $key + 1 }}</p>
+                            </div>
+                        </td>
                         <td>{{ $employee->name }}</td>
                         <td>{{ $employee->employee_id }}</td>
                         <td>{{ $employee->designation }}</td>

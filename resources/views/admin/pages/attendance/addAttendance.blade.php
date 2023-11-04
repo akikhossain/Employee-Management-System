@@ -24,8 +24,26 @@
                                     <div class=" col">
                                         <div class="form-outline">
                                             <label class="form-label mt-2" for="form11Example1">Employee Name</label>
-                                            <input type="text" id="form11Example1" name="employee_name"
-                                                class="form-control" />
+                                            <select class="form-control" name="employee_name" id="" required>
+                                                @foreach ($employees as $employee)
+                                                    <option value="{{ $employee->id }}">{{ $employee->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class=" col">
+                                        <div class="form-outline">
+                                            <label class="form-label mt-2" for="form11Example1">Employee ID</label>
+                                            <select class="form-control" name="employee_id" id="" required>
+                                                @foreach ($employees as $employee)
+                                                    <option value="{{ $employee->id }}">{{ $employee->employee_id }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -34,8 +52,12 @@
                                     <div class="col">
                                         <div class="form-outline">
                                             <label class="form-label mt-2" for="form11Example1">Designation</label>
-                                            <input type="text" id="form11Example1" name="designation"
-                                                class="form-control" />
+                                            <select class="form-control" name="designation" id="" required>
+                                                @foreach ($employees as $employee)
+                                                    <option value="{{ $employee->id }}">{{ $employee->designation }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -43,19 +65,22 @@
                                 {{-- date input --}}
                                 <div class="form-outline mb-4">
                                     <label class="form-label mt-2" for="form11Example1">Select Date</label>
-                                    <input type="date" id="form11Example1" name="select_date" class="form-control" />
+                                    <input required type="date" id="form11Example1" name="select_date"
+                                        class="form-control" />
                                 </div>
 
                                 <!-- In Time input -->
                                 <div class="form-outline mb-4">
                                     <label class="form-label mt-2" for="form11Example1">Sign IN Time</label>
-                                    <input type="time" id="form11Example1" name="sign_in" class="form-control" />
+                                    <input required type="time" id="form11Example1" name="sign_in"
+                                        class="form-control" />
                                 </div>
 
                                 <!-- Out Time input -->
                                 <div class="form-outline mb-4">
                                     <label class="form-label mt-2" for="form11Example1">Sign Out Time</label>
-                                    <input type="time" id="form11Example1" name="sign_out" class="form-control" />
+                                    <input required type="time" id="form11Example1" name="sign_out"
+                                        class="form-control" />
                                 </div>
 
                                 {{-- <!-- Checkbox -->

@@ -13,6 +13,7 @@
                 <tr>
                     <th>SL NO</th>
                     <th>Employee Name</th>
+                    <th>Employee ID</th>
                     <th>Designation</th>
                     <th>Date</th>
                     <th>Sign In</th>
@@ -29,10 +30,11 @@
                             </div>
                         </td>
                         <td>
-                            <p class="fw-normal mb-1">{{ $attendance->employee_name }}</p>
+                            <p class="fw-normal mb-1">{{ $attendance->employee->name }}</p>
                         </td>
+                        <td>{{ $attendance->employee->employee_id }}</td>
                         <td>
-                            <p class="fw-normal mb-1">{{ $attendance->designation }}</p>
+                            <p class="fw-normal mb-1">{{ $attendance->employee->designation }}</p>
                         </td>
                         <td>{{ $attendance->select_date }}</td>
                         <td>{{ $attendance->sign_in }}</td>

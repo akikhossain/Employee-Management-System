@@ -34,7 +34,7 @@
         {{-- Manage Leave --}}
         <li class="sidebar-list-item py-2 border"><a class="sidebar-link text-muted " href="#"><i
                     class="fa-solid fa-person-walking-arrow-right me-2"></i>
-                <span class="sidebar-link-title fs-5">Manage Leave </span></a>
+                <span class="sidebar-link-title fs-5">Leave </span></a>
         </li>
 
         {{-- Manage Tour --}}
