@@ -25,14 +25,25 @@
                                     <div class=" col-md-6">
                                         <div class="form-outline">
                                             <label class="form-label mt-2" for="form11Example1">Employee Name</label>
-                                            <input type="text" id="form11Example1" name="name" class="form-control" />
+                                            <input required type="text" id="form11Example1" name="name"
+                                                class="form-control" />
+                                        </div>
+                                        <div class="mt-2">
+                                            @error('name')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class=" col-md-6">
                                         <div class="form-outline">
                                             <label class="form-label mt-2" for="form11Example1">Employee ID</label>
-                                            <input type="text" id="form11Example1" name="employee_id"
+                                            <input required type="text" id="form11Example1" name="employee_id"
                                                 class="form-control" />
+                                        </div>
+                                        <div class="mt-2">
+                                            @error('employee_id')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -42,15 +53,25 @@
                                     <div class=" col-md-6">
                                         <div class="form-outline mb-4">
                                             <label class="form-label mt-2" for="form11Example3">Password</label>
-                                            <input type="password" id="form11Example3" name="password"
+                                            <input required type="password" id="form11Example3" name="password"
                                                 class="form-control" />
+                                        </div>
+                                        <div class="mt-2">
+                                            @error('password')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class=" col-md-6">
                                         <div class="form-outline mb-4">
                                             <label class="form-label mt-2" for="form11Example4">Designation</label>
-                                            <input type="text" id="form11Example4" name="designation"
+                                            <input required type="text" id="form11Example4" name="designation"
                                                 class="form-control" />
+                                        </div>
+                                        <div class="mt-2">
+                                            @error('designation')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -60,13 +81,25 @@
                                     <div class=" col-md-6">
                                         <div class="form-outline mb-4">
                                             <label class="form-label mt-2" for="form11Example5">Email</label>
-                                            <input type="email" id="form11Example5" name="email" class="form-control" />
+                                            <input required type="email" id="form11Example5" name="email"
+                                                class="form-control" />
+                                        </div>
+                                        <div class="mt-2">
+                                            @error('email')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class=" col-md-6">
                                         <div class="form-outline mb-4">
                                             <label class="form-label mt-2" for="form11Example6">Phone</label>
-                                            <input type="number" id="form11Example6" name="phone" class="form-control" />
+                                            <input required type="number" id="form11Example6" name="phone"
+                                                class="form-control" />
+                                        </div>
+                                        <div class="mt-2">
+                                            @error('phone')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -75,14 +108,25 @@
                                     <div class=" col-md-6">
                                         <div class="form-outline mb-4">
                                             <label class="form-label mt-2" for="form11Example6">Salary</label>
-                                            <input type="number" id="form11Example6" name="salary" class="form-control" />
+                                            <input required type="number" id="form11Example6" name="salary"
+                                                class="form-control" pattern="[0-9]+" />
+                                        </div>
+                                        <div class="mt-2">
+                                            @error('salary')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class=" col-md-6">
                                         <div class="form-outline mb-4">
                                             <label class="form-label mt-2" for="form11Example7">Location</label>
-                                            <input type="text" id="form11Example6" name="location"
+                                            <input required type="text" id="form11Example6" name="location"
                                                 class="form-control" />
+                                        </div>
+                                        <div class="mt-2">
+                                            @error('location')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
