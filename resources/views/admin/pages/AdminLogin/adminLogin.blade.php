@@ -10,7 +10,7 @@
 
 
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Admin Login Panel</title>
     </head>
 
     <body>
@@ -37,52 +37,31 @@
                         <div class="col-lg-8">
                             <h2 class="fw-bold mb-5">Admin Login</h2>
 
-                            <form>
-                                <!-- 2 column grid layout with text inputs for the first and last names -->
-                                {{-- <div class="row">
-              <div class="col-md-6 mb-4">
-                <div class="form-outline">
-                  <input type="text" id="form3Example1" class="form-control" />
-                  <label class="form-label" for="form3Example1">First name</label>
-                </div>
-              </div>
-              <div class="col-md-6 mb-4">
-                <div class="form-outline">
-                  <input type="text" id="form3Example2" class="form-control" />
-                  <label class="form-label" for="form3Example2">Last name</label>
-                </div>
-              </div>
-            </div> --}}
-
+                            <form action="{{ route('admin.login.post') }}" method="post">
+                                @csrf
                                 <!-- Email input -->
-                                <div class="form-outline mb-4">
-                                    <input type="email" id="form3Example3" class="form-control" />
+                                <div class="form-outline mb-4 text-left">
                                     <label class="form-label mt-2" for="form3Example3">Email address</label>
+                                    <input name="email" required placeholder="Your Email" type="email"
+                                        id="form3Example3" class="form-control" />
+                                    @error('email')
+                                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <!-- Password input -->
-                                <div class="form-outline mb-4">
-                                    <input type="password" id="form3Example4" class="form-control" />
+                                <div class="form-outline mb-4 text-left ">
                                     <label class="form-label mt-2" for="form3Example4">Password</label>
-                                </div>
-
-
-                                <!-- Checkbox -->
-                                <div class="row mb-4">
-                                    <div class="col d-flex justify-content-center">
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="form2Example31" checked />
-                                            <label class="form-check-label" for="form2Example31"> Remember me </label>
-                                        </div>
-                                    </div>
+                                    <input name="password" required placeholder="Your Password" type="password"
+                                        id="form3Example4" class="form-control" />
+                                    @error('password')
+                                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <!-- Submit button -->
 
-                                <a class="text-white btn btn-primary btn-block" href="{{ url('/') }}">Login</a>
-
+                                <button type="submit" class="text-white btn btn-info btn-block">Login</button>
                             </form>
                         </div>
                     </div>
