@@ -19,7 +19,7 @@ class UserController extends Controller
             $request->all(),
             [
                 'email' => 'required|email',
-                'password' => 'required|min:6',
+                'password' => 'required|min:6|max:8',
             ]
         );
 

@@ -3,7 +3,13 @@
 @section('content')
     <div class="page-header">
         <h1 class="page-heading">dashboard</h1>
-        <p class="fw-bold">Hello, Akik!! Welcome to HR Platform👋 </p>
+        <p class="fw-bold animated-text"> <span>Hello,</span>
+            <span>Akik!!</span>
+            <span>Welcome</span>
+            <span>to</span>
+            <span>HR</span>
+            <span>Platform👋</span>
+        </p>
     </div>
     <section class="mb-3 mb-lg-5">
         <div class="row mb-3">
@@ -17,9 +23,10 @@
                                 <p class="subtitle text-sm text-muted mb-0">Total Employee</p>
                             </div>
                             <div class="flex-shrink-0 ms-3">
-                                <svg class="svg-icon text-red">
-                                    <use xlink:href="icons/orion-svg-sprite.71e9f5f2.svg#speed-1"></use>
-                                </svg>
+                                <div>
+                                    <img class="img-fluid custom-small-img" src="https://i.ibb.co/z2mjFD8/teamwork-1.png"
+                                        alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -53,8 +60,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer py-3 bg-blue-light">
-                        <div class="row align-items-center text-blue">
+                    <div class="card-footer py-3 bg-primary-light">
+                        <div class="row align-items-center text-primary">
                             <div class="col-10">
                                 <p class="mb-0">View Details</p>
                             </div>
@@ -75,14 +82,15 @@
                                 <p class="subtitle text-sm text-muted mb-0">Pending Leave</p>
                             </div>
                             <div class="flex-shrink-0 ms-3">
-                                <svg class="svg-icon text-primary">
-                                    <use xlink:href="icons/orion-svg-sprite.71e9f5f2.svg#bookmark-1"> </use>
-                                </svg>
+                                <div>
+                                    <img class="img-fluid custom-small-img" src="https://i.ibb.co/wcZWNbF/arrow.png"
+                                        alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer py-3 bg-primary-light">
-                        <div class="row align-items-center text-primary">
+                    <div class="card-footer py-3 bg-blue-light">
+                        <div class="row align-items-center text-blue">
                             <div class="col-10">
                                 <p class="mb-0">View Details</p>
                             </div>
@@ -129,9 +137,10 @@
                                 <p class="subtitle text-sm text-muted mb-0">Earnings</p>
                             </div>
                             <div class="flex-shrink-0 ms-3">
-                                <svg class="svg-icon text-info">
-                                    <use xlink:href="icons/orion-svg-sprite.71e9f5f2.svg#speed-1"> </use>
-                                </svg>
+                                <div>
+                                    <img class="img-fluid custom-small-img" src="https://i.ibb.co/d540KYg/teamwork.png"
+                                        alt="">
+                                </div>
                             </div>
                         </div>
                     </div>

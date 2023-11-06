@@ -23,6 +23,57 @@
         <!-- Custom stylesheet - for your changes-->
         <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/css/custom.0a822280.css">
 
+        <style>
+            /* stye for dashboard icon */
+            .custom-small-img {
+                width: 80px;
+                height: auto;
+            }
+
+            /* animation for akik */
+            @keyframes fadeInWords {
+
+                0%,
+                100% {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                    /* Initial and final position off-screen */
+                }
+
+                25%,
+                50% {
+                    opacity: 1;
+                    transform: translateX(0);
+                    /* Appear and stay on-screen */
+                    color: rgb(0, 0, 0);
+                    /* Change color, adjust as needed */
+                }
+
+                75% {
+                    opacity: 1;
+                    transform: translateX(0);
+                    /* Stay on-screen */
+                    color: rgb(15, 75, 105)15, 15, 105);
+                    /* Change color, adjust as needed */
+                }
+            }
+
+            .animated-text {
+                white-space: nowrap;
+                /* Prevent text from wrapping */
+                overflow: hidden;
+                /* Hide overflowing text */
+            }
+
+            .animated-text span {
+                display: inline-block;
+                /* Make each word a block element */
+                opacity: 0;
+                /* Initially hide each word */
+                animation: fadeInWords 5s linear infinite;
+                /* Adjust the animation duration */
+            }
+        </style>
 
     </head>
 

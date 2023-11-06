@@ -16,7 +16,7 @@
                     <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ url('/login') }}">View
                         Profile</a>
                     <div class="dropdown-divider"></div><a class="dropdown-item"
-                        href="{{ route('admin.login') }}">Logout</a>
+                        href="{{ route('admin.logout') }}">Logout</a>
                 </div>
             </li>
         </ul>

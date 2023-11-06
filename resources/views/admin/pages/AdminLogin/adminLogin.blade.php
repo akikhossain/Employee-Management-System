@@ -25,7 +25,7 @@
             </div>
             <!-- Background image -->
 
-            <div class="card     w-50 mx-auto shadow-5-strong"
+            <div class="card w-50 mx-auto shadow-5-strong"
                 style="
         margin-top: -100px;
         background: hsla(0, 0%, 100%, 0.8);
@@ -35,7 +35,7 @@
 
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-8">
-                            <h2 class="fw-bold mb-5">Admin Login</h2>
+                            <h2 class="fw-bold mb-5 ">Admin Login</h2>
 
                             <form action="{{ route('admin.login.post') }}" method="post">
                                 @csrf
