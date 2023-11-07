@@ -23,7 +23,8 @@
                                 <div class="row mb-4">
                                     <div class=" col">
                                         <div class="form-outline">
-                                            <label class="form-label mt-2" for="form11Example1">Employee Name</label>
+                                            <label class="form-label mt-2 fw-bold" for="form11Example1">Employee
+                                                Name</label>
                                             <select class="form-control" name="employee_name" id="" required>
                                                 @foreach ($employees as $employee)
                                                     <option value="{{ $employee->id }}">{{ $employee->name }}
@@ -37,7 +38,7 @@
                                 <div class="row mb-4">
                                     <div class=" col">
                                         <div class="form-outline">
-                                            <label class="form-label mt-2" for="form11Example1">Employee ID</label>
+                                            <label class="form-label mt-2 fw-bold" for="form11Example1">Employee ID</label>
                                             <select class="form-control" name="employee_id" id="" required>
                                                 @foreach ($employees as $employee)
                                                     <option value="{{ $employee->id }}">{{ $employee->employee_id }}
@@ -51,7 +52,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                         <div class="form-outline">
-                                            <label class="form-label mt-2" for="form11Example1">Designation</label>
+                                            <label class="form-label mt-2 fw-bold" for="form11Example1">Designation</label>
                                             <select class="form-control" name="designation" id="" required>
                                                 @foreach ($employees as $employee)
                                                     <option value="{{ $employee->id }}">{{ $employee->designation }}
@@ -64,21 +65,21 @@
 
                                 {{-- date input --}}
                                 <div class="form-outline mb-4">
-                                    <label class="form-label mt-2" for="form11Example1">Select Date</label>
+                                    <label class="form-label mt-2 fw-bold" for="form11Example1">Select Date</label>
                                     <input required type="date" id="form11Example1" name="select_date"
                                         class="form-control" />
                                 </div>
 
                                 <!-- In Time input -->
                                 <div class="form-outline mb-4">
-                                    <label class="form-label mt-2" for="form11Example1">Sign IN Time</label>
+                                    <label class="form-label mt-2 fw-bold" for="form11Example1">Sign IN Time</label>
                                     <input required type="time" id="form11Example1" name="sign_in"
                                         class="form-control" />
                                 </div>
 
                                 <!-- Out Time input -->
                                 <div class="form-outline mb-4">
-                                    <label class="form-label mt-2" for="form11Example1">Sign Out Time</label>
+                                    <label class="form-label mt-2 fw-bold" for="form11Example1">Sign Out Time</label>
                                     <input required type="time" id="form11Example1" name="sign_out"
                                         class="form-control" />
                                 </div>
@@ -93,7 +94,7 @@
                                 </div> --}}
                                 <div class="text-center w-25 mx-auto">
                                     <button type="submit"
-                                        class="btn btn-info p-2 text-lg  rounded col-md-10">Submit</button>
+                                        class="btn btn-info p-2 text-lg fw-bold rounded col-md-10">Submit</button>
                                 </div>
                             </form>
                         </div>

@@ -30,7 +30,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{ url('/manageEmployee/viewEmployee') }}">
+                    <a href="{{ route('manageEmployee.ViewEmployee') }}">
                         <div class="card-footer py-3 bg-red-light">
                             <div class="row align-items-center text-red">
                                 <div class="col-10">
@@ -54,9 +54,10 @@
                                 <p class="subtitle text-sm text-muted mb-0">Work Details</p>
                             </div>
                             <div class="flex-shrink-0 ms-3">
-                                <svg class="svg-icon text-blue">
-                                    <use xlink:href="icons/orion-svg-sprite.71e9f5f2.svg#news-1"> </use>
-                                </svg>
+                                <div>
+                                    <img class="img-fluid custom-small-img" src="https://i.ibb.co/2tHwKBW/hard-work.png"
+                                        alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -111,9 +112,10 @@
                                 <p class="subtitle text-sm text-muted mb-0">Pending Tour</p>
                             </div>
                             <div class="flex-shrink-0 ms-3">
-                                <svg class="svg-icon text-green">
-                                    <use xlink:href="icons/orion-svg-sprite.71e9f5f2.svg#world-map-1"> </use>
-                                </svg>
+                                <div>
+                                    <img class="img-fluid custom-small-img" src="https://i.ibb.co/j6mV9pD/destination.png"
+                                        alt="">
+                                </div>
                             </div>
                         </div>
                     </div>

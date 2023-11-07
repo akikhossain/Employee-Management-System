@@ -24,9 +24,10 @@
                                 <div class="row mb-4">
                                     <div class=" col-md-4">
                                         <div class="form-outline">
-                                            <label class="form-label mt-2" for="form11Example1">Employee Name</label>
-                                            <input required type="text" id="form11Example1" name="name"
-                                                class="form-control" />
+                                            <label class="form-label mt-2 fw-bold" for="form11Example1">Employee
+                                                Name</label>
+                                            <input required placeholder="Enter Name" type="text" id="form11Example1"
+                                                name="name" class="form-control" />
                                         </div>
                                         <div class="mt-2">
                                             @error('name')
@@ -36,9 +37,9 @@
                                     </div>
                                     <div class=" col-md-4">
                                         <div class="form-outline">
-                                            <label class="form-label mt-2" for="form11Example1">Employee ID</label>
-                                            <input required type="text" id="form11Example1" name="employee_id"
-                                                class="form-control" />
+                                            <label class="form-label mt-2 fw-bold" for="form11Example1">Employee ID</label>
+                                            <input required placeholder="Enter ID" type="text" id="form11Example1"
+                                                name="employee_id" class="form-control" />
                                         </div>
                                         <div class="mt-2">
                                             @error('employee_id')
@@ -48,9 +49,9 @@
                                     </div>
                                     <div class=" col-md-4">
                                         <div class="form-outline">
-                                            <label class="form-label mt-2" for="form11Example1">Department</label>
-                                            <input required type="text" id="form11Example1" name="department"
-                                                class="form-control" />
+                                            <label class="form-label mt-2 fw-bold" for="form11Example1">Department</label>
+                                            <input required placeholder="Enter Departnament" type="text"
+                                                id="form11Example1" name="department" class="form-control" />
                                         </div>
                                         <div class="mt-2">
                                             @error('department')
@@ -64,9 +65,9 @@
                                 <div class="row mb-4">
                                     <div class=" col-md-6">
                                         <div class="form-outline mb-4">
-                                            <label class="form-label mt-2" for="form11Example3">Password</label>
-                                            <input required type="password" id="form11Example3" name="password"
-                                                class="form-control" />
+                                            <label class="form-label mt-2 fw-bold" for="form11Example3">Password</label>
+                                            <input required placeholder="Password" type="password" id="form11Example3"
+                                                name="password" class="form-control" />
                                         </div>
                                         <div class="mt-2">
                                             @error('password')
@@ -76,9 +77,9 @@
                                     </div>
                                     <div class=" col-md-6">
                                         <div class="form-outline mb-4">
-                                            <label class="form-label mt-2" for="form11Example4">Designation</label>
-                                            <input required type="text" id="form11Example4" name="designation"
-                                                class="form-control" />
+                                            <label class="form-label mt-2 fw-bold" for="form11Example4">Designation</label>
+                                            <input required placeholder="Enter Designation" type="text"
+                                                id="form11Example4" name="designation" class="form-control" />
                                         </div>
                                         <div class="mt-2">
                                             @error('designation')
@@ -92,9 +93,9 @@
                                 <div class="row mb-4">
                                     <div class=" col-md-6">
                                         <div class="form-outline mb-4">
-                                            <label class="form-label mt-2" for="form11Example5">Email</label>
-                                            <input required type="email" id="form11Example5" name="email"
-                                                class="form-control" />
+                                            <label class="form-label mt-2 fw-bold" for="form11Example5">Email</label>
+                                            <input required placeholder="Enter Email" type="email" id="form11Example5"
+                                                name="email" class="form-control" />
                                         </div>
                                         <div class="mt-2">
                                             @error('email')
@@ -104,9 +105,9 @@
                                     </div>
                                     <div class=" col-md-6">
                                         <div class="form-outline mb-4">
-                                            <label class="form-label mt-2" for="form11Example6">Phone</label>
-                                            <input required type="number" id="form11Example6" name="phone"
-                                                class="form-control" />
+                                            <label class="form-label mt-2 fw-bold" for="form11Example6">Phone</label>
+                                            <input required placeholder="Phone Number" type="number" id="form11Example6"
+                                                name="phone" class="form-control" />
                                         </div>
                                         <div class="mt-2">
                                             @error('phone')
@@ -119,9 +120,9 @@
                                 <div class="row mb-4">
                                     <div class=" col-md-6">
                                         <div class="form-outline mb-4">
-                                            <label class="form-label mt-2" for="form11Example6">Salary</label>
-                                            <input required type="number" id="form11Example6" name="salary"
-                                                class="form-control" pattern="[0-9]+" />
+                                            <label class="form-label mt-2 fw-bold" for="form11Example6">Salary</label>
+                                            <input required placeholder="Enter Salary" type="number" id="form11Example6"
+                                                name="salary" class="form-control" pattern="[0-9]+" />
                                         </div>
                                         <div class="mt-2">
                                             @error('salary')
@@ -131,9 +132,9 @@
                                     </div>
                                     <div class=" col-md-6">
                                         <div class="form-outline mb-4">
-                                            <label class="form-label mt-2" for="form11Example7">Location</label>
-                                            <input required type="text" id="form11Example6" name="location"
-                                                class="form-control" />
+                                            <label class="form-label mt-2 fw-bold" for="form11Example7">Location</label>
+                                            <input required placeholder="Enter Location" type="text"
+                                                id="form11Example6" name="location" class="form-control" />
                                         </div>
                                         <div class="mt-2">
                                             @error('location')
@@ -142,9 +143,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-center w-50 mx-auto">
+                                <div class="text-center w-25 mx-auto">
                                     <button type="submit"
-                                        class="btn btn-info p-3 text-lg  rounded col-md-10">Submit</button>
+                                        class="btn btn-info p-2 text-lg rounded col-md-10 fw-bold">Submit</button>
                                 </div>
                             </form>
                         </div>

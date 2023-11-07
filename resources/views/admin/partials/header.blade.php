@@ -1,7 +1,7 @@
 <header class="header">
     <nav class="navbar navbar-expand-lg px-4 py-2 bg-info shadow"><a
             class="sidebar-toggler text-gray-500 me-4 me-lg-5 lead" href="#"></a><a
-            class="navbar-brand fw-bold text-uppercase text-black text-base" href="#"><span
+            class="navbar-brand fw-bold text-uppercase text-black text-base" href="{{ route('dashboard') }}"><span
                 class="d-none d-brand-partial">Employee </span><span class="d-none d-sm-inline">Management
                 System</span></a>
         <ul class="ms-auto d-flex align-items-center list-unstyled mb-0">
