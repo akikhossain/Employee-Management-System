@@ -11,6 +11,24 @@
 
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Admin Login Panel</title>
+        {{-- style for animation --}}
+        <style>
+            @keyframes slideFromTopToBottom {
+                0% {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            #animated-content {
+                animation: slideFromTopToBottom 1s ease-in-out;
+            }
+        </style>
     </head>
 
     <body>
@@ -25,7 +43,7 @@
             </div>
             <!-- Background image -->
 
-            <div class="card w-50 mx-auto shadow-5-strong"
+            <div class="card w-50 mx-auto shadow-5-strong" id="animated-content"
                 style="
         margin-top: -100px;
         background: hsla(0, 0%, 100%, 0.8);

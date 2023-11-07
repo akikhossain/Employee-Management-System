@@ -46,9 +46,19 @@
         </li>
 
         {{-- Manage Leave --}}
-        <li class="sidebar-list-item py-2 border"><a class="sidebar-link text-muted " href="#"><i
+        <li class="sidebar-list-item py-2 border"><a class="sidebar-link text-muted " href="#"
+                data-bs-target="#componentsDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
                     class="fa-solid fa-person-walking-arrow-right me-2"></i>
-                <span class="sidebar-link-title fs-5">Leave </span></a>
+                <span class="sidebar-link-title fs-5">Leave</span></a>
+            <ul class="sidebar-menu   list-unstyled collapse " id="componentsDropdown">
+                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('leave.leaveForm') }}"><i class="fa-regular fa-circle-right fa-sm me-1"></i>Apply
+                        Leave</a>
+                </li>
+                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3" href=""><i
+                            class="fa-regular fa-circle-right fa-sm me-1"></i>View Leave</a>
+                </li>
+            </ul>
         </li>
 
         {{-- Manage Tour --}}

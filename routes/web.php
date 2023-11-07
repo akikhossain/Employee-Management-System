@@ -3,6 +3,7 @@
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\LeaveController;
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\HomeController;
 use App\Http\controllers\manageEmployeeController;
@@ -27,12 +28,13 @@ Route::post('/login-form', [UserController::class, 'loginPost'])->name('admin.lo
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/logout', [UserController::class, 'logout'])->name('admin.logout');
     Route::get('/', [HomeController::class, 'home'])->name('dashboard');
-    Route::get('/manageEmployee/addEmployee', [manageEmployeeController::class, 'addEmployee'])->name('manageEmployee.addEmployee');
+    Route::get('/Employee/addEmployee', [manageEmployeeController::class, 'addEmployee'])->name('manageEmployee.addEmployee');
     Route::post('/manageEmployee/addEmployee/store', [manageEmployeeController::class, 'store'])->name('manageEmployee.addEmployee.store');
-    Route::get('/manageEmployee/viewEmployee', [viewEmployeeController::class, 'viewEmployee'])->name('manageEmployee.ViewEmployee');
-    Route::get('/attendance/addAttendance', [AttendanceController::class, 'attendance'])->name('attendance.addAttendance');
-    Route::post('/addAttendance/store', [AttendanceController::class, 'store'])->name('addAttendance.store');
-    Route::get('/attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');
-    Route::get('/organization/department', [OrganizationController::class, 'department'])->name('organization.department');
-    Route::get('/organization/designation', [DesignationController::class, 'designation'])->name('organization.designation');
+    Route::get('/Employee/viewEmployee', [viewEmployeeController::class, 'viewEmployee'])->name('manageEmployee.ViewEmployee');
+    Route::get('/Attendance/addAttendance', [AttendanceController::class, 'attendance'])->name('attendance.addAttendance');
+    Route::post('/Attendance/store', [AttendanceController::class, 'store'])->name('addAttendance.store');
+    Route::get('/Attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');
+    Route::get('/Organization/department', [OrganizationController::class, 'department'])->name('organization.department');
+    Route::get('/Organization/designation', [DesignationController::class, 'designation'])->name('organization.designation');
+    Route::get('/Leave/LeaveForm', [LeaveController::class, 'leave'])->name('leave.leaveForm');
 });
