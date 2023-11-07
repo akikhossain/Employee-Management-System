@@ -10,6 +10,7 @@
             <span>HR</span>
             <span>Platform👋</span>
         </p>
+        <span id='ct6' style="font-size: 30px"></span>
     </div>
     <section class="mb-3 mb-lg-5">
         <div class="row mb-3">
