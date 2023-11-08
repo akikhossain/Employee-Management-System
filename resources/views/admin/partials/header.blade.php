@@ -10,7 +10,7 @@
                         src="https://i.ibb.co/PxtMM6v/1692303809483.jpg " alt="Jason Doe"></a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="userInfo">
                     <div class="dropdown-header text-gray-700">
-                        <h6 class="text-uppercase font-weight-bold">Akik Hossain</h6><small
+                        <h6 class="text-uppercase font-weight-bold">{{ auth()->user()->name }}</h6><small
                             class="text-uppercase">ADMIN</small>
                     </div>
                     <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ url('/login') }}">View

@@ -75,23 +75,44 @@
             }
         </style>
         <script>
-            function display_ct6() {
-                var x = new Date()
+            function display_ct7() {
+                var x = new Date();
+                var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                var day = days[x.getDay()]; // Get the day of the week
+
                 var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
-                hours = x.getHours() % 12;
+                var hours = x.getHours() % 12;
                 hours = hours ? hours : 12;
-                var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
-                x1 = x1 + " - " + hours + ":" + x.getMinutes() + ":" + x.getSeconds() + ":" + ampm;
-                document.getElementById('ct6').innerHTML = x1;
-                display_c6();
+                hours = hours.toString().length == 1 ? '0' + hours.toString() : hours;
+
+                var minutes = x.getMinutes().toString();
+                minutes = minutes.length == 1 ? '0' + minutes : minutes;
+
+                var seconds = x.getSeconds().toString();
+                seconds = seconds.length == 1 ? '0' + seconds : seconds;
+
+                var month = (x.getMonth() + 1).toString();
+                month = month.length == 1 ? '0' + month : month;
+
+                var dt = x.getDate().toString();
+                dt = dt.length == 1 ? '0' + dt : dt;
+
+                var dayOfWeekElement = document.getElementById('dayOfWeek');
+                dayOfWeekElement.innerHTML = day; // Display the day of the week in uppercase
+
+                var x1 = month + "-" + dt + "-" + x.getFullYear();
+                x1 = x1 + " - " + hours + ":" + minutes + " " + ampm;
+                document.getElementById('ct7').innerHTML = x1;
+                display_c7();
             }
 
-            function display_c6() {
-                var refresh = 1000; // Refresh rate in milli seconds
-                mytime = setTimeout('display_ct6()', refresh)
+            function display_c7() {
+                var refresh = 1000; // Refresh rate in milliseconds
+                mytime = setTimeout('display_ct7()', refresh);
             }
-            display_c6()
+            display_c7();
         </script>
+
 
     </head>
 
