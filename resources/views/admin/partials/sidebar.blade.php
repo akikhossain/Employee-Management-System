@@ -55,8 +55,9 @@
                         href="{{ route('leave.leaveForm') }}"><i class="fa-regular fa-circle-right fa-sm me-1"></i>Apply
                         Leave</a>
                 </li>
-                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3" href=""><i
-                            class="fa-regular fa-circle-right fa-sm me-1"></i>View Leave</a>
+                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('leave.leaveStatus') }}"><i
+                            class="fa-regular fa-circle-right fa-sm me-1"></i>Leave Status</a>
                 </li>
             </ul>
         </li>

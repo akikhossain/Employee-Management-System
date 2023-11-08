@@ -1,17 +1,18 @@
 @extends('admin.master')
 
 @section('content')
-    <div class="page-header page-heading">
+    <div class="page-header ">
         {{-- <h1 class="page-heading">dashboard</h1> --}}
         {{-- <span class="fw-bold page-heading" style="font-size: 30px">Today</span><br> --}}
-        <span id="dayOfWeek" style="font-size: 30px"></span><br>
-        <span id='ct7' style="font-size: 25px"></span>
-        <p class="fw-bold animated-text"> <span>Hello,</span>
+        <span id="dayOfWeek" class="page-heading" style="font-size: 30px"></span><br>
+        <span id='ct7' class="page-heading" style="font-size: 25px"></span>
+        <p class="fw-medium fs-5 animated-text"> <span>Hello,</span>
             <span>{{ auth()->user()->name }}</span>
             <span>Welcome</span>
             <span>to</span>
             <span>HR</span>
             <span>Platform👋</span>
+            <hr>
         </p>
     </div>
     <section class="mb-3 mb-lg-5">

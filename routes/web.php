@@ -37,4 +37,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/Organization/department', [OrganizationController::class, 'department'])->name('organization.department');
     Route::get('/Organization/designation', [DesignationController::class, 'designation'])->name('organization.designation');
     Route::get('/Leave/LeaveForm', [LeaveController::class, 'leave'])->name('leave.leaveForm');
+    Route::get('/Leave/LeaveStatus', [LeaveController::class, 'leaveList'])->name('leave.leaveStatus');
 });

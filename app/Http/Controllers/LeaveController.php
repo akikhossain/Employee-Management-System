@@ -12,6 +12,10 @@ class LeaveController extends Controller
     {
         return view('admin.pages.Leave.leaveForm');
     }
+    public function leaveList()
+    {
+        return view('admin.pages.Leave.leaveList');
+    }
 
 
     public function create()

@@ -33,23 +33,18 @@
             /* animation for akik */
             @keyframes fadeInWords {
 
-                0%,
-                100% {
+                0% {
                     opacity: 0;
-                    transform: translateX(-20px);
+                    transform: translateX(0);
                     /* Initial and final position off-screen */
                 }
 
-                25%,
-                50% {
-                    opacity: 1;
-                    transform: translateX(0);
-                    /* Appear and stay on-screen */
-                    color: rgb(0, 0, 0);
-                    /* Change color, adjust as needed */
-                }
 
-                75% {
+
+                25%,
+                50%,
+                75%,
+                100% {
                     opacity: 1;
                     transform: translateX(0);
                     /* Stay on-screen */

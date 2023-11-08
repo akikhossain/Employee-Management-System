@@ -17,11 +17,11 @@
                     <th>Employee ID</th>
                     <th>Department</th>
                     <th>Designation</th>
-                    <th>Password</th>
+                    {{-- <th>Password</th> --}}
                     <th>Phone</th>
                     <th>Email</th>
-                    <th>Salary</th>
-                    <th>Location</th>
+                    {{-- <th>Salary</th> --}}
+                    {{-- <th>Location</th> --}}
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -38,11 +38,11 @@
                         <td>{{ $employee->employee_id }}</td>
                         <td>{{ $employee->department }}</td>
                         <td>{{ $employee->designation }}</td>
-                        <td>{{ $employee->password }}</td>
+                        {{-- <td>{{ $employee->password }}</td> --}}
                         <td>{{ $employee->phone }}</td>
                         <td>{{ $employee->email }}</td>
-                        <td>{{ $employee->salary }}</td>
-                        <td>{{ $employee->location }}</td>
+                        {{-- <td>{{ $employee->salary }}</td> --}}
+                        {{-- <td>{{ $employee->location }}</td> --}}
                         <td>
                             <a class="btn btn-success" href="">Edit</a>
                             <a class="btn btn-danger" href="">Delete</a>
