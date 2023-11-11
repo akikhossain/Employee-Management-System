@@ -88,6 +88,10 @@
                 </li>
             </ul>
         </li>
+        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
+                href="{{ route('users.list') }}"><i class="fa-regular fa-clock  me-2"></i>
+                <span class="sidebar-link-title fs-5">Users</span></a>
+        </li>
 
         {{-- Example --}}
         {{-- <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#"

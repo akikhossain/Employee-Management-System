@@ -38,4 +38,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/Organization/designation', [DesignationController::class, 'designation'])->name('organization.designation');
     Route::get('/Leave/LeaveForm', [LeaveController::class, 'leave'])->name('leave.leaveForm');
     Route::get('/Leave/LeaveStatus', [LeaveController::class, 'leaveList'])->name('leave.leaveStatus');
+    Route::get('/users', [UserController::class, 'list'])->name('users.list');
+    Route::get('/users/create', [UserController::class, 'createForm'])->name('users.create');
+
+    Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
 });

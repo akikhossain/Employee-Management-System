@@ -17,6 +17,7 @@ class UserstableSeeder extends Seeder
     {
         User::create([
             'name' => 'Akik Hossain',
+            'role' => 'Admin',
             'email' => 'akikhs00@gmail.com',
             'password' => bcrypt('akik87'),
         ]);
