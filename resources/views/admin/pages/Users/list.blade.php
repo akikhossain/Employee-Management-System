@@ -18,18 +18,18 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $key => $singleUser)
+                @foreach ($users as $key => $user)
                     <tr>
                         <td>{{ $key + 1 }}</td>
-                        <td>{{ $singleUser->name }}</td>
+                        <td>{{ $user->name }}</td>
                         <td>
                             {{-- <img style="border-radius: 60px;" width="7%"
                                 src="" alt=""> --}}
-                            <img style="border-radius: 60px;" width="7%"
-                                src="{{ url('/uploads' . $singleUser->image) }}" alt="">
+                            <img style="border-radius: 50%;" width="20%" src="{{ url('/uploads//' . $user->image) }}"
+                                alt="">
                         </td>
-                        <td>{{ $singleUser->email }}</td>
-                        <td>{{ $singleUser->role }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->role }}</td>
                         <td>
                             <a class="btn btn-success" href="">View</a>
                             <a class="btn btn-warning" href="">Edit</a>

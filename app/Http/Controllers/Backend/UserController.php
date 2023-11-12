@@ -75,8 +75,8 @@ class UserController extends Controller
         }
 
         $fileName = null;
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
+        if ($request->hasFile('user_image')) {
+            $file = $request->file('user_image');
             $fileName = date('Ymdhis') . '.' . $file->getClientOriginalExtension();
 
             $file->storeAs('/uploads', $fileName);

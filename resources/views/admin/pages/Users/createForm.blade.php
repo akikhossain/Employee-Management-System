@@ -92,8 +92,8 @@
                                     <div class="col-md-6">
                                         <div class="form-outline">
                                             <label class="form-label mt-2 fw-bold " for="form11Example1">Image</label>
-                                            <input required placeholder="Select Image" type="file" id="form11Example1"
-                                                name="image" class="form-control" />
+                                            <input required type="file" id="form11Example1" name="user_image"
+                                                class="form-control" />
                                         </div>
                                         <div class="mt-2">
                                             @error('image')
