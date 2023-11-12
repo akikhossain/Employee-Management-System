@@ -25,8 +25,7 @@
                         <td>
                             {{-- <img style="border-radius: 60px;" width="7%"
                                 src="" alt=""> --}}
-                            <img style="border-radius: 50%;" width="20%" src="{{ url('/uploads//' . $user->image) }}"
-                                alt="">
+                            <img class="avatar p-1" src="{{ url('/uploads//' . $user->image) }}" alt="">
                         </td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role }}</td>
