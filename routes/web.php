@@ -35,6 +35,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/Attendance/store', [AttendanceController::class, 'store'])->name('addAttendance.store');
     Route::get('/Attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');
     Route::get('/Organization/department', [OrganizationController::class, 'department'])->name('organization.department');
+    // Route::get('/Organization/department/list', [OrganizationController::class, 'departmentList'])->name('organization.departmentList');
+    Route::post('/Organization/department/store', [OrganizationController::class, 'store'])->name('organization.department.store');
     Route::get('/Organization/designation', [DesignationController::class, 'designation'])->name('organization.designation');
     Route::get('/Leave/LeaveForm', [LeaveController::class, 'leave'])->name('leave.leaveForm');
     Route::get('/Leave/LeaveStatus', [LeaveController::class, 'leaveList'])->name('leave.leaveStatus');

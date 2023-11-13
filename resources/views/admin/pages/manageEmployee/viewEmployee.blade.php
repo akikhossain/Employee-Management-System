@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="  my-5 py-5">
-        <table class="table align-middle text-center w-100 bg-white">
+        <table class="table align-middle text-center w-75 mx-auto bg-white">
             <thead class="bg-light">
                 <tr>
                     <th>SL NO</th>
@@ -18,8 +18,8 @@
                     <th>Department</th>
                     <th>Designation</th>
                     {{-- <th>Password</th> --}}
-                    <th>Phone</th>
-                    <th>Email</th>
+                    {{-- <th>Phone</th> --}}
+                    {{-- <th>Email</th> --}}
                     {{-- <th>Salary</th> --}}
                     {{-- <th>Location</th> --}}
                     <th>Actions</th>
@@ -39,11 +39,12 @@
                         <td>{{ $employee->department }}</td>
                         <td>{{ $employee->designation }}</td>
                         {{-- <td>{{ $employee->password }}</td> --}}
-                        <td>{{ $employee->phone }}</td>
-                        <td>{{ $employee->email }}</td>
+                        {{-- <td>{{ $employee->phone }}</td> --}}
+                        {{-- <td>{{ $employee->email }}</td> --}}
                         {{-- <td>{{ $employee->salary }}</td> --}}
                         {{-- <td>{{ $employee->location }}</td> --}}
                         <td>
+                            <a class="btn btn-warning " href="">View</a>
                             <a class="btn btn-success" href="">Edit</a>
                             <a class="btn btn-danger" href="">Delete</a>
                         </td>

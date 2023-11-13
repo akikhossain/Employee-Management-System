@@ -17,13 +17,14 @@
                             <h5 class="text-uppercase">New Department</h5>
                         </div>
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="{{ route('organization.department.store') }}" method="post">
                                 @csrf
                                 <div class="row mb-4">
                                     <div class="col">
                                         <div class="form-outline">
                                             <label class="form-label mt-2" for="form11Example1">Department ID</label>
-                                            <input class="form-control" name="department_id" id="" required>
+                                            <input placeholder="Enter ID" class="form-control" name="department_id"
+                                                id="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -33,7 +34,8 @@
                                         <div class="col">
                                             <div class="form-outline">
                                                 <label class="form-label mt-2" for="form11Example1">Department Name</label>
-                                                <input class="form-control" name="deparment_name" id="" required>
+                                                <input placeholder="Enter Name" class="form-control" name="department_name"
+                                                    id="" required>
                                             </div>
                                         </div>
                                     </div>
@@ -59,15 +61,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <a class="btn btn-success" href="">Edit</a>
-                                        <a class="btn btn-danger" href="">Delete</a>
-                                    </td>
-                                </tr>
+                                @foreach ($departments as $key => $item)
+                                    <tr>
+                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ $item->department_id }}</td>
+                                        <td>{{ $item->department_name }}</td>
+                                        <td>
+                                            <a class="btn btn-success" href="">Edit</a>
+                                            <a class="btn btn-danger" href="">Delete</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
