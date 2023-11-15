@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('designation_name', 20);
             $table->string('designation_id', 10);
+            $table->decimal('salary', 10, 2);
             $table->timestamps();
         });
     }

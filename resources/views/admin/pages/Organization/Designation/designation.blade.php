@@ -23,7 +23,8 @@
                                     <div class="col">
                                         <div class="form-outline">
                                             <label class="form-label mt-2" for="form11Example1">Designation ID</label>
-                                            <input class="form-control" name="designation_id" id="" required>
+                                            <input type="text" class="form-control" name="designation_id" id=""
+                                                required>
                                         </div>
                                     </div>
                                 </div>
@@ -33,7 +34,19 @@
                                         <div class="col">
                                             <div class="form-outline">
                                                 <label class="form-label mt-2" for="form11Example1">Designation Name</label>
-                                                <input class="form-control" name="designation_name" id="" required>
+                                                <input type="text" class="form-control" name="designation_name"
+                                                    id="" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class=" col">
+                                        <div class="col">
+                                            <div class="form-outline">
+                                                <label class="form-label mt-2" for="form11Example1">Salary</label>
+                                                <input type="number" class="form-control" name="salary" id=""
+                                                    required>
                                             </div>
                                         </div>
                                     </div>
@@ -55,6 +68,7 @@
                                     <th>SL NO</th>
                                     <th>Designation ID</th>
                                     <th>Designation Name</th>
+                                    <th>Salary</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -64,6 +78,7 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $item->designation_id }}</td>
                                         <td>{{ $item->designation_name }}</td>
+                                        <td>{{ $item->salary }}</td>
                                         <td>
                                             <a class="btn btn-success" href="">Edit</a>
                                             <a class="btn btn-danger" href="">Delete</a>

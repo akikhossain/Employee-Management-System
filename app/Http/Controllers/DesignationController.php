@@ -21,6 +21,7 @@ class DesignationController extends Controller
         $validate = Validator::make($request->all(), [
             'designation_name' => 'required',
             'designation_id' => 'required',
+            'salary' => 'required',
         ]);
 
         if ($validate->fails()) {
@@ -34,6 +35,7 @@ class DesignationController extends Controller
         Designation::create([
             'designation_name' => $request->designation_name,
             'designation_id' => $request->designation_id,
+            'salary' => $request->salary,
         ]);
 
         return redirect()->back();
