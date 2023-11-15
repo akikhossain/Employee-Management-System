@@ -17,7 +17,7 @@
                             <h5 class="text-uppercase">New Designation</h5>
                         </div>
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="{{ route('organization.designation.store') }}" method="post">
                                 @csrf
                                 <div class="row mb-4">
                                     <div class="col">
@@ -59,15 +59,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <a class="btn btn-success" href="">Edit</a>
-                                        <a class="btn btn-danger" href="">Delete</a>
-                                    </td>
-                                </tr>
+                                @foreach ($designations as $key => $item)
+                                    <tr>
+                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ $item->designation_id }}</td>
+                                        <td>{{ $item->designation_name }}</td>
+                                        <td>
+                                            <a class="btn btn-success" href="">Edit</a>
+                                            <a class="btn btn-danger" href="">Delete</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -28,20 +28,37 @@ Route::post('/login-form', [UserController::class, 'loginPost'])->name('admin.lo
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/logout', [UserController::class, 'logout'])->name('admin.logout');
     Route::get('/', [HomeController::class, 'home'])->name('dashboard');
+
+    // Employees
     Route::get('/Employee/addEmployee', [manageEmployeeController::class, 'addEmployee'])->name('manageEmployee.addEmployee');
     Route::post('/manageEmployee/addEmployee/store', [manageEmployeeController::class, 'store'])->name('manageEmployee.addEmployee.store');
     Route::get('/Employee/viewEmployee', [viewEmployeeController::class, 'viewEmployee'])->name('manageEmployee.ViewEmployee');
+
+
+    // Attendance
     Route::get('/Attendance/addAttendance', [AttendanceController::class, 'attendance'])->name('attendance.addAttendance');
     Route::post('/Attendance/store', [AttendanceController::class, 'store'])->name('addAttendance.store');
     Route::get('/Attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');
+
+
+    // Department
     Route::get('/Organization/department', [OrganizationController::class, 'department'])->name('organization.department');
     // Route::get('/Organization/department/list', [OrganizationController::class, 'departmentList'])->name('organization.departmentList');
     Route::post('/Organization/department/store', [OrganizationController::class, 'store'])->name('organization.department.store');
+
+
+    // Designation
     Route::get('/Organization/designation', [DesignationController::class, 'designation'])->name('organization.designation');
+    Route::post('/Organization/designation/store', [DesignationController::class, 'designationStore'])->name('organization.designation.store');
+
+
+
+    // Leave
     Route::get('/Leave/LeaveForm', [LeaveController::class, 'leave'])->name('leave.leaveForm');
     Route::get('/Leave/LeaveStatus', [LeaveController::class, 'leaveList'])->name('leave.leaveStatus');
     Route::get('/users', [UserController::class, 'list'])->name('users.list');
-    Route::get('/users/create', [UserController::class, 'createForm'])->name('users.create');
 
+    // Users
+    Route::get('/users/create', [UserController::class, 'createForm'])->name('users.create');
     Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
 });
