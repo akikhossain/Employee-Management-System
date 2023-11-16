@@ -3,6 +3,7 @@
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\Frontend\homeController as FrontendHomeController;
 use App\Http\Controllers\LeaveController;
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\HomeController;
@@ -22,6 +23,12 @@ use App\Http\controllers\viewEmployeeController;
 |
 */
 
+// Website or Frontend
+Route::get('/home', [FrontendHomeController::class, 'home'])->name('home');
+
+
+
+// Admin Dashboard
 Route::get('admin/login', [UserController::class, 'login'])->name('admin.login');
 Route::post('/login-form', [UserController::class, 'loginPost'])->name('admin.login.post');
 
