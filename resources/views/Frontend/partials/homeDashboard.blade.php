@@ -1,7 +1,7 @@
 @extends('Frontend.master')
 @section('content')
-    <div class="slider">
-        <div class="owl-carousel owl-one owl-theme">
+    <div class="">
+        <div class="owl-carousel owl-one">
             <div class="item">
                 <div class="slider-img"> <img src="https://i.ibb.co/Wft0Sb8/sean-pollock-Ph-Yq704ffd-A-unsplash.jpg"
                         alt="">
@@ -9,19 +9,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="slider-captions ">
-                                <h1 class="slider-title">Human Resources Service Website Template</h1>
-                                <p class="hidden-xs">Sed ac lectus <strong>convallis variugnissim enihasellus
-                                    </strong>vulputate felis.</p>
-                                <a href="#" class="btn btn-primary  hidden-xs">Get Free Template</a>&nbsp;
-                                &nbsp;
-                                <a href="#" class="btn btn-outline  hidden-xs">Need help?</a>
+                            <div class="slider-captions">
+                                <h1 class="slider-title fw-bold">Human Resources Management Service</h1>
+                                <p class="text-dark ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis,
+                                    aspernatur.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="item">
+            {{-- <div class="item">
                 <div class="slider-img"><img src="https://i.ibb.co/LNF9cRN/marvin-meyer-SYTO3xs06f-U-unsplash.jpg"
                         alt="">
                 </div>
@@ -29,35 +26,32 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="slider-captions">
-                                <h1 class="slider-title">Business Service Free Website Templates</h1>
-                                <p class="hidden-xs">Fusce suscipit <strong>porttitor felisut eleifat</strong> sem
+                                <h1 class="slider-title text-white fw-bold">Business Service Free Website Templates</h1>
+                                <p class="hidden-xs text-white fw-bold">Fusce suscipit <strong class="text-white">porttitor
+                                        felisut
+                                        eleifat</strong> sem
                                     a purus elementum.</p>
-                                <a href="#" class="btn btn-primary  hidden-xs">Download Template</a>&nbsp;
-                                &nbsp;
-                                <a href="#" class="btn btn-outline  hidden-xs">Need help?</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="item">
+            </div> --}}
+            {{-- <div class="item">
                 <div class="slider-img"><img src="https://i.ibb.co/ZJBJbX2/annie-spratt-Qckxruozj-Rg-unsplash.jpg"
                         alt=""></div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="slider-captions">
-                                <h1 class="slider-title">Human Resource Management Service Template </h1>
-                                <p class="hidden-xs">Mauris vitae <strong>condimentum toisque viverra</strong>
+                                <h1 class="slider-title text-white fw-bold">Human Resource Management Service Template </h1>
+                                <p class="hidden-xs text-white fw-bold">Mauris vitae <strong class="text-white">condimentum
+                                        toisque viverra</strong>
                                     massanec tincidunt mollis.</p>
-                                <a href="#" class="btn btn-primary  hidden-xs">View all Services</a>&nbsp;
-                                &nbsp;
-                                <a href="#" class="btn btn-outline  hidden-xs">Free Template</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <!-- /.slider -->
@@ -190,7 +184,7 @@
     </div>
     <!-- /.features-section -->
     <!-- testimonial-section -->
-    <div class="space-medium bg-primary">
+    <div class="space-medium bg-secondary">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

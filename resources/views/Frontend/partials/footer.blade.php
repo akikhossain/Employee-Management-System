@@ -1,5 +1,5 @@
 <div class="footer">
-    <div class="container">
+    <div class="container align-content-center">
         <div class="row">
             <!-- footer-contact links -->
             <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12">
