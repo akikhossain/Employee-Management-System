@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('select_date');
             $table->time('sign_in');
             $table->time('sign_out');
+            $table->integer('hours')->nullable();
             $table->timestamps();
         });
     }

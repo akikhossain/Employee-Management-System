@@ -28,7 +28,9 @@ class AttendanceController extends Controller
             'select_date' => $request->select_date,
             'sign_in' => $request->sign_in,
             'sign_out' => $request->sign_out,
+            'hours' => $request->hours,
         ]);
-        return redirect()->route('attendance.viewAttendance');
+        notify()->success('Attendance given successfully');
+        return redirect()->back();
     }
 }

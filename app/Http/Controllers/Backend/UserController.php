@@ -33,6 +33,7 @@ class UserController extends Controller
 
         $login = auth()->attempt($credentials);
         if ($login) {
+            notify()->success('Successfully Logged in');
             return redirect()->route('dashboard');
         }
 
@@ -43,6 +44,7 @@ class UserController extends Controller
     {
 
         auth()->logout();
+        notify()->success('Successfully Logged Out');
         return redirect()->route('admin.login');
     }
 
@@ -71,7 +73,8 @@ class UserController extends Controller
         ]);
 
         if ($validate->fails()) {
-            return redirect()->back()->with('myError', $validate->getMessageBag());
+            notify()->error('Invalid Credentials.');
+            return redirect()->back();
         }
 
         $fileName = null;
@@ -90,7 +93,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
-
-        return redirect()->back()->with('message', 'User created successfully.');
+        notify()->success('User created successfully.');
+        return redirect()->back();
     }
 }

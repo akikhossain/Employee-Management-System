@@ -3,6 +3,7 @@
 
     <head>
         <meta charset="utf-8">
+        @notifyCss
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -48,6 +49,7 @@
     </head>
 
     <body>
+        @include('notify::components.notify')
         <!-- top-header-section-->
         <div class="menu-toggel">
             <a href="#" id="dots" class="dots-icon"><i class="fa fa-ellipsis-v visible-xs"></i></a>
@@ -57,6 +59,8 @@
 
         @include('Frontend.partials.navbar')
         <!-- /. header-section-->
+
+
 
         <!-- slider -->
         @yield('content')
@@ -89,6 +93,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
+        @notifyJs
     </body>
 
 </html>

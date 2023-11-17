@@ -45,7 +45,7 @@
         {{-- Task --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
                 href="#"><i class="fa-solid fa-list-check me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Task</span></a>
+                <span class="sidebar-link-title fs-5">Manage Task</span></a>
         </li>
 
         {{-- Manage Leave --}}
@@ -87,7 +87,11 @@
                 <li class="sidebar-list-item py-2 fs-6 "><a class="sidebar-link text-muted ms-3"
                         href="{{ route('attendance.viewAttendance') }}"><i
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Attendance
-                        List</a>
+                        Record</a>
+                </li>
+                <li class="sidebar-list-item fs-6 "><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('attendance.addAttendance') }}"><i
+                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Give Attendance</a>
                 </li>
             </ul>
         </li>

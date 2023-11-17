@@ -29,17 +29,17 @@ class OrganizationController extends Controller
 
         if ($validate->fails()) {
 
-            // notify()->error($validate->getMessageBag());
-            // return redirect()->back();
+            notify()->error($validate->getMessageBag());
+            return redirect()->back();
 
-            return redirect()->back()->withErrors($validate);
+            // return redirect()->back()->withErrors($validate);
         }
 
         Department::create([
             'department_name' => $request->department_name,
             'department_id' => $request->department_id,
         ]);
-
+        notify()->success('New Department created successfully.');
         return redirect()->back();
     }
 }

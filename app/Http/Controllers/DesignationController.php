@@ -37,7 +37,7 @@ class DesignationController extends Controller
             'designation_id' => $request->designation_id,
             'salary' => $request->salary,
         ]);
-
+        notify()->success('New Designation created successfully.');
         return redirect()->back();
     }
 }

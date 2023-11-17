@@ -84,6 +84,13 @@
                                         class="form-control" />
                                 </div>
 
+                                {{-- total hours --}}
+                                <div class="form-outline mb-4">
+                                    <label class="form-label mt-2 fw-bold" for="form11Example1">Hours</label>
+                                    <input required type="number" id="form11Example1" name="hours"
+                                        class="form-control" />
+                                </div>
+
                                 {{-- <!-- Checkbox -->
                                 <div class="form-check d-flex justify-content-center mb-2">
                                     <input class="form-check-input me-2" type="checkbox" value="" id="form11Example8"

@@ -3,9 +3,6 @@
 @section('content')
     <div class="shadow p-4 d-flex justify-content-between align-items-center ">
         <h4 class="text-uppercase">View Attendance List</h4>
-        <div>
-            <a href="{{ route('attendance.addAttendance') }}" class="btn btn-info p-2 text-lg rounded">Add New Attendance</a>
-        </div>
     </div>
     <div class="container my-5 py-5">
         <table class="table align-middle mb-4 text-center  bg-white">
@@ -18,6 +15,7 @@
                     <th>Date</th>
                     <th>Sign In</th>
                     <th>Sign Out</th>
+                    <th>Hours</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -39,6 +37,7 @@
                         <td>{{ $attendance->select_date }}</td>
                         <td>{{ $attendance->sign_in }}</td>
                         <td>{{ $attendance->sign_out }}</td>
+                        <td>{{ $attendance->hours }}</td>
                         <td>
                             <a class="btn btn-success" href="">Edit</a>
                             <a class="btn btn-danger" href="">Delete</a>

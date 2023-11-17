@@ -3,6 +3,7 @@
 
     <head>
         <meta charset="utf-8">
+        @notifyCss
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Employee Management System</title>
         <meta name="description" content="">
@@ -68,6 +69,13 @@
                 animation: fadeInWords 5s linear infinite;
                 /* Adjust the animation duration */
             }
+
+            .notify {
+                z-index: 9999;
+                /* align-items: flex-end; */
+                /* align-items: center; */
+                justify-content: center;
+            }
         </style>
         <script>
             function display_ct7() {
@@ -107,11 +115,14 @@
             }
             display_c7();
         </script>
-
-
     </head>
 
     <body>
+        {{-- notify --}}
+        @include('notify::components.notify')
+
+
+
         <!-- navbar-->
         @include('admin.partials.header')
 
@@ -124,6 +135,7 @@
 
             <div class="page-holder bg-gray-100">
                 <div class="container-fluid mb-xxl-5 flex-grow-1 h-75   px-lg-4 px-xl-5">
+
 
                     @yield('content')
 
@@ -202,6 +214,7 @@
                 'right-trim': true,
             });
         </script>
+        @notifyJs
         <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
             integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
