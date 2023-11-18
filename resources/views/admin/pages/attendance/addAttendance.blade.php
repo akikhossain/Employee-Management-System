@@ -90,15 +90,6 @@
                                     <input required type="number" id="form11Example1" name="hours"
                                         class="form-control" />
                                 </div>
-
-                                {{-- <!-- Checkbox -->
-                                <div class="form-check d-flex justify-content-center mb-2">
-                                    <input class="form-check-input me-2" type="checkbox" value="" id="form11Example8"
-                                        checked />
-                                    <label class="form-check-label" for="form11Example8">
-                                        Create an account?
-                                    </label>
-                                </div> --}}
                                 <div class="text-center w-25 mx-auto">
                                     <button type="submit"
                                         class="btn btn-info p-2 text-lg fw-bold rounded col-md-10">Submit</button>

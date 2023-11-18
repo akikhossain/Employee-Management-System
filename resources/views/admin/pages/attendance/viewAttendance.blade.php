@@ -39,6 +39,7 @@
                         <td>{{ $attendance->sign_out }}</td>
                         <td>{{ $attendance->hours }}</td>
                         <td>
+
                             <a class="btn btn-success" href="">Edit</a>
                             <a class="btn btn-danger" href="">Delete</a>
                         </td>

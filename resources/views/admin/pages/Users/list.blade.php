@@ -36,9 +36,10 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role }}</td>
                         <td>
-                            <a class="btn btn-success" href="">View</a>
-                            <a class="btn btn-warning" href="">Edit</a>
-                            <a class="btn btn-danger"href="">Delete</a>
+                            <a class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" href="">View</a>
+                            <a class="btn btn-outline-dark btn-rounded" data-mdb-ripple-color="dark"href="">Edit</a>
+                            <a class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark"
+                                href="">Delete</a>
                         </td>
                     </tr>
                 @endforeach

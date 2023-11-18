@@ -23,7 +23,6 @@
             id="theme-stylesheet">
         <!-- Custom stylesheet - for your changes-->
         <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/css/custom.0a822280.css">
-
         <style>
             /* stye for dashboard icon */
             .custom-small-img {
@@ -75,6 +74,11 @@
                 /* align-items: flex-end; */
                 /* align-items: center; */
                 justify-content: center;
+            }
+
+            #calendar {
+                max-width: 900px;
+                margin: 0 auto;
             }
         </style>
         <script>

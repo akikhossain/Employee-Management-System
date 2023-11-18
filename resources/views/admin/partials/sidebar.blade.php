@@ -14,7 +14,7 @@
                     class="fa-solid fa-building me-2  text-info"></i>
                 <span class="sidebar-link-title fs-5">Organization</span></a>
             <ul class="sidebar-menu   list-unstyled collapse " id="widgetsDropdown">
-                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
+                <li class="sidebar-list-item py-2  fs-6"><a class="sidebar-link text-muted ms-3"
                         href="{{ route('organization.department') }}"><i
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Department</a>
                 </li>
@@ -31,7 +31,7 @@
                     class="fa-solid fa-user-group me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Employees</span></a>
             <ul class="sidebar-menu list-unstyled collapse " id="cmsDropdown">
-                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
+                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
                         href="{{ route('manageEmployee.addEmployee') }}"><i
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Add
                         Employee</a></li>
@@ -54,7 +54,7 @@
                     class="fa-solid fa-person-walking-arrow-right me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Leave</span></a>
             <ul class="sidebar-menu   list-unstyled collapse " id="componentsDropdown">
-                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
+                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
                         href="{{ route('leave.leaveForm') }}"><i
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Apply
                         Leave</a>
@@ -99,19 +99,6 @@
                 href="{{ route('users.list') }}"><i class="fa-regular fa-clock me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Users</span></a>
         </li>
-
-        {{-- Example --}}
-        {{-- <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#"
-                data-bs-target="#widgetsDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse">
-                <span class="sidebar-link-title fs-5">Example</span></a>
-            <ul class="sidebar-menu   list-unstyled collapse " id="widgetsDropdown">
-                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted"
-                        href="widgets-stats.html">Stats</a>
-                </li>
-                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted" href="widgets-data.html">Data</a>
-                </li>
-            </ul>
-        </li> --}}
     </ul>
 
 </div>

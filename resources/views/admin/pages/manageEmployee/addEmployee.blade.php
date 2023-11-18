@@ -63,19 +63,20 @@
 
 
                                 <div class="row mb-4">
-                                    <div class=" col-md-6">
+                                    <div class=" col-md-4">
                                         <div class="form-outline mb-4">
-                                            <label class="form-label mt-2 fw-bold" for="form11Example3">Password</label>
-                                            <input required placeholder="Password" type="password" id="form11Example3"
-                                                name="password" class="form-control" />
+                                            <label class="form-label mt-2 fw-bold" for="form11Example3">Date of
+                                                Birth</label>
+                                            <input required placeholder="date here" type="date" id="form11Example3"
+                                                name="date" class="form-control" />
                                         </div>
                                         <div class="mt-2">
-                                            @error('password')
+                                            @error('date')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class=" col-md-6">
+                                    <div class=" col-md-4">
                                         <div class="form-outline mb-4">
                                             <label class="form-label mt-2 fw-bold" for="form11Example4">Designation</label>
                                             <input required placeholder="Enter Designation" type="text"
@@ -83,6 +84,18 @@
                                         </div>
                                         <div class="mt-2">
                                             @error('designation')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-4">
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label mt-2 fw-bold" for="form11Example4">Hire Date</label>
+                                            <input required placeholder="Enter date here" type="date" id="form11Example4"
+                                                name="hire_date" class="form-control" />
+                                        </div>
+                                        <div class="mt-2">
+                                            @error('hire_date')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>

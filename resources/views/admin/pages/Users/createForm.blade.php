@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
     <div class="shadow p-4 d-flex justify-content-between align-items-center ">
-        <h4 class="text-uppercase">Create Leave</h4>
+        <h4 class="text-uppercase">Create User Account</h4>
     </div>
     <div class="container my-5 py-5">
 
@@ -12,7 +12,7 @@
                 <div class="w-75 mx-auto">
                     <div class="card mb-4">
                         <div class="card-header py-3">
-                            <h5 class="mb-0 text-font text-uppercase">Leave Form</h5>
+                            <h5 class="mb-0 text-font text-uppercase">User Account Form</h5>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('users.store') }}" method="post" enctype="multipart/form-data">
@@ -49,8 +49,17 @@
                                                 Role:</label>
                                             <select required type="text" id="form11Example1" name="role"
                                                 class="form-control">
+                                                <option value="admin">Administrator</option>
                                                 <option value="manager">Manager</option>
-                                                <option value="account">Account</option>
+                                                <option value="employee">Employee/Staff</option>
+                                                <option value="hr">Human Resources (HR)</option>
+                                                <option value="it">IT Support</option>
+                                                <option value="finance">Finance/Accounting</option>
+                                                <option value="customer_service">Customer Service</option>
+                                                <option value="operations">Operations</option>
+                                                <option value="project_management">Project Management</option>
+                                                <option value="content_management">Content Management</option>
+                                                <option value="quality_assurance">Quality Assurance</option>
                                             </select>
                                         </div>
                                         <div class="mt-2">
