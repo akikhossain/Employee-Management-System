@@ -11,7 +11,7 @@
             <div class="d-flex gap-5 justify-content-center align-content-center ">
 
                 {{-- Department  Form start --}}
-                <div class="text-left w-25 ">
+                <div class="text-left w-50 ">
                     <div class="card mb-4">
                         <div class="card-header py-3">
                             <h5 class="text-uppercase">Update Department</h5>

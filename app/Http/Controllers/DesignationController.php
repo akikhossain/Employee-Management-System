@@ -40,4 +40,42 @@ class DesignationController extends Controller
         notify()->success('New Designation created successfully.');
         return redirect()->back();
     }
+
+    public function delete($id)
+    {
+        $department = Designation::find($id);
+        if ($department) {
+            $department->delete();
+        }
+        notify()->success('Department Deleted Successfully.');
+        return redirect()->back();
+    }
+    public function edit($id)
+    {
+        $designation = Designation::find($id);
+        return view('admin.pages.Organization.Designation.editDesignation', compact('designation'));
+    }
+    public function update(Request $request, $id)
+    {
+        $designation = Designation::find($id);
+        if ($designation) {
+
+            // $fileName = $employee->image;
+            // if ($request->hasFile('image')) {
+            //     $file = $request->file('image');
+            //     $fileName = date('Ymdhis') . '.' . $file->getClientOriginalExtension();
+
+            //     $file->storeAs('/uploads', $fileName);
+            // }
+
+            $designation->update([
+                'designation_name' => $request->designation_name,
+                'designation_id' => $request->designation_id,
+                'salary' => $request->salary,
+            ]);
+
+            notify()->success('Your information updated successfully.');
+            return redirect()->route('organization.designation');
+        }
+    }
 }
