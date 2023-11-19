@@ -42,4 +42,40 @@ class OrganizationController extends Controller
         notify()->success('New Department created successfully.');
         return redirect()->back();
     }
+    public function delete($id)
+    {
+        $department = Department::find($id);
+        if ($department) {
+            $department->delete();
+        }
+        notify()->success('Department Deleted Successfully.');
+        return redirect()->back();
+    }
+    public function edit($id)
+    {
+        $department = Department::find($id);
+        return view('admin.pages.Organization.Department.editDepartment', compact('department'));
+    }
+    public function update(Request $request, $id)
+    {
+        $department = Department::find($id);
+        if ($department) {
+
+            // $fileName = $employee->image;
+            // if ($request->hasFile('image')) {
+            //     $file = $request->file('image');
+            //     $fileName = date('Ymdhis') . '.' . $file->getClientOriginalExtension();
+
+            //     $file->storeAs('/uploads', $fileName);
+            // }
+
+            $department->update([
+                'department_name' => $request->department_name,
+                'department_id' => $request->department_id,
+            ]);
+
+            notify()->success('Your information updated successfully.');
+            return redirect()->route('organization.department');
+        }
+    }
 }

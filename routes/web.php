@@ -54,6 +54,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/Organization/department', [OrganizationController::class, 'department'])->name('organization.department');
     // Route::get('/Organization/department/list', [OrganizationController::class, 'departmentList'])->name('organization.departmentList');
     Route::post('/Organization/department/store', [OrganizationController::class, 'store'])->name('organization.department.store');
+    Route::get('/Organization/delete/{id}', [OrganizationController::class, 'delete'])->name('Organization.delete');
+    Route::get('/Organization/edit/{id}', [OrganizationController::class, 'edit'])->name('Organization.edit');
+    Route::put('/Organization/update/{id}', [OrganizationController::class, 'update'])->name('Organization.update');
 
 
     // Designation
