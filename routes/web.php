@@ -40,7 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/Employee/addEmployee', [manageEmployeeController::class, 'addEmployee'])->name('manageEmployee.addEmployee');
     Route::post('/manageEmployee/addEmployee/store', [manageEmployeeController::class, 'store'])->name('manageEmployee.addEmployee.store');
     Route::get('/Employee/viewEmployee', [viewEmployeeController::class, 'viewEmployee'])->name('manageEmployee.ViewEmployee');
-
+    Route::get('/Employee/delete/{id}', [viewEmployeeController::class, 'delete'])->name('Employee.delete');
+    Route::get('Employee/edit/{id}', [viewEmployeeController::class, 'edit'])->name('Employee.edit');
+    Route::put('/Employee/update/{id}', [viewEmployeeController::class, 'update'])->name('Employee.update');
 
     // Attendance
     Route::get('/Attendance/addAttendance', [AttendanceController::class, 'attendance'])->name('attendance.addAttendance');

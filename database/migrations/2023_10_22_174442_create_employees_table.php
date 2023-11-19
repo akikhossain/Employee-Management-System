@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name', 20);
             $table->string('employee_id', 12)->unique();
             $table->string('department', 12);
-            $table->date('date_of_birth');
+            $table->date('date_of_birth')->nullable();
             $table->string('designation', 30);
             $table->date('hire_date');
             $table->string('email', 30);

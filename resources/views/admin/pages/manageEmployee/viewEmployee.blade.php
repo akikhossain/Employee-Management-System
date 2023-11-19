@@ -45,8 +45,8 @@
                         {{-- <td>{{ $employee->location }}</td> --}}
                         <td>
                             <a class="btn btn-warning " href="">View</a>
-                            <a class="btn btn-success" href="">Edit</a>
-                            <a class="btn btn-danger" href="">Delete</a>
+                            <a class="btn btn-success" href="{{ route('Employee.edit', $employee->id) }}">Edit</a>
+                            <a class="btn btn-danger" href="{{ route('Employee.delete', $employee->id) }}">Delete</a>
                         </td>
                     </tr>
                 @endforeach
