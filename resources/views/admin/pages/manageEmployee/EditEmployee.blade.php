@@ -164,8 +164,8 @@
                                     </div>
                                 </div>
                                 <div class="text-center w-25 mx-auto">
-                                    <button type="submit"
-                                        class="btn btn-info p-2 text-lg rounded col-md-10 fw-bold">Update</button>
+                                    <button type="submit" class="btn btn-info p-2 text-lg rounded col-md-10 fw-bold">Save
+                                        Change</button>
                                 </div>
                             </form>
                         </div>

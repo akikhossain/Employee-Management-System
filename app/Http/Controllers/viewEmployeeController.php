@@ -56,4 +56,10 @@ class viewEmployeeController extends Controller
             return redirect()->route('manageEmployee.ViewEmployee');
         }
     }
+
+    public function profile($id)
+    {
+        $employee = Employee::find($id);
+        return view('admin.pages.manageEmployee.employeeProfile', compact('employee'));
+    }
 }
