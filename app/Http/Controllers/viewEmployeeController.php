@@ -31,17 +31,18 @@ class viewEmployeeController extends Controller
         $employee = Employee::find($id);
         if ($employee) {
 
-            // $fileName = $employee->image;
-            // if ($request->hasFile('image')) {
-            //     $file = $request->file('image');
-            //     $fileName = date('Ymdhis') . '.' . $file->getClientOriginalExtension();
+            $fileName = $employee->employee_image;
+            if ($request->hasFile('employee_image')) {
+                $file = $request->file('employee_image');
+                $fileName = date('Ymdhis') . '.' . $file->getClientOriginalExtension();
 
-            //     $file->storeAs('/uploads', $fileName);
-            // }
+                $file->storeAs('/uploads', $fileName);
+            }
 
             $employee->update([
                 'name' => $request->name,
                 'employee_id' => $request->employee_id,
+                'employee_image' => $fileName,
                 'department' => $request->department,
                 'date_of_birth' => $request->date_of_birth,
                 'designation' => $request->designation,

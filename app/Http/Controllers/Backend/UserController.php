@@ -96,4 +96,9 @@ class UserController extends Controller
         notify()->success('User created successfully.');
         return redirect()->back();
     }
+
+    public function userProfile()
+    {
+        return view('admin.pages.Users.userProfile');
+    }
 }

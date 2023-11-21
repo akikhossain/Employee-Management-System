@@ -14,6 +14,7 @@
                 <tr>
                     <th>SL NO</th>
                     <th>Employee Name</th>
+                    <th>Image</th>
                     <th>Employee ID</th>
                     <th>Department</th>
                     <th>Designation</th>
@@ -35,6 +36,8 @@
                             </div>
                         </td>
                         <td>{{ $employee->name }}</td>
+                        <td><img class="avatar p-1" src="{{ url('/uploads//' . $employee->employee_image) }}" alt="">
+                        </td>
                         <td>{{ $employee->employee_id }}</td>
                         <td>{{ $employee->department }}</td>
                         <td>{{ $employee->designation }}</td>

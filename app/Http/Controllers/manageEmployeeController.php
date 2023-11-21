@@ -35,9 +35,19 @@ class manageEmployeeController extends Controller
             return redirect()->back();
         }
 
+        $fileName = null;
+        if ($request->hasFile('employee_image')) {
+            $file = $request->file('employee_image');
+            $fileName = date('Ymdhis') . '.' . $file->getClientOriginalExtension();
+
+            $file->storeAs('/uploads', $fileName);
+        }
+
+
         Employee::create([
             'name' => $request->name,
             'employee_id' => $request->employee_id,
+            'employee_image' => $fileName,
             'department' => $request->department,
             'date_of_birth' => $request->date_of_birth,
             'designation' => $request->designation,

@@ -19,7 +19,8 @@
                             <h5 class="mb-0 text-font text-uppercase">Submit Employee Details</h5>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('manageEmployee.addEmployee.store') }}" method="post">
+                            <form action="{{ route('manageEmployee.addEmployee.store') }}" method="post"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-4">
                                     <div class=" col-md-4">
@@ -104,7 +105,7 @@
 
 
                                 <div class="row mb-4">
-                                    <div class=" col-md-6">
+                                    <div class=" col-md-4">
                                         <div class="form-outline mb-4">
                                             <label class="form-label mt-2 fw-bold" for="form11Example5">Email</label>
                                             <input required placeholder="Enter Email" type="email" id="form11Example5"
@@ -116,7 +117,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class=" col-md-6">
+                                    <div class=" col-md-4">
                                         <div class="form-outline mb-4">
                                             <label class="form-label mt-2 fw-bold" for="form11Example6">Phone</label>
                                             <input required placeholder="Phone Number" type="number" id="form11Example6"
@@ -124,6 +125,18 @@
                                         </div>
                                         <div class="mt-2">
                                             @error('phone')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-4">
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label mt-2 fw-bold" for="form11Example6">Image</label>
+                                            <input type="file" id="form11Example6" name="employee_image"
+                                                class="form-control" />
+                                        </div>
+                                        <div class="mt-2">
+                                            @error('employee_image')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>

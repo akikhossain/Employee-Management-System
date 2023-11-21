@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('phone', 15);
             $table->string('salary', 8);
             $table->string('location', 30);
+            $table->string('employee_image')->nullable();
             $table->timestamps();
         });
     }
