@@ -62,6 +62,12 @@ class UserController extends Controller
         return view('admin.pages.Users.createForm');
     }
 
+    public function userProfile($id)
+    {
+        $user = User::find($id);
+        return view('admin.pages.Users.userProfile', compact('user'));
+    }
+
 
     public function store(Request $request)
     {
@@ -95,10 +101,5 @@ class UserController extends Controller
         ]);
         notify()->success('User created successfully.');
         return redirect()->back();
-    }
-
-    public function userProfile()
-    {
-        return view('admin.pages.Users.userProfile');
     }
 }

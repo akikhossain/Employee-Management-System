@@ -36,7 +36,8 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role }}</td>
                         <td>
-                            <a class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" href="">View</a>
+                            <a class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark"
+                                href="{{ route('users.profile.view', $user->id) }}">View</a>
                             <a class="btn btn-outline-dark btn-rounded" data-mdb-ripple-color="dark"href="">Edit</a>
                             <a class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark"
                                 href="">Delete</a>

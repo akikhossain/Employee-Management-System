@@ -13,7 +13,7 @@
                         <h6 class="text-uppercase font-weight-bold">{{ auth()->user()->name }}</h6><small
                             class="text-uppercase">{{ auth()->user()->role }}</small>
                     </div>
-                    <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ url('/login') }}">View
+                    <div class="dropdown-divider"></div><a class="dropdown-item" href="">View
                         Profile</a>
                     <div class="dropdown-divider"></div><a class="dropdown-item"
                         href="{{ route('admin.logout') }}">Logout</a>
