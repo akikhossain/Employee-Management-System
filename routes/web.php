@@ -71,10 +71,12 @@ Route::group(['middleware' => 'auth'], function () {
     // Leave
     Route::get('/Leave/LeaveForm', [LeaveController::class, 'leave'])->name('leave.leaveForm');
     Route::get('/Leave/LeaveStatus', [LeaveController::class, 'leaveList'])->name('leave.leaveStatus');
-    Route::get('/users', [UserController::class, 'list'])->name('users.list');
+    Route::post('/Leave/store', [LeaveController::class, 'store'])->name('leave.store');
+    Route::get('/Leave/myLeave', [LeaveController::class, 'myLeave'])->name('leave.myLeave');
 
     // Users
     Route::get('/users/create', [UserController::class, 'createForm'])->name('users.create');
     Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+    Route::get('/users', [UserController::class, 'list'])->name('users.list');
     Route::get('/users/profile/{id}', [UserController::class, 'userProfile'])->name('users.profile.view');
 });

@@ -2,6 +2,9 @@
 @section('content')
     <div class="shadow p-4 d-flex justify-content-between align-items-center ">
         <h4 class="text-uppercase">Create Leave</h4>
+        <div>
+            <a href="{{ route('leave.myLeave') }}" class="btn btn-info p-2 text-lg rounded">View Leave Status</a>
+        </div>
     </div>
     <div class="container my-5 py-5">
 
@@ -15,9 +18,8 @@
                             <h5 class="mb-0 text-font text-uppercase">Leave Form</h5>
                         </div>
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="{{ route('leave.store') }}" method="post">
                                 @csrf
-
                                 <div class="row mb-4">
                                     <div class="col-md-6">
                                         <div class="form-outline">
@@ -36,7 +38,7 @@
                                         <div class="form-outline">
                                             <label class="form-label mt-2 fw-bold " for="form11Example1">Department</label>
                                             <input required placeholder="Department" type="text" id="form11Example1"
-                                                name="employee_id" class="form-control">
+                                                name="department" class="form-control">
                                         </div>
                                         <div class="mt-2">
                                             @error('employee_id')
@@ -88,7 +90,7 @@
                                         <div class="form-outline">
                                             <label class="form-label mt-2 fw-bold " for="form11Example1">Leave Type</label>
                                             <select required placeholder="Employee ID" type="text" id="form11Example1"
-                                                name="employee_id" class="form-control">
+                                                name="leave_type" class="form-control">
                                                 <option value="annual">Annual Leave</option>
                                                 <option value="sick">Sick Leave</option>
                                                 <option value="parent">Parent Leave</option>

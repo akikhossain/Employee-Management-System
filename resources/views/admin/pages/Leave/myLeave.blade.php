@@ -2,8 +2,10 @@
 
 @section('content')
     <div class="shadow p-4 d-flex justify-content-between align-items-center ">
-        <h4 class="text-uppercase">Leave List</h4>
-
+        <h4 class="text-uppercase">My Leave</h4>
+        <div>
+            <a href="{{ route('leave.leaveForm') }}" class="btn btn-info p-2 text-lg rounded">Create Leave</a>
+        </div>
     </div>
     <div class="  my-5 py-5">
         <table class="table align-middle text-center w-100 bg-white">
@@ -17,7 +19,7 @@
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Description</th>
-                    <th>Actions</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
