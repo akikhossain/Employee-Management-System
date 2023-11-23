@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\controllers\HomeController;
 use App\Http\controllers\manageEmployeeController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\ServicesController;
 use App\Http\controllers\viewEmployeeController;
 
 
@@ -82,5 +83,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
         Route::get('/users', [UserController::class, 'list'])->name('users.list');
         Route::get('/users/profile/{id}', [UserController::class, 'userProfile'])->name('users.profile.view');
+
+        // Services
+        Route::get('/Service/create', [ServicesController::class, 'serviceForm'])->name('service.form');
     });
 });

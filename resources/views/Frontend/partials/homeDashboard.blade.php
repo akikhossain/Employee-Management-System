@@ -85,7 +85,7 @@
                 </div>
                 <!-- /.service-block -->
                 <!-- service-block -->
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                {{-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="service-block">
                         <div class="service-img"><a href="#" class="imghover"><img src="./images/service_img_2.jpg"
                                     alt="" class="img-responsive"></a>
@@ -97,10 +97,10 @@
                             <a href="#" class="btn-link">More Details</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- /.service-block -->
                 <!-- service-block -->
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                {{-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="service-block">
                         <div class="service-img"><a href="#" class="imghover"><img src="./images/service_img_3.jpg"
                                     alt="" class="img-responsive"></a>
@@ -112,10 +112,10 @@
                             <a href="#" class="btn-link">More Details</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- /.service-block -->
                 <!-- service-block -->
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                {{-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="service-block">
                         <div class="service-img"><a href="#" class="imghover"><img src="./images/service_img_4.jpg"
                                     alt="" class="img-responsive"></a>
@@ -127,7 +127,7 @@
                             <a href="#" class="btn-link">More Details</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- /.service-block -->
             </div>
         </div>
