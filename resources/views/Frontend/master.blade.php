@@ -45,6 +45,34 @@
                 height: auto;
                 border-radius: 50px;
             }
+
+            .slider-img {
+                position: relative;
+                overflow: hidden;
+                /* Ensure the overlay covers the entire image */
+            }
+
+            .slider-img::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                /* Adjust the alpha value (0.5) for transparency */
+                z-index: 1;
+                /* Ensure the overlay is behind the image */
+            }
+
+            /* Style for text inside the overlay */
+            .slider-captions {
+                position: relative;
+                z-index: 2;
+                /* Place the text above the overlay */
+                color: white;
+                /* Set text color to white for better visibility */
+            }
         </style>
     </head>
 

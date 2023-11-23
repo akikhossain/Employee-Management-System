@@ -3,7 +3,7 @@
     {{-- Dashboard --}}
     <ul class="list-unstyled">
         <li class="sidebar-list-item border-top border-bottom"><a class="sidebar-link text-muted active"
-                href="{{ url('/') }}">
+                href="{{ route('dashboard') }}">
                 <span class="sidebar-link-title fs-5">Dashboards</span></a>
         </li>
 

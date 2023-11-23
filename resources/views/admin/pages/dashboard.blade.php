@@ -7,7 +7,7 @@
         <span id="dayOfWeek" class="page-heading" style="font-size: 30px"></span><br>
         <span id='ct7' class="page-heading" style="font-size: 25px"></span>
         <p class="fw-medium fs-5 animated-text"> <span>Hello,</span>
-            <span>{{ auth()->user()->name }}</span>
+            <span class="fw-bold ">{{ auth()->user()->name }}</span>
             <span>Welcome</span>
             <span>to</span>
             <span>HR</span>
@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <h4 class="fw-normal text-red">50</h4>
+                                <h4 class="fw-normal text-red">50 </h4>
                                 <p class="subtitle text-sm text-muted mb-0">Total Employee</p>
                             </div>
                             <div class="flex-shrink-0 ms-3">

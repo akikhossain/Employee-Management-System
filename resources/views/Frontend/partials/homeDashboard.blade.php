@@ -3,15 +3,16 @@
     <div class="">
         <div class="owl-carousel owl-one">
             <div class="item">
-                <div class="slider-img"> <img src="https://i.ibb.co/Wft0Sb8/sean-pollock-Ph-Yq704ffd-A-unsplash.jpg"
-                        alt="">
+                <div class="slider-img">
+                    <img src="https://i.ibb.co/Wft0Sb8/sean-pollock-Ph-Yq704ffd-A-unsplash.jpg" alt="">
                 </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="slider-captions">
-                                <h1 class="slider-title fw-bold">Human Resources Management Service</h1>
-                                <p class="text-dark ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis,
+                                <h1 class="slider-title fw-bold text-white">Human Resources Management Service</h1>
+                                <p class="text-dark text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Facilis,
                                     aspernatur.</p>
                             </div>
                         </div>
