@@ -12,11 +12,11 @@
                 <div class="navigation">
                     <div id="navigation">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Job List</a></li>
-                            <li><a href="#">Client List</a></li>
-                            <li><a href="contact-us.html">Contact Us</a>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Services</a></li>
+                            <li><a href="">Job List</a></li>
+                            <li><a href="">Client List</a></li>
+                            <li><a href="">Contact Us</a>
                             </li>
                         </ul>
                     </div>

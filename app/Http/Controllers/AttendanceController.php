@@ -10,12 +10,15 @@ class AttendanceController extends Controller
 {
     public function attendance()
     {
-        $employees = Employee::all();
-        return view('admin.pages.attendance.addAttendance', compact('employees'));
+        return view('admin.pages.attendance.addAttendance',);
+    }
+    public function giveAttendance()
+    {
+        return view('admin.pages.attendance.attendance',);
     }
     public function attendanceList()
     {
-        $attendances = Attendance::with(['employee'])->paginate(8);
+        $attendances = Attendance::paginate(5);
         return view('admin.pages.attendance.viewAttendance', compact('attendances'));
     }
     public function store(Request $request)

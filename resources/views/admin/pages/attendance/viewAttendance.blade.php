@@ -28,18 +28,17 @@
                             </div>
                         </td>
                         <td>
-                            <p class="fw-normal mb-1">{{ $attendance->employee->name }}</p>
+                            <p class="fw-normal mb-1">{{ $attendance->name }}</p>
                         </td>
-                        <td>{{ $attendance->employee->employee_id }}</td>
+                        <td>{{ $attendance->employee_id }}</td>
                         <td>
-                            <p class="fw-normal mb-1">{{ $attendance->employee->designation }}</p>
+                            <p class="fw-normal mb-1">{{ $attendance->designation }}</p>
                         </td>
                         <td>{{ $attendance->select_date }}</td>
                         <td>{{ $attendance->sign_in }}</td>
                         <td>{{ $attendance->sign_out }}</td>
                         <td>{{ $attendance->hours }}</td>
                         <td>
-
                             <a class="btn btn-success" href="">Edit</a>
                             <a class="btn btn-danger" href="">Delete</a>
                         </td>

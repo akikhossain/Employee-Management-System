@@ -15,11 +15,14 @@ class UserstableSeeder extends Seeder
      */
     public function run()
     {
+        $imagePath = 'https://i.ibb.co/1sspJdY/Akik-Hossain.jpg';
+
         User::create([
             'name' => 'Akik Hossain',
             'role' => 'Admin',
             'email' => 'akikhs00@gmail.com',
             'password' => bcrypt('akik87'),
+            'image' => $imagePath,
         ]);
     }
 }

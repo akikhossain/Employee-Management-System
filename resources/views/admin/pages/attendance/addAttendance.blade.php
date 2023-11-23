@@ -3,9 +3,6 @@
 @section('content')
     <div class="shadow p-4 d-flex justify-content-between align-items-center ">
         <h4 class="text-uppercase">Attendance Form</h4>
-        <div>
-            <a href="{{ route('attendance.viewAttendance') }}" class="btn btn-info p-2 text-lg rounded">Attendance List</a>
-        </div>
     </div>
     <div class="container my-5 py-5">
 
@@ -25,12 +22,7 @@
                                         <div class="form-outline">
                                             <label class="form-label mt-2 fw-bold" for="form11Example1">Employee
                                                 Name</label>
-                                            <select class="form-control" name="employee_name" id="" required>
-                                                @foreach ($employees as $employee)
-                                                    <option value="{{ $employee->id }}">{{ $employee->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                                            <input class="form-control" name="employee_name" type="text" required>
                                         </div>
                                     </div>
                                 </div>
@@ -39,12 +31,8 @@
                                     <div class=" col">
                                         <div class="form-outline">
                                             <label class="form-label mt-2 fw-bold" for="form11Example1">Employee ID</label>
-                                            <select class="form-control" name="employee_id" id="" required>
-                                                @foreach ($employees as $employee)
-                                                    <option value="{{ $employee->id }}">{{ $employee->employee_id }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                                            <input class="form-control" name="employee_id" id="" required
+                                                type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -53,12 +41,8 @@
                                     <div class="col">
                                         <div class="form-outline">
                                             <label class="form-label mt-2 fw-bold" for="form11Example1">Designation</label>
-                                            <select class="form-control" name="designation" id="" required>
-                                                @foreach ($employees as $employee)
-                                                    <option value="{{ $employee->id }}">{{ $employee->designation }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                                            <input type="text" class="form-control" name="designation" id=""
+                                                required>
                                         </div>
                                     </div>
                                 </div>

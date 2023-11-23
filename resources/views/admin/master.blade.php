@@ -23,6 +23,7 @@
             id="theme-stylesheet">
         <!-- Custom stylesheet - for your changes-->
         <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/css/custom.0a822280.css">
+
         <style>
             /* stye for dashboard icon */
             .custom-small-img {
@@ -218,6 +219,7 @@
                 'right-trim': true,
             });
         </script>
+
         @notifyJs
         <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
