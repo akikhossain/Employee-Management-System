@@ -69,70 +69,29 @@
             </div>
             <div class="row">
                 <!-- service-block -->
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="service-img"><a href="#" class="imghover"><img src="./images/service_img_1.jpg"
-                                    alt="" class="img-responsive"></a>
-                        </div>
-                        <div class="service-content">
-                            <h3 class="service-title"><a href="#" class="title">HR Audit &amp;
-                                    Assessment</a></h3>
-                            <p>Cras vittepus dolor uspedisse spien sapie facilisi ementums malsuadaet maurisunce.
-                            </p>
-                            <a href="#" class="btn-link">More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.service-block -->
-                <!-- service-block -->
-                {{-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="service-img"><a href="#" class="imghover"><img src="./images/service_img_2.jpg"
-                                    alt="" class="img-responsive"></a>
-                        </div>
-                        <div class="service-content">
-                            <h3 class="service-title"><a href="#" class="title">Legal &amp; HR
-                                    Compliance</a></h3>
-                            <p>Donec ac malesuada liberos phasellus euismod odio aser odio pellentesque quis. </p>
-                            <a href="#" class="btn-link">More Details</a>
+                @foreach ($services as $item)
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="service-block">
+                            <div class="service-img"><a href="#" class="imghover"><img
+                                        src="{{ url('/uploads//' . $item->service_image) }}" alt=""
+                                        class="h-[127px]"></a>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title"><a href="#" class="title">{{ $item->service_name }}</a>
+                                </h3>
+                                <p>{{ $item->description }}</p>
+                                <a href="#" class="btn-link">More Details</a>
+                            </div>
                         </div>
                     </div>
-                </div> --}}
-                <!-- /.service-block -->
-                <!-- service-block -->
-                {{-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="service-img"><a href="#" class="imghover"><img src="./images/service_img_3.jpg"
-                                    alt="" class="img-responsive"></a>
-                        </div>
-                        <div class="service-content">
-                            <h3 class="service-title"><a href="#" class="title">Employment Practices</a>
-                            </h3>
-                            <p>Nullam turpis magna ierdum egetf ringillaeget hendrerits eget auguullam interdu.</p>
-                            <a href="#" class="btn-link">More Details</a>
-                        </div>
-                    </div>
-                </div> --}}
-                <!-- /.service-block -->
-                <!-- service-block -->
-                {{-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="service-img"><a href="#" class="imghover"><img src="./images/service_img_4.jpg"
-                                    alt="" class="img-responsive"></a>
-                        </div>
-                        <div class="service-content">
-                            <h3 class="service-title"><a href="#" class="title">Employee Leave</a></h3>
-                            <p>Morbi tempus tristiquenisl at elementum nisl cimentum ins fusce et consequat purus.
-                            </p>
-                            <a href="#" class="btn-link">More Details</a>
-                        </div>
-                    </div>
-                </div> --}}
+                @endforeach
                 <!-- /.service-block -->
             </div>
         </div>
     </div>
     <!-- /.services -->
+
+
     <!-- features-section -->
     <div class="space-medium">
         <div class="container">

@@ -86,5 +86,6 @@ Route::group(['prefix' => 'admin'], function () {
 
         // Services
         Route::get('/Service/create', [ServicesController::class, 'serviceForm'])->name('service.form');
+        Route::post('/Service/store', [ServicesController::class, 'serviceStore'])->name('service.store');
     });
 });

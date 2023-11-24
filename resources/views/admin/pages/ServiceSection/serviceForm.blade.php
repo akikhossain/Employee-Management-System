@@ -15,15 +15,15 @@
                             <h5 class="mb-0 text-font text-uppercase">Service Form</h5>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('users.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('service.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-4">
                                     <div class="col-md-6">
                                         <div class="form-outline">
                                             <label class="form-label mt-2 fw-bold " for="form11Example1">Service
                                                 Name:</label>
-                                            <input required placeholder="Employee Name" type="text" id="form11Example1"
-                                                name="service_name" class="form-control" />
+                                            <input required placeholder="Enter service Name" type="text"
+                                                id="form11Example1" name="service_name" class="form-control" />
                                         </div>
                                         <div class="mt-2">
                                             @error('service_name')
@@ -49,7 +49,7 @@
                                     <div class="col-md-6">
                                         <div class="form-outline">
                                             <label class="form-label mt-2 fw-bold " for="form11Example1">Image</label>
-                                            <input required type="file" id="form11Example1" name="service_image"
+                                            <input type="file" id="form11Example1" name="service_image"
                                                 class="form-control" />
                                         </div>
                                         <div class="mt-2">
