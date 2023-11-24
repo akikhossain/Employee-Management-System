@@ -72,15 +72,14 @@
                 @foreach ($services as $item)
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="service-block">
-                            <div class="service-img"><a href="#" class="imghover"><img
-                                        src="{{ url('/uploads//' . $item->service_image) }}" alt=""
-                                        class="h-[127px]"></a>
+                            <div class="service-img"><img class=""
+                                    src="{{ url('/uploads//' . $item->service_image) }}" alt="">
                             </div>
                             <div class="service-content">
                                 <h3 class="service-title"><a href="#" class="title">{{ $item->service_name }}</a>
                                 </h3>
                                 <p>{{ $item->description }}</p>
-                                <a href="#" class="btn-link">More Details</a>
+                                <a href="#">More Details</a>
                             </div>
                         </div>
                     </div>
@@ -144,85 +143,35 @@
     </div>
     <!-- /.features-section -->
     <!-- testimonial-section -->
-    <div class="space-medium bg-secondary">
+    <div class="space-medium bg-success">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="section-title">
-                        <h2 class="text-white">Happy Clients Reviews</h2>
+                        <h1 class="text-danger fw-bold">Notice!!!</h1>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="testimonial-carousel">
-                    <div class="owl-carousel owl-theme owl-two">
+                <div class="testimonial-carousel owl-carousel owl-theme owl-two">
+                    @foreach ($notices as $notice)
                         <!-- testimonial-item -->
                         <div class="item">
                             <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                                 <div class="testimonial-block">
                                     <div class="testimonial-content">
-                                        <p class="testimonial-text">“Sed aclectus convallis variusserit etdignim
-                                            enim sellus vulnec convallis fentum serons nequevitae seron sollicitace
-                                            deronse redd roin dictum auctor doloid”</p>
-                                    </div>
-                                    <div class="testi-user">
-                                        <div class="testi-img"><img src="./images/testi_user_1.jpg" alt=""
-                                                class="img-circle"></div>
-                                        <div class="testi-meta">
-                                            <h4 class="text-white">Nathan Scala</h4>
-                                            <span class="text-white">Co-Founder, Dummy Company</span>
-                                        </div>
+                                        <h2 class="text-white">Update: {{ $notice->notice_title }}</h2>
+                                        <p class="testimonial-text">“{{ $notice->description }}”</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- /.testimonial-item -->
-                        <!-- testimonial-item -->
-                        <div class="item">
-                            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-                                <div class="testimonial-block">
-                                    <div class="testimonial-content">
-                                        <p class="testimonial-text">“Proin justo augue efficitur semper purus
-                                            aporta commodo tortorbi tempus nibh etst ultricies interduisque
-                                            venenatis liberonunc lobortendra vivque commodo”</p>
-                                    </div>
-                                    <div class="testi-user">
-                                        <div class="testi-img"><img src="./images/testi_user_2.jpg" alt=""
-                                                class="img-circle"></div>
-                                        <div class="testi-meta">
-                                            <h4 class="text-white">Albert Hensley</h4>
-                                            <span class="text-white">CEO, Dummy Company</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.testimonial-item -->
-                        <!-- testimonial-item -->
-                        <div class="item">
-                            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-                                <div class="testimonial-block">
-                                    <div class="testimonial-content">
-                                        <p class="testimonial-text">“Curabitur sitamet odio quanteger viverra
-                                            quiselit id viverraesent mollis tempor maxiraesent vitae magna miroin
-                                            risus nissuscipit non elementum ultrices lonulla”</p>
-                                    </div>
-                                    <div class="testi-user">
-                                        <div class="testi-img"><img src="./images/testi_user_3.jpg" alt=""
-                                                class="img-circle"></div>
-                                        <div class="testi-meta">
-                                            <h4 class="text-white">Brian Richardson</h4>
-                                            <span class="text-white">Manager, Dummy Company</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.testimonial-item -->
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- /.testimonial-section -->
     <!-- clients logo -->
@@ -240,8 +189,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="client-block">
                         <div class="client-head">
-                            <a href="#" class="client-img"><img src="./images/client_logo_1.png"
-                                    alt=""></a>
+                            <a href="#" class="client-img"><img src="./images/client_logo_1.png" alt=""></a>
                         </div>
                         <div class="client-content">
                             <h4><a href="#">Your Company</a></h4>
@@ -255,8 +203,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="client-block">
                         <div class="client-head">
-                            <a href="#" class="client-img"><img src="./images/client_logo_2.png"
-                                    alt=""></a>
+                            <a href="#" class="client-img"><img src="./images/client_logo_2.png" alt=""></a>
                         </div>
                         <div class="client-content">
                             <h4><a href="#">Sample Text</a></h4>
@@ -270,8 +217,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="client-block">
                         <div class="client-head">
-                            <a href="#" class="client-img"><img src="./images/client_logo_3.png"
-                                    alt=""></a>
+                            <a href="#" class="client-img"><img src="./images/client_logo_3.png" alt=""></a>
                         </div>
                         <div class="client-content">
                             <h4><a href="#">Dummy Company</a></h4>
@@ -301,7 +247,7 @@
             <!-- /.clients logo -->
             <div class="row">
                 <!-- consultation form -->
-                <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-12 col-xs-12">
+                {{-- <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-12 col-xs-12">
                     <h2 class="text-center mb40">Learn more about HR Consulting Services from HRMS</h2>
                     <div class="consultantion-form">
                         <h3 class="mb30 text-center">Request A Consultation </h3>
@@ -356,7 +302,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <!-- /.consultation form -->
         </div>

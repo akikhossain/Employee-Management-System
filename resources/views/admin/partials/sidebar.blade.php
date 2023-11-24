@@ -109,6 +109,10 @@
                     class="fa-regular fa-clock me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Services</span></a>
         </li>
+        <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('notice') }}"><i
+                    class="fa-regular fa-clock me-2 text-info"></i>
+                <span class="sidebar-link-title fs-5">Notice</span></a>
+        </li>
     </div>
 
 </div>
