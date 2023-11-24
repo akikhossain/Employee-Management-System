@@ -1,7 +1,7 @@
 <div class="sidebar" id="sidebar">
 
     {{-- Dashboard --}}
-    <ul class="list-unstyled">
+    <ul class="list-unstyled mb-5">
         <li class="sidebar-list-item border-top border-bottom"><a class="sidebar-link text-muted active"
                 href="{{ route('dashboard') }}">
                 <span class="sidebar-link-title fs-5">Dashboards</span></a>
@@ -103,10 +103,12 @@
                 href="{{ route('users.list') }}"><i class="fa-regular fa-clock me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Users</span></a>
         </li>
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
-                href="{{ route('service.form') }}"><i class="fa-regular fa-clock me-2 text-info"></i>
+    </ul>
+    <div class="mt-5">
+        <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('service.form') }}"><i
+                    class="fa-regular fa-clock me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Services</span></a>
         </li>
-    </ul>
+    </div>
 
 </div>

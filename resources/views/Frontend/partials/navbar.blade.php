@@ -12,15 +12,15 @@
                 <div class="navigation">
                     <div id="navigation">
                         <ul>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Services</a></li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
+                            <li><a href="{{ route('services') }}">Services</a></li>
                             <li><a href="">Job List</a></li>
                             <li><a href="">Client List</a></li>
                             <li><a href="">Contact Us</a>
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> 
                 <!-- /.navigations-->
             </div>
             {{-- <div class="col-lg-3 hidden-md col-sm-6 hidden-xs pull-right">

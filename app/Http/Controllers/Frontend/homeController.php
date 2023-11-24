@@ -13,4 +13,9 @@ class homeController extends Controller
         $services = Service::all();
         return view('Frontend.partials.homeDashboard', compact('services'));
     }
+    public function service()
+    {
+        $services = Service::all();
+        return view('Frontend.pages.serviceSection.serviceCard', compact('services'));
+    }
 }
