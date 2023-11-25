@@ -17,6 +17,7 @@ class ServicesController extends Controller
         $validate = Validator::make($request->all(), [
             'service_name' => 'required',
             'description' => 'required',
+            'details' => 'required',
         ]);
 
         if ($validate->fails()) {
@@ -35,6 +36,7 @@ class ServicesController extends Controller
             'service_name' => $request->service_name,
             'description' => $request->description,
             'service_image' => $fileName,
+            'details' => $request->details,
         ]);
         notify()->success('New Services created successfully.');
         return redirect()->back();

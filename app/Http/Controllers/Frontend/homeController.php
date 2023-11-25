@@ -21,9 +21,16 @@ class homeController extends Controller
         $services = Service::all();
         return view('Frontend.pages.serviceSection.serviceCard', compact('services'));
     }
+
+    // details service
+
+    public function details($id)
+    {
+        $services = Service::find($id);
+        return view('Frontend.pages.serviceSection.serviceDetails', compact('services'));
+    }
     public function notice()
     {
-
         $notices = Notify::all();
         return view('Frontend.pages.Notice.notice', compact('notices'));
     }
@@ -42,6 +49,7 @@ class homeController extends Controller
         Notify::create([
             'notice_title' => $request->notice_title,
             'description' => $request->description,
+
         ]);
         notify()->success('New Services created successfully.');
         return redirect()->back();

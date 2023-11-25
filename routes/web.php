@@ -26,7 +26,12 @@ use App\Http\controllers\viewEmployeeController;
 
 // Website or Frontend
 Route::get('/', [FrontendHomeController::class, 'home'])->name('home');
+
+// service section
 Route::get('/services', [FrontendHomeController::class, 'service'])->name('services');
+Route::get('/services/details/{id}', [FrontendHomeController::class, 'details'])->name('services.details');
+
+// Notice section
 Route::get('/notice', [FrontendHomeController::class, 'notice'])->name('notice');
 Route::post('/notice/store', [FrontendHomeController::class, 'noticeStore'])->name('notice.store');
 
