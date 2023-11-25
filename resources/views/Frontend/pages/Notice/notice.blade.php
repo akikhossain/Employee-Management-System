@@ -35,7 +35,7 @@
                                         <div class="form-outline">
                                             <label class="form-label mt-2 fw-bold " for="form11Example1">Notice
                                                 Description</label>
-                                            <textarea required placeholder="Service Title" type="text" id="form11Example1" name="description"
+                                            <textarea required placeholder="notice description" type="text" id="form11Example1" name="description"
                                                 class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="mt-2">
@@ -45,7 +45,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="text-center w-25 mx-auto mt-3">
                                     <button type="submit"
                                         class="btn btn-info p-2 text-lg  rounded col-md-10">Create</button>

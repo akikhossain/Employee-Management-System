@@ -8,9 +8,11 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-
+        <!-- Template CSS -->
+        <link rel="stylesheet" href="https://www.kodeeo.com/backend/assets/css/style.css">
+        <link rel="stylesheet" href="https://www.kodeeo.com/backend/assets/css/components.css">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Admin Login Panel</title>
+        <title>Login Panel</title>
         {{-- style for animation --}}
         <style>
             @keyframes slideFromTopToBottom {
@@ -32,7 +34,7 @@
     </head>
 
     <body>
-        <!-- Section: Design Block -->
+        {{-- <!-- Section: Design Block -->
         <section class="text-center">
             <!-- Background image -->
             <div class="p-5 bg-image"
@@ -43,17 +45,17 @@
             </div>
             <!-- Background image -->
 
-            <div class="card w-50 mx-auto shadow-5-strong" id="animated-content"
+            <div class="card w-25 mx-auto shadow-5-strong" id="animated-content"
                 style="
         margin-top: -100px;
         background: hsla(0, 0%, 100%, 0.8);
         backdrop-filter: blur(30px);
         ">
-                <div class="card-body py-5 px-md-5 w-75 mx-auto">
+                <div class="card-body py-5 px-md-5 w-100 mx-auto">
 
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-8">
-                            <h2 class="fw-bold mb-5 ">Admin Login</h2>
+                            <h2 class="fw-bold mb-5">Login</h2>
 
                             <form action="{{ route('admin.login.post') }}" method="post">
                                 @csrf
@@ -93,6 +95,65 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
         </script>
 
+    </body> --}}
+        <div id="app">
+            <section class="section   ">
+                <div class="container mt-5">
+                    <div class="row" id="animated-content">
+                        <div
+                            class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                            <div class="login-brand flex justify-center">
+                                <img src="https://i.ibb.co/w7GnVBw/4101adc6-07bf-42cd-9723-b7baa76d9bef.jpg"
+                                    alt="logo" width="100" class="shadow-light rounded">
+                            </div>
+
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h4>Login</h4>
+                                </div>
+
+                                <div class="card-body">
+                                    <form action="{{ route('admin.login.post') }}" method="post">
+                                        @csrf
+
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input id="email" type="email" class="form-control " name="email"
+                                                value="" tabindex="1" required
+                                                placeholder=" Please fill in your email">
+                                            @error('email')
+                                                <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="password">Password</label>
+                                            <input id="password" type="password" class="form-control " name="password"
+                                                tabindex="2" required placeholder=" please fill in your password">
+                                            @error('password')
+                                                <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block"
+                                                tabindex="4">
+                                                Login
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="mt-3 simple-footer">
+                                Copyright &copy; HRM System 2023 | Akik Hossain
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
     </body>
 
 </html>
