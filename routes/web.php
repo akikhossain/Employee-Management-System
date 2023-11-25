@@ -36,6 +36,10 @@ Route::get('/notice', [FrontendHomeController::class, 'notice'])->name('notice')
 Route::post('/notice/store', [FrontendHomeController::class, 'noticeStore'])->name('notice.store');
 
 
+// Contact Us Section
+Route::get('/contacts', [FrontendHomeController::class, 'contact'])->name('contacts');
+
+
 
 // Admin Dashboard
 Route::group(['prefix' => 'admin'], function () {

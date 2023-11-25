@@ -16,11 +16,11 @@
                             <li><a href="{{ route('services') }}">Services</a></li>
                             <li><a href="">Job List</a></li>
                             <li><a href="">Client List</a></li>
-                            <li><a href="">Contact Us</a>
+                            <li><a href="{{ route('contacts') }}">Contact Us</a>
                             </li>
                         </ul>
                     </div>
-                </div> 
+                </div>
                 <!-- /.navigations-->
             </div>
             {{-- <div class="col-lg-3 hidden-md col-sm-6 hidden-xs pull-right">

@@ -54,4 +54,11 @@ class homeController extends Controller
         notify()->success('New Services created successfully.');
         return redirect()->back();
     }
+
+    // contact
+    public function contact()
+    {
+        // $notices = Notify::all();
+        return view('Frontend.pages.contactUs.contactUs');
+    }
 }
