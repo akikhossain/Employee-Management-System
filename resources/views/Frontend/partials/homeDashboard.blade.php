@@ -81,7 +81,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="feature-center line">
                     <div class="feature-icon">
-                        <i class="icon-network"></i>
+                        <i class="fa-solid fa-briefcase fa-xl"></i>
                     </div>
                     <div class="feature-content">
                         <h3>How We Work</h3>
@@ -95,7 +95,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="feature-center line">
                     <div class="feature-icon">
-                        <i class="icon-like"></i>
+                        <i class="fa-solid fa-thumbs-up fa-xl"></i>
                     </div>
                     <div class="feature-content">
                         <h3>Why Choose Us</h3>
@@ -110,7 +110,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="feature-center">
                     <div class="feature-icon">
-                        <i class="icon-users"></i>
+                        <i class="fa-solid fa-people-group fa-xl"></i>
                     </div>
                     <div class="feature-content">
                         <h3>Meet The Team</h3>
@@ -171,10 +171,11 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="client-block">
                     <div class="client-head">
-                        <a href="#" class="client-img"><img src="./images/client_logo_1.png" alt=""></a>
+                        <a href="#" class="client-img"><img
+                                src="https://i.ibb.co/wcXLm0k/Screenshot-2023-11-27-000526.png" alt=""></a>
                     </div>
                     <div class="client-content">
-                        <h4><a href="#">Your Company</a></h4>
+                        <h4><a href="#">Growth</a></h4>
                         <p>Becenas in suscipit veliuleres ue mauris oneepurus sedelitsei spit vennibh
                             sulimauris. </p>
                     </div>
@@ -185,10 +186,11 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="client-block">
                     <div class="client-head">
-                        <a href="#" class="client-img"><img src="./images/client_logo_2.png" alt=""></a>
+                        <a href="#" class="client-img"><img
+                                src="https://i.ibb.co/cLjY3M9/Screenshot-2023-11-27-000519.png" alt=""></a>
                     </div>
                     <div class="client-content">
-                        <h4><a href="#">Sample Text</a></h4>
+                        <h4><a href="#">Metrics</a></h4>
                         <p>Ecenas in suscipit veliuleres ue mauris oneepurus sedelitseitt spit vennibh
                             suscipieliu. </p>
                     </div>
@@ -199,10 +201,11 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="client-block">
                     <div class="client-head">
-                        <a href="#" class="client-img"><img src="./images/client_logo_3.png" alt=""></a>
+                        <a href="#" class="client-img"><img
+                                src="https://i.ibb.co/23X6SvD/Screenshot-2023-11-27-000457.png" alt=""></a>
                     </div>
                     <div class="client-content">
-                        <h4><a href="#">Dummy Company</a></h4>
+                        <h4><a href="#">Servicequick</a></h4>
                         <p>Aecenas in suscipit veliuleres ue mauris oneepurus sedelitsei spit vennh suliulerue.
                         </p>
                     </div>
@@ -213,10 +216,11 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="client-block">
                     <div class="client-head">
-                        <a href="#" class="client-img"><img src="./images/client_logo_4.png" alt=""></a>
+                        <a href="#" class="client-img"><img
+                                src="https://i.ibb.co/FbzNSjg/Screenshot-2023-11-27-000438.png" alt=""></a>
                     </div>
                     <div class="client-content">
-                        <h4><a href="#">Your Company</a></h4>
+                        <h4><a href="#">Zorko</a></h4>
                         <p>Maecenas in suscipit veliuleres ue mauris oneepurus sedelitsei spit vennibh suscipis.
                         </p>
                     </div>
