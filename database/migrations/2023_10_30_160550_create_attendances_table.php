@@ -17,11 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('employee_name', 20);
             $table->string('employee_id', 10);
-            $table->string('designation', 20);
+            $table->string('department', 20);
             $table->date('select_date');
-            $table->time('sign_in');
-            $table->time('sign_out');
-            $table->integer('hours')->nullable();
+            $table->dateTime('check_in')->nullable();
+            $table->dateTime('check_out')->nullable();
             $table->timestamps();
         });
     }
