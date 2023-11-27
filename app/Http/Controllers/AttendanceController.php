@@ -40,26 +40,25 @@ class AttendanceController extends Controller
 
     public function checkIn()
     {
-        // $attendance = new Attendance();
-        // $attendance->employee_id = auth()->user()->id;
-        // $attendance->check_in = Carbon::now();
-        // $attendance->date = Carbon::today();
-        // $attendance->save();
+        $existingAttendance = Attendance::where('employee_id', auth()->user()->id)
+            ->whereDate('select_date', now()->toDateString())
+            ->first();
 
-        // return redirect()->back();
+        if ($existingAttendance) {
+            notify()->error('Attendance already given');
+            return redirect()->back();
+        }
+        Attendance::create([
+            'employee_id' => auth()->user()->id,
+            'check_in' =>  now(),
+            'check_out' => null,
+            'select_date' => now(),
+        ]);
+        notify()->success('Attendance given successfully');
+        return redirect()->back();
     }
 
     public function checkOut()
     {
-        // $attendance = Attendance::where('employee_id', auth()->user()->id)
-        //     ->whereDate('date', Carbon::today())
-        //     ->first();
-
-        // if ($attendance) {
-        //     $attendance->check_out = Carbon::now();
-        //     $attendance->save();
-        // }
-
-        // return redirect()->back();
     }
 }

@@ -43,26 +43,21 @@
                                 </div>
                             </div>
                             <hr>
-                            <p class="my-4 pb-1 text-center">Give your today's attendance by clicking here👇</p>
                             <div class="text-center">
-                                <form action="{{ route('check-in') }}" method="post">
-                                    @csrf
-                                    <a href="route{{ route('check-in') }}" type="submit"
-                                        class="btn btn-success btn-rounded btn-block btn-lg"><i
-                                            class="far fa-clock me-2"></i>Check In</a>
-                                </form>
-                                <form action="{{ route('check-out') }}" method="post">
-                                    @csrf
-                                    <a href="{{ route('check-out') }}" type="submit"
-                                        class="btn btn-danger btn-rounded btn-block btn-lg"><i
-                                            class="far fa-clock me-2"></i>Check Out</a>
-                                </form>
+                                <p class="my-4 pb-1 text-center">Give your today's attendance by clicking here👇</p>
+                                <a href="{{ route('check-in') }}"
+                                    class="btn btn-success btn-rounded btn-block btn-lg"><i
+                                        class="far fa-clock me-2"></i>Check In</a>
+                                <a href="{{ route('check-out') }}"
+                                    class="btn btn-danger btn-rounded btn-block btn-lg"><i
+                                        class="far fa-clock me-2"></i>Check Out</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+</div>
+</section>
 </div>
 @endsection

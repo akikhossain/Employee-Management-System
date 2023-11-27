@@ -65,8 +65,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/Attendance/store', [AttendanceController::class, 'store'])->name('addAttendance.store');
         Route::get('/Attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');
         Route::get('/Attendance/giveAttendance', [AttendanceController::class, 'giveAttendance'])->name('attendance.giveAttendance');
-        Route::post('/check-in', [AttendanceController::class, 'checkIn'])->name('check-in');
-        Route::post('/check-out', [AttendanceController::class, 'checkOut'])->name('check-out');
+
+        //    attendance employee
+        Route::get('/check-in', [AttendanceController::class, 'checkIn'])->name('check-in');
+        Route::get('/check-out', [AttendanceController::class, 'checkOut'])->name('check-out');
 
 
 
