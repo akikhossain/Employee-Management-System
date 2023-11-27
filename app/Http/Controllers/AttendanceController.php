@@ -50,7 +50,8 @@ class AttendanceController extends Controller
         }
         Attendance::create([
             'employee_id' => auth()->user()->id,
-            'check_in' =>  now(),
+            'name' => auth()->user()->name,
+            'check_in' => now()->format('H:i:s'),
             'check_out' => null,
             'select_date' => now(),
         ]);
@@ -60,5 +61,35 @@ class AttendanceController extends Controller
 
     public function checkOut()
     {
+        $existingAttendance = Attendance::where('employee_id', auth()->user()->id)
+            ->whereDate('select_date', now()->toDateString())
+            ->first();
+
+        if ($existingAttendance) {
+            if ($existingAttendance->check_out !== null) {
+                notify()->error('You have already checked out for today.');
+                return redirect()->back();
+            }
+
+            $existingAttendance->update([
+                'check_out' => now()->format('H:i:s'),
+            ]);
+
+            // Calculate duration and store it
+            $checkInTime = \Carbon\Carbon::createFromTimeString($existingAttendance->check_in);
+            $checkOutTime = \Carbon\Carbon::createFromTimeString($existingAttendance->check_out);
+            $duration = $checkOutTime->diff($checkInTime)->format('%H:%I:%S');
+
+            $existingAttendance->update([
+                'duration' => $duration,
+            ]);
+
+
+            notify()->success('Check-out time recorded successfully.');
+        } else {
+            notify()->error('No check-in found for today.');
+        }
+
+        return redirect()->back();
     }
 }

@@ -11,7 +11,7 @@
                 <th>SL NO</th>
                 <th>Employee Name</th>
                 <th>Employee ID</th>
-                <th>Department</th>
+                <th>Duration</th>
                 <th>Date</th>
                 <th>Check In</th>
                 <th>Check Out</th>
@@ -26,13 +26,9 @@
                         <p class="fw-bold mb-1">{{ $key + 1 }}</p>
                     </div>
                 </td>
-                <td>
-                    <p class="fw-normal mb-1">{{ $attendance->name }}</p>
-                </td>
+                <td>{{ $attendance->name }}</td>
                 <td>{{ $attendance->employee_id }}</td>
-                <td>
-                    <p class="fw-normal mb-1">{{ $attendance->department }}</p>
-                </td>
+                <td>{{ $attendance->duration}}</td>
                 <td>{{ $attendance->select_date }}</td>
                 <td>{{ $attendance->check_in }}</td>
                 <td>{{ $attendance->check_out }}</td>
