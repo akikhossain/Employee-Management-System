@@ -29,7 +29,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="section-title">
                     <h2>HR Consultation Services</h2>
-                    <a href="{{ route('services') }}" class="btn-link">View Services</a>
+                    <a href="{{ route('services') }}" class="btn-link">View All Services</a>
                 </div>
             </div>
         </div>
