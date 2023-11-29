@@ -144,25 +144,26 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
-                            <h4 class="fw-normal text-info">$10,500</h4>
-                            <p class="subtitle text-sm text-muted mb-0">Earnings</p>
+                            <h4 class="fw-normal text-info">{{ $users }}</h4>
+                            <p class="subtitle text-sm text-muted mb-0">Users</p>
                         </div>
                         <div class="flex-shrink-0 ms-3">
                             <div>
-                                <img class="img-fluid custom-small-img" src="https://i.ibb.co/d540KYg/teamwork.png"
-                                    alt="">
+                                <img class="img-fluid custom-small-img" src="https://i.ibb.co/1KBpbBF/group.png" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer py-3 bg-info-light">
-                    <div class="row align-items-center text-info">
-                        <div class="col-10">
-                            <p class="mb-0">View Details</p>
-                        </div>
-                        <div class="col-2 text-end"><a href="#"><i class="fas fa-caret-up"></i></a>
+                <a class="text-decoration-none" href="{{ route('users.list') }}">
+                    <div class="card-footer py-3 bg-info-light">
+                        <div class="row align-items-center text-info">
+                            <div class="col-10">
+                                <p class="mb-0">View Details</p>
+                            </div>
+                            <div class="col-2 text-end"><i class="fas fa-caret-up"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             @endsection

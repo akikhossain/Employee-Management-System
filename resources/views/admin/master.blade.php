@@ -81,6 +81,19 @@
             max-width: 900px;
             margin: 0 auto;
         }
+
+
+        .loader {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent background */
+            z-index: 99999;
+        }
     </style>
     <script>
         function display_ct7() {
@@ -120,9 +133,14 @@
             }
             display_c7();
     </script>
+
+
 </head>
 
 <body>
+    <div class="loader">
+        <img src="{{ asset('assests/image/ball-triangle.svg') }}" alt="">
+    </div>
 
     {{-- notify --}}
     @include('notify::components.notify')
@@ -222,11 +240,21 @@
                 'right-trim': true,
             });
     </script>
+
     @notifyJs
 
     <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(function() {
+                    setTimeout(() => {
+                        $('.loader').fadeOut(500);
+                    },1000);
+                });
+    </script>
 </body>
 
 </html>

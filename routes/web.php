@@ -3,6 +3,7 @@
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\Frontend\ClientController;
 use App\Http\Controllers\Frontend\homeController as FrontendHomeController;
 use App\Http\Controllers\LeaveController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,11 @@ Route::get('/', [FrontendHomeController::class, 'home'])->name('home');
 // service section
 Route::get('/services', [FrontendHomeController::class, 'service'])->name('services');
 Route::get('/services/details/{id}', [FrontendHomeController::class, 'details'])->name('services.details');
+
+// client list
+Route::get('/clientList', [ClientController::class, 'clientList'])->name('client.list');
+
+
 
 // Notice section
 Route::get('/notice', [FrontendHomeController::class, 'notice'])->name('notice');

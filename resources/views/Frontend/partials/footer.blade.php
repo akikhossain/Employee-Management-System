@@ -11,7 +11,7 @@
                     </div>
                     <div class="contact-info">
                         <span class="contact-icon"><i class="fa fa-phone"></i></span>
-                        <span class="contact-text">+8801701476579 / 89</span>
+                        <span class="contact-text">+8801701476579</span>
                     </div>
                     <div class="contact-info">
                         <span class="contact-icon"><i class="fa fa-envelope"></i></span>
@@ -38,15 +38,15 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <ul class="arrow">
                                 <li><a href={{ route('home') }}>Home </a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Services</a></li>
+                                <li><a href="{{ route('client.list') }}">Clients</a></li>
+                                <li><a href="{{ route('services') }}">Services</a></li>
                                 <li><a href="#">Job List</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <ul class="arrow">
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Partner</a></li>
+                                <li><a href="{{ route('contacts') }}">Contact Us</a></li>
+                                <li><a href="{{ route('client.list') }}">Partner</a></li>
                                 <li><a href="#">Notice</a></li>
                             </ul>
                         </div>
