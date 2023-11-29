@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('manageEmployee.ViewEmployee') }}">
+                <a class="text-decoration-none" href="{{ route('manageEmployee.ViewEmployee') }}">
                     <div class="card-footer py-3 bg-red-light">
                         <div class="row align-items-center text-red">
                             <div class="col-10">
@@ -54,26 +54,28 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
-                            <h4 class="fw-normal text-blue">15</h4>
-                            <p class="subtitle text-sm text-muted mb-0">Work Details</p>
+                            <h4 class="fw-normal text-blue">{{ $departments }}</h4>
+                            <p class="subtitle text-sm text-muted mb-0">Department</p>
                         </div>
                         <div class="flex-shrink-0 ms-3">
                             <div>
-                                <img class="img-fluid custom-small-img" src="https://i.ibb.co/2tHwKBW/hard-work.png"
+                                <img class="img-fluid custom-small-img" src="https://i.ibb.co/qDYffn3/department.png"
                                     alt="">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer py-3 bg-primary-light">
-                    <div class="row align-items-center text-primary">
-                        <div class="col-10">
-                            <p class="mb-0">View Details</p>
-                        </div>
-                        <div class="col-2 text-end"><a href="#"><i class="fas fa-caret-up"></i></a>
+                <a class="text-decoration-none" href="{{ route('organization.department') }}">
+                    <div class="card-footer py-3 bg-primary-light">
+                        <div class="row align-items-center text-primary">
+                            <div class="col-10">
+                                <p class="mb-0">View Details</p>
+                            </div>
+                            <div class="col-2 text-end"><i class="fas fa-caret-up"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         <!-- /Widget Type 1-->
@@ -83,8 +85,8 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
-                            <h4 class="fw-normal text-primary">3</h4>
-                            <p class="subtitle text-sm text-muted mb-0">Pending Leave</p>
+                            <h4 class="fw-normal text-primary">{{ $leaves }}</h4>
+                            <p class="subtitle text-sm text-muted mb-0">Leave Request</p>
                         </div>
                         <div class="flex-shrink-0 ms-3">
                             <div>
@@ -93,15 +95,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-footer py-3 bg-blue-light">
-                    <div class="row align-items-center text-blue">
-                        <div class="col-10">
-                            <p class="mb-0">View Details</p>
-                        </div>
-                        <div class="col-2 text-end"><a href="#"><i class="fas fa-caret-up"></i></a>
+                <a class="text-decoration-none" href="{{ route('leave.leaveStatus') }}">
+                    <div class="card-footer py-3 bg-warning-light">
+                        <div class="row align-items-center text-warning">
+                            <div class="col-10">
+                                <p class="mb-0">View Details</p>
+                            </div>
+                            <div class="col-2 text-end"><i class="fas fa-caret-up"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         <!-- /Widget Type 1-->
@@ -122,15 +126,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-footer py-3 bg-green-light">
-                    <div class="row align-items-center text-green">
-                        <div class="col-10">
-                            <p class="mb-0">View Details</p>
-                        </div>
-                        <div class="col-2 text-end"><a href="#"><i class="fas fa-caret-up"></i></a>
+                <a class="text-decoration-none" href="{{ route('leave.leaveStatus') }}">
+                    <div class="card-footer py-3 bg-green-light">
+                        <div class="row align-items-center text-green">
+                            <div class="col-10">
+                                <p class="mb-0">View Details</p>
+                            </div>
+                            <div class="col-2 text-end"><i class="fas fa-caret-up"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         <div class="mb-4 col-sm-6 col-lg-3 mb-4">
