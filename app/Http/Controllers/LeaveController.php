@@ -116,16 +116,8 @@ class LeaveController extends Controller
         $leaveType = LeaveType::find($id);
         if ($leaveType) {
 
-            // $fileName = $employee->image;
-            // if ($request->hasFile('image')) {
-            //     $file = $request->file('image');
-            //     $fileName = date('Ymdhis') . '.' . $file->getClientOriginalExtension();
-
-            //     $file->storeAs('/uploads', $fileName);
-            // }
-
             $leaveType->update([
-                'leave_type' => $request->leave_type,
+                'leave_type_id' => $request->leave_type_id,
                 'leave_days' => $request->leave_days,
             ]);
 
