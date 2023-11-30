@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('employee_name');
             $table->text('department');
             $table->string('employee_id', 10)->unique();
-            $table->text('leave_type');
+            $table->unsignedBigInteger('leave_type_id');
             $table->date('from_date');
             $table->date('to_date');
             $table->text('description')->nullable();

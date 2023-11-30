@@ -13,18 +13,19 @@ class LeaveController extends Controller
     public function leave()
     {
         $leaves = Leave::all();
-        return view('admin.pages.Leave.leaveForm', compact('leaves'));
+        $leaveTypes = LeaveType::all();
+        return view('admin.pages.Leave.leaveForm', compact('leaves', 'leaveTypes'));
     }
     public function leaveList()
     {
-        $leaves = Leave::paginate(5);
+        $leaves = Leave::with(['type'])->paginate(5);
         return view('admin.pages.Leave.leaveList', compact('leaves'));
     }
 
 
     public function myLeave()
     {
-        $leaves = Leave::paginate(5);
+        $leaves = Leave::with(['type'])->paginate(5);
         return view('admin.pages.Leave.myLeave', compact('leaves'));
     }
 
@@ -37,7 +38,7 @@ class LeaveController extends Controller
             'department' => 'required',
             'from_date' => 'required',
             'to_date' => 'required',
-            'leave_type' => 'required',
+            'leave_type_id' => 'required',
             'description' => 'required',
         ]);
 
@@ -52,7 +53,7 @@ class LeaveController extends Controller
             'department' => $request->department,
             'from_date' => $request->from_date,
             'to_date' => $request->to_date,
-            'leave_type' => $request->leave_type,
+            'leave_type_id' => $request->leave_type_id,
             'description' => $request->description,
         ]);
         notify()->success('New Leave created');
@@ -73,7 +74,7 @@ class LeaveController extends Controller
         // dd($request->all());
 
         $validate = Validator::make($request->all(), [
-            'leave_type' => 'required|string',
+            'leave_type_id' => 'required|string',
             'leave_days' => 'required|integer|min:0',
         ]);
 
@@ -83,7 +84,7 @@ class LeaveController extends Controller
         }
 
         LeaveType::create([
-            'leave_type' => $request->leave_type,
+            'leave_type_id' => $request->leave_type_id,
             'leave_days' => $request->leave_days,
         ]);
 
@@ -91,7 +92,9 @@ class LeaveController extends Controller
         return redirect()->back();
     }
 
-    // edit LeaveType
+
+
+    // edit, delete, update LeaveType
 
 
     public function LeaveDelete($id)

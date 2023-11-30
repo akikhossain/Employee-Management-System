@@ -24,7 +24,7 @@
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label mt-2" for="form11Example1">Leave Type</label>
-                                        <input value="{{ $leaveType->leave_type }}" placeholder="Enter Leave Type"
+                                        <input value="{{ $leaveType->leave_type_id }}" placeholder="Enter Leave Type"
                                             class="form-control" name="leave_type" required>
                                     </div>
                                 </div>

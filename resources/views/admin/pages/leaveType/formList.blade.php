@@ -23,7 +23,7 @@
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label mt-2" for="form11Example1">Leave Type</label>
-                                        <input placeholder="Enter Leave Type" class="form-control" name="leave_type"
+                                        <input placeholder="Enter Leave Type" class="form-control" name="leave_type_id"
                                             required>
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                             @foreach ($leaveTypes as $key => $item)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
-                                <td>{{ $item->leave_type }}</td>
+                                <td>{{ $item->leave_type_id }}</td>
                                 <td>{{ $item->leave_days }}</td>
                                 <td>
                                     <a class="btn btn-success"

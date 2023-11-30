@@ -88,13 +88,11 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-outline">
-                                        <label class="form-label mt-2 fw-bold " for="form11Example1">Leave Type</label>
-                                        <select required placeholder="Employee ID" type="text" id="form11Example1"
-                                            name="leave_type" class="form-control">
-                                            <option value="annual">Annual Leave</option>
-                                            <option value="sick">Sick Leave</option>
-                                            <option value="parent">Parent Leave</option>
-                                            <option value="other">Other</option>
+                                        <label class="form-label mt-2 fw-bold" for="form11Example1">Leave Type</label>
+                                        <select class="form-control" name="leave_type_id" id="" required>
+                                            @foreach ($leaveTypes as $leave)
+                                            <option value="{{ $leave->id }}">{{ $leave->leave_type_id }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="mt-2">
