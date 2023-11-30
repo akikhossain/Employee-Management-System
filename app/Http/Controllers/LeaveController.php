@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Leave;
+use App\Models\LeaveType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -56,5 +57,77 @@ class LeaveController extends Controller
         ]);
         notify()->success('New Leave created');
         return redirect()->back();
+    }
+
+
+
+    // Leave Type
+    public function leaveType()
+    {
+        $leaveTypes = LeaveType::all();
+        return view('admin.pages.leaveType.formList', compact('leaveTypes'));
+    }
+
+    public function leaveStore(Request $request)
+    {
+        // dd($request->all());
+
+        $validate = Validator::make($request->all(), [
+            'leave_type' => 'required|string',
+            'leave_days' => 'required|integer|min:0',
+        ]);
+
+        if ($validate->fails()) {
+            notify()->error($validate->errors()->first()); // Retrieving the first validation error message
+            return redirect()->back();
+        }
+
+        LeaveType::create([
+            'leave_type' => $request->leave_type,
+            'leave_days' => $request->leave_days,
+        ]);
+
+        notify()->success('New Leave Type created successfully.');
+        return redirect()->back();
+    }
+
+    // edit LeaveType
+
+
+    public function LeaveDelete($id)
+    {
+        $leaveType = LeaveType::find($id);
+        if ($leaveType) {
+            $leaveType->delete();
+        }
+        notify()->success('Deleted Successfully.');
+        return redirect()->back();
+    }
+    public function leaveEdit($id)
+    {
+        $leaveType = LeaveType::find($id);
+        return view('admin.pages.leaveType.editList', compact('leaveType'));
+    }
+    public function LeaveUpdate(Request $request, $id)
+    {
+        $leaveType = LeaveType::find($id);
+        if ($leaveType) {
+
+            // $fileName = $employee->image;
+            // if ($request->hasFile('image')) {
+            //     $file = $request->file('image');
+            //     $fileName = date('Ymdhis') . '.' . $file->getClientOriginalExtension();
+
+            //     $file->storeAs('/uploads', $fileName);
+            // }
+
+            $leaveType->update([
+                'leave_type' => $request->leave_type,
+                'leave_days' => $request->leave_days,
+            ]);
+
+            notify()->success('Your information updated successfully.');
+            return redirect()->route('leave.leaveType');
+        }
     }
 }

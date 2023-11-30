@@ -101,6 +101,13 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/Leave/store', [LeaveController::class, 'store'])->name('leave.store');
         Route::get('/Leave/myLeave', [LeaveController::class, 'myLeave'])->name('leave.myLeave');
 
+        // Leave Type
+        Route::get('/Leave/LeaveType', [LeaveController::class, 'leaveType'])->name('leave.leaveType');
+        Route::post('/Leave/LeaveType/store', [LeaveController::class, 'leaveStore'])->name('leave.leaveType.store');
+        Route::get('/LeaveType/delete/{id}', [LeaveController::class, 'LeaveDelete'])->name('leave.leaveType.delete');
+        Route::get('/LeaveType/edit/{id}', [LeaveController::class, 'leaveEdit'])->name('leave.leaveType.edit');
+        Route::put('/designation/update/{id}', [LeaveController::class, 'LeaveUpdate'])->name('leave.leaveType.update');
+
         // Users
         Route::get('/users/create', [UserController::class, 'createForm'])->name('users.create');
         Route::post('/users/store', [UserController::class, 'store'])->name('users.store');

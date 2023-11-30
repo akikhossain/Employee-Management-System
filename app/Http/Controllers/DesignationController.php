@@ -26,10 +26,8 @@ class DesignationController extends Controller
 
         if ($validate->fails()) {
 
-            // notify()->error($validate->getMessageBag());
-            // return redirect()->back();
-
-            return redirect()->back()->withErrors($validate);
+            notify()->error($validate->getMessageBag());
+            return redirect()->back();
         }
 
         Designation::create([

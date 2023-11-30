@@ -43,8 +43,8 @@
 
 
         {{-- Task --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
-                href="#"><i class="fa-solid fa-list-check me-2 text-info"></i>
+        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href="#"><i
+                    class="fa-solid fa-list-check me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Manage Task</span></a>
         </li>
 
@@ -63,6 +63,10 @@
                         href="{{ route('leave.leaveStatus') }}"><i
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Leave Status</a>
                 </li>
+                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('leave.leaveType') }}"><i
+                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Leave Type</a>
+                </li>
             </ul>
         </li>
 
@@ -73,8 +77,8 @@
         </li>
 
         {{-- Payroll --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
-                href="#"><i class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
+        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href="#"><i
+                    class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Payroll</span></a>
         </li>
 

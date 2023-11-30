@@ -85,7 +85,7 @@ class AttendanceController extends Controller
             ]);
 
 
-            notify()->success('Check-out time recorded successfully.');
+            notify()->success('You have Check-out successfully.');
         } else {
             notify()->error('No check-in found for today.');
         }
