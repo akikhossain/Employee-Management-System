@@ -9,33 +9,15 @@ use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
 {
-    public function attendance()
-    {
-        return view('admin.pages.attendance.addAttendance',);
-    }
     public function giveAttendance()
     {
-        $employees = Employee::all();
-        return view('admin.pages.attendance.attendance', compact('employees'));
+
+        return view('admin.pages.attendance.attendance');
     }
     public function attendanceList()
     {
-        $attendances = Attendance::with(['employee'])->paginate(8);
+        $attendances = Attendance::paginate(8);
         return view('admin.pages.attendance.viewAttendance', compact('attendances'));
-    }
-    public function store(Request $request)
-    {
-        // dd($request->all());
-        Attendance::create([
-            'employee_name' => $request->employee_name,
-            'employee_id' => $request->employee_id,
-            'department' => $request->department,
-            'select_date' => $request->select_date,
-            'check_in' => $request->check_in,
-            'check_out' => $request->check_out,
-        ]);
-        notify()->success('Attendance given successfully');
-        return redirect()->back();
     }
 
     public function checkIn()

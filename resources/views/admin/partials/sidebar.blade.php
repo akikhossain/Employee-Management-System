@@ -83,9 +83,9 @@
         </li>
 
         {{-- Attendance --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
-                href="{{ route('attendance.addAttendance') }}" data-bs-target="#tablesDropdown" role="button"
-                aria-expanded="false" data-bs-toggle="collapse"><i class="fa-regular fa-clock me-2 text-info"></i>
+        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href=""
+                data-bs-target="#tablesDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
+                    class="fa-regular fa-clock me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Attendance</span></a>
             <ul class="sidebar-menu   list-unstyled collapse " id="tablesDropdown">
                 <li class="sidebar-list-item py-2 fs-6 "><a class="sidebar-link text-muted ms-3"
@@ -93,10 +93,10 @@
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Attendance
                         Record</a>
                 </li>
-                <li class="sidebar-list-item fs-6 "><a class="sidebar-link text-muted ms-3"
+                {{-- <li class="sidebar-list-item fs-6 "><a class="sidebar-link text-muted ms-3"
                         href="{{ route('attendance.addAttendance') }}"><i
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Give Attendance</a>
-                </li>
+                </li> --}}
                 <li class="sidebar-list-item fs-6 "><a class="sidebar-link text-muted ms-3"
                         href="{{ route('attendance.giveAttendance') }}"><i
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>your Attendance</a>

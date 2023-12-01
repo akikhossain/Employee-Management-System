@@ -67,11 +67,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/Employee/profile/{id}', [viewEmployeeController::class, 'profile'])->name('Employee.profile');
 
         // Attendance
-        Route::get('/Attendance/addAttendance', [AttendanceController::class, 'attendance'])->name('attendance.addAttendance');
-        Route::post('/Attendance/store', [AttendanceController::class, 'store'])->name('addAttendance.store');
         Route::get('/Attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');
         Route::get('/Attendance/giveAttendance', [AttendanceController::class, 'giveAttendance'])->name('attendance.giveAttendance');
-
         //    attendance employee
         Route::get('/check-in', [AttendanceController::class, 'checkIn'])->name('check-in');
         Route::get('/check-out', [AttendanceController::class, 'checkOut'])->name('check-out');
