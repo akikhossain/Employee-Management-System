@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Leave;
 use App\Models\LeaveType;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,41 +26,47 @@ class LeaveController extends Controller
 
     public function myLeave()
     {
-        $leaves = Leave::with(['type'])->paginate(5);
+        $userId = auth()->user()->id;
+
+        // Retrieve leave records for the authenticated user only
+        $leaves = Leave::where('employee_id', $userId)
+            ->with(['type'])
+            ->paginate(5);
+
         return view('admin.pages.Leave.myLeave', compact('leaves'));
     }
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $validate = Validator::make($request->all(), [
-            'employee_name' => 'required',
-            'employee_id' => 'required',
-            'department' => 'required',
-            'from_date' => 'required',
-            'to_date' => 'required',
+            'from_date' => 'required|date',
+            'to_date' => 'required|date|after_or_equal:from_date',
             'leave_type_id' => 'required',
             'description' => 'required',
         ]);
 
         if ($validate->fails()) {
-
             notify()->error($validate->getMessageBag());
             return redirect()->back();
         }
+
+        $fromDate = Carbon::parse($request->from_date);
+        $toDate = Carbon::parse($request->to_date);
+        $totalDays = $toDate->diffInDays($fromDate); // Calculate total days
+
         Leave::create([
-            'employee_name' => $request->employee_name,
-            'employee_id' => $request->employee_id,
-            'department' => $request->department,
-            'from_date' => $request->from_date,
-            'to_date' => $request->to_date,
+            'employee_name' => auth()->user()->name,
+            'employee_id' => auth()->user()->id,
+            'from_date' => $fromDate,
+            'to_date' => $toDate,
+            'total_days' => $totalDays, // Store total days
             'leave_type_id' => $request->leave_type_id,
             'description' => $request->description,
         ]);
+
         notify()->success('New Leave created');
         return redirect()->back();
     }
-
 
 
     // Leave Type
@@ -124,5 +131,13 @@ class LeaveController extends Controller
             notify()->success('Your information updated successfully.');
             return redirect()->route('leave.leaveType');
         }
+    }
+
+
+    // leave Balance
+
+    public function showLeaveBalance()
+    {
+        return view('admin.pages.Leave.myLeaveBalance');
     }
 }

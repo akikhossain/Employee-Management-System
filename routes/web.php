@@ -69,7 +69,7 @@ Route::group(['prefix' => 'admin'], function () {
         // Attendance
         Route::get('/Attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');
         Route::get('/Attendance/giveAttendance', [AttendanceController::class, 'giveAttendance'])->name('attendance.giveAttendance');
-        //    attendance employee
+        // attendance employee
         Route::get('/check-in', [AttendanceController::class, 'checkIn'])->name('check-in');
         Route::get('/check-out', [AttendanceController::class, 'checkOut'])->name('check-out');
 
@@ -97,6 +97,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/Leave/LeaveStatus', [LeaveController::class, 'leaveList'])->name('leave.leaveStatus');
         Route::post('/Leave/store', [LeaveController::class, 'store'])->name('leave.store');
         Route::get('/Leave/myLeave', [LeaveController::class, 'myLeave'])->name('leave.myLeave');
+        Route::get('/Leave/myLeaveBalance', [LeaveController::class, 'showLeaveBalance'])->name('leave.myLeaveBalance');
 
         // Leave Type
         Route::get('/Leave/LeaveType', [LeaveController::class, 'leaveType'])->name('leave.leaveType');

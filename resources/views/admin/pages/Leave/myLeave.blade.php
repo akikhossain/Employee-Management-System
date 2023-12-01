@@ -12,12 +12,13 @@
         <thead class="bg-light">
             <tr>
                 <th>SL NO</th>
-                <th>Employee Name</th>
-                <th>Department</th>
-                <th>Employee ID</th>
+                {{-- <th>Employee Name</th> --}}
+                {{-- <th>Department</th> --}}
+                {{-- <th>Employee ID</th> --}}
                 <th>Leave Type</th>
                 <th>Start Date</th>
                 <th>End Date</th>
+                <th>Total Days</th>
                 <th>Description</th>
                 <th>Status</th>
             </tr>
@@ -30,12 +31,13 @@
                         <p class="fw-bold mb-1">{{ $key + 1 }}</p>
                     </div>
                 </td>
-                <td>{{ $leave->employee_name }}</td>
-                <td>{{ $leave->department }}</td>
-                <td>{{ $leave->employee_id }}</td>
+                {{-- <td>{{ $leave->employee_name }}</td> --}}
+                {{-- <td>{{ $leave->department }}</td> --}}
+                {{-- <td>{{ $leave->employee_id }}</td> --}}
                 <td>{{ $leave->type->leave_type_id }}</td>
                 <td>{{ $leave->from_date }}</td>
                 <td>{{ $leave->to_date }}</td>
+                <td>{{ $leave->total_days }}</td> <!-- Display total_days -->
                 <td>{{ $leave->description }}</td>
                 <td>
                     <a class="btn btn-success" href="">Accept</a>

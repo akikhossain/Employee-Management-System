@@ -61,7 +61,7 @@
                 </li>
                 <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
                         href="{{ route('leave.leaveStatus') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Leave Status</a>
+                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Leave Request</a>
                 </li>
                 <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
                         href="{{ route('leave.leaveType') }}"><i
@@ -93,10 +93,6 @@
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Attendance
                         Record</a>
                 </li>
-                {{-- <li class="sidebar-list-item fs-6 "><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('attendance.addAttendance') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Give Attendance</a>
-                </li> --}}
                 <li class="sidebar-list-item fs-6 "><a class="sidebar-link text-muted ms-3"
                         href="{{ route('attendance.giveAttendance') }}"><i
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>your Attendance</a>

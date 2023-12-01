@@ -4,6 +4,7 @@
     <h4 class="text-uppercase">Apply Leave</h4>
     <div>
         <a href="{{ route('leave.myLeave') }}" class="btn btn-info p-2 text-lg rounded">View Leave Status</a>
+        <a href="{{ route('leave.myLeaveBalance') }}" class="btn btn-info p-2 text-lg rounded">My Leave Balance</a>
     </div>
 </div>
 <div class="container my-5 py-5">
@@ -21,7 +22,7 @@
                         <form action="{{ route('leave.store') }}" method="post">
                             @csrf
                             <div class="row mb-4">
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold " for="form11Example1">Employee
                                             Name</label>
@@ -33,8 +34,8 @@
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                </div>
-                                <div class="col-md-6">
+                                </div> --}}
+                                {{-- <div class="col-md-6">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold " for="form11Example1">Department</label>
                                         <input required placeholder="Department" type="text" id="form11Example1"
@@ -46,7 +47,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row mb-4">
                                 <div class=" col-md-6">
                                     <div class="form-outline">
@@ -74,7 +75,7 @@
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold " for="form11Example1">Employee ID</label>
                                         <input required placeholder="Employee ID" type="text" id="form11Example1"
@@ -85,7 +86,7 @@
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-6">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="form11Example1">Leave Type</label>

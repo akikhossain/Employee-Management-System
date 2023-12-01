@@ -100,6 +100,6 @@ class UserController extends Controller
             'password' => bcrypt($request->password),
         ]);
         notify()->success('User created successfully.');
-        return redirect()->back();
+        return redirect()->route('users.list');
     }
 }
