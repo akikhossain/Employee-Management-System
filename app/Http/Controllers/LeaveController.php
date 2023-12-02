@@ -52,14 +52,32 @@ class LeaveController extends Controller
 
         $fromDate = Carbon::parse($request->from_date);
         $toDate = Carbon::parse($request->to_date);
-        $totalDays = $toDate->diffInDays($fromDate); // Calculate total days
+        $totalDays = $toDate->diffInDays($fromDate) + 1; // Calculate total days
+
+        // Fetch the total days for the selected leave type ('leave_days' column)
+        $leaveType = LeaveType::findOrFail($request->leave_type_id);
+        $leaveTypeTotalDays = $leaveType->leave_days; // Assuming 'leave_days' is the field in the LeaveType model
+
+        // Validate if the total days taken for this leave type don't exceed the available days
+        $userId = auth()->user()->id;
+        $totalTakenDaysForLeaveType = Leave::where('employee_id', $userId)
+            ->where('leave_type_id', $request->leave_type_id)
+            ->whereYear('from_date', '=', date('Y'))
+            ->sum('total_days');
+
+        $availableLeaveDays = $leaveTypeTotalDays - $totalTakenDaysForLeaveType;
+
+        if ($totalDays > $availableLeaveDays) {
+            notify()->error('Exceeded available leave days for this type.');
+            return redirect()->back();
+        }
 
         Leave::create([
             'employee_name' => auth()->user()->name,
             'employee_id' => auth()->user()->id,
             'from_date' => $fromDate,
             'to_date' => $toDate,
-            'total_days' => $totalDays, // Store total days
+            'total_days' => $totalDays,
             'leave_type_id' => $request->leave_type_id,
             'description' => $request->description,
         ]);
@@ -67,6 +85,9 @@ class LeaveController extends Controller
         notify()->success('New Leave created');
         return redirect()->back();
     }
+
+
+
 
 
     // Approve and Reject Leave
@@ -161,6 +182,37 @@ class LeaveController extends Controller
 
     public function showLeaveBalance()
     {
-        return view('admin.pages.Leave.myLeaveBalance');
+        $userId = auth()->user()->id;
+
+        $leaves = Leave::where('employee_id', $userId)
+            ->whereYear('from_date', '=', date('Y'))
+            ->with('type')
+            ->get();
+
+        $leaveTypeBalances = [];
+        $totalTakenDays = 0; // Variable to track total taken days across all leave types
+
+        foreach ($leaves as $leave) {
+            $leaveType = $leave->type->leave_type_id;
+            $leaveLimit = $leave->type->leave_days; // Retrieve leave days from LeaveType model
+
+            if (!isset($leaveTypeBalances[$leaveType])) {
+                $leaveTypeBalances[$leaveType] = [
+                    'totalDays' => $leaveLimit,
+                    'takenDays' => 0,
+                    'availableDays' => $leaveLimit,
+                ];
+            }
+
+            // Check if leave request is approved before updating taken and available days
+            if ($leave->status === 'approved') {
+                $leaveTypeBalances[$leaveType]['takenDays'] += $leave->total_days;
+                $leaveTypeBalances[$leaveType]['availableDays'] -= $leave->total_days;
+
+                $totalTakenDays += $leave->total_days; // Increment total taken days
+            }
+        }
+
+        return view('admin.pages.Leave.myLeaveBalance', compact('leaveTypeBalances', 'totalTakenDays'));
     }
 }

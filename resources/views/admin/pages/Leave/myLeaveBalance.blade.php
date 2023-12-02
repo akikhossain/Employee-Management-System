@@ -3,13 +3,11 @@
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">My Leave Balance</h4>
-
 </div>
 <div class="my-5 py-5">
     <table class="table align-middle text-center w-75 mx-auto bg-white">
         <thead class="bg-light">
             <tr>
-                <th>SL ID</th>
                 <th>Leave Type</th>
                 <th>Total Days</th>
                 <th>Taken Days</th>
@@ -17,16 +15,25 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($leaveTypeBalances as $leaveType => $balance)
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ $leaveType }}</td>
+                <td>{{ $balance['totalDays'] }}</td>
+                <td>{{ $balance['takenDays'] }}</td>
+                <td>{{ $balance['availableDays'] }}</td>
             </tr>
+            @endforeach
         </tbody>
     </table>
-    <div class="w-25 mx-auto mt-4">
-    </div>
+
+    @if($totalTakenDays <= 25) <!-- Allow applying for leave -->
+        <p>You can apply for leave. Total taken days: {{ $totalTakenDays }}</p>
+        <!-- Your leave application form or button can be added here -->
+        @else
+        <!-- Display message if total taken days exceed the limit -->
+        <p>You have already taken more than 25 days of leave. You cannot apply for more leave.</p>
+        @endif
+
+        <div class="w-25 mx-auto mt-4"></div>
 </div>
 @endsection
