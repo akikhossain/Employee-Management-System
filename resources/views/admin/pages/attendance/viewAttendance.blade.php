@@ -33,8 +33,8 @@
                 <td>{{ $attendance->check_in }}</td>
                 <td>{{ $attendance->check_out }}</td>
                 <td>
-                    <a class="btn btn-success" href="">Edit</a>
-                    <a class="btn btn-danger" href="">Delete</a>
+                    <a class="btn btn-success rounded-pill " href="">Edit</a>
+                    <a class="btn btn-danger rounded-pill " href="">Delete</a>
                 </td>
             </tr>
             @endforeach

@@ -3,8 +3,10 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">Apply Leave</h4>
     <div>
-        <a href="{{ route('leave.myLeave') }}" class="btn btn-info p-2 text-lg rounded">View Leave Status</a>
-        <a href="{{ route('leave.myLeaveBalance') }}" class="btn btn-info p-2 text-lg rounded">My Leave Balance</a>
+        <a href="{{ route('leave.myLeave') }}" class="btn btn-success p-2 text-lg rounded-pill me-3">View Leave
+            Status</a>
+        <a href="{{ route('leave.myLeaveBalance') }}" class="btn btn-success p-2 text-lg rounded-pill">My Leave
+            Balance</a>
     </div>
 </div>
 <div class="container my-5 py-5">
@@ -110,7 +112,7 @@
                             </div>
                             <div class="text-center w-25 mx-auto mt-3">
                                 <button type="submit"
-                                    class="btn btn-info p-2 text-lg  rounded col-md-10">Submit</button>
+                                    class="btn btn-success p-2 text-lg  rounded-pill col-md-10">Submit</button>
                             </div>
                         </form>
                     </div>

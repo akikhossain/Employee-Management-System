@@ -98,6 +98,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/Leave/store', [LeaveController::class, 'store'])->name('leave.store');
         Route::get('/Leave/myLeave', [LeaveController::class, 'myLeave'])->name('leave.myLeave');
         Route::get('/Leave/myLeaveBalance', [LeaveController::class, 'showLeaveBalance'])->name('leave.myLeaveBalance');
+        // Approve,, Reject Leave
+        Route::get('/leave/approve/{id}',  [LeaveController::class, 'approveLeave'])->name('leave.approve');
+        Route::get('/leave/reject/{id}',  [LeaveController::class, 'rejectLeave'])->name('leave.reject');
+
 
         // Leave Type
         Route::get('/Leave/LeaveType', [LeaveController::class, 'leaveType'])->name('leave.leaveType');

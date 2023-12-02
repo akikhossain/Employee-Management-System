@@ -67,9 +67,9 @@
                                 <td>{{ $item->leave_type_id }}</td>
                                 <td>{{ $item->leave_days }}</td>
                                 <td>
-                                    <a class="btn btn-success"
+                                    <a class="btn btn-success rounded-pill fw-bold text-white"
                                         href="{{ route('leave.leaveType.edit', $item->id) }}">Edit</a>
-                                    <a class="btn btn-danger"
+                                    <a class="btn btn-danger rounded-pill fw-bold text-white"
                                         href="{{ route('leave.leaveType.delete', $item->id) }}">Delete</a>
                                 </td>
                             </tr>

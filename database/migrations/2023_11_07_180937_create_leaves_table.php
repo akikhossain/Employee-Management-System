@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('to_date');
             $table->integer('total_days')->nullable();
             $table->text('description')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }
@@ -34,6 +35,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('leaves');
+        Schema::table('leaves', function (Blueprint $table) {
+            $table->dropColumn('status');
+        });
     }
 };

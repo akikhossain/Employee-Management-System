@@ -7,14 +7,11 @@
         <a href="{{ route('leave.leaveForm') }}" class="btn btn-info p-2 text-lg rounded">Create Leave</a>
     </div>
 </div>
-<div class="  my-5 py-5">
+<div class="my-5 py-5">
     <table class="table align-middle text-center w-100 bg-white">
         <thead class="bg-light">
             <tr>
                 <th>SL NO</th>
-                {{-- <th>Employee Name</th> --}}
-                {{-- <th>Department</th> --}}
-                {{-- <th>Employee ID</th> --}}
                 <th>Leave Type</th>
                 <th>Start Date</th>
                 <th>End Date</th>
@@ -31,23 +28,26 @@
                         <p class="fw-bold mb-1">{{ $key + 1 }}</p>
                     </div>
                 </td>
-                {{-- <td>{{ $leave->employee_name }}</td> --}}
-                {{-- <td>{{ $leave->department }}</td> --}}
-                {{-- <td>{{ $leave->employee_id }}</td> --}}
                 <td>{{ $leave->type->leave_type_id }}</td>
                 <td>{{ $leave->from_date }}</td>
                 <td>{{ $leave->to_date }}</td>
-                <td>{{ $leave->total_days }}</td> <!-- Display total_days -->
+                <td>{{ $leave->total_days }}</td>
                 <td>{{ $leave->description }}</td>
                 <td>
-                    <a class="btn btn-success" href="">Accept</a>
-                    <a class="btn btn-danger" href="">Reject</a>
+                    @if($leave->status === 'approved')
+                    <span class="text-white fw-bold bg-green rounded-pill p-2">Accepted</span>
+                    @elseif($leave->status === 'rejected')
+                    <span class="text-white fw-bold bg-red rounded-pill p-2">Rejected</span>
+                    @else
+                    <span class="text-white fw-bold bg-warning rounded-pill p-2">Pending</span>
+                    @endif
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
     <div class="w-25 mx-auto mt-4">
+        {{ $leaves->links() }}
     </div>
 </div>
 @endsection

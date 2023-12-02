@@ -69,6 +69,29 @@ class LeaveController extends Controller
     }
 
 
+    // Approve and Reject Leave
+    public function approveLeave($id)
+    {
+        $leave = Leave::find($id);
+        $leave->status = 'approved'; // Assuming 'status' is a field in your 'leaves' table
+        $leave->save();
+
+        notify()->success('Leave approved');
+        return redirect()->back();
+    }
+
+    public function rejectLeave($id)
+    {
+        $leave = Leave::find($id);
+        $leave->status = 'rejected'; // Assuming 'status' is a field in your 'leaves' table
+        $leave->save();
+
+        notify()->error('Leave rejected');
+        return redirect()->back();
+    }
+
+
+
     // Leave Type
     public function leaveType()
     {

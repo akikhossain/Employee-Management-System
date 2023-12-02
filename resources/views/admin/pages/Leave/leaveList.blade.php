@@ -37,13 +37,24 @@
                 <td>{{ $leave->total_days }}</td> <!-- Display total_days -->
                 <td>{{ $leave->description }}</td>
                 <td>
-                    <a class="btn btn-success" href="#">Approve</a>
-                    <a class="btn btn-danger" href="#">Reject</a>
+                    @if ($leave->status == 'approved')
+                    <span class="text-white fw-bold bg-green rounded-pill p-2">Approved</span>
+                    @elseif ($leave->status == 'rejected')
+                    <span class="text-white fw-bold bg-red rounded-pill p-2">Rejected</span>
+                    @else
+                    <a class="btn btn-success rounded-pill "
+                        href="{{ route('leave.approve', ['id' => $leave->id]) }}">Approve</a>
+                    <a class="btn btn-danger rounded-pill "
+                        href="{{ route('leave.reject', ['id' => $leave->id]) }}">Reject</a>
+                    @endif
                 </td>
+
             </tr>
             @endforeach
         </tbody>
     </table>
-    <div class="w-25 mx-auto mt-4"></div>
+    <div class="w-25 mx-auto mt-4">
+        {{ $leaves->links() }}
+    </div>
 </div>
 @endsection
