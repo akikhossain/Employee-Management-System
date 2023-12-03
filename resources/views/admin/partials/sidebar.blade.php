@@ -81,6 +81,10 @@
                     class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Payroll</span></a>
         </li>
+        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
+                href="{{ route('salary.create') }}"><i class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
+                <span class="sidebar-link-title fs-5">Salary Structure</span></a>
+        </li>
 
         {{-- Attendance --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href=""

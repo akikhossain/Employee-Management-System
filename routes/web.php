@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\controllers\HomeController;
 use App\Http\controllers\manageEmployeeController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\ServicesController;
 use App\Http\controllers\viewEmployeeController;
 
@@ -109,6 +111,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/LeaveType/delete/{id}', [LeaveController::class, 'LeaveDelete'])->name('leave.leaveType.delete');
         Route::get('/LeaveType/edit/{id}', [LeaveController::class, 'leaveEdit'])->name('leave.leaveType.edit');
         Route::put('/designation/update/{id}', [LeaveController::class, 'LeaveUpdate'])->name('leave.leaveType.update');
+
+
+        // Salary Structure
+        Route::get('/SalaryStructure/createSalary', [SalaryController::class, 'createSalary'])->name('salary.create');
+        Route::get('/SalaryStructure/viewSalary', [SalaryController::class, 'viewSalary'])->name('salary.view');
+        Route::post('/Payroll/store', [SalaryController::class, 'salaryStore'])->name('salary.store');
+
+
 
         // Users
         Route::get('/users/create', [UserController::class, 'createForm'])->name('users.create');
