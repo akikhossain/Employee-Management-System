@@ -37,7 +37,7 @@ class SalaryController extends Controller
             'mobile_allowance' => $request->mobile_allowance,
         ]);
         notify()->success('New Salary created successfully.');
-        return redirect()->route('salary.view');
+        return redirect()->back();
     }
 
 

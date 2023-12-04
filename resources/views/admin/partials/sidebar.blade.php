@@ -77,12 +77,14 @@
         </li>
 
         {{-- Payroll --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href="#"><i
-                    class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
+        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
+                href="{{ route('payroll.create') }}"><i class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Payroll</span></a>
         </li>
+
+        {{-- Salary Structure --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
-                href="{{ route('salary.create') }}"><i class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
+                href="{{ route('salary.create.form') }}"><i class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Salary Structure</span></a>
         </li>
 

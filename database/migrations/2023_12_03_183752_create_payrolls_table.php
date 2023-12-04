@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('payrolls', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('salary_structure_id');
-            $table->integer('hour'); // Assuming it represents working hours
-            // Add other columns as needed
+            $table->decimal('total_hours', 8, 2)->nullable();
+            $table->decimal('deduction', 10, 2)->nullable();
+            $table->decimal('total_payable', 10, 2)->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('employees')->onDelete('cascade');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->foreign('salary_structure_id')->references('id')->on('salary_structures')->onDelete('cascade');
         });
     }
@@ -36,3 +37,6 @@ return new class extends Migration
         Schema::dropIfExists('payrolls');
     }
 };
+
+
+// $table->decimal('deduction', 10, 2)->nullable();

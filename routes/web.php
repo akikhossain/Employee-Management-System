@@ -114,11 +114,14 @@ Route::group(['prefix' => 'admin'], function () {
 
 
         // Salary Structure
-        Route::get('/SalaryStructure/createSalary', [SalaryController::class, 'createSalary'])->name('salary.create');
+        Route::get('/SalaryStructure/createSalary', [SalaryController::class, 'createSalary'])->name('salary.create.form');
         Route::get('/SalaryStructure/viewSalary', [SalaryController::class, 'viewSalary'])->name('salary.view');
-        Route::post('/Payroll/store', [SalaryController::class, 'salaryStore'])->name('salary.store');
+        Route::post('/Salary/store', [SalaryController::class, 'salaryStore'])->name('salary.store.data');
 
-
+        // Payroll
+        Route::get('Payroll/createPayroll', [PayrollController::class, 'createPayroll'])->name('payroll.create');
+        Route::get('/SalaryStructure/view', [PayrollController::class, 'viewPayroll'])->name('payroll.view');
+        Route::post('/Payroll/store', [PayrollController::class, 'payrollStore'])->name('payroll.store');
 
         // Users
         Route::get('/users/create', [UserController::class, 'createForm'])->name('users.create');

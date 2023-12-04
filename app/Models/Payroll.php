@@ -9,15 +9,15 @@ class Payroll extends Model
 {
     use HasFactory;
 
-    // protected $fillable = ['user_id', 'salary_structure_id', 'hour'];
+    protected $guarded = [];
 
-    // public function employee()
-    // {
-    //     return $this->belongsTo(Employee::class, 'user_id');
-    // }
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
 
-    // public function salaryStructure()
-    // {
-    //     return $this->belongsTo(SalaryStructure::class);
-    // }
+    public function salaryStructure()
+    {
+        return $this->belongsTo(SalaryStructure::class);
+    }
 }

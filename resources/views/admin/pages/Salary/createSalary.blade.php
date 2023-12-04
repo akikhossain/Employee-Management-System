@@ -4,6 +4,7 @@
     <h4 class="text-uppercase">Create Salary</h4>
     <div>
         <a href="{{ route('salary.view') }}" class="btn btn-success p-2 text-lg rounded-pill"> View Salary List</a>
+
     </div>
 </div>
 <div class="container my-5 py-5">
@@ -16,7 +17,7 @@
                         <h5 class="mb-0 text-font text-uppercase">Salary Form</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('salary.store') }}" method="post" id="salaryForm">
+                        <form action="{{ route('salary.store.data') }}" method="post" id="salaryForm">
                             @csrf
                             <div class="row mb-4">
                                 <div class="col-md-6">
@@ -78,8 +79,8 @@
                                 </div>
                             </div>
                             <div class="text-center w-25 mx-auto mt-3">
-                                <button type="submit"
-                                    class="btn btn-success p-2 text-lg rounded-pill col-md-10">Submit</button>
+                                <button type="submit" class="btn btn-success p-2 text-lg rounded-pill col-md-10">Create
+                                    Salary</button>
                             </div>
                         </form>
                     </div>
