@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->unsignedBigInteger('employee_id')->nullable();
             $table->string('email')->unique();
             $table->string('role');
             $table->string('image')->nullable();
@@ -33,6 +34,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('set null');
+        });
     }
 };

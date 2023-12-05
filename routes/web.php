@@ -50,14 +50,18 @@ Route::get('/contacts', [FrontendHomeController::class, 'contact'])->name('conta
 
 
 // Admin Dashboard
+
+Route::get('/login', [UserController::class, 'login'])->name('admin.login');
+Route::post('/login-form', [UserController::class, 'loginPost'])->name('admin.login.post');
+
 Route::group(['prefix' => 'admin'], function () {
 
-    Route::get('/login', [UserController::class, 'login'])->name('admin.login');
-    Route::post('/login-form', [UserController::class, 'loginPost'])->name('admin.login.post');
 
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/logout', [UserController::class, 'logout'])->name('admin.logout');
         Route::get('/dashboard', [HomeController::class, 'home'])->name('dashboard');
+
+
 
         // Employees
         Route::get('/Employee/addEmployee', [manageEmployeeController::class, 'addEmployee'])->name('manageEmployee.addEmployee');
@@ -124,10 +128,20 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/Payroll/store', [PayrollController::class, 'payrollStore'])->name('payroll.store');
 
         // Users
-        Route::get('/users/create', [UserController::class, 'createForm'])->name('users.create');
-        Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+        // Route::get('/users/create', [UserController::class, 'createForm'])->name('users.create');
+        // Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+        // Route::get('/users', [UserController::class, 'list'])->name('users.list');
+        // Route::get('/users/profile/{id}', [UserController::class, 'userProfile'])->name('users.profile.view');
+
+
+        // User updated
         Route::get('/users', [UserController::class, 'list'])->name('users.list');
-        Route::get('/users/profile/{id}', [UserController::class, 'userProfile'])->name('users.profile.view');
+        Route::get('/users/create/{employeeId}', [UserController::class, 'createForm'])->name('users.create');
+        Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+        Route::get('/users/{id}', [UserController::class, 'userProfile'])->name('users.profile.view');
+        Route::get('/myProfile', [UserController::class, 'myProfile'])->name('profile');
+        // Other user-related routes...
+
 
         // Services
         Route::get('/Service/create', [ServicesController::class, 'serviceForm'])->name('service.form');

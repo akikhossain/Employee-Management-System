@@ -19,6 +19,16 @@ class User extends Authenticatable
      */
     protected $guarded = [];
 
+    public function employee()
+    {
+        return $this->hasOne(Employee::class, 'email', 'email');
+    }
+
+    public function employeeId()
+    {
+        return $this->belongsTo(Employee::class, 'employee_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

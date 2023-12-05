@@ -7,6 +7,7 @@ use App\Models\Employee;
 use App\Models\Payroll;
 use App\Models\SalaryStructure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PayrollController extends Controller
 {
@@ -22,6 +23,18 @@ class PayrollController extends Controller
     public function payrollStore(Request $request)
     {
         // Validate request data
+        $validate = Validator::make($request->all(), [
+            'employee_id' => 'required',
+            'salary_structure_id' => 'required',
+            'total_hours' => 'required',
+            'deduction' => 'required',
+        ]);
+
+        if ($validate->fails()) {
+
+            notify()->error($validate->getMessageBag());
+            return redirect()->back();
+        }
 
         // Calculate total hours from attendance records
         $totalHours = Attendance::where('employee_id', $request->employee_id)
@@ -34,6 +47,7 @@ class PayrollController extends Controller
             'income_tax' => 100,
             'health_insurance' => 50,
             'child_support' => 75,
+            'no_deduction' => 0,
         ];
         $selectedDeduction = $request->deduction;
         $deduction = $deductionValues[$selectedDeduction] ?? 0;

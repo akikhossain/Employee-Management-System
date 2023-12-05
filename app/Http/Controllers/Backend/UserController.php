@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -51,21 +53,33 @@ class UserController extends Controller
 
     public function list()
     {
-
         $users = User::all();
-        // dd($users);
-        return view('admin.pages.Users.list', compact('users'));
+        $employee = Employee::first(); // Fetches the first employee
+
+        return view('admin.pages.Users.list', compact('users', 'employee'));
     }
 
-    public function createForm()
+
+    public function createForm($employeeId)
     {
-        return view('admin.pages.Users.createForm');
+        $employee = Employee::find($employeeId);
+
+        if (!$employee) {
+            // Handle scenario when employee is not found
+            // For instance, redirecting or displaying an error message
+            return redirect()->back()->withErrors('Employee not found');
+        }
+
+        return view('admin.pages.Users.createForm', compact('employee'));
     }
+
 
     public function userProfile($id)
     {
-        $user = User::find($id);
-        return view('admin.pages.Users.userProfile', compact('user'));
+        $user = User::with('employee')->find($id);
+        $employee = $user->employee ?? null;
+
+        return view('admin.pages.Users.userProfile', compact('user', 'employee'));
     }
 
 
@@ -91,15 +105,35 @@ class UserController extends Controller
             $file->storeAs('/uploads', $fileName);
         }
 
-
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'role' => $request->role,
             'image' => $fileName,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
+
+        // Find associated employee using the email and assign user_id to employee
+        $employee = Employee::where('email', $request->email)->first();
+        if ($employee) {
+            $employee->user_id = $user->id;
+            $employee->save();
+        }
+
         notify()->success('User created successfully.');
         return redirect()->route('users.list');
+    }
+
+    // single  profile
+
+    public function myProfile()
+    {
+        $user = Auth::user();
+        if ($user->employee) {
+            $employee = $user->employee;
+            return view('admin.pages.Users.employeeProfile', compact('user', 'employee'));
+        } else {
+            return view('admin.pages.Users.nonEmployeeProfile', compact('user'));
+        }
     }
 }

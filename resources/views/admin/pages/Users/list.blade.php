@@ -4,7 +4,9 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">User List</h4>
     <div>
-        <a href="{{ route('users.create') }}" class="btn btn-info p-2 text-lg rounded">Create new User</a>
+        <a href="{{ route('users.create', ['employeeId' => $employee->id]) }}"
+            class="btn btn-info p-2 text-lg rounded">Create new User</a>
+
     </div>
 </div>
 <div class="  my-5 py-5">

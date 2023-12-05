@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('salary', 8);
             $table->string('location', 30);
             $table->string('employee_image')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
         });
     }

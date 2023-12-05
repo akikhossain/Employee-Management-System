@@ -71,9 +71,9 @@
         </li>
 
         {{-- Manage Tour --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted" href="#"><i
-                    class="fa-solid fa-location-dot me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Manage Tour </span></a>
+        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
+                href="{{ route('profile') }}"><i class="fa-solid fa-location-dot me-2 text-info"></i>
+                <span class="sidebar-link-title fs-5">Profile</span></a>
         </li>
 
         {{-- Payroll --}}

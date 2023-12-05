@@ -57,6 +57,7 @@
                                             <option value="income_tax">Income Taxes</option>
                                             <option value="health_insurance">Health Insurance</option>
                                             <option value="child_support">Child support payments</option>
+                                            <option value="no_deduction">No Deduction</option>
                                         </select>
                                     </div>
                                 </div>
@@ -67,7 +68,6 @@
                                     @foreach($salaryStructures as $structure)
                                     <option value="{{ $structure->id }}">
                                         {{ $structure->total_salary }}
-                                        <!-- Display total salary here -->
                                     </option>
                                     @endforeach
                                 </select>
