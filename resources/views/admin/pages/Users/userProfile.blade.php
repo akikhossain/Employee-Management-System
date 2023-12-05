@@ -77,7 +77,8 @@
                     <div class="row g-0">
                         <div class="col-md-4 gradient-custom text-center text-black">
                             <img src="{{ url('/uploads//' . $user->image) }}" alt="Avatar"
-                                class="img-fluid my-5 mx-auto rounded-circle" style="width: 150px;" />
+                                class="img-fluid my-5 mx-auto rounded-circle"
+                                style="width: 150px; height: 150px; object-fit: cover;" />
                             <h5>{{ $user->name }}</h5>
                             <p>{{ $user->role }}</p>
                             <a href=""><i class="far fa-edit mb-5"></i></a>

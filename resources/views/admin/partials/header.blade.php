@@ -5,9 +5,15 @@
                 class="d-none d-brand-partial">Employee </span><span class="d-none d-sm-inline">Management
                 System</span></a>
         <ul class="ms-auto d-flex align-items-center list-unstyled mb-0">
-            <li class="nav-item dropdown ms-auto"><a class="nav-link pe-0" id="userInfo" href="#"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar p-1"
-                        src="{{ auth()->user()->image }}" alt="admin"></a>
+            <li class="nav-item dropdown ms-auto">
+                <a class="nav-link pe-0" id="userInfo" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <img class="avatar p-1"
+                        src="{{ isset(auth()->user()->employee) ? url('/uploads//' . auth()->user()->employee->employee_image) : url('/uploads//' . auth()->user()->image) }}"
+                        alt="admin">
+
+                </a>
+
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="userInfo">
                     <div class="dropdown-header text-gray-700">
                         <h6 class="text-uppercase font-weight-bold">{{ auth()->user()->name }}</h6><small

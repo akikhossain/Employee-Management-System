@@ -19,4 +19,12 @@ class HomeController extends Controller
         $users = User::count();
         return view('admin.pages.dashboard', compact('employees', 'departments', 'leaves', 'users'));
     }
+
+    public function showHeader()
+    {
+        // Fetch the logged-in user
+        $user = auth()->user();
+
+        return view('admin.partials.header', compact('user'));
+    }
 }

@@ -11,7 +11,8 @@
                 <div class="card mb-4">
                     <div class="card-body text-center">
                         <img src="{{ url('/uploads//' . $employee->employee_image) }}" alt="avatar"
-                            class="rounded-circle mx-auto img-fluid" style="width: 150px;">
+                            class="rounded-circle mx-auto img-fluid"
+                            style="width: 150px; height: 150px; object-fit: cover;">
                         <h5 class="my-3">{{ $employee->name }}</h5>
                         <p class="text-muted mb-1">{{ $employee->designation }}</p>
                         <p class="text-muted mb-4">{{ $employee->location }}</p>

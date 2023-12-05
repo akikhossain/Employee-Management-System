@@ -36,7 +36,8 @@
                 <div class="card mb-4">
                     <div class="card-body text-center">
                         <img src="{{ url('/uploads//' . $user->user_image) }}" alt="User Image"
-                            class="rounded-circle mx-auto img-fluid" style="width: 150px;">
+                            class="rounded-circle mx-auto img-fluid"
+                            style="width: 150px; height: 150px; object-fit: cover;">
                         <h5 class="my-3">{{ $user->name }}</h5>
                         <div class="d-flex justify-content-center mb-2">
                         </div>

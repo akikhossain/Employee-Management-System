@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SalaryStructure;
 use App\Models\Employee;
 use App\Models\Payroll;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,12 +22,23 @@ class viewEmployeeController extends Controller
     public function delete($id)
     {
         $employee = Employee::find($id);
+
         if ($employee) {
-            $employee->delete();
+            $user = User::find($employee->user_id);
+
+            if ($user) {
+                $user->delete(); // Delete associated user
+            }
+
+            $employee->delete(); // Delete employee record
+            notify()->success('Employee Deleted Successfully.');
+            return redirect()->back();
+        } elseif (!$employee) {
+            notify()->error('Employee not found');
+            return redirect()->back();
         }
-        notify()->success('Employee Deleted Successfully.');
-        return redirect()->back();
     }
+
 
 
     // Edit Employee
