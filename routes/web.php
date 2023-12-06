@@ -71,6 +71,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('Employee/edit/{id}', [viewEmployeeController::class, 'edit'])->name('Employee.edit');
         Route::put('/Employee/update/{id}', [viewEmployeeController::class, 'update'])->name('Employee.update');
         Route::get('/Employee/profile/{id}', [viewEmployeeController::class, 'profile'])->name('Employee.profile');
+        Route::get('/search-employee', [viewEmployeeController::class, 'search'])->name('employee.search');
 
         // Attendance
         Route::get('/Attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');
@@ -149,5 +150,6 @@ Route::group(['prefix' => 'admin'], function () {
         // Services
         Route::get('/Service/create', [ServicesController::class, 'serviceForm'])->name('service.form');
         Route::post('/Service/store', [ServicesController::class, 'serviceStore'])->name('service.store');
+        Route::get('/Service/serviceList', [ServicesController::class, 'serviceList'])->name('list.service');
     });
 });

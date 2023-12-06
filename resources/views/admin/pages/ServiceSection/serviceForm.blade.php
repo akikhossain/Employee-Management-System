@@ -2,6 +2,10 @@
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">Create Service</h4>
+    <div>
+        <a href="{{ route('list.service') }}" class="btn btn-success p-2 text-lg rounded-pill">Services List</a>
+
+    </div>
 </div>
 <div class="container my-5 py-5">
 
@@ -66,7 +70,7 @@
                             </div>
                             <div class="text-center w-25 mx-auto mt-3">
                                 <button type="submit"
-                                    class="btn btn-info p-2 text-lg  rounded col-md-10">Create</button>
+                                    class="btn btn-success p-2 text-lg  rounded-pill col-md-10">Create</button>
                             </div>
                         </form>
                     </div>

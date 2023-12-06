@@ -29,9 +29,9 @@
                             </div>
                             <div class="d-flex align-items-center mb-4">
                                 <div class="flex-shrink-0">
-                                    <img src={{ auth()->user()->image }} alt="Generic placeholder image"
+                                    {{-- <img src={{ auth()->user()->image }} alt="Generic placeholder image"
                                     class="img-fluid rounded-circle border border-dark border-3"
-                                    style="width: 70px;">
+                                    style="width: 70px;"> --}}
                                 </div>
                                 <div class="flex-grow-1 ms-3">
                                     <div>
@@ -46,10 +46,10 @@
                             <div class="text-center">
                                 <p class="my-4 pb-1 text-center">Give your today's attendance by clicking here👇</p>
                                 <a href="{{ route('check-in') }}"
-                                    class="btn btn-success btn-rounded btn-block btn-lg"><i
+                                    class="btn btn-success rounded-pill btn-block btn-lg"><i
                                         class="far fa-clock me-2"></i>Check In</a>
                                 <a href="{{ route('check-out') }}"
-                                    class="btn btn-danger btn-rounded btn-block btn-lg"><i
+                                    class="btn btn-danger rounded-pill btn-block btn-lg"><i
                                         class="far fa-clock me-2"></i>Check Out</a>
                             </div>
                         </div>

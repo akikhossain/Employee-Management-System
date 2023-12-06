@@ -16,7 +16,7 @@ class AttendanceController extends Controller
     }
     public function attendanceList()
     {
-        $attendances = Attendance::paginate(8);
+        $attendances = Attendance::paginate(3);
         return view('admin.pages.attendance.viewAttendance', compact('attendances'));
     }
 

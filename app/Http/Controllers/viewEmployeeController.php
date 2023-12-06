@@ -87,6 +87,26 @@ class viewEmployeeController extends Controller
         return view('admin.pages.manageEmployee.employeeProfile', compact('employee'));
     }
 
+    // search Employee
+
+    public function search(Request $request)
+    {
+        if ($request->search) {
+            $searchTerm = $request->search;
+            $employees = Employee::where('name', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhere('department', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhere('designation', 'LIKE', '%' . $searchTerm . '%')
+                ->get();
+        } else {
+            $employees = Employee::all();
+        }
+
+        return view("admin.pages.manageEmployee.searchEmployee", compact('employees'));
+    }
+
+
+
+
 
 
     // Salary Structure part

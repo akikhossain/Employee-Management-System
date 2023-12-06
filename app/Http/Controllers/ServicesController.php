@@ -41,4 +41,10 @@ class ServicesController extends Controller
         notify()->success('New Services created successfully.');
         return redirect()->back();
     }
+
+    public function serviceList()
+    {
+        $services = Service::all();
+        return view('admin.pages.ServiceSection.listServicec', compact('services'));
+    }
 }

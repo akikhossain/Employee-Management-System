@@ -40,7 +40,7 @@
             @endforeach
         </tbody>
     </table>
-    <div class="w-25 mx-auto ">
+    <div class="w-25 mx-auto">
         {{ $attendances->links() }}
     </div>
 </div>
