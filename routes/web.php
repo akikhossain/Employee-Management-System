@@ -140,6 +140,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
         Route::get('/users/{id}', [UserController::class, 'userProfile'])->name('users.profile.view');
         Route::get('/myProfile', [UserController::class, 'myProfile'])->name('profile');
+        Route::get('/user/delete/{id}', [UserController::class, 'userDelete'])->name('delete');
+        Route::get('/user/edit/{id}', [UserController::class, 'userEdit'])->name('edit');
+        Route::put('/user/update/{id}', [UserController::class, 'userUpdate'])->name('update');
         // Other user-related routes...
 
 

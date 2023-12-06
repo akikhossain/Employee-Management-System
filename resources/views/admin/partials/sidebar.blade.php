@@ -8,6 +8,30 @@
         </li>
 
 
+        {{-- User Profile --}}
+        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
+                href="{{ route('profile') }}"><i class="fa-solid fa-location-dot me-2 text-info"></i>
+                <span class="sidebar-link-title fs-5">Profile</span></a>
+        </li>
+
+        {{-- Attendance --}}
+        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href=""
+                data-bs-target="#tablesDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
+                    class="fa-regular fa-clock me-2 text-info"></i>
+                <span class="sidebar-link-title fs-5">Attendance</span></a>
+            <ul class="sidebar-menu   list-unstyled collapse " id="tablesDropdown">
+                <li class="sidebar-list-item py-2 fs-6 "><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('attendance.viewAttendance') }}"><i
+                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Attendance
+                        Record</a>
+                </li>
+                <li class="sidebar-list-item fs-6 "><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('attendance.giveAttendance') }}"><i
+                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>your Attendance</a>
+                </li>
+            </ul>
+        </li>
+
         {{-- Organization --}}
         <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#"
                 data-bs-target="#widgetsDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
@@ -43,10 +67,10 @@
 
 
         {{-- Task --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href="#"><i
+        {{-- <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href="#"><i
                     class="fa-solid fa-list-check me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Manage Task</span></a>
-        </li>
+        </li> --}}
 
         {{-- Manage Leave --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href="#"
@@ -59,6 +83,14 @@
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Apply
                         Leave</a>
                 </li>
+                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('leave.myLeave') }}"><i
+                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>My Leave</a>
+                </li>
+                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('leave.myLeaveBalance') }}"><i
+                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>My Leave Balance</a>
+                </li>
                 <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
                         href="{{ route('leave.leaveStatus') }}"><i
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Leave Request</a>
@@ -70,12 +102,6 @@
             </ul>
         </li>
 
-        {{-- Manage Tour --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
-                href="{{ route('profile') }}"><i class="fa-solid fa-location-dot me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Profile</span></a>
-        </li>
-
         {{-- Payroll --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
                 href="{{ route('payroll.create') }}"><i class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
@@ -84,39 +110,25 @@
 
         {{-- Salary Structure --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
-                href="{{ route('salary.create.form') }}"><i class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
+                href="{{ route('salary.create.form') }}"><i class="fa-solid fa-dollar-sign me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Salary Structure</span></a>
         </li>
 
-        {{-- Attendance --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href=""
-                data-bs-target="#tablesDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
-                    class="fa-regular fa-clock me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Attendance</span></a>
-            <ul class="sidebar-menu   list-unstyled collapse " id="tablesDropdown">
-                <li class="sidebar-list-item py-2 fs-6 "><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('attendance.viewAttendance') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Attendance
-                        Record</a>
-                </li>
-                <li class="sidebar-list-item fs-6 "><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('attendance.giveAttendance') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>your Attendance</a>
-                </li>
-            </ul>
-        </li>
+        {{-- Users --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
-                href="{{ route('users.list') }}"><i class="fa-regular fa-clock me-2 text-info"></i>
+                href="{{ route('users.list') }}"><i class="fa-regular fa-user  me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Users</span></a>
         </li>
     </ul>
+
+    {{-- Frontend Sidebar --}}
     <div class="mt-5">
         <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('service.form') }}"><i
-                    class="fa-regular fa-clock me-2 text-info"></i>
+                    class="fa-brands fa-servicestack  me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Services</span></a>
         </li>
         <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('notice') }}"><i
-                    class="fa-regular fa-clock me-2 text-info"></i>
+                    class="fa-solid fa-volume-high  me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Notice</span></a>
         </li>
     </div>

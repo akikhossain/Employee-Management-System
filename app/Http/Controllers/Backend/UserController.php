@@ -136,4 +136,63 @@ class UserController extends Controller
             return view('admin.pages.Users.nonEmployeeProfile', compact('user'));
         }
     }
+
+    // user delete
+
+    public function userDelete($id)
+    {
+        $user = User::find($id);
+        if ($user) {
+            $user->delete();
+        }
+
+        notify()->success('User Deleted Successfully.');
+        return redirect()->back();
+    }
+
+    // User edit, update
+
+    public function userEdit($id)
+    {
+        $user = User::find($id);
+        $employee = Employee::find($id);
+        return view('admin.pages.Users.editUser', compact('user', 'employee'));
+    }
+
+
+    public function userUpdate(Request $request, $id)
+    {
+
+
+        $user = User::find($id);
+
+        if ($user) {
+
+            $fileName = $user->image;
+            if ($request->hasFile('user_image')) {
+                $file = $request->file('user_image');
+                $fileName = date('Ymdhis') . '.' . $file->getClientOriginalExtension();
+
+                $file->storeAs('/uploads', $fileName);
+            }
+
+            $user->update([
+                'name' => $request->name,
+                'role' => $request->role,
+                'image' => $fileName,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+
+            ]);
+            // Find associated employee using the email and assign user_id to employee
+            $employee = Employee::where('email', $request->email)->first();
+            if ($employee) {
+                $employee->user_id = $user->id;
+                $employee->save();
+            }
+
+            notify()->success('Product updated successfully.');
+            return redirect()->route('users.list');
+        }
+    }
 }
