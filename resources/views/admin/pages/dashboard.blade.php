@@ -110,7 +110,7 @@
         </div>
         <!-- /Widget Type 1-->
 
-        <div class="mb-4 col-sm-6 col-lg-3 mb-4">
+        {{-- <div class="mb-4 col-sm-6 col-lg-3 mb-4">
             <div class="card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
@@ -138,7 +138,7 @@
                     </div>
                 </a>
             </div>
-        </div>
+        </div> --}}
         <div class="mb-4 col-sm-6 col-lg-3 mb-4">
             <div class="card h-100">
                 <div class="card-body">

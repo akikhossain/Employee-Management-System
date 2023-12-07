@@ -47,9 +47,12 @@
                                 <div class="col-md-6">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="total_hours">Total Hours:</label>
-                                        <input type="number" name="total_hours" class="form-control">
+                                        <input type="text" id="total_hours" class="form-control" name="total_hours"
+                                            value="{{ $totalHours }}">
+
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="income_tax">Deduction</label>

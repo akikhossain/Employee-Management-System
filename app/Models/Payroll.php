@@ -20,4 +20,8 @@ class Payroll extends Model
     {
         return $this->belongsTo(SalaryStructure::class);
     }
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class);
+    }
 }

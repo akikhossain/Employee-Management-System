@@ -29,6 +29,11 @@ class User extends Authenticatable
         return $this->belongsTo(Employee::class, 'employee_id');
     }
 
+    public function attendances()
+    {
+        return $this->hasManyThrough(Attendance::class, Employee::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

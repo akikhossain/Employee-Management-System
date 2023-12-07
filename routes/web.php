@@ -79,6 +79,8 @@ Route::group(['prefix' => 'admin'], function () {
         // attendance employee
         Route::get('/check-in', [AttendanceController::class, 'checkIn'])->name('check-in');
         Route::get('/check-out', [AttendanceController::class, 'checkOut'])->name('check-out');
+        Route::get('/attendance/myAttendance', [AttendanceController::class, 'myAttendance'])->name('attendance.myAttendance');
+
 
 
 
@@ -127,6 +129,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('Payroll/createPayroll', [PayrollController::class, 'createPayroll'])->name('payroll.create');
         Route::get('/SalaryStructure/view', [PayrollController::class, 'viewPayroll'])->name('payroll.view');
         Route::post('/Payroll/store', [PayrollController::class, 'payrollStore'])->name('payroll.store');
+        Route::get('/employee/{employeeId}/attendances', 'PayrollController@fetchEmployeeAttendances');
 
         // Users
         // Route::get('/users/create', [UserController::class, 'createForm'])->name('users.create');

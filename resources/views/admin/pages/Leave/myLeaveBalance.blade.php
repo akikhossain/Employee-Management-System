@@ -32,7 +32,7 @@
             <!-- Your leave application form or button can be added here -->
         </div>
         @else
-        <div class="class=" text-center fw-bold text-white bg-danger rounded-pill w-50 mx-auto p-2 mt-2 fs-5"">
+        <div class="text-center fw-bold text-white bg-danger rounded-pill w-50 mx-auto p-2 mt-2 fs-5">
             <!-- Display message if total taken days exceed the limit -->
             <p>You have already taken more than 25 days of leave. You cannot apply for more leave.</p>
         </div>

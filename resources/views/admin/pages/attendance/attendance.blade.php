@@ -9,8 +9,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 fs-5 text-center mb-2 p-2">
-                <p>Your presence counts. Each tick, a commitment. Every day, a step forward. Own your time, make each
-                    mark matter, and watch your efforts shape success. Your journey starts now.</p>
+                <p>Your presence counts. Each tick, a commitment. Every day, a step forward.</p>
+                <p>"Please note: Check-in after 9 AM will be considered as late and recorded accordingly. Check-out
+                    after 5 PM
+                    will be counted as overtime. You cannot give attendance after 5 PM. Thank you for your cooperation."
+                </p>
             </div>
         </div>
     </div>
@@ -24,7 +27,7 @@
                             <div>
                                 <h6 class="mb-4 text-center">Stamp Your Attendance</h6>
                                 <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <p class="small mb-0"><i class="far fa-clock me-2"></i>Schedule: 10AM - 6PM</p>
+
                                 </div>
                             </div>
                             <div class="d-flex align-items-center mb-4">
@@ -33,13 +36,15 @@
                                     class="img-fluid rounded-circle border border-dark border-3"
                                     style="width: 70px;"> --}}
                                 </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <div>
+                                <div class="flex-grow-1">
+                                    {{-- <div>
                                         <button type="button" class="btn btn-outline-dark btn-rounded btn-sm"
                                             data-mdb-ripple-color="dark">{{ auth()->user()->name }}</button><br>
                                         <button type="button" class="btn btn-outline-dark btn-rounded btn-sm mt-2"
                                             data-mdb-ripple-color="dark">{{ auth()->user()->role }}</button>
-                                    </div>
+                                    </div> --}}
+                                    <p class="small mb-0 text-center"><i class="far fa-clock me-2"></i>Schedule: 09 AM -
+                                        05 PM</p>
                                 </div>
                             </div>
                             <hr>

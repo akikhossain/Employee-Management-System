@@ -14,7 +14,9 @@
                 <th>Duration</th>
                 <th>Date</th>
                 <th>Check In</th>
+                <th>Late</th>
                 <th>Check Out</th>
+                <th>Overtime</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -28,10 +30,15 @@
                 </td>
                 <td>{{ $attendance->name }}</td>
                 <td>{{ $attendance->employee_id }}</td>
-                <td>{{ $attendance->duration}}</td>
+                <td>
+                    {{ sprintf('%02d:%02d:%02d', $attendance->duration_minutes / 60, $attendance->duration_minutes % 60,
+                    0) }}
+                </td>
                 <td>{{ $attendance->select_date }}</td>
                 <td>{{ $attendance->check_in }}</td>
+                <td>{{ $attendance->late }}</td>
                 <td>{{ $attendance->check_out }}</td>
+                <td>{{ $attendance->overtime }}</td>
                 <td>
                     <a class="btn btn-success rounded-pill " href="">Edit</a>
                     <a class="btn btn-danger rounded-pill " href="">Delete</a>

@@ -22,24 +22,46 @@ class AttendanceController extends Controller
 
     public function checkIn()
     {
+        $currentTime = now();
+        $nineAm = Carbon::createFromTime(9, 0, 0); // 9 AM
+        $fivePm = Carbon::createFromTime(17, 0, 0); // 5 PM
+
+        if ($currentTime->greaterThan($fivePm)) {
+            // Outside working hours, can't check in
+            notify()->error('You cannot check-in after 5 PM.');
+            return redirect()->back();
+        }
+
+        if ($currentTime->lessThan($nineAm)) {
+            // Outside working hours, can't check in yet
+            notify()->error('You can check-in after 9 AM.');
+            return redirect()->back();
+        }
+
         $existingAttendance = Attendance::where('employee_id', auth()->user()->id)
             ->whereDate('select_date', now()->toDateString())
             ->first();
 
         if ($existingAttendance) {
-            notify()->error('Attendance already given');
+            notify()->error('Attendance already given.');
             return redirect()->back();
         }
+
+        $late = $currentTime->diff($nineAm)->format('%H:%I:%S');
+
         Attendance::create([
             'employee_id' => auth()->user()->id,
             'name' => auth()->user()->name,
-            'check_in' => now()->format('H:i:s'),
+            'check_in' => $currentTime->format('H:i:s'),
             'check_out' => null,
             'select_date' => now(),
+            'late' => $late, // Save late time
         ]);
-        notify()->success('Attendance given successfully');
+
+        notify()->success('Attendance given successfully.');
         return redirect()->back();
     }
+
 
     public function checkOut()
     {
@@ -48,6 +70,23 @@ class AttendanceController extends Controller
             ->first();
 
         if ($existingAttendance) {
+            $currentTime = now();
+            $fivePm = Carbon::createFromTime(17, 0, 0); // 5 PM
+
+            if ($currentTime->greaterThan($fivePm)) {
+                // Calculate overtime
+                $checkInTime = Carbon::createFromTimeString($existingAttendance->check_in);
+                $overtime = $currentTime->diff($checkInTime)->format('%H:%I:%S');
+
+                // Notify about overtime
+                notify()->info("Overtime: $overtime");
+
+                // Update the overtime column
+                $existingAttendance->update([
+                    'overtime' => $overtime,
+                ]);
+            }
+
             if ($existingAttendance->check_out !== null) {
                 notify()->error('You have already checked out for today.');
                 return redirect()->back();
@@ -58,14 +97,13 @@ class AttendanceController extends Controller
             ]);
 
             // Calculate duration and store it
-            $checkInTime = \Carbon\Carbon::createFromTimeString($existingAttendance->check_in);
-            $checkOutTime = \Carbon\Carbon::createFromTimeString($existingAttendance->check_out);
-            $duration = $checkOutTime->diff($checkInTime)->format('%H:%I:%S');
+            $checkInTime = Carbon::createFromTimeString($existingAttendance->check_in);
+            $checkOutTime = Carbon::createFromTimeString($existingAttendance->check_out);
+            $duration = $checkOutTime->diffInMinutes($checkInTime);
 
             $existingAttendance->update([
-                'duration' => $duration,
+                'duration_minutes' => $duration,
             ]);
-
 
             notify()->success('You have Check-out successfully.');
         } else {
@@ -73,5 +111,16 @@ class AttendanceController extends Controller
         }
 
         return redirect()->back();
+    }
+
+
+    public function myAttendance()
+    {
+        $userId = auth()->user()->id;
+
+        // Retrieve leave records for the authenticated user only
+        $attendances = Attendance::where('employee_id', $userId)
+            ->paginate(3);
+        return view('admin.pages.attendance.myAttendance', compact('attendances'));
     }
 }
