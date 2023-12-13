@@ -49,17 +49,8 @@
                                             Role:</label>
                                         <select required type="text" id="form11Example1" name="role"
                                             class="form-control">
-                                            <option value="admin">Administrator</option>
                                             <option value="manager">Manager</option>
                                             <option value="employee">Employee/Staff</option>
-                                            <option value="hr">Human Resources (HR)</option>
-                                            <option value="it">IT Support</option>
-                                            <option value="finance">Finance/Accounting</option>
-                                            <option value="customer_service">Customer Service</option>
-                                            <option value="operations">Operations</option>
-                                            <option value="project_management">Project Management</option>
-                                            <option value="content_management">Content Management</option>
-                                            <option value="quality_assurance">Quality Assurance</option>
                                         </select>
                                     </div>
                                     <div class="mt-2">

@@ -38,7 +38,7 @@
                                 <div class="col-md-6">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold " for="form11Example1">Service
-                                            Description</label>
+                                            Title</label>
                                         <input required placeholder="Service Title" type="text" id="form11Example1"
                                             name="description" class="form-control" />
                                     </div>
