@@ -97,8 +97,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/Organization/designation', [DesignationController::class, 'designation'])->name('organization.designation');
         Route::post('/Organization/designation/store', [DesignationController::class, 'designationStore'])->name('organization.designation.store');
         Route::get('/designation/delete/{id}', [DesignationController::class, 'delete'])->name('designation.delete');
-        Route::get('/designation/edit/{id}', [DesignationController::class, 'edit'])->name('designation.edit');
-        Route::put('/designation/update/{id}', [DesignationController::class, 'update'])->name('designation.update');
+        Route::get('/designation/edit/{id}', [DesignationController::class, 'edit'])->name('designation.editDesign');
+        Route::put('/designation/update/{id}', [DesignationController::class, 'update'])->name('update.designation');
 
 
         // Leave

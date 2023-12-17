@@ -35,7 +35,7 @@ class DesignationController extends Controller
             'designation_id' => $request->designation_id,
             'salary' => $request->salary,
         ]);
-        notify()->success('New Designation created successfully.');
+        notify()->success('New Designation created successfully');
         return redirect()->back();
     }
 
@@ -45,16 +45,19 @@ class DesignationController extends Controller
         if ($department) {
             $department->delete();
         }
-        notify()->success('Department Deleted Successfully.');
+        notify()->success('Designation Deleted Successfully');
         return redirect()->back();
     }
     public function edit($id)
     {
-        $designation = Designation::find($id);
-        return view('admin.pages.Organization.Designation.editDesignation', compact('designation'));
+        $department = Designation::find($id);
+        return view('admin.pages.Organization.Designation.editDesignation', compact('department'));
+        // $designation = Designation::find($id);
+        // return view('admin.pages.Organization.Designation.editDesignation', compact('designation'));
     }
     public function update(Request $request, $id)
     {
+
         $designation = Designation::find($id);
         if ($designation) {
 
@@ -72,7 +75,7 @@ class DesignationController extends Controller
                 'salary' => $request->salary,
             ]);
 
-            notify()->success('Your information updated successfully.');
+            notify()->success('Updated successfully.');
             return redirect()->route('organization.designation');
         }
     }

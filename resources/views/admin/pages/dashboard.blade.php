@@ -17,6 +17,11 @@
 </div>
 <section class="mb-3 mb-lg-5">
     <div class="row mb-3">
+
+
+        {{-- Admin Only --}}
+
+
         <!-- Widget Type 1-->
         <div class="mb-4 col-sm-6 col-lg-3 mb-4">
             <div class="card h-100">
@@ -78,7 +83,7 @@
                 </a>
             </div>
         </div>
-        <!-- /Widget Type 1-->
+
         <!-- Widget Type 1-->
         <div class="mb-4 col-sm-6 col-lg-3 mb-4">
             <div class="card h-100">
@@ -90,7 +95,8 @@
                         </div>
                         <div class="flex-shrink-0 ms-3">
                             <div>
-                                <img class="img-fluid custom-small-img" src="https://i.ibb.co/wcZWNbF/arrow.png" alt="">
+                                <img class="img-fluid custom-small-img" src="{{ asset('assests/image/leave.png') }}"
+                                    alt="">
                             </div>
                         </div>
                     </div>
@@ -110,35 +116,6 @@
         </div>
         <!-- /Widget Type 1-->
 
-        {{-- <div class="mb-4 col-sm-6 col-lg-3 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div>
-                            <h4 class="fw-normal text-green">5</h4>
-                            <p class="subtitle text-sm text-muted mb-0">Pending Tour</p>
-                        </div>
-                        <div class="flex-shrink-0 ms-3">
-                            <div>
-                                <img class="img-fluid custom-small-img" src="https://i.ibb.co/j6mV9pD/destination.png"
-                                    alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a class="text-decoration-none" href="{{ route('leave.leaveStatus') }}">
-                    <div class="card-footer py-3 bg-green-light">
-                        <div class="row align-items-center text-green">
-                            <div class="col-10">
-                                <p class="mb-0">View Details</p>
-                            </div>
-                            <div class="col-2 text-end"><i class="fas fa-caret-up"></i>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div> --}}
         <div class="mb-4 col-sm-6 col-lg-3 mb-4">
             <div class="card h-100">
                 <div class="card-body">
@@ -149,7 +126,8 @@
                         </div>
                         <div class="flex-shrink-0 ms-3">
                             <div>
-                                <img class="img-fluid custom-small-img" src="https://i.ibb.co/1KBpbBF/group.png" alt="">
+                                <img class="img-fluid custom-small-img" src="{{ asset('assests/image/users.png') }}"
+                                    alt="">
                             </div>
                         </div>
                     </div>
@@ -166,4 +144,37 @@
                     </div>
                 </a>
             </div>
+        </div>
+
+
+        {{-- Employee Only --}}
+        <div class="mb-4 col-sm-6 col-lg-3 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h4 class="fw-normal text-green"></h4>
+                            <p class="subtitle text-sm text-muted mb-0">My Profile</p>
+                        </div>
+                        <div class="flex-shrink-0 ms-3">
+                            <div>
+                                <img class="img-fluid custom-small-img" src="{{ asset('assests/image/profile.png') }}"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="text-decoration-none" href="{{ route('profile') }}">
+                    <div class="card-footer py-3 bg-green-light">
+                        <div class="row align-items-center text-green">
+                            <div class="col-10">
+                                <p class="mb-0">View Details</p>
+                            </div>
+                            <div class="col-2 text-end"><i class="fas fa-caret-up"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
             @endsection
