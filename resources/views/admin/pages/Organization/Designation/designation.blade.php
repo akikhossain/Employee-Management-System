@@ -79,7 +79,7 @@
                                 <td>{{ $item->salary }}</td>
                                 <td>
                                     <a class="btn btn-success rounded-pill fw-bold text-white"
-                                        href="{{ route('designation.editDesign', $item->id) }}">Edit</a>
+                                        href="{{ route('designation.edit', $item->id) }}">Edit</a>
                                     <a class="btn btn-danger rounded-pill fw-bold text-white"
                                         href="{{ route('designation.delete', $item->id) }}">Delete</a>
                                 </td>

@@ -74,7 +74,7 @@ class OrganizationController extends Controller
                 'department_id' => $request->department_id,
             ]);
 
-            notify()->success('Your information updated successfully.');
+            notify()->success('Updated successfully.');
             return redirect()->route('organization.department');
         }
     }

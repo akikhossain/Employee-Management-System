@@ -10,14 +10,14 @@
     <section>
         <div class="d-flex gap-5 justify-content-center align-content-center ">
 
-            {{-- Department Form start --}}
+            {{-- Designation start --}}
             <div class="text-left w-50">
                 <div class="card mb-4">
                     <div class="card-header py-3">
                         <h5 class="text-uppercase">Update Designation</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('update.designation', $department->id) }}" method="post">
+                        <form action="{{ route('Designation.update', $designation->id) }}" method="post">
                             @csrf
                             @method('put')
                             <div class="row mb-4">

@@ -10,7 +10,7 @@
 
         {{-- User Profile --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
-                href="{{ route('profile') }}"><i class="fa-solid fa-location-dot me-2 text-info"></i>
+                href="{{ route('profile') }}"><i class="fa-regular fa-user  me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Profile</span></a>
         </li>
 
@@ -120,7 +120,7 @@
 
         {{-- Users --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
-                href="{{ route('users.list') }}"><i class="fa-regular fa-user  me-2 text-info"></i>
+                href="{{ route('users.list') }}"><i class="fa-regular fa-user-plus me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Users</span></a>
         </li>
     </ul>

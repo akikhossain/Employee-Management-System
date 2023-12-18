@@ -50,10 +50,8 @@ class DesignationController extends Controller
     }
     public function edit($id)
     {
-        $department = Designation::find($id);
-        return view('admin.pages.Organization.Designation.editDesignation', compact('department'));
-        // $designation = Designation::find($id);
-        // return view('admin.pages.Organization.Designation.editDesignation', compact('designation'));
+        $designation = Designation::find($id);
+        return view('admin.pages.Organization.Designation.editDesignation', compact('designation'));
     }
     public function update(Request $request, $id)
     {

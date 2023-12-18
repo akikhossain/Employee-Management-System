@@ -70,20 +70,24 @@ class AttendanceController extends Controller
             ->first();
 
         if ($existingAttendance) {
-            $currentTime = now();
-            $fivePm = Carbon::createFromTime(17, 0, 0); // 5 PM
+            $checkInTime = Carbon::createFromTimeString($existingAttendance->check_in);
+            $checkOutTime = now();
+            $regularWorkingHours = $checkInTime->copy()->setTime(17, 0, 0); // Assuming 5 PM as regular working hours
 
-            if ($currentTime->greaterThan($fivePm)) {
-                // Calculate overtime
-                $checkInTime = Carbon::createFromTimeString($existingAttendance->check_in);
-                $overtime = $currentTime->diff($checkInTime)->format('%H:%I:%S');
+            // Calculate overtime
+            $overtime = $checkOutTime->diff($regularWorkingHours)->format('%H:%I:%S');
 
-                // Notify about overtime
-                notify()->info("Overtime: $overtime");
-
-                // Update the overtime column
+            if ($checkOutTime->greaterThan($regularWorkingHours)) {
+                // If checked out after regular working hours, calculate overtime
                 $existingAttendance->update([
                     'overtime' => $overtime,
+                ]);
+
+                notify()->info("Overtime: $overtime");
+            } else {
+                // If checked out within regular working hours, no overtime
+                $existingAttendance->update([
+                    'overtime' => null,
                 ]);
             }
 
@@ -93,19 +97,16 @@ class AttendanceController extends Controller
             }
 
             $existingAttendance->update([
-                'check_out' => now()->format('H:i:s'),
+                'check_out' => $checkOutTime->format('H:i:s'),
             ]);
 
             // Calculate duration and store it
-            $checkInTime = Carbon::createFromTimeString($existingAttendance->check_in);
-            $checkOutTime = Carbon::createFromTimeString($existingAttendance->check_out);
             $duration = $checkOutTime->diffInMinutes($checkInTime);
-
             $existingAttendance->update([
                 'duration_minutes' => $duration,
             ]);
 
-            notify()->success('You have Check-out successfully.');
+            notify()->success('You have checked out successfully.');
         } else {
             notify()->error('No check-in found for today.');
         }
