@@ -113,9 +113,21 @@
         </li>
 
         {{-- Payroll --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
-                href="{{ route('payroll.create') }}"><i class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
+        <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#"
+                data-bs-target="#e-commerceDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
+                    class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Payroll</span></a>
+            <ul class="sidebar-menu list-unstyled collapse " id="e-commerceDropdown">
+                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('payroll.create') }}"><i
+                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Create Payroll</a>
+                </li>
+                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('payroll.view') }}"><i
+                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Payroll List</a></li>
+                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3" href=""><i
+                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>My Payroll</a></li>
+            </ul>
         </li>
 
         {{-- Salary Structure --}}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Notify;
 use App\Models\Service;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -56,9 +57,11 @@ class homeController extends Controller
         Notify::create([
             'notice_title' => $request->notice_title,
             'description' => $request->description,
+            'select_date' => Carbon::now(),
+
 
         ]);
-        notify()->success('New Services created successfully.');
+        notify()->success('New Notice created successfully');
         return redirect()->back();
     }
 

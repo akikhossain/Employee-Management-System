@@ -32,6 +32,7 @@
                 <td>{{ $item->description }}</td>
                 <td><img class="avatar p-1" src="{{ url('/uploads//' . $item->service_image) }}" alt=""></td>
                 <td>
+                    <a class="btn btn-success rounded-pill" target="_blank" href="{{ route('services') }}">View</a>
                     <a class="btn btn-warning rounded-pill" href="">Edit</a>
                     <a class="btn btn-danger rounded-pill" href="">Delete</a>
                 </td>

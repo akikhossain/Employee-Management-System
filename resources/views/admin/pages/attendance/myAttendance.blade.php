@@ -9,15 +9,13 @@
         <thead class="bg-light">
             <tr>
                 <th>#</th>
-                <th>Employee Name</th>
-                {{-- <th>Employee ID</th> --}}
+                <th>Name</th>
                 <th>Duration</th>
                 <th>Date</th>
                 <th>Check In</th>
                 <th>Late</th>
                 <th>Check Out</th>
                 <th>Overtime</th>
-                {{-- <th>Actions</th> --}}
             </tr>
         </thead>
         <tbody>
@@ -29,7 +27,6 @@
                     </div>
                 </td>
                 <td>{{ $attendance->name }}</td>
-                {{-- <td>{{ $attendance->employee_id }}</td> --}}
                 <td>
                     {{ sprintf('%02d:%02d:%02d', $attendance->duration_minutes / 60, $attendance->duration_minutes % 60,
                     0) }}
@@ -39,10 +36,6 @@
                 <td>{{ $attendance->late }}</td>
                 <td>{{ $attendance->check_out }}</td>
                 <td>{{ $attendance->overtime }}</td>
-                {{-- <td>
-                    <a class="btn btn-success rounded-pill " href="">Edit</a>
-                    <a class="btn btn-danger rounded-pill " href="">Delete</a>
-                </td> --}}
             </tr>
             @endforeach
         </tbody>

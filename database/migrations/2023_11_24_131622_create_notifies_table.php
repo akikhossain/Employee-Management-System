@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('notice_title', 20);
             $table->string('description')->nullable();
+            $table->date('select_date')->nullable();
             $table->timestamps();
         });
     }

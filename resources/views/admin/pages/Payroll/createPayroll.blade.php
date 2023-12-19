@@ -47,7 +47,7 @@
                                 <div class="col-md-6">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="total_hours">Total Hours:</label>
-                                        <input type="text" id="total_hours" class="form-control" name="total_hours"
+                                        <input id="total_hours" class="form-control" name="total_hours"
                                             value="{{ $totalHours }}">
 
                                     </div>
@@ -65,22 +65,45 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-outline">
-                                <label class="form-label mt-2 fw-bold" for="salary_structure_id">Total Salary</label>
-                                <select name="salary_structure_id" class="form-control">
-                                    @foreach($salaryStructures as $structure)
-                                    <option value="{{ $structure->id }}">
-                                        {{ $structure->total_salary }}
-                                    </option>
-                                    @endforeach
-                                </select>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="form-outline">
+                                        <label class="form-label mt-2 fw-bold" for="salary_structure_id">Total
+                                            Salary</label>
+                                        <select name="salary_structure_id" class="form-control">
+                                            @foreach($salaryStructures as $structure)
+                                            <option value="{{ $structure->id }}">
+                                                {{ $structure->total_salary }}
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-outline">
+                                        <label class="form-label mt-2 fw-bold" for="income_tax">Month</label>
+                                        <select name="month" class="form-control">
+                                            <option value="January">January</option>
+                                            <option value="february">February</option>
+                                            <option value="march">March</option>
+                                            <option value="april">April</option>
+                                            <option value="may">May</option>
+                                            <option value="june">June</option>
+                                            <option value="july">July</option>
+                                            <option value="august">August</option>
+                                            <option value="september">September</option>
+                                            <option value="october">October</option>
+                                            <option value="november">November</option>
+                                            <option value="december">December</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                             <div class="mt-3 w-25 mx-auto text-center">
                                 <button type="submit" class="btn btn-success p-2 text-lg rounded-pill col-md-10">Create
                                     Payroll</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>

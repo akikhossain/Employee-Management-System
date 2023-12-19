@@ -16,14 +16,13 @@
         <tbody>
             @foreach ($notices->reverse() as $index => $notice)
             <tr>
-                <td>{{ $notice->date }}</td>
+                <td>{{ $notice->select_date }}</td>
                 <td>{{ $notice->notice_title }}</td>
                 <td>
                     <a href="#" class="btn btn-success rounded-pill" data-toggle="modal"
                         data-target="#noticeModal{{ $index }}">Details</a>
                 </td>
             </tr>
-
             <!-- Notice Modal for each notice -->
             <div class="modal fade" id="noticeModal{{ $index }}" tabindex="-1" role="dialog"
                 aria-labelledby="noticeModal{{ $index }}Label" aria-hidden="true">
@@ -44,7 +43,6 @@
                         <div class="modal-footer d-flex justify-content-center">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         </div>
-
                     </div>
                 </div>
             </div>
