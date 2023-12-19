@@ -13,7 +13,7 @@
             <tr>
                 <th>Employee</th>
                 <th>Total Hours</th>
-                <th>Salary Structure</th>
+                <th>Salary Type</th>
                 <th>Total Salary</th>
                 <th>Deduction</th>
                 <th>Total Payable</th>

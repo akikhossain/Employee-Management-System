@@ -155,5 +155,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/Service/create', [ServicesController::class, 'serviceForm'])->name('service.form');
         Route::post('/Service/store', [ServicesController::class, 'serviceStore'])->name('service.store');
         Route::get('/Service/serviceList', [ServicesController::class, 'serviceList'])->name('list.service');
+
+
+        // Notices
+        Route::get('/notice', [FrontendHomeController::class, 'showNotice'])->name('show.notice');
     });
 });

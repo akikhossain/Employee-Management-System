@@ -142,7 +142,7 @@
                     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                         <div class="testimonial-block">
                             <div class="testimonial-content">
-                                <h2 class="text-white">Update: {{ $notice->notice_title }}</h2>
+                                <h2 class="text-white">{{ $notice->notice_title }}</h2>
                                 <p class="testimonial-text">“{{ $notice->description }}”</p>
                             </div>
                         </div>

@@ -10,8 +10,14 @@
 
         {{-- User Profile --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
-                href="{{ route('profile') }}"><i class="fa-regular fa-user  me-2 text-info"></i>
+                href="{{ route('profile') }}"><i class="fa-regular fa-user me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Profile</span></a>
+        </li>
+
+        {{-- Notice --}}
+        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
+                href="{{ route('show.notice') }}"><i class="fa-solid fa-check me-2 text-info"></i>
+                <span class="sidebar-link-title fs-5">Notices</span></a>
         </li>
 
         {{-- Attendance --}}
@@ -120,7 +126,7 @@
 
         {{-- Users --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
-                href="{{ route('users.list') }}"><i class="fa-regular fa-user-plus me-2 text-info"></i>
+                href="{{ route('users.list') }}"><i class="fa-solid fa-circle-user me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Users</span></a>
         </li>
     </ul>
@@ -133,7 +139,7 @@
         </li>
         <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('notice') }}"><i
                     class="fa-solid fa-volume-high  me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Notice</span></a>
+                <span class="sidebar-link-title fs-5">Create Notice</span></a>
         </li>
     </div>
 

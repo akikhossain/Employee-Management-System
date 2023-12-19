@@ -16,6 +16,13 @@ class homeController extends Controller
         $notices = Notify::all();
         return view('Frontend.partials.homeDashboard', compact('services', 'notices'));
     }
+
+    public function showNotice()
+    {
+        $notices = Notify::all();
+        return view('admin.pages.Notices.notices', compact('notices'));
+    }
+
     public function service()
     {
         $services = Service::all();

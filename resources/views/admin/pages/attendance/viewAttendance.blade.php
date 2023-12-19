@@ -8,9 +8,9 @@
     <table class="table align-middle mb-4 text-center  bg-white">
         <thead class="bg-light">
             <tr>
-                <th>SL NO</th>
+                <th>#</th>
                 <th>Employee Name</th>
-                <th>Employee ID</th>
+                {{-- <th>Employee ID</th> --}}
                 <th>Duration</th>
                 <th>Date</th>
                 <th>Check In</th>
@@ -29,7 +29,7 @@
                     </div>
                 </td>
                 <td>{{ $attendance->name }}</td>
-                <td>{{ $attendance->employee_id }}</td>
+                {{-- <td>{{ $attendance->employee_id }}</td> --}}
                 <td>
                     {{ sprintf('%02d:%02d:%02d', $attendance->duration_minutes / 60, $attendance->duration_minutes % 60,
                     0) }}
