@@ -74,6 +74,11 @@
             /* Set text color to white for better visibility */
         }
 
+        .notify {
+            z-index: 9999;
+            justify-content: center;
+        }
+
         .custom-color {
             color: #1e88e5;
         }

@@ -47,6 +47,7 @@ Route::post('/notice/store', [FrontendHomeController::class, 'noticeStore'])->na
 
 // Contact Us Section
 Route::get('/contacts', [FrontendHomeController::class, 'contact'])->name('contacts');
+Route::post('/contact/store', [FrontendHomeController::class, 'contactStore'])->name('contactStore');
 
 
 
@@ -160,5 +161,9 @@ Route::group(['prefix' => 'admin'], function () {
 
         // Notices
         Route::get('/notice', [FrontendHomeController::class, 'showNotice'])->name('show.notice');
+
+
+        // contact message
+        Route::get('/contactUs/Message', [HomeController::class, 'message'])->name('message');
     });
 });

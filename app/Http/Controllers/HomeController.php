@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Department;
 use App\Models\Employee;
 use App\Models\Leave;
@@ -26,5 +27,13 @@ class HomeController extends Controller
         $user = auth()->user();
 
         return view('admin.partials.header', compact('user'));
+    }
+
+
+    // contact message
+    public function message()
+    {
+        $messages = Contact::all();
+        return view('admin.pages.contactMessage.contactMessage', compact('messages'));
     }
 }

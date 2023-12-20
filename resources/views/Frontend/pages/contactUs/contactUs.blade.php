@@ -4,15 +4,14 @@
 <div class="space-medium bg-light">
     <div class="page-header mb-5">
     </div>
-    <!-- /.map-section-->
-    <!-- contact-form-->
     <div class="container mt-5">
         <div class="row">
             <div class="col-lg-offset-1 col-lg-10  col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
                 <div class="contact-form">
                     <h1 class="contact-info-title mb40 ">How Can We Help You?</h1>
                     <div class="row">
-                        <form>
+                        <form action="{{ route('contactStore') }}" method="post">
+                            @csrf
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-group">
                                     <label class="control-label sr-only" for="name"></label>
@@ -30,7 +29,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-group">
                                     <label class="control-label sr-only" for="phone"></label>
-                                    <input id="phone" type="text" name="phone" placeholder="Phone" class="form-control"
+                                    <input id="phone" type="tel" name="phone" placeholder="Phone" class="form-control"
                                         required>
                                 </div>
                             </div>
@@ -48,8 +47,9 @@
                                         placeholder="Message"></textarea>
                                 </div>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
-                                <button class="btn btn-primary btn-lg " type="submit">Send us message</button>
+                            <div class="text-center w-25 mx-auto mt-3">
+                                <button type="submit" class="btn btn-info p-2 text-lg  rounded col-md-10">Send
+                                    Message</button>
                             </div>
                         </form>
                     </div>

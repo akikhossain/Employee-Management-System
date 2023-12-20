@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use App\Models\Notify;
 use App\Models\Service;
 use Carbon\Carbon;
@@ -68,10 +69,36 @@ class homeController extends Controller
     // contact
     public function contact()
     {
-
         return view('Frontend.pages.contactUs.contactUs');
     }
 
+    public function contactStore(Request $request)
+    {
+        // dd($request->all());
+        $validate = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+
+        if ($validate->fails()) {
+            notify()->error($validate->getMessageBag());
+            return redirect()->back();
+        }
+
+        Contact::create([
+            'date' => Carbon::now(),
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'subject' => $request->subject,
+            'message' => $request->message,
+        ]);
+        notify()->success('Message Sent Successfully');
+        return redirect()->back();
+    }
 
     // job list section
     public function jobList()
