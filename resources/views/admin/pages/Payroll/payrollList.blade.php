@@ -12,11 +12,13 @@
         <thead class="bg-light">
             <tr>
                 <th>Employee</th>
-                <th>Total Hours</th>
+                <th>Month</th>
+                <th>Department</th>
+                <th>Hours</th>
                 <th>Salary Type</th>
-                <th>Total Salary</th>
+                <th>Salary</th>
                 <th>Deduction</th>
-                <th>Total Payable</th>
+                <th>Net Pay</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -24,6 +26,8 @@
             @foreach($payrolls as $payroll)
             <tr>
                 <td>{{ $payroll->employee->name }}</td>
+                <td>December</td>
+                <td>HRMS</td>
                 <td>{{ $payroll->total_hours }}</td>
                 <td>{{ $payroll->salaryStructure->salary_class }}</td>
                 <td>{{ $payroll->salaryStructure->total_salary }}</td>

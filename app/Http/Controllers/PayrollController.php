@@ -22,32 +22,29 @@ class PayrollController extends Controller
     //     return view('admin.pages.Payroll.createPayroll', compact('employees', 'salaryStructures'));
     // }
 
+
     public function createPayroll(Request $request)
     {
-        // Fetch employees and salary structures for dropdowns
         $employees = Employee::all();
         $salaryStructures = SalaryStructure::select('id', 'total_salary', 'salary_class')->get();
 
-        // Get the employee ID from the request
-        $employeeId = $request->input('employee_id');
+        $userId = Auth::id();
+        $employee = Employee::where('user_id', $userId)->first();
 
-        // Get the total duration for the selected employee
-        $totalDuration = Attendance::where('employee_id', $employeeId)
-            ->select(DB::raw('SUM(duration_minutes) as total_duration'))
-            ->groupBy('employee_id')
-            ->first();
+        $totalHours = 0; // Set a default value for total hours
 
-        // Convert total duration in minutes to hours
-        $totalHours = $totalDuration ? round($totalDuration->total_duration / 60, 2) : 0;
-
+        if ($employee) {
+            $totalDuration = Attendance::where('employee_id', $employee->id)
+                ->sum('duration_minutes');
+            $totalHours = round($totalDuration / 60, 2);
+        }
         return view('admin.pages.Payroll.createPayroll', compact('employees', 'salaryStructures', 'totalHours'));
     }
 
 
-
     public function payrollStore(Request $request)
     {
-        // Validate request data
+
         $validate = Validator::make($request->all(), [
             'employee_id' => 'required',
             'salary_structure_id' => 'required',
@@ -56,14 +53,10 @@ class PayrollController extends Controller
         ]);
 
         if ($validate->fails()) {
-            // Handle validation errors, like displaying errors and redirecting back
             return redirect()->back()->withErrors($validate)->withInput();
         }
 
-        // Calculate total hours from attendance records
         $totalHours = $request->input('total_hours');
-
-
         $salaryStructure = SalaryStructure::findOrFail($request->salary_structure_id);
 
         // Deduction values
@@ -74,14 +67,10 @@ class PayrollController extends Controller
             'no_deduction' => 0,
         ];
 
-        // Retrieve selected deduction or default to 0
         $selectedDeduction = $request->deduction;
         $deduction = $deductionValues[$selectedDeduction] ?? 0;
-
-        // Calculate total payable
         $totalPayable = $salaryStructure->total_salary - $deduction;
 
-        // Create a new payroll record
         Payroll::create([
             'employee_id' => $request->employee_id,
             'salary_structure_id' => $request->salary_structure_id,
@@ -95,7 +84,6 @@ class PayrollController extends Controller
 
     public function viewPayroll()
     {
-        // Retrieve all payrolls with associated employee and salary structure
         $payrolls = Payroll::with(['employee', 'salaryStructure'])->get();
         return view('admin.pages.Payroll.payrollList', compact('payrolls'));
     }

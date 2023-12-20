@@ -9,8 +9,7 @@
 
     </div>
 </div>
-<div class="  my-5 py-5">
-    {{-- <a href="{{ route('users.create') }}" class="btn btn-success">Create new User</a> --}}
+<div class="my-5 py-5">
     <table class="table align-middle text-center  w-75 mx-auto bg-white">
         <thead class="bg-light">
             <tr>

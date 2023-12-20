@@ -65,8 +65,6 @@ class UserController extends Controller
         $employee = Employee::find($employeeId);
 
         if (!$employee) {
-            // Handle scenario when employee is not found
-            // For instance, redirecting or displaying an error message
             return redirect()->back()->withErrors('Employee not found');
         }
 

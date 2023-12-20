@@ -73,6 +73,10 @@
             color: white;
             /* Set text color to white for better visibility */
         }
+
+        .custom-color {
+            color: #1e88e5;
+        }
     </style>
 </head>
 

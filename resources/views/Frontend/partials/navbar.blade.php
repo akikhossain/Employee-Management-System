@@ -14,7 +14,7 @@
                         <ul>
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('services') }}">Services</a></li>
-                            <li><a href="">Job List</a></li>
+                            <li><a href="{{ route('jobList') }}">Job List</a></li>
                             <li><a href="{{ route('client.list') }}">Client List</a></li>
                             <li><a href="{{ route('contacts') }}">Contact Us</a>
                             </li>

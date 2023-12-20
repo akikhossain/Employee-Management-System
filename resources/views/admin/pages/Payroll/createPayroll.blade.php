@@ -49,7 +49,6 @@
                                         <label class="form-label mt-2 fw-bold" for="total_hours">Total Hours:</label>
                                         <input id="total_hours" class="form-control" name="total_hours"
                                             value="{{ $totalHours }}">
-
                                     </div>
                                 </div>
 
@@ -81,9 +80,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-outline">
-                                        <label class="form-label mt-2 fw-bold" for="income_tax">Month</label>
+                                        <label class="form-label mt-2 fw-bold" for="income_tax">Select Month</label>
                                         <select name="month" class="form-control">
-                                            <option value="January">January</option>
+                                            <option value="january">January</option>
                                             <option value="february">February</option>
                                             <option value="march">March</option>
                                             <option value="april">April</option>

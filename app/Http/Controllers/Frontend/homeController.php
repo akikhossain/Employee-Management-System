@@ -68,7 +68,14 @@ class homeController extends Controller
     // contact
     public function contact()
     {
-        // $notices = Notify::all();
+
         return view('Frontend.pages.contactUs.contactUs');
+    }
+
+
+    // job list section
+    public function jobList()
+    {
+        return view('Frontend.pages.JobList.jobList');
     }
 }
