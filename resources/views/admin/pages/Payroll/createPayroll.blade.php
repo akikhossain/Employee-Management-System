@@ -44,23 +44,28 @@
                             </div>
 
                             <div class="row mb-4">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-outline">
-                                        <label class="form-label mt-2 fw-bold" for="total_hours">Total Hours:</label>
-                                        <input id="total_hours" class="form-control" name="total_hours"
-                                            value="{{ $totalHours }}">
+                                        <label class="form-label mt-2 fw-bold" for="income_tax">Select Year</label>
+                                        <select name="year" class="form-control">
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="income_tax">Deduction</label>
-                                        <select name="deduction" class="form-control">
-                                            <option value="income_tax">Income Taxes</option>
-                                            <option value="health_insurance">Health Insurance</option>
-                                            <option value="child_support">Child support payments</option>
-                                            <option value="no_deduction">No Deduction</option>
-                                        </select>
+                                        <input required name="deduction" type="number" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-outline">
+                                        <label class="form-label mt-2 fw-bold" for="income_tax">Reason of
+                                            Deduction</label>
+                                        <input name="reason" type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>

@@ -22,10 +22,10 @@ class SalaryController extends Controller
             'basic_salary' => 'required',
             'medical_expenses' => 'required',
             'mobile_allowance' => 'required',
+            'houseRent_allowance' => 'required',
         ]);
 
         if ($validate->fails()) {
-
             notify()->error($validate->getMessageBag());
             return redirect()->back();
         }
@@ -35,6 +35,7 @@ class SalaryController extends Controller
             'basic_salary' => $request->basic_salary,
             'medical_expenses' => $request->medical_expenses,
             'mobile_allowance' => $request->mobile_allowance,
+            'houseRent_allowance' => $request->houseRent_allowance,
         ]);
         notify()->success('New Salary created successfully.');
         return redirect()->back();

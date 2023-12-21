@@ -125,7 +125,8 @@
                 <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
                         href="{{ route('payroll.view') }}"><i
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Payroll List</a></li>
-                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3" href=""><i
+                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('myPayrollView') }}"><i
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>My Payroll</a></li>
             </ul>
         </li>

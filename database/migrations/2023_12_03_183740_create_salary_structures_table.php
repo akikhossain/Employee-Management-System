@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('basic_salary', 10, 2);
             $table->decimal('mobile_allowance', 8, 2);
             $table->decimal('medical_expenses', 8, 2);
+            $table->decimal('houseRent_allowance', 8, 2);
             $table->decimal('total_salary', 10, 2)->nullable();
             $table->timestamps();
         });

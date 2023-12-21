@@ -17,11 +17,13 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('salary_structure_id');
-            $table->decimal('total_hours', 8, 2)->nullable();
             $table->decimal('deduction', 10, 2)->nullable();
             $table->decimal('total_payable', 10, 2)->nullable();
+            $table->string('reason')->nullable();
+            $table->string('year')->nullable();
+            $table->string('month');
+            $table->date('date')->nullable(); // Added a date column
             $table->timestamps();
-
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->foreign('salary_structure_id')->references('id')->on('salary_structures')->onDelete('cascade');
         });
@@ -37,6 +39,3 @@ return new class extends Migration
         Schema::dropIfExists('payrolls');
     }
 };
-
-
-// $table->decimal('deduction', 10, 2)->nullable();

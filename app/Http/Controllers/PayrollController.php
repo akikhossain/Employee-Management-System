@@ -27,64 +27,69 @@ class PayrollController extends Controller
     {
         $employees = Employee::all();
         $salaryStructures = SalaryStructure::select('id', 'total_salary', 'salary_class')->get();
-
-        $userId = Auth::id();
-        $employee = Employee::where('user_id', $userId)->first();
-
-        $totalHours = 0; // Set a default value for total hours
-
-        if ($employee) {
-            $totalDuration = Attendance::where('employee_id', $employee->id)
-                ->sum('duration_minutes');
-            $totalHours = round($totalDuration / 60, 2);
-        }
-        return view('admin.pages.Payroll.createPayroll', compact('employees', 'salaryStructures', 'totalHours'));
+        return view('admin.pages.Payroll.createPayroll', compact('employees', 'salaryStructures'));
     }
 
 
     public function payrollStore(Request $request)
     {
-
         $validate = Validator::make($request->all(), [
             'employee_id' => 'required',
             'salary_structure_id' => 'required',
-            'total_hours' => 'required',
-            'deduction' => 'required',
+            'deduction' => 'required|numeric',
+            'year' => 'required',
+            'month' => 'required',
+            'reason' => 'nullable|string',
         ]);
 
         if ($validate->fails()) {
             return redirect()->back()->withErrors($validate)->withInput();
         }
 
-        $totalHours = $request->input('total_hours');
+        // Check for duplicate entry
+        $existingPayroll = Payroll::where('employee_id', $request->employee_id)
+            ->where('month', $request->month)
+            ->where('year', $request->year)
+            ->first();
+        if ($existingPayroll) {
+            notify()->error('Already Employee Payroll Exist');
+            return redirect()->back();
+        }
         $salaryStructure = SalaryStructure::findOrFail($request->salary_structure_id);
-
-        // Deduction values
-        $deductionValues = [
-            'income_tax' => 100,
-            'health_insurance' => 50,
-            'child_support' => 75,
-            'no_deduction' => 0,
-        ];
-
-        $selectedDeduction = $request->deduction;
-        $deduction = $deductionValues[$selectedDeduction] ?? 0;
+        $deduction = $request->input('deduction');
         $totalPayable = $salaryStructure->total_salary - $deduction;
 
         Payroll::create([
             'employee_id' => $request->employee_id,
             'salary_structure_id' => $request->salary_structure_id,
-            'total_hours' => $totalHours,
             'deduction' => $deduction,
+            'reason' => $request->input('reason'),
             'total_payable' => $totalPayable,
+            'year' => $request->input('year'),
+            'month' => $request->input('month'),
+            'date' => now(),
         ]);
+        notify()->success('Payroll created successfully.');
 
-        return redirect()->route('payroll.view')->with('success', 'Payroll created successfully.');
+        return redirect()->route('payroll.view');
     }
+
 
     public function viewPayroll()
     {
         $payrolls = Payroll::with(['employee', 'salaryStructure'])->get();
         return view('admin.pages.Payroll.payrollList', compact('payrolls'));
+    }
+
+    public function myPayroll()
+    {
+        $employee = Auth::user()->employee;
+        if (!$employee) {
+            abort(403, 'Unauthorized action');
+        }
+        $payrolls = Payroll::with(['employee', 'salaryStructure'])
+            ->where('employee_id', $employee->id)
+            ->get();
+        return view('admin.pages.Payroll.myPayrollList', compact('payrolls'));
     }
 }

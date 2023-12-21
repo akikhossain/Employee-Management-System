@@ -23,13 +23,8 @@
                                 <div class="col-md-6">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="salaryClass">Salary Class</label>
-                                        <select required id="salaryClass" name="salary_class" class="form-control"
-                                            onchange="setSalaryValues()">
-                                            <option value="">Select Salary Class</option>
-                                            <option value="Entry Level">Entry Level</option>
-                                            <option value="Mid Level">Mid Level</option>
-                                            <option value="Senior Level">Senior Level</option>
-                                        </select>
+                                        <input required id="salaryClass" placeholder="Enter Salary Class"
+                                            name="salary_class" class="form-control">
                                     </div>
                                     <div class="mt-2">
                                         @error('salary_class')
@@ -51,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="medicalExpenses">Medical
                                             Expenses</label>
@@ -64,7 +59,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="mobileAllowance">Mobile
                                             Allowance</label>
@@ -73,6 +68,19 @@
                                     </div>
                                     <div class="mt-2">
                                         @error('mobile_allowance')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-outline">
+                                        <label class="form-label mt-2 fw-bold" for="mobileAllowance">House Rent
+                                            Allowance</label>
+                                        <input required placeholder="Hourse Rent Allowance" type="number"
+                                            name="houseRent_allowance" class="form-control" />
+                                    </div>
+                                    <div class="mt-2">
+                                        @error('houseRent_allowance')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -90,7 +98,7 @@
     </section>
 </div>
 
-<script>
+{{-- <script>
     function setSalaryValues() {
         const salaryClass = document.getElementById('salaryClass').value;
         const basicSalaryInput = document.getElementById('basicSalary');
@@ -111,6 +119,6 @@
             mobileAllowanceInput.value = '100';
         }
     }
-</script>
+</script> --}}
 
 @endsection

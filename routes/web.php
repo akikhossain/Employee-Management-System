@@ -131,6 +131,7 @@ Route::group(['prefix' => 'admin'], function () {
         // Payroll
         Route::get('Payroll/createPayroll', [PayrollController::class, 'createPayroll'])->name('payroll.create');
         Route::get('/Payroll/PayrollList', [PayrollController::class, 'viewPayroll'])->name('payroll.view');
+        Route::get('/Payroll/myPayrollList', [PayrollController::class, 'myPayroll'])->name('myPayrollView');
         Route::post('/Payroll/store', [PayrollController::class, 'payrollStore'])->name('payroll.store');
         // Route::get('/employee/{employeeId}/attendances', 'PayrollController@fetchEmployeeAttendances');
 

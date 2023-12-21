@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
-    <h4 class="text-uppercase">Payroll List</h4>
+    <h4 class="text-uppercase">My Payroll Record</h4>
     {{-- <div>
         <a href="{{ route('salary.create') }}" class="btn btn-success p-2 text-lg rounded-pill">Create New Salary</a>
     </div> --}}
@@ -20,7 +20,7 @@
                 <th>Deduction</th>
                 <th>Reason</th>
                 <th>Net Pay</th>
-                <th>Action</th>
+                <th>status</th>
             </tr>
         </thead>
         <tbody>
@@ -37,8 +37,7 @@
                 <td>{{ $payroll->total_payable }}</td>
                 <td>
                     <a class="btn btn-success rounded-pill" href="">Pay</a>
-                    <a class="btn btn-warning rounded-pill" href="">Edit</a>
-                    <a class="btn btn-danger rounded-pill" href="">Delete</a>
+                    <a class="btn btn-warning rounded-pill" href="">Print</a>
                 </td>
             </tr>
             @endforeach
