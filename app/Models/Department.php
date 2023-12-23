@@ -9,4 +9,9 @@ class Department extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function designations()
+    {
+        return $this->hasMany(Designation::class);
+    }
 }

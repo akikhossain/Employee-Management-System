@@ -16,4 +16,9 @@ class SalaryStructure extends Model
     // {
     //     return $this->hasMany(Payroll::class);
     // }
+
+    public function designations()
+    {
+        return $this->hasMany(Designation::class, 'salary_structure_id', 'id');
+    }
 }

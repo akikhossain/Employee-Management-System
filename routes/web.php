@@ -81,6 +81,7 @@ Route::group(['middleware' => 'auth'], function () {
         // designation
         Route::get('/Organization/designation', [DesignationController::class, 'designation'])->name('organization.designation');
         Route::post('/Organization/designation/store', [DesignationController::class, 'designationStore'])->name('organization.designation.store');
+        Route::get('/Organization/designationList', [DesignationController::class, 'designationList'])->name('organization.designationList');
         Route::get('/designation/delete/{id}', [DesignationController::class, 'delete'])->name('designation.delete');
         Route::get('/designation/edit/{id}', [DesignationController::class, 'edit'])->name('designation.edit');
         Route::put('/Designation/update/{id}', [DesignationController::class, 'update'])->name('Designation.update');
@@ -129,7 +130,6 @@ Route::group(['middleware' => 'auth'], function () {
         // Notice Section
         // Route::get('/notice', [FrontendHomeController::class, 'notice'])->name('notice');
         // Route::post('/notice/store', [FrontendHomeController::class, 'noticeStore'])->name('notice.store');
-        // // ... More Admin routes
     });
 
     // Employee route

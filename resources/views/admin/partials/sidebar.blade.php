@@ -184,7 +184,7 @@
         </li>
         <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('message') }}"><i
                     class="fa-solid fa-volume-high  me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Message Info</span></a>
+                <span class="sidebar-link-title fs-5">Inquiris</span></a>
         </li>
     </div>
     @endadmin

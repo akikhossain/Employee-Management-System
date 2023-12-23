@@ -41,13 +41,30 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label mt-2" for="form11Example1">Deparment Name</label>
+                                        <select type="text" class="form-control" name="department_id">
+                                            @foreach ($departments as $department)
+                                            <option value="{{$department->id}}">{{ $department->department_name }}
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row mb-4">
                                 <div class=" col">
                                     <div class="col">
                                         <div class="form-outline">
-                                            <label class="form-label mt-2" for="form11Example1">Salary</label>
-                                            <input value="{{ $designation->salary }}" type="number" class="form-control"
-                                                name="salary" id="" required>
+                                            <label class="form-label mt-2" for="form11Example1">Salary Class</label>
+                                            <select required class="form-control" name="salary_structure_id">
+                                                @foreach ($salaries as $salary)
+                                                <option value="{{$salary->id}}">{{ $salary->salary_class }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
