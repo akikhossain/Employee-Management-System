@@ -19,6 +19,8 @@
     <div class="row mb-3">
 
 
+        @admin
+
         {{-- Admin Only --}}
 
 
@@ -28,7 +30,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
-                            <h4 class="fw-normal text-red">{{$employees }}</h4>
+                            <h4 class="fw-normal text-red">{{ $employees }}</h4>
                             <p class="subtitle text-sm text-muted mb-0">Total Employee</p>
                         </div>
                         <div class="flex-shrink-0 ms-3">
@@ -145,8 +147,9 @@
                 </a>
             </div>
         </div>
+        @endadmin
 
-
+        @employee
         {{-- Employee Only --}}
         <div class="mb-4 col-sm-6 col-lg-3 mb-4">
             <div class="card h-100">
@@ -175,6 +178,6 @@
                         </div>
                     </div>
                 </a>
+                @endemployee
             </div>
-
             @endsection

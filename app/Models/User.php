@@ -27,4 +27,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function hasAnyRole($roles)
+    {
+        return $this->employee && in_array($this->employee->role, $roles);
+    }
 }

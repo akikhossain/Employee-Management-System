@@ -13,22 +13,43 @@ use Illuminate\Support\Facades\Auth;
 
 class PayrollController extends Controller
 {
-    // public function createPayroll()
-    // {
-    //     // Fetch employees and salary structures for dropdowns
-    //     $employees = Employee::all();
-    //     $salaryStructures = SalaryStructure::select('id', 'total_salary', 'salary_class')->get();
-
-    //     return view('admin.pages.Payroll.createPayroll', compact('employees', 'salaryStructures'));
-    // }
-
-
     public function createPayroll(Request $request)
     {
         $employees = Employee::all();
         $salaryStructures = SalaryStructure::select('id', 'total_salary', 'salary_class')->get();
+        // $currentMonth = now()->month;
+        // $currentYear = now()->year;
+
+        // foreach ($employees as $employee) {
+        //     $attendances = Attendance::where('employee_id', $employee->id)
+        //         ->whereYear('select_date', $currentYear)
+        //         ->whereMonth('select_date', $currentMonth)
+        //         ->get();
+
+        //     $totalDurationHours = 0;
+        //     $totalOvertimeHours = 0;
+
+        //     foreach ($attendances as $attendance) {
+        //         $totalDurationMinutes = is_numeric($attendance->duration_minutes) ? $attendance->duration_minutes : 0;
+
+        // Convert overtime from HH:MM:SS to decimal hours
+        //         if ($attendance->overtime) {
+        //             list($hours, $minutes, $seconds) = explode(':', $attendance->overtime);
+        //             $totalOvertimeHours += $hours + ($minutes / 60) + ($seconds / 3600);
+        //         }
+
+        //         $totalDurationHours += $totalDurationMinutes / 60;
+        //     }
+
+        //     $employee->totalDurationHours = round($totalDurationHours, 2);
+        //     $employee->totalOvertimeHours = round($totalOvertimeHours, 2);
+        // }
+
         return view('admin.pages.Payroll.createPayroll', compact('employees', 'salaryStructures'));
     }
+
+
+
 
 
     public function payrollStore(Request $request)
@@ -84,12 +105,15 @@ class PayrollController extends Controller
     public function myPayroll()
     {
         $employee = Auth::user()->employee;
+
         if (!$employee) {
-            abort(403, 'Unauthorized action');
+            abort(403, 'Unauthorized action.');
         }
+
         $payrolls = Payroll::with(['employee', 'salaryStructure'])
             ->where('employee_id', $employee->id)
             ->get();
-        return view('admin.pages.Payroll.myPayrollList', compact('payrolls'));
+
+        return view('admin.pages.Payroll.payrollList', compact('payrolls'));
     }
 }
