@@ -99,11 +99,11 @@
                                     @if ($employee)
                                     <div class="col-6 mb-3">
                                         <h6>Department</h6>
-                                        <p class="text-muted">{{ $employee->department }}</p>
+                                        <p class="text-muted">{{ $employee->department->department_name }}</p>
                                     </div>
                                     <div class="col-6 mb-3">
                                         <h6>Designation</h6>
-                                        <p class="text-muted">{{ $employee->designation }}</p>
+                                        <p class="text-muted">{{ $employee->designation->designation_name }}</p>
                                     </div>
                                     <div class="col-6 mb-3">
                                         <h6>Location</h6>
@@ -113,10 +113,7 @@
                                         <h6>Phone</h6>
                                         <p class="text-muted">{{ $employee->phone }}</p>
                                     </div>
-                                    <div class="col-6 mb-3">
-                                        <h6>Employee ID</h6>
-                                        <p class="text-muted">{{ $employee->employee_id }}</p>
-                                    </div>
+
                                     @endif
                                 </div>
                                 <!-- Additional fields as needed -->

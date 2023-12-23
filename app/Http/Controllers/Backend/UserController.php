@@ -79,7 +79,10 @@ class UserController extends Controller
     {
         $user = User::with('employee')->find($id);
         $employee = $user->employee ?? null;
-        return view('admin.pages.Users.userProfile', compact('user', 'employee'));
+        $departments = Department::all();
+        $designations = Designation::all();
+        $salaries = SalaryStructure::all();
+        return view('admin.pages.Users.userProfile', compact('user', 'employee', 'departments', 'designations', 'salaries'));
     }
 
 
