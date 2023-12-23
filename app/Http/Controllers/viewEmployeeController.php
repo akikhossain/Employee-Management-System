@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
+use App\Models\Designation;
 use App\Models\SalaryStructure;
 use App\Models\Employee;
 use App\Models\Payroll;
@@ -13,7 +15,7 @@ class viewEmployeeController extends Controller
 {
     public function viewEmployee()
     {
-        $employees = Employee::paginate(5);
+        $employees = Employee::with(['department', 'designation', 'salaryStructure'])->paginate(5);
         return view('admin.pages.manageEmployee.viewEmployee', compact('employees'));
     }
 
@@ -45,7 +47,10 @@ class viewEmployeeController extends Controller
     public function edit($id)
     {
         $employee = Employee::find($id);
-        return view('admin.pages.manageEmployee.EditEmployee', compact('employee'));
+        $departments = Department::all();
+        $designations = Designation::all();
+        $salaries = SalaryStructure::all();
+        return view('admin.pages.manageEmployee.EditEmployee', compact('employee', 'departments', 'designations', 'salaries'));
     }
 
     // Update Employee
@@ -66,13 +71,14 @@ class viewEmployeeController extends Controller
                 'name' => $request->name,
                 'employee_id' => $request->employee_id,
                 'employee_image' => $fileName,
-                'department' => $request->department,
+                'department_id' => $request->department_id,
+                'salary_structure_id' => $request->salary_structure_id,
+                'designation_id' => $request->designation_id,
                 'date_of_birth' => $request->date_of_birth,
-                'designation' => $request->designation,
                 'hire_date' => $request->hire_date,
                 'email' => $request->email,
                 'phone' => $request->phone,
-                'salary' => $request->salary,
+                'joining_mode' => $request->joining_mode,
                 'location' => $request->location,
             ]);
 
@@ -84,7 +90,10 @@ class viewEmployeeController extends Controller
     public function profile($id)
     {
         $employee = Employee::find($id);
-        return view('admin.pages.manageEmployee.employeeProfile', compact('employee'));
+        $departments = Department::all();
+        $designations = Designation::all();
+        $salaries = SalaryStructure::all();
+        return view('admin.pages.manageEmployee.employeeProfile', compact('employee', 'departments', 'designations', 'salaries'));
     }
 
     // search Employee
@@ -93,15 +102,14 @@ class viewEmployeeController extends Controller
     {
         if ($request->search) {
             $searchTerm = $request->search;
-            $employees = Employee::where('name', 'LIKE', '%' . $searchTerm . '%')
-                ->orWhere('department', 'LIKE', '%' . $searchTerm . '%')
-                ->orWhere('designation', 'LIKE', '%' . $searchTerm . '%')
-                ->get();
+            $employees = Employee::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
         } else {
             $employees = Employee::all();
         }
-
-        return view("admin.pages.manageEmployee.searchEmployee", compact('employees'));
+        $departments = Department::all();
+        $designations = Designation::all();
+        $salaries = SalaryStructure::all();
+        return view("admin.pages.manageEmployee.searchEmployee", compact('employees', 'departments', 'designations', 'salaries'));
     }
 
 

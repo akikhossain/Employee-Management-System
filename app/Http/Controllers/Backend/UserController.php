@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Department;
+use App\Models\Designation;
 use App\Models\Employee;
+use App\Models\SalaryStructure;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -76,7 +79,6 @@ class UserController extends Controller
     {
         $user = User::with('employee')->find($id);
         $employee = $user->employee ?? null;
-
         return view('admin.pages.Users.userProfile', compact('user', 'employee'));
     }
 
@@ -129,7 +131,10 @@ class UserController extends Controller
         $user = Auth::user();
         if ($user->employee) {
             $employee = $user->employee;
-            return view('admin.pages.Users.employeeProfile', compact('user', 'employee'));
+            $departments = Department::all();
+            $designations = Designation::all();
+            $salaries = SalaryStructure::all();
+            return view('admin.pages.Users.employeeProfile', compact('user', 'employee', 'departments', 'designations', 'salaries'));
         } else {
             return view('admin.pages.Users.nonEmployeeProfile', compact('user'));
         }

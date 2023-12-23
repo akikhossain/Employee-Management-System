@@ -24,8 +24,6 @@
     </div>
 
 
-
-
     <table class="table align-middle text-center w-75 mx-auto bg-white">
         <thead class="bg-light">
             <tr>
@@ -35,6 +33,8 @@
                 <th>Employee ID</th>
                 <th>Department</th>
                 <th>Designation</th>
+                <th>Salary Grade</th>
+                <th>Mode of Join</th>
                 {{-- <th>Password</th> --}}
                 {{-- <th>Phone</th> --}}
                 {{-- <th>Email</th> --}}
@@ -56,8 +56,10 @@
                 <td><img class="avatar p-1" src="{{ url('/uploads//' . $employee->employee_image) }}" alt="">
                 </td>
                 <td>{{ $employee->employee_id }}</td>
-                <td>{{ $employee->department }}</td>
-                <td>{{ $employee->designation }}</td>
+                <td>{{ $employee->department->department_name }}</td>
+                <td>{{ $employee->designation->designation_name }}</td>
+                <td>{{ $employee->salaryStructure->salary_class }}</td>
+                <td>{{ $employee->joining_mode }}</td>
                 {{-- <td>{{ $employee->password }}</td> --}}
                 {{-- <td>{{ $employee->phone }}</td> --}}
                 {{-- <td>{{ $employee->email }}</td> --}}

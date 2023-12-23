@@ -35,6 +35,8 @@
                 <th>Employee ID</th>
                 <th>Department</th>
                 <th>Designation</th>
+                <th>Salary Grade</th>
+                <th>Mode of Join</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -51,8 +53,10 @@
                 <td><img class="avatar p-1" src="{{ url('/uploads//' . $employee->employee_image) }}" alt="">
                 </td>
                 <td>{{ $employee->employee_id }}</td>
-                <td>{{ $employee->department }}</td>
-                <td>{{ $employee->designation }}</td>
+                <td>{{ $employee->department->department_name }}</td>
+                <td>{{ $employee->designation->designation_name }}</td>
+                <td>{{ $employee->salaryStructure->salary_class}}</td>
+                <td>{{ $employee->joining_mode}}</td>
                 <td>
                     <a class="btn btn-warning rounded-pill fw-bold text-white"
                         href="{{ route('Employee.profile', $employee->id) }}">View</a>
