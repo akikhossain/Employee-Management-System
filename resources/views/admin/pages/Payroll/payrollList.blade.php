@@ -4,10 +4,14 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">Payroll List</h4>
     <div>
-        <a href="{{ route('payroll.create') }}" class="btn btn-success p-2 text-lg rounded-pill">Create New Salary</a>
+        <a href="{{ route('payroll.create') }}" class="btn btn-success p-2 text-lg rounded-pill">Create New Payroll</a>
     </div>
 </div>
 <div class="container my-5 py-5">
+    <div class="float-end mb-3">
+        <a href="{{ route('allPayrollList') }}" class="btn btn-danger text-capitalize border-0"
+            data-mdb-ripple-color="dark">Report</a>
+    </div>
     <table class="table align-middle mb-4 text-center bg-white">
         <thead class="bg-light">
             <tr>
@@ -40,7 +44,9 @@
                 <td>{{ $payroll->reason }}</td>
                 <td>{{ $payroll->total_payable }}</td>
                 <td>
-                    <a class="btn btn-success rounded-pill" href="">Pay</a>
+                    <a class="btn btn-success rounded-pill"
+                        href="{{ route('singlePayroll', $payroll->employee_id) }}">Payslip</a>
+
                     <a class="btn btn-warning rounded-pill" href="">Edit</a>
                     <a class="btn btn-danger rounded-pill" href="">Delete</a>
                 </td>
@@ -48,7 +54,6 @@
             @endforeach
         </tbody>
     </table>
-
     <div class="w-25 mx-auto">
         {{-- {{ $salaries->links() }} --}}
     </div>

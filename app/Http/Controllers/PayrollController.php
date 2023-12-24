@@ -129,4 +129,28 @@ class PayrollController extends Controller
 
         return view('admin.pages.Payroll.myPayrollList', compact('payrolls'));
     }
+
+
+    // Single Payroll
+    public function singlePayroll($id)
+    {
+        // dd($id);
+        $employee = Employee::with(['department', 'designation'])->findOrFail($id);
+        $employeePayrolls = Payroll::with(['employee.department', 'employee.designation', 'salaryStructure'])
+            ->where('employee_id', $id)
+            ->get();
+
+        return view('admin.pages.Payroll.singlePayrollList', compact('employee', 'employeePayrolls'));
+    }
+    public function allPayroll()
+    {
+        $payrolls = Payroll::with(['employee', 'salaryStructure'])->get();
+        $payrolls->each(function ($payroll) {
+            $employee = $payroll->employee;
+            $employee->load('designation', 'department'); // Assuming you have relationships defined in Employee model
+            $payroll->designation = $employee->designation->name;
+            $payroll->department = $employee->department->name;
+        });
+        return view('admin.pages.Payroll.allPayrollList', compact('payrolls'));
+    }
 }

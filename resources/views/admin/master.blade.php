@@ -203,6 +203,8 @@
         </div>
     </footer>
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
     <!-- JavaScript files-->
     <script src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/bootstrap/js/bootstrap.bundle.min.js">
     </script>
@@ -255,6 +257,9 @@
                     },1000);
                 });
     </script>
+
+
+    @stack('yourJsCode')
 </body>
 
 </html>

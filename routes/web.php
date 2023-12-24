@@ -107,6 +107,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('Payroll/createPayroll', [PayrollController::class, 'createPayroll'])->name('payroll.create');
         Route::get('/Payroll/PayrollList', [PayrollController::class, 'viewPayroll'])->name('payroll.view');
         Route::post('/Payroll/store', [PayrollController::class, 'payrollStore'])->name('payroll.store');
+        Route::get('/Payroll/Single/{id}', [PayrollController::class, 'singlePayroll'])->name('singlePayroll');
+        Route::get('/Payroll/allPayrollList', [PayrollController::class, 'allPayroll'])->name('allPayrollList');
+
 
         // User updated
         Route::get('/users', [UserController::class, 'list'])->name('users.list');
