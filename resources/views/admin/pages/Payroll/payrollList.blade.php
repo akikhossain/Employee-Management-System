@@ -3,9 +3,9 @@
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">Payroll List</h4>
-    {{-- <div>
-        <a href="{{ route('salary.create') }}" class="btn btn-success p-2 text-lg rounded-pill">Create New Salary</a>
-    </div> --}}
+    <div>
+        <a href="{{ route('payroll.create') }}" class="btn btn-success p-2 text-lg rounded-pill">Create New Salary</a>
+    </div>
 </div>
 <div class="container my-5 py-5">
     <table class="table align-middle mb-4 text-center bg-white">
@@ -13,6 +13,8 @@
             <tr>
                 <th>Employee</th>
                 <th>Date</th>
+                <th>Dept</th>
+                <th>desig</th>
                 <th>Month</th>
                 <th>Year</th>
                 <th>Salary Type</th>
@@ -28,6 +30,8 @@
             <tr>
                 <td>{{ $payroll->employee->name }}</td>
                 <td>{{ $payroll->date }}</td>
+                <td>{{ $payroll->employee->department->department_name }}</td>
+                <td>{{ $payroll->employee->designation->designation_name }}</td>
                 <td>{{ $payroll->month }}</td>
                 <td>{{ $payroll->year }}</td>
                 <td>{{ $payroll->salaryStructure->salary_class }}</td>

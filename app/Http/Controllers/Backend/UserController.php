@@ -58,7 +58,6 @@ class UserController extends Controller
     {
         $users = User::all();
         $employee = Employee::first(); // Fetches the first employee
-
         return view('admin.pages.Users.list', compact('users', 'employee'));
     }
 
@@ -197,7 +196,7 @@ class UserController extends Controller
                 $employee->save();
             }
 
-            notify()->success('Product updated successfully.');
+            notify()->success('User updated successfully.');
             return redirect()->route('users.list');
         }
     }

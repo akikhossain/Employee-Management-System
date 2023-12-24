@@ -41,8 +41,7 @@ Route::get('/clientList', [ClientController::class, 'clientList'])->name('client
 Route::get('/JobList', [FrontendHomeController::class, 'jobList'])->name('jobList');
 
 // Notice section
-Route::get('/notice', [FrontendHomeController::class, 'notice'])->name('notice');
-Route::post('/notice/store', [FrontendHomeController::class, 'noticeStore'])->name('notice.store');
+// Route::get('/notice', [FrontendHomeController::class, 'notice'])->name('notice');
 
 
 // Contact Us Section
@@ -128,9 +127,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/contactUs/Message', [HomeController::class, 'message'])->name('message');
 
         // Notice Section
-        // Route::get('/notice', [FrontendHomeController::class, 'notice'])->name('notice');
+
+        // Route::get('/notice', [FrontendHomeController::class, 'notice'])->name('notice.create');
         // Route::post('/notice/store', [FrontendHomeController::class, 'noticeStore'])->name('notice.store');
+        // Route::get('/notice', [FrontendHomeController::class, 'showNotice'])->name('show.notice');
     });
+
 
     // Employee route
 
@@ -151,10 +153,14 @@ Route::group(['middleware' => 'auth'], function () {
 
         // payroll
         Route::get('/Payroll/MyPayrollList', [PayrollController::class, 'myPayroll'])->name('myPayroll');
+
         // Notices for Employee
         // Route::get('/notice', [FrontendHomeController::class, 'showNotice'])->name('show.notice');
         // ... Additional Employee-specific routes
     });
     Route::get('/logout', [UserController::class, 'logout'])->name('admin.logout');
     Route::get('/dashboard', [HomeController::class, 'home'])->name('dashboard');
+    Route::get('/notice', [FrontendHomeController::class, 'showNotice'])->name('show.notice');
+    Route::get('/notice/create', [FrontendHomeController::class, 'notice'])->name('notice.create');
+    Route::post('/notice/store', [FrontendHomeController::class, 'noticeStore'])->name('notice.store');
 });

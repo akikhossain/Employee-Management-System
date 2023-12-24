@@ -4,8 +4,8 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">Designation Form</h4>
     <div>
-        <a href="{{ route('organization.designationList') }}" class="btn btn-success p-2 text-lg rounded-pill"> View
-            Designation List</a>
+        <a href="{{ route('organization.designationList') }}"
+            class="btn btn-success p-2 text-lg rounded-pill">Designation List</a>
     </div>
 </div>
 <div class="container my-5 py-5">

@@ -7,6 +7,12 @@
                 <span class="sidebar-link-title fs-5">Dashboards</span></a>
         </li>
 
+        {{-- Notice --}}
+        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
+                href="{{ route('show.notice') }}"><i class="fa-solid fa-check me-2 text-info"></i>
+                <span class="sidebar-link-title fs-5">Notices</span></a>
+        </li>
+
         @employee
         {{-- User Profile --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
@@ -14,12 +20,6 @@
                 <span class="sidebar-link-title fs-5">Profile</span></a>
         </li>
         @endemployee
-
-        {{-- Notice --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted" href=""><i
-                    class="fa-solid fa-check me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Notices</span></a>
-        </li>
 
         {{-- Attendance --}}
         <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href=""
@@ -59,7 +59,7 @@
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Department</a>
                 </li>
                 <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('organization.designation') }}"><i
+                        href="{{ route('organization.designationList') }}"><i
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Designation</a>
                 </li>
             </ul>
@@ -148,7 +148,6 @@
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>My Payroll</a>
                 </li>
                 @endemployee
-
             </ul>
         </li>
 
@@ -178,7 +177,7 @@
                     class="fa-brands fa-servicestack  me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Services</span></a>
         </li>
-        <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('notice') }}"><i
+        <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('notice.create') }}"><i
                     class="fa-solid fa-volume-high  me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Create Notice</span></a>
         </li>
@@ -188,6 +187,5 @@
         </li>
     </div>
     @endadmin
-
 
 </div>

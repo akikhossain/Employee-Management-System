@@ -34,8 +34,8 @@
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold " for="form11Example1">Enter User
                                             Name:</label>
-                                        <input required placeholder="Employee Name" type="text" id="form11Example1"
-                                            name="name" class="form-control" />
+                                        <input placeholder="Employee Name" type="text" id="form11Example1" name="name"
+                                            class="form-control" />
                                     </div>
                                     <div class="mt-2">
                                         @error('name')

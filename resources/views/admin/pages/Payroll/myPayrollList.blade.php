@@ -13,6 +13,8 @@
             <tr>
                 <th>Employee</th>
                 <th>Date</th>
+                <th>Dept</th>
+                <th>desig</th>
                 <th>Month</th>
                 <th>Year</th>
                 <th>Salary Type</th>
@@ -28,6 +30,8 @@
             <tr>
                 <td>{{ $payroll->employee->name }}</td>
                 <td>{{ $payroll->date }}</td>
+                <td>{{ $payroll->employee->department->department_name }}</td>
+                <td>{{ $payroll->employee->designation->designation_name }}</td>
                 <td>{{ $payroll->month }}</td>
                 <td>{{ $payroll->year }}</td>
                 <td>{{ $payroll->salaryStructure->salary_class }}</td>
@@ -36,7 +40,6 @@
                 <td>{{ $payroll->reason }}</td>
                 <td>{{ $payroll->total_payable }}</td>
                 <td>
-                    <a class="btn btn-success rounded-pill" href="">Pay</a>
                     <a class="btn btn-warning rounded-pill" href="">Print</a>
                 </td>
             </tr>

@@ -29,4 +29,12 @@ class Payroll extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function designation()
+    {
+        return $this->belongsTo(Designation::class);
+    }
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }

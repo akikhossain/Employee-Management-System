@@ -3,6 +3,10 @@
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">Designation List</h4>
+    <div>
+        <a href="{{ route('organization.designation') }}" class="btn btn-success p-2 text-lg rounded-pill">Create
+            Designation</a>
+    </div>
 </div>
 <div class="container my-5 py-5">
 
@@ -28,7 +32,6 @@
                     <td>{{ $item->department->department_name }}</td>
                     {{-- <td>{{ $item->salary->salary_class }}</td> --}}
                     <td>{{ optional($item->salary)->salary_class }}</td>
-
                     <td>
                         <a class="btn btn-success rounded-pill fw-bold text-white"
                             href="{{ route('designation.edit', $item->id) }}">Edit</a>
