@@ -133,8 +133,6 @@
             }
             display_c7();
     </script>
-
-
 </head>
 
 <body>
@@ -252,12 +250,11 @@
 
     <script>
         $(function() {
-                    setTimeout(() => {
-                        $('.loader').fadeOut(500);
-                    },1000);
-                });
+            setTimeout(() => {
+                $('.loader').fadeOut(10); // Set an extremely quick fade-out time (e.g., 10 milliseconds)
+            }, 50); // Adjust the initial delay as needed
+        });
     </script>
-
 
     @stack('yourJsCode')
 </body>

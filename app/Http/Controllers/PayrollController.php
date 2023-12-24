@@ -194,7 +194,6 @@ class PayrollController extends Controller
         return view('admin.pages.Payroll.singlePayrollList', compact('employee', 'employeePayrolls'));
     }
 
-
     // report all payroll list
     public function allPayroll()
     {

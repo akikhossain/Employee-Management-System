@@ -47,4 +47,52 @@ class SalaryController extends Controller
         $salaries = SalaryStructure::paginate(3);
         return view('admin.pages.Salary.viewSalary', compact('salaries'));
     }
+
+
+    // edit, delete, update
+    public function salaryDelete($id)
+    {
+        $salary = SalaryStructure::find($id);
+        if ($salary) {
+            $salary->delete();
+        }
+        notify()->success('Deleted Successfully.');
+        return redirect()->back();
+    }
+
+    // edit
+    public function salaryEdit($id)
+    {
+        $salary = SalaryStructure::find($id);
+        return view('admin.pages.Salary.editSalary', compact('salary'));
+    }
+    public function salaryUpdate(Request $request, $id)
+    {
+        $salary = SalaryStructure::find($id);
+        if ($salary) {
+
+            $validate = Validator::make($request->all(), [
+                'salary_class' => 'required',
+                'basic_salary' => 'required',
+                'medical_expenses' => 'required',
+                'mobile_allowance' => 'required',
+                'houseRent_allowance' => 'required',
+            ]);
+
+            if ($validate->fails()) {
+                notify()->error($validate->getMessageBag());
+                return redirect()->back();
+            }
+
+            $salary->update([
+                'salary_class' => $request->salary_class,
+                'basic_salary' => $request->basic_salary,
+                'medical_expenses' => $request->medical_expenses,
+                'mobile_allowance' => $request->mobile_allowance,
+                'houseRent_allowance' => $request->houseRent_allowance,
+            ]);
+            notify()->success('Updated successfully.');
+            return redirect()->back();
+        }
+    }
 }

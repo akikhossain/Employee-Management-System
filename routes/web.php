@@ -102,6 +102,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/SalaryStructure/createSalary', [SalaryController::class, 'createSalary'])->name('salary.create.form');
         Route::get('/SalaryStructure/viewSalary', [SalaryController::class, 'viewSalary'])->name('salary.view');
         Route::post('/Salary/store', [SalaryController::class, 'salaryStore'])->name('salary.store.data');
+        Route::get('/Salary/delete/{id}', [SalaryController::class, 'salaryDelete'])->name('salaryDelete');
+        Route::get('/Salary/edit/{id}', [SalaryController::class, 'salaryEdit'])->name('salaryEdit');
+        Route::put('/Salary/update/{id}', [SalaryController::class, 'salaryUpdate'])->name('salaryUpdate');
 
         // Payroll
         Route::get('Payroll/createPayroll', [PayrollController::class, 'createPayroll'])->name('payroll.create');
