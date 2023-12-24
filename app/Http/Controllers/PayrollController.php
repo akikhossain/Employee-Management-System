@@ -131,6 +131,57 @@ class PayrollController extends Controller
     }
 
 
+    // delete  update edit payroll
+
+    // delete
+    public function deletePayroll($id)
+    {
+        $payroll = Payroll::find($id);
+        if ($payroll) {
+            $payroll->delete();
+            notify()->success('Payroll Deleted Successfully.');
+        } else {
+            notify()->error('Payroll Not Found.');
+        }
+        return redirect()->back();
+    }
+
+    // edit
+    public function payrollEdit($id)
+    {
+        $payroll = Payroll::find($id);
+        $employees = Employee::all();
+        $salaryStructures = SalaryStructure::select('id', 'total_salary', 'salary_class')->get();
+        return view('admin.pages.Payroll.editPayroll', compact('payroll', 'employees', 'salaryStructures'));
+    }
+
+
+    // update
+    public function payrollUpdate(Request $request, $id)
+    {
+        $payroll = Payroll::find($id);
+        if ($payroll) {
+
+            $salaryStructure = SalaryStructure::findOrFail($request->salary_structure_id);
+            $deduction = $request->input('deduction');
+            $totalPayable = $salaryStructure->total_salary - $deduction;
+
+            $payroll->update([
+                'employee_id' => $request->employee_id,
+                'salary_structure_id' => $request->salary_structure_id,
+                'deduction' => $deduction,
+                'reason' => $request->input('reason'),
+                'total_payable' => $totalPayable,
+                'year' => $request->input('year'),
+                'month' => $request->input('month'),
+                'date' => now(),
+            ]);
+
+            notify()->success('Updated successfully.');
+            return redirect()->back();
+        }
+    }
+
     // Single Payroll
     public function singlePayroll($id)
     {
@@ -142,6 +193,9 @@ class PayrollController extends Controller
 
         return view('admin.pages.Payroll.singlePayrollList', compact('employee', 'employeePayrolls'));
     }
+
+
+    // report all payroll list
     public function allPayroll()
     {
         $payrolls = Payroll::with(['employee', 'salaryStructure'])->get();

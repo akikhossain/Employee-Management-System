@@ -109,6 +109,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/Payroll/store', [PayrollController::class, 'payrollStore'])->name('payroll.store');
         Route::get('/Payroll/Single/{id}', [PayrollController::class, 'singlePayroll'])->name('singlePayroll');
         Route::get('/Payroll/allPayrollList', [PayrollController::class, 'allPayroll'])->name('allPayrollList');
+        Route::get('/Payroll/delete/{id}', [PayrollController::class, 'deletePayroll'])->name('payrollDelete');
+        Route::get('/Payroll/edit/{id}', [PayrollController::class, 'payrollEdit'])->name('payrollEdit');
+        Route::put('/Payroll/update/{id}', [PayrollController::class, 'payrollUpdate'])->name('payrollUpdate');
 
 
         // User updated

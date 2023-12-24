@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
-    <h4 class="text-uppercase">All Payroll List</h4>
+    <h4 class="text-uppercase">Print Payroll List</h4>
 </div>
 <div class="container my-5 py-5">
     <div class="float-end mb-5">
@@ -70,6 +70,5 @@
           window.print();
           $('body').html(restorepage);
       }
-
 </script>
 @endpush

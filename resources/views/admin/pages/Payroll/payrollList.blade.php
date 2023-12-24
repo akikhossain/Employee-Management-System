@@ -47,8 +47,9 @@
                     <a class="btn btn-success rounded-pill"
                         href="{{ route('singlePayroll', $payroll->employee_id) }}">Payslip</a>
 
-                    <a class="btn btn-warning rounded-pill" href="">Edit</a>
-                    <a class="btn btn-danger rounded-pill" href="">Delete</a>
+                    <a class="btn btn-warning rounded-pill" href="{{ route('payrollEdit', $payroll->id) }}">Edit</a>
+                    <a class="btn btn-danger rounded-pill" href="{{ route('payrollDelete', $payroll->id) }}">Delete</a>
+
                 </td>
             </tr>
             @endforeach
