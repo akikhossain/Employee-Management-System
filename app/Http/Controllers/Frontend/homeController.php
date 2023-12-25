@@ -105,4 +105,54 @@ class homeController extends Controller
     {
         return view('Frontend.pages.JobList.jobList');
     }
+
+
+    //notice list
+    public function noticeList()
+    {
+        $notices = Notify::all();
+        return view('Frontend.pages.Notice.noticeList', compact('notices'));
+    }
+
+    // edit delete notice
+    public function noticeDelete($id)
+    {
+        $notice = Notify::find($id);
+        if ($notice) {
+            $notice->delete();
+        }
+        notify()->success('Deleted Successfully.');
+        return redirect()->back();
+    }
+
+    // edit
+    public function noticeEdit($id)
+    {
+        $notice = Notify::find($id);
+        return view('Frontend.pages.Notice.editNoticeList', compact('notice'));
+    }
+    public function noticeUpdate(Request $request, $id)
+    {
+        $notice = Notify::find($id);
+        if ($notice) {
+
+            $validate = Validator::make($request->all(), [
+                'notice_title' => 'required',
+                'description' => 'required',
+            ]);
+
+            if ($validate->fails()) {
+                notify()->error($validate->getMessageBag());
+                return redirect()->back();
+            }
+
+            $notice->update([
+                'notice_title' => $request->notice_title,
+                'description' => $request->description,
+                'select_date' => Carbon::now(),
+            ]);
+            notify()->success('Updated successfully.');
+            return redirect()->back();
+        }
+    }
 }

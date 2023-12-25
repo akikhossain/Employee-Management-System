@@ -1,9 +1,9 @@
 @extends('admin.master')
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
-    <h4 class="text-uppercase">Create Notice</h4>
+    <h4 class="text-uppercase">Update Notice</h4>
     <div>
-        <a href="{{ route('noticeList') }}" class="btn btn-success    p-2 text-lg rounded-pill"><i
+        <a href="{{ route('noticeList') }}" class="btn btn-success p-2 text-lg rounded-pill"><i
                 class="fa-solid fa-plus me-2"></i>Notice List</a>
     </div>
 </div>
@@ -19,14 +19,16 @@
                         <h5 class="mb-0 text-font text-uppercase">Notice Form</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('notice.store') }}" method="post">
+                        <form action="{{ route('noticeUpdate', $notice->id) }}" method="post">
                             @csrf
+                            @method('put')
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold " for="form11Example1">Notice
                                             title:</label>
-                                        <input required placeholder="Enter Notice title" type="text" id="form11Example1"
+                                        <input value="{{ $notice->notice_title }}" required
+                                            placeholder="Enter Notice title" type="text" id="form11Example1"
                                             name="notice_title" class="form-control" />
                                     </div>
                                     <div class="mt-2">
@@ -41,7 +43,7 @@
                                             Description</label>
                                         <textarea required placeholder="notice description" type="text"
                                             id="form11Example1" name="description" class="form-control" cols="30"
-                                            rows="10"></textarea>
+                                            rows="10">{{ $notice->description }}</textarea>
                                     </div>
                                     <div class="mt-2">
                                         @error('description')
@@ -52,7 +54,7 @@
                             </div>
                             <div class="text-center w-25 mx-auto mt-3">
                                 <button type="submit"
-                                    class="btn btn-success p-2 text-lg rounded-pill col-md-10">Create</button>
+                                    class="btn btn-success rounded-pill  p-2 text-lg  rounded col-md-10">Update</button>
                             </div>
                         </form>
                     </div>

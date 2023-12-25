@@ -200,4 +200,20 @@ class UserController extends Controller
             return redirect()->route('users.list');
         }
     }
+
+    // Search User
+    public function searchUser(Request $request)
+    {
+        $searchTerm = $request->search;
+        if ($searchTerm) {
+            $users = User::where('name', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhere('email', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhere('role', 'LIKE', '%' . $searchTerm . '%')
+                ->get();
+        } else {
+            $users = User::all();
+        }
+
+        return view('admin.pages.Users.searchUserList', compact('users'));
+    }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
-    <h4 class="text-uppercase">View salary List</h4>
+    <h4 class="text-uppercase">Service List</h4>
     <div>
         <a href="{{ route('service.form') }}" class="btn btn-success p-2 text-lg rounded-pill"><i
                 class="fa-solid fa-plus me-2"></i>Create New
@@ -33,8 +33,8 @@
                 <td><img class="avatar p-1" src="{{ url('/uploads//' . $item->service_image) }}" alt=""></td>
                 <td>
                     <a class="btn btn-success rounded-pill" target="_blank" href="{{ route('services') }}">View</a>
-                    <a class="btn btn-warning rounded-pill" href="">Edit</a>
-                    <a class="btn btn-danger rounded-pill" href="">Delete</a>
+                    <a class="btn btn-warning rounded-pill" href="{{ route('serviceEdit', $item->id) }}">Edit</a>
+                    <a class="btn btn-danger rounded-pill" href="{{ route('serviceDelete', $item->id) }}">Delete</a>
                 </td>
             </tr>
             @endforeach

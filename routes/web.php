@@ -128,12 +128,16 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/user/delete/{id}', [UserController::class, 'userDelete'])->name('delete');
         Route::get('/user/edit/{id}', [UserController::class, 'userEdit'])->name('edit');
         Route::put('/user/update/{id}', [UserController::class, 'userUpdate'])->name('update');
+        Route::get('/search-user', [UserController::class, 'searchUser'])->name('searchUser');
 
 
         // Services
         Route::get('/Service/create', [ServicesController::class, 'serviceForm'])->name('service.form');
         Route::post('/Service/store', [ServicesController::class, 'serviceStore'])->name('service.store');
         Route::get('/Service/serviceList', [ServicesController::class, 'serviceList'])->name('list.service');
+        Route::get('/Service/serviceDelete/{id}', [ServicesController::class, 'serviceDelete'])->name('serviceDelete');
+        Route::get('/Service/serviceEdit/{id}', [ServicesController::class, 'serviceEdit'])->name('serviceEdit');
+        Route::put('/Service/serviceUpdate/{id}', [ServicesController::class, 'serviceUpdate'])->name('serviceUpdate');
 
         // message info
         Route::get('/contactUs/Message', [HomeController::class, 'message'])->name('message');
@@ -179,4 +183,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/notice', [FrontendHomeController::class, 'showNotice'])->name('show.notice');
     Route::get('/notice/create', [FrontendHomeController::class, 'notice'])->name('notice.create');
     Route::post('/notice/store', [FrontendHomeController::class, 'noticeStore'])->name('notice.store');
+    Route::get('/notice/noticeList', [FrontendHomeController::class, 'noticeList'])->name('noticeList');
+    Route::get('/notice/noticeDelete/{id}', [FrontendHomeController::class, 'noticeDelete'])->name('noticeDelete');
+    Route::get('/notice/noticeEdit/{id}', [FrontendHomeController::class, 'noticeEdit'])->name('noticeEdit');
+    Route::put('/notice/noticeUpdate/{id}', [FrontendHomeController::class, 'noticeUpdate'])->name('noticeUpdate');
 });

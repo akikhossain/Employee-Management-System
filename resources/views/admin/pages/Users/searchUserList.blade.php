@@ -2,30 +2,26 @@
 
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
-    <h4 class="text-uppercase">User List</h4>
-    <div>
-        <a href="{{ route('users.create', ['employeeId' => $employee->id]) }}"
-            class="btn btn-success p-2 text-lg rounded-pill"><i class="fa-solid fa-plus me-2"></i>Create new User</a>
-    </div>
+    <h4 class="text-uppercase">Searched User</h4>
 </div>
 <div class="my-5 py-5">
 
-    <div class="d-flex justify-content-end">
-        <div class="input-group rounded w-25 mb-5">
-            <form action="{{ route('searchUser') }}" method="get">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search..." name="search">
-                    <button type="submit" class="input-group-text border-0 bg-transparent" id="search-addon"
-                        style="display: inline;">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
+    <div class="fw-normal mb-4">
+        <h2 class="fw-normal fs-5 mx-auto text-center rounded-pill p-2 w-50 mb-5
+            @if ($users->count() > 0) bg-success
+            @else
+                bg-danger text-white @endif">
+            @if ($users->count() === 1)
+            Found 1 matching data for "{{ request()->search }}"
+            @elseif ($users->count() > 1)
+            Found {{ $users->count() }} matching data for "{{ request()->search }}"
+            @else
+            No Data found for "{{ request()->search }}"
+            @endif
+        </h2>
     </div>
 
-
-
+    @if ($users->count() > 0)
     <table class="table align-middle text-center  w-75 mx-auto bg-white">
         <thead class="bg-light">
             <tr>
@@ -57,6 +53,7 @@
             @endforeach
         </tbody>
     </table>
+    @endif
     <div class="w-25 mx-auto mt-4">
     </div>
 </div>
