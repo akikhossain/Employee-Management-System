@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use App\Models\Leave;
 use App\Models\LeaveType;
 use Carbon\Carbon;
@@ -19,6 +20,7 @@ class LeaveController extends Controller
     }
     public function leaveList()
     {
+
         $leaves = Leave::with(['type'])->paginate(5);
         return view('admin.pages.Leave.leaveList', compact('leaves'));
     }
@@ -87,9 +89,6 @@ class LeaveController extends Controller
     }
 
 
-
-
-
     // Approve and Reject Leave
     public function approveLeave($id)
     {
@@ -110,8 +109,6 @@ class LeaveController extends Controller
         notify()->error('Leave rejected');
         return redirect()->back();
     }
-
-
 
     // Leave Type
     public function leaveType()
@@ -142,8 +139,6 @@ class LeaveController extends Controller
         notify()->success('New Leave Type created successfully.');
         return redirect()->back();
     }
-
-
 
     // edit, delete, update LeaveType
 

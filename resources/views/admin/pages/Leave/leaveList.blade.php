@@ -5,13 +5,29 @@
     <h4 class="text-uppercase">Leave Request</h4>
 </div>
 <div class="my-5 py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div class="input-group rounded w-50">
+            <form action="{{ route('employee.search') }}" method="get">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search..." name="search">
+                    <button type="submit" class="input-group-text border-0 bg-transparent" id="search-addon">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <a href="{{ route('allPayrollList') }}" class="btn btn-danger text-capitalize border-0"
+            data-mdb-ripple-color="dark">Report</a>
+    </div>
+
+
     <table class="table align-middle text-center w-100 bg-white">
         <thead class="bg-light">
             <tr>
                 <th>SL NO</th>
                 <th>Employee Name</th>
-                {{-- <th>Department</th> --}}
-                <th>Employee ID</th>
+                {{-- <th>dept</th> --}}
                 <th>Leave Type</th>
                 <th>Start Date</th>
                 <th>End Date</th>
@@ -29,8 +45,6 @@
                     </div>
                 </td>
                 <td>{{ $leave->employee_name }}</td>
-                {{-- <td>{{ $leave->department }}</td> --}}
-                <td>{{ $leave->employee_id }}</td>
                 <td>{{ $leave->type->leave_type_id }}</td>
                 <td>{{ $leave->from_date }}</td>
                 <td>{{ $leave->to_date }}</td>

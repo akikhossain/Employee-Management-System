@@ -115,6 +115,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/Payroll/delete/{id}', [PayrollController::class, 'deletePayroll'])->name('payrollDelete');
         Route::get('/Payroll/edit/{id}', [PayrollController::class, 'payrollEdit'])->name('payrollEdit');
         Route::put('/Payroll/update/{id}', [PayrollController::class, 'payrollUpdate'])->name('payrollUpdate');
+        Route::get('/search-AllPayroll', [PayrollController::class, 'searchAllPayroll'])->name('searchAllPayroll');
+
+
 
 
         // User updated
@@ -162,6 +165,10 @@ Route::group(['middleware' => 'auth'], function () {
 
         // payroll
         Route::get('/Payroll/MyPayrollList', [PayrollController::class, 'myPayroll'])->name('myPayroll');
+        Route::get('/Payroll/mySingle/{id}', [PayrollController::class, 'MySingle'])->name('mySinglePayroll');
+        Route::get('/search-myPayroll', [PayrollController::class, 'searchMyPayroll'])->name('searchMyPayroll');
+
+
 
         // Notices for Employee
         // Route::get('/notice', [FrontendHomeController::class, 'showNotice'])->name('show.notice');

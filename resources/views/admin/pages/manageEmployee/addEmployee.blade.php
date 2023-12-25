@@ -128,7 +128,7 @@
                                 <div class=" col-md-4">
                                     <div class="form-outline mb-4">
                                         <label class="form-label mt-2 fw-bold" for="form11Example6">Phone</label>
-                                        <input required placeholder="Phone Number" type="number" id="form11Example6"
+                                        <input required placeholder="Phone Number" type="text" id="form11Example6"
                                             name="phone" class="form-control" />
                                     </div>
                                     <div class="mt-2">

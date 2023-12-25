@@ -33,11 +33,16 @@ class Employee extends Model
 
     public function designation()
     {
-        return $this->belongsTo(Designation::class)->withDefault();
+        return $this->belongsTo(Designation::class);
     }
 
     public function salaryStructure()
     {
         return $this->belongsTo(SalaryStructure::class);
+    }
+
+    public function leave()
+    {
+        return $this->belongsTo(Leave::class);
     }
 }

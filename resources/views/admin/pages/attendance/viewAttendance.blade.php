@@ -5,6 +5,20 @@
     <h4 class="text-uppercase">View Attendance List</h4>
 </div>
 <div class="container my-5 py-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div class="input-group rounded w-50">
+            <form action="" method="get">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search..." name="search">
+                    <button type="submit" class="input-group-text border-0 bg-transparent" id="search-addon">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <a href="" class="btn btn-danger text-capitalize border-0" data-mdb-ripple-color="dark">Report</a>
+    </div>
+
     <table class="table align-middle mb-4 text-center  bg-white">
         <thead class="bg-light">
             <tr>

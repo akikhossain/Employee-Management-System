@@ -130,7 +130,7 @@
                                     <div class="form-outline mb-4">
                                         <label class="form-label mt-2 fw-bold" for="form11Example6">Phone</label>
                                         <input value="{{ $employee->phone }}" required placeholder="Phone Number"
-                                            type="number" id="form11Example6" name="phone" class="form-control" />
+                                            type="text" id="form11Example6" name="phone" class="form-control" />
                                     </div>
                                     <div class="mt-2">
                                         @error('phone')

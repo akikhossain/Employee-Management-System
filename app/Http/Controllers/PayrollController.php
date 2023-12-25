@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Sail\Console\PublishCommand;
 
 class PayrollController extends Controller
 {
@@ -205,5 +206,89 @@ class PayrollController extends Controller
             $payroll->department = $employee->department->name;
         });
         return view('admin.pages.Payroll.allPayrollList', compact('payrolls'));
+    }
+
+    public function mySingle($id)
+    {
+        // dd($id);
+        $employee = Employee::with(['department', 'designation'])->findOrFail($id);
+        $employeePayrolls = Payroll::with(['employee.department', 'employee.designation', 'salaryStructure'])
+            ->where('employee_id', $id)
+            ->get();
+
+        return view('admin.pages.Payroll.mySinglePayroll', compact('employee', 'employeePayrolls'));
+    }
+
+    // search my payroll
+    public function searchMyPayroll(Request $request)
+    {
+        $employee = Auth::user()->employee;
+
+        if (!$employee) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        if ($request->has('search')) {
+            $searchTerm = $request->search;
+            $payrolls = Payroll::with(['employee', 'salaryStructure'])
+                ->where('employee_id', $employee->id)
+                ->where(function ($query) use ($searchTerm) {
+                    $query->where('employee_id', 'LIKE', '%' . $searchTerm . '%')
+                        ->orWhere('year', 'LIKE', '%' . $searchTerm . '%')
+                        ->orWhere('salary_structure_id', 'LIKE', '%' . $searchTerm . '%')
+                        ->orWhere('deduction', 'LIKE', '%' . $searchTerm . '%')
+                        ->orWhere('total_payable', 'LIKE', '%' . $searchTerm . '%')
+                        ->orWhere('reason', 'LIKE', '%' . $searchTerm . '%')
+                        ->orWhere('year', 'LIKE', '%' . $searchTerm . '%')
+                        ->orWhere('month', 'LIKE', '%' . $searchTerm . '%')
+                        ->orWhere('month', 'LIKE', '%' . $searchTerm . '%')
+                        ->orWhere('date', 'LIKE', '%' . $searchTerm . '%');
+                })
+                ->get();
+        } else {
+            $payrolls = Payroll::with(['employee', 'salaryStructure'])
+                ->where('employee_id', $employee->id)
+                ->get();
+        }
+
+        $payrolls->each(function ($payroll) {
+            $employee = $payroll->employee;
+            $employee->load('designation', 'department'); // Assuming you have relationships defined in Employee model
+            $payroll->designation = $employee->designation->name;
+            $payroll->department = $employee->department->name;
+        });
+
+        return view('admin.pages.Payroll.searchMyPayrollList', compact('payrolls'));
+    }
+
+    // search all payroll list
+    public function searchAllPayroll(Request $request)
+    {
+        $searchTerm = $request->search;
+        $payrollsQuery = Payroll::with(['employee', 'salaryStructure']);
+
+        if ($searchTerm) {
+            $payrollsQuery->where(function ($query) use ($searchTerm) {
+                $query->where('month', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('year', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('deduction', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('reason', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhereHas('employee', function ($employeeQuery) use ($searchTerm) {
+                        $employeeQuery->where('name', 'LIKE', '%' . $searchTerm . '%')
+                            ->orWhereHas('department', function ($departmentQuery) use ($searchTerm) {
+                                $departmentQuery->where('department_name', 'LIKE', '%' . $searchTerm . '%');
+                            })
+                            ->orWhereHas('designation', function ($designationQuery) use ($searchTerm) {
+                                $designationQuery->where('designation_name', 'LIKE', '%' . $searchTerm . '%');
+                            });
+                    });
+            });
+        }
+
+        $payrolls = $payrollsQuery->get();
+
+        $foundCount = $payrolls->count();
+
+        return view('admin.pages.Payroll.searchAllPayrollList', compact('payrolls', 'foundCount'));
     }
 }
