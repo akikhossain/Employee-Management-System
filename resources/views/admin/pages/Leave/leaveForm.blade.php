@@ -3,9 +3,9 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">Apply Leave</h4>
     <div>
-        <a href="{{ route('leave.myLeave') }}" class="btn btn-success p-2 text-lg rounded-pill me-3">View Leave
+        <a href="{{ route('leave.myLeave') }}" class="btn btn-success p-2 px-3 text-lg rounded-pill me-3">Leave
             Status</a>
-        <a href="{{ route('leave.myLeaveBalance') }}" class="btn btn-success p-2 text-lg rounded-pill">My Leave
+        <a href="{{ route('leave.myLeaveBalance') }}" class="btn btn-success p-2 px-3 text-lg rounded-pill">Leave
             Balance</a>
     </div>
 </div>

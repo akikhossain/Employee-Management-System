@@ -4,7 +4,8 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">Designation List</h4>
     <div>
-        <a href="{{ route('organization.designation') }}" class="btn btn-success p-2 text-lg rounded-pill">Create
+        <a href="{{ route('organization.designation') }}" class="btn btn-success p-2 text-lg rounded-pill"><i
+                class="fa-solid fa-plus me-1"></i>Create
             Designation</a>
     </div>
 </div>

@@ -87,6 +87,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         // Leave
         Route::get('/Leave/LeaveStatus', [LeaveController::class, 'leaveList'])->name('leave.leaveStatus');
+        Route::get('/Leave/allLeaveReport', [LeaveController::class, 'allLeaveReport'])->name('allLeaveReport');
         // Approve,, Reject Leave
         Route::get('/leave/approve/{id}',  [LeaveController::class, 'approveLeave'])->name('leave.approve');
         Route::get('/leave/reject/{id}',  [LeaveController::class, 'rejectLeave'])->name('leave.reject');
@@ -158,11 +159,15 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/check-in', [AttendanceController::class, 'checkIn'])->name('check-in');
         Route::get('/check-out', [AttendanceController::class, 'checkOut'])->name('check-out');
         Route::get('/attendance/myAttendance', [AttendanceController::class, 'myAttendance'])->name('attendance.myAttendance');
+
+
         // Leave Routes for Employee
         Route::get('/Leave/LeaveForm', [LeaveController::class, 'leave'])->name('leave.leaveForm');
         Route::post('/Leave/store', [LeaveController::class, 'store'])->name('leave.store');
         Route::get('/Leave/myLeave', [LeaveController::class, 'myLeave'])->name('leave.myLeave');
         Route::get('/Leave/myLeaveBalance', [LeaveController::class, 'showLeaveBalance'])->name('leave.myLeaveBalance');
+        Route::get('/Leave/myLeaveReport', [LeaveController::class, 'myLeaveReport'])->name('myLeaveReport');
+
 
         // user profile
         Route::get('/myProfile', [UserController::class, 'myProfile'])->name('profile');

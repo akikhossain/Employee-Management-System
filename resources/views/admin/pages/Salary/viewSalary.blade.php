@@ -4,7 +4,8 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center">
     <h4 class="text-uppercase">View Salary List</h4>
     <div>
-        <a href="{{ route('salary.create.form') }}" class="btn btn-success p-2 text-lg rounded-pill">Create New
+        <a href="{{ route('salary.create.form') }}" class="btn btn-success p-2 text-lg rounded-pill"><i
+                class="fa-solid fa-plus  me-1"></i>Create New
             Salary</a>
     </div>
 </div>

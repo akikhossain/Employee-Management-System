@@ -106,7 +106,7 @@
                             </div>
                             <div class="text-center w-25 mx-auto mt-3">
                                 <button type="submit"
-                                    class="btn btn-info p-2 text-lg  rounded col-md-10">Submit</button>
+                                    class="btn btn-success p-2 text-lg  rounded col-md-10">Create</button>
                             </div>
                         </form>
                     </div>

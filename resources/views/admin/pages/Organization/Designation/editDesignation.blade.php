@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                             <div class="text-center w-25 mx-auto">
-                                <button type="submit" class="btn btn-info p-2 rounded">Update</button>
+                                <button type="submit" class="btn btn-success p-2 px-3 rounded-pill">Update</button>
                             </div>
                         </form>
                     </div>

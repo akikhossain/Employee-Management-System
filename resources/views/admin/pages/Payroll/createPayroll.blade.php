@@ -3,7 +3,8 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">Create Payroll</h4>
     <div>
-        <a href="{{ route('payroll.view') }}" class="btn btn-success p-2 text-lg rounded-pill"> View Payroll List</a>
+        <a href="{{ route('payroll.view') }}" class="btn btn-success p-2 text-lg rounded-pill"><i
+                class="fa-sharp fa-regular fa-eye me-1"></i>View Payroll List</a>
     </div>
 </div>
 <div class="container my-5 py-5">
@@ -133,8 +134,8 @@
 
                             </div>
                             <div class="mt-3 w-25 mx-auto text-center">
-                                <button type="submit" class="btn btn-success p-2 text-lg rounded-pill col-md-10">Create
-                                    Payroll</button>
+                                <button type="submit"
+                                    class="btn btn-success p-2 text-lg rounded-pill col-md-10">Create</button>
                             </div>
                         </form>
                     </div>

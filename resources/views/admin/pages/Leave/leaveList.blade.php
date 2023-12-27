@@ -8,7 +8,7 @@
 
     <div class="d-flex justify-content-between align-items-center mb-5">
         <div class="input-group rounded w-50">
-            <form action="{{ route('employee.search') }}" method="get">
+            <form action="" method="get">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search..." name="search">
                     <button type="submit" class="input-group-text border-0 bg-transparent" id="search-addon">
@@ -17,17 +17,14 @@
                 </div>
             </form>
         </div>
-        <a href="{{ route('allPayrollList') }}" class="btn btn-danger text-capitalize border-0"
-            data-mdb-ripple-color="dark">Report</a>
+        <a href="allLeaveReport" class="btn btn-danger text-capitalize border-0" data-mdb-ripple-color="dark">Report</a>
     </div>
-
 
     <table class="table align-middle text-center w-100 bg-white">
         <thead class="bg-light">
             <tr>
                 <th>SL NO</th>
                 <th>Employee Name</th>
-                {{-- <th>dept</th> --}}
                 <th>Leave Type</th>
                 <th>Start Date</th>
                 <th>End Date</th>

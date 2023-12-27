@@ -26,16 +26,14 @@
         </tbody>
     </table>
 
-    @if($totalTakenDays <= 25) <!-- Allow applying for leave -->
-        <div class="text-center fw-bold text-white bg-success rounded-pill w-50 mx-auto p-1 fs-5">
-            <p>You can apply for leave. Total taken days: {{ $totalTakenDays }}</p>
-            <!-- Your leave application form or button can be added here -->
-        </div>
-        @else
-        <div class="text-center fw-bold text-white bg-danger rounded-pill w-50 mx-auto p-1 mt-2 fs-5">
-            <!-- Display message if total taken days exceed the limit -->
-            <p>You have already taken more than 25 days of leave. You cannot apply for more leave.</p>
-        </div>
-        @endif
+    @if($totalTakenDays <= 25) <div class="text-center    bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
+        <p>Total taken days: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span>. You can take Total 25 Days
+            Leave In a Year.</p>
+</div>
+@else
+<div class="text-center fw-bold text-white bg-danger rounded-pill w-50 mx-auto p-1 mt-2 fs-5">
+    <p>You have already taken more than 25 days of leave. You cannot apply for more leave.</p>
+</div>
+@endif
 </div>
 @endsection

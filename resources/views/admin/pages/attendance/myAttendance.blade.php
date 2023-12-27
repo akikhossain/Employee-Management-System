@@ -10,6 +10,7 @@
             <tr>
                 <th>#</th>
                 <th>Name</th>
+                {{-- <th>D Name</th> --}}
                 <th>Duration</th>
                 <th>Date</th>
                 <th>Check In</th>
@@ -27,6 +28,7 @@
                     </div>
                 </td>
                 <td>{{ $attendance->name }}</td>
+                {{-- <td>{{ $attendance->employee->department->department_name }}</td> --}}
                 <td>
                     {{ sprintf('%02d:%02d:%02d', $attendance->duration_minutes / 60, $attendance->duration_minutes % 60,
                     0) }}
@@ -36,6 +38,7 @@
                 <td>{{ $attendance->late }}</td>
                 <td>{{ $attendance->check_out }}</td>
                 <td>{{ $attendance->overtime }}</td>
+
             </tr>
             @endforeach
         </tbody>

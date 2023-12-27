@@ -3,7 +3,8 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">Create Salary</h4>
     <div>
-        <a href="{{ route('salary.view') }}" class="btn btn-success p-2 text-lg rounded-pill"> View Salary List</a>
+        <a href="{{ route('salary.view') }}" class="btn btn-success p-2 text-lg rounded-pill"><i
+                class="fa-sharp fa-regular fa-eye  me-1"></i>View Salary List</a>
 
     </div>
 </div>
@@ -87,8 +88,8 @@
                                 </div>
                             </div>
                             <div class="text-center w-25 mx-auto mt-3">
-                                <button type="submit" class="btn btn-success p-2 text-lg rounded-pill col-md-10">Create
-                                    Salary</button>
+                                <button type="submit"
+                                    class="btn btn-success p-2 text-lg rounded-pill col-md-10">Create</button>
                             </div>
                         </form>
                     </div>

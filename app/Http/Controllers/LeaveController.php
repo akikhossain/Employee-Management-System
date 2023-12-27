@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
+use App\Models\Designation;
 use App\Models\Employee;
 use App\Models\Leave;
 use App\Models\LeaveType;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -21,6 +24,8 @@ class LeaveController extends Controller
     public function leaveList()
     {
 
+        // $designations = Designation::all();
+        // $employees = Employee::all();
         $leaves = Leave::with(['type'])->paginate(5);
         return view('admin.pages.Leave.leaveList', compact('leaves'));
     }
@@ -29,13 +34,13 @@ class LeaveController extends Controller
     public function myLeave()
     {
         $userId = auth()->user()->id;
-
+        $designations = Designation::all();
         // Retrieve leave records for the authenticated user only
         $leaves = Leave::where('employee_id', $userId)
             ->with(['type'])
             ->paginate(5);
 
-        return view('admin.pages.Leave.myLeave', compact('leaves'));
+        return view('admin.pages.Leave.myLeave', compact('leaves', 'designations'));
     }
 
     public function store(Request $request)
@@ -77,6 +82,7 @@ class LeaveController extends Controller
         Leave::create([
             'employee_name' => auth()->user()->name,
             'employee_id' => auth()->user()->id,
+            // 'department_name' => auth()->user()->employee->department->department_name,
             'from_date' => $fromDate,
             'to_date' => $toDate,
             'total_days' => $totalDays,
@@ -209,5 +215,31 @@ class LeaveController extends Controller
         }
 
         return view('admin.pages.Leave.myLeaveBalance', compact('leaveTypeBalances', 'totalTakenDays'));
+    }
+
+
+    // single employee report
+    public function allLeaveReport()
+    {
+        $leaves = Leave::where('status', 'approved')
+            ->with(['type'])
+            ->paginate(5);
+
+        return view('admin.pages.Leave.allLeaveReport', compact('leaves'));
+    }
+
+
+    // single employee leave
+    public function myLeaveReport()
+    {
+        $userId = auth()->user()->id;
+
+        // Retrieve only approved leave records for the authenticated user
+        $leaves = Leave::where('employee_id', $userId)
+            ->where('status', 'approved') // Fetch only approved leaves
+            ->with(['type'])
+            ->paginate(5);
+
+        return view('admin.pages.Leave.myLeaveReport', compact('leaves'));
     }
 }

@@ -4,7 +4,9 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">Add Employee</h4>
     <div>
-        <a href="{{ route('manageEmployee.ViewEmployee') }}" class="btn btn-info p-2 text-lg rounded">Employee List</a>
+        <a href="{{ route('manageEmployee.ViewEmployee') }}" class="btn btn-success px-3 p-2 text-lg rounded-pill"><i
+                class="fa-sharp fa-regular fa-eye me-1"></i>Employee
+            List</a>
     </div>
 </div>
 <div class="container my-5 py-5">
@@ -198,7 +200,7 @@
                             </div>
                             <div class="text-center w-25 mx-auto">
                                 <button type="submit"
-                                    class="btn btn-info p-2 text-lg rounded col-md-10 fw-bold">Submit</button>
+                                    class="btn btn-success p-2 text-lg rounded-pill col-md-10">Submit</button>
                             </div>
                         </form>
                     </div>
