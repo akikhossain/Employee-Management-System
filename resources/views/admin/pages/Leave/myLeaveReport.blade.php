@@ -11,8 +11,7 @@
 <div class="container my-5 py-5">
     <div class="float-end mb-5">
         <button onclick="printContent('printDiv')" class="btn btn-danger text-capitalize border-0"
-            data-mdb-ripple-color="dark"><i
-                class="fas fa-print text-primary me-2 text-white  rounded-pill"></i>Print</button>
+            data-mdb-ripple-color="dark"><i class="fa-solid fa-print me-1"></i>Print</button>
     </div>
 
     <div id="printDiv">

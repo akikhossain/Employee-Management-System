@@ -2,15 +2,14 @@
 
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center">
-    <h4 class="text-uppercase">Leave Request Record</h4>
+    <h4 class="text-uppercase">Leave Record</h4>
 </div>
 <div class="container my-5 py-5">
 
 
     <div class="float-end mb-5">
         <button onclick="printContent('printDiv')" class="btn btn-danger text-capitalize border-0"
-            data-mdb-ripple-color="dark"><i
-                class="fas fa-print text-primary me-2 text-white  rounded-pill"></i>Print</button>
+            data-mdb-ripple-color="dark"><i class="fa-solid fa-print me-1"></i>Print</button>
     </div>
     <div id="printDiv">
         <div class="col-md-12 mt-5">
@@ -29,7 +28,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive-sm">
-                        <table class="table table-striped align-middle text-center">
+                        <table class="table table-striped table-hover align-middle text-center">
                             <thead>
                                 <tr>
                                     <th>SL NO</th>
@@ -59,7 +58,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="card-footer bg-dark-light p-1  text-center mt-5">
+                <div class="card-footer bg-dark-light p-1 rounded text-center mt-5">
                     <p class="mb-0">© 2023 Copyright: Employee Management System | Akik Hossain</p>
                 </div>
             </div>

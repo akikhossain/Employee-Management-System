@@ -34,13 +34,12 @@ class LeaveController extends Controller
     public function myLeave()
     {
         $userId = auth()->user()->id;
-        $designations = Designation::all();
         // Retrieve leave records for the authenticated user only
         $leaves = Leave::where('employee_id', $userId)
             ->with(['type'])
             ->paginate(5);
 
-        return view('admin.pages.Leave.myLeave', compact('leaves', 'designations'));
+        return view('admin.pages.Leave.myLeave', compact('leaves'));
     }
 
     public function store(Request $request)
@@ -241,5 +240,57 @@ class LeaveController extends Controller
             ->paginate(5);
 
         return view('admin.pages.Leave.myLeaveReport', compact('leaves'));
+    }
+
+    // search leaveList
+    public function searchLeaveList(Request $request)
+    {
+        $searchTerm = $request->search;
+
+        // Query builder for Leave model
+        $query = Leave::with(['type']);
+
+        if ($searchTerm) {
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('employee_name', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhereHas('type', function ($typeQuery) use ($searchTerm) {
+                        $typeQuery->where('leave_type_id', 'LIKE', '%' . $searchTerm . '%');
+                    })
+                    ->orWhere('from_date', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('to_date', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('total_days', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('description', 'LIKE', '%' . $searchTerm . '%');
+            });
+        }
+
+        $leaves = $query->paginate(5); // Use paginate instead of get()
+
+        return view('admin.pages.Leave.searchLeaveList', compact('leaves'));
+    }
+
+    // search my leave
+    public function searchMyLeave(Request $request)
+    {
+        $userId = auth()->user()->id;
+        $searchTerm = $request->search;
+
+        $query = Leave::where('employee_id', $userId)->with('type');
+
+        if ($searchTerm) {
+            $query->where(function ($q) use ($searchTerm) {
+                $q->whereHas('type', function ($typeQuery) use ($searchTerm) {
+                    $typeQuery->where('leave_type_id', 'LIKE', '%' . $searchTerm . '%');
+                })
+                    ->orWhere('from_date', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('to_date', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('total_days', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('description', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('status', 'LIKE', '%' . $searchTerm . '%');
+            });
+        }
+
+        $leaves = $query->paginate(5);
+
+        return view('admin.pages.Leave.searchMyLeave', compact('leaves'));
     }
 }

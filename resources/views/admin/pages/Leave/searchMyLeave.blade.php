@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
-    <h4 class="text-uppercase">My Leave</h4>
+    <h4 class="text-uppercase">Searched My Leave</h4>
     <div>
         <a href="{{ route('leave.leaveForm') }}" class="btn btn-success p-2  px-3 text-lg rounded-pill">Apply for
             Leave</a>
@@ -10,21 +10,22 @@
 </div>
 <div class="container my-5 py-5">
 
-    <div class="d-flex justify-content-between align-items-center mb-5">
-        <div class="input-group rounded w-50">
-            <form action="{{ route('searchMyLeave') }}" method="get">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search..." name="search">
-                    <button type="submit" class="input-group-text border-0 bg-transparent" id="search-addon">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-        <a href="{{ route('myLeaveReport') }}" class="btn btn-danger text-capitalize border-0"
-            data-mdb-ripple-color="dark"><i class="fa-regular fa-paste me-1"></i>Report</a>
+    <div class="fw-normal mb-4">
+        <h2 class="fw-normal fs-5 mx-auto text-center rounded-pill p-2 w-50 mb-5
+            @if ($leaves->count() > 0) bg-success
+            @else
+                bg-danger text-white @endif">
+            @if ($leaves->count() === 1)
+            Found 1 matching data for "{{ request()->search }}"
+            @elseif ($leaves->count() > 1)
+            Found {{ $leaves->count() }} matching data for "{{ request()->search }}"
+            @else
+            No Data found for "{{ request()->search }}"
+            @endif
+        </h2>
     </div>
 
+    @if ($leaves->count() > 0)
 
     <table class="table align-middle text-center table-hover  bg-white">
         <thead class="bg-light">
@@ -64,6 +65,7 @@
             @endforeach
         </tbody>
     </table>
+    @endif
     <div class="w-25 mx-auto mt-4">
         {{ $leaves->links() }}
     </div>
