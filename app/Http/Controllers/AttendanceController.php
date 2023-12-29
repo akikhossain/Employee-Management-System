@@ -34,7 +34,7 @@ class AttendanceController extends Controller
 
         if ($currentTime->lessThan($nineAm)) {
             // Outside working hours, can't check in yet
-            notify()->error('You can check-in after 9 AM.');
+            notify()->error('You can check-in from 9 AM.');
             return redirect()->back();
         }
 
@@ -48,13 +48,18 @@ class AttendanceController extends Controller
         }
 
         $late = $currentTime->diff($nineAm)->format('%H:%I:%S');
+        $currentMonth = Carbon::now()->monthName;
+
 
         Attendance::create([
             'employee_id' => auth()->user()->id,
             'name' => auth()->user()->name,
+            'department_name' => auth()->user()->employee->department->department_name,
+            'designation_name' => auth()->user()->employee->designation->designation_name,
             'check_in' => $currentTime->format('H:i:s'),
             'check_out' => null,
             'select_date' => now(),
+            'month' => $currentMonth,
             'late' => $late, // Save late time
         ]);
 
@@ -123,5 +128,68 @@ class AttendanceController extends Controller
         $attendances = Attendance::where('employee_id', $userId)
             ->paginate(3);
         return view('admin.pages.attendance.myAttendance', compact('attendances'));
+    }
+
+    // report of all attendance record
+    public function attendanceReport()
+    {
+        $attendances = Attendance::paginate(3);
+        return view('admin.pages.attendance.attendanceReport', compact('attendances'));
+    }
+
+    // report  of my attendance
+    public function myAttendanceReport()
+    {
+        $userId = auth()->user()->id;
+
+        // Retrieve leave records for the authenticated user only
+        $attendances = Attendance::where('employee_id', $userId)
+            ->paginate(3);
+        return view('admin.pages.attendance.myAttendanceReport', compact('attendances'));
+    }
+
+
+    // search for all attendance list
+    public function searchAttendanceReport(Request $request)
+    {
+        $searchTerm = $request->search;
+
+        $query = Attendance::query();
+
+        if ($searchTerm) {
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('name', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('department_name', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('designation_name', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('select_date', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('month', 'LIKE', '%' . $searchTerm . '%');
+            });
+        }
+        $attendances = $query->paginate(10);
+        return view('admin.pages.attendance.viewSearchAttendance', compact('attendances'));
+    }
+
+    // search  my attendance
+    public function searchMyAttendance(Request $request)
+    {
+        $userId = auth()->user()->id;
+        $searchTerm = $request->search;
+
+        $query = Attendance::where('employee_id', $userId);
+
+        if ($searchTerm) {
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('name', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('department_name', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('designation_name', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('select_date', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('month', 'LIKE', '%' . $searchTerm . '%');
+                // Add more conditions based on your search requirements
+            });
+        }
+
+        $attendances = $query->paginate(10); // Change 10 to the desired number of items per page
+
+        return view('admin.pages.attendance.searchMyAttendance', compact('attendances'));
     }
 }

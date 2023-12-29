@@ -18,8 +18,11 @@ return new class extends Migration
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
             $table->string('name', 20);
+            $table->text('department_name');
+            $table->text('designation_name');
             $table->string('employee_id', 10);
             $table->date('select_date');
+            $table->string('month');
             $table->time('check_in')->nullable();
             $table->string('late')->nullable();
             $table->time('check_out')->nullable();

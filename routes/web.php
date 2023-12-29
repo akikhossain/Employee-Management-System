@@ -67,8 +67,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('/Employee/update/{id}', [viewEmployeeController::class, 'update'])->name('Employee.update');
         Route::get('/Employee/profile/{id}', [viewEmployeeController::class, 'profile'])->name('Employee.profile');
         Route::get('/search-employee', [viewEmployeeController::class, 'search'])->name('employee.search');
+
+
         // attendance
         Route::get('/Attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');
+        Route::get('/Attendance/AttendanceReport', [AttendanceController::class, 'attendanceReport'])->name('attendanceReport');
+        Route::get('/Attendance/searchAttendanceReport', [AttendanceController::class, 'searchAttendanceReport'])->name('searchAttendanceReport');
 
         // department
         Route::get('/Organization/department', [OrganizationController::class, 'department'])->name('organization.department');
@@ -156,11 +160,14 @@ Route::group(['middleware' => 'auth'], function () {
     // Employee route
 
     Route::group(['middleware' => ['auth', 'IsEmployee']], function () {
+
         // Attendance Routes for Employee
         Route::get('/Attendance/giveAttendance', [AttendanceController::class, 'giveAttendance'])->name('attendance.giveAttendance');
         Route::get('/check-in', [AttendanceController::class, 'checkIn'])->name('check-in');
         Route::get('/check-out', [AttendanceController::class, 'checkOut'])->name('check-out');
         Route::get('/attendance/myAttendance', [AttendanceController::class, 'myAttendance'])->name('attendance.myAttendance');
+        Route::get('/attendance/myAttendanceReport', [AttendanceController::class, 'myAttendanceReport'])->name('myAttendanceReport');
+        Route::get('/attendance/searchMyAttendance', [AttendanceController::class, 'searchMyAttendance'])->name('searchMyAttendance');
 
 
         // Leave Routes for Employee

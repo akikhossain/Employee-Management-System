@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center">
-    <h4 class="text-uppercase">Leave Record</h4>
+    <h4 class="text-uppercase">Attendance Record</h4>
 </div>
 <div class="container my-5 py-5">
 
@@ -14,7 +14,7 @@
     <div id="printDiv">
         <div class="col-md-12 mt-5">
             <div class="text-center">
-                <h4 class="pt-0">Employee Leave Records</h4>
+                <h4 class="pt-0">Employee Attendance Records</h4>
                 <p class="pt-0"></p>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 <div class="card-header p-4">
                     <a class="pt-2 d-inline-block" href="" data-abc="true">HR HUB 360</a>
                     <div class="float-right">
-                        <h3 class="mb-0">Employee Leave Record</h3>
+                        <h3 class="mb-0">Employee Attendance Record</h3>
                     </div>
                 </div>
                 <div class="card-body">
@@ -31,31 +31,41 @@
                         <table class="table table-striped table-hover align-middle text-center">
                             <thead>
                                 <tr>
-                                    <th>SL NO</th>
+                                    <th>#</th>
                                     <th>Employee Name</th>
-                                    <th>Department Name</th>
-                                    <th>Designation Name</th>
-                                    <th>Leave Type</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
-                                    <th>Total Days</th>
+                                    <th>Department</th>
+                                    <th>Designation</th>
+                                    <th>Duration</th>
+                                    <th>Date</th>
+                                    <th>month</th>
+                                    <th>Check In</th>
+                                    <th>Late</th>
+                                    <th>Check Out</th>
+                                    <th>Overtime</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($leaves as $key => $leave)
+                                @foreach ($attendances as $key => $attendance)
                                 <tr>
                                     <td>
                                         <div>
                                             <p class="fw-bold mb-1">{{ $key + 1 }}</p>
                                         </div>
                                     </td>
-                                    <td>{{ $leave->employee_name }}</td>
-                                    <td>{{ $leave->department_name }}</td>
-                                    <td>{{ $leave->designation_name }}</td>
-                                    <td>{{ $leave->type->leave_type_id }}</td>
-                                    <td>{{ $leave->from_date }}</td>
-                                    <td>{{ $leave->to_date }}</td>
-                                    <td>{{ $leave->total_days }}</td>
+                                    <td>{{ $attendance->name }}</td>
+                                    <td>{{ $attendance->department_name }}</td>
+                                    <td>{{ $attendance->designation_name }}</td>
+                                    <td>
+                                        {{ sprintf('%02d:%02d:%02d', $attendance->duration_minutes / 60,
+                                        $attendance->duration_minutes % 60,
+                                        0) }}
+                                    </td>
+                                    <td>{{ $attendance->select_date }}</td>
+                                    <td>{{ $attendance->month }}</td>
+                                    <td>{{ $attendance->check_in }}</td>
+                                    <td>{{ $attendance->late }}</td>
+                                    <td>{{ $attendance->check_out }}</td>
+                                    <td>{{ $attendance->overtime }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

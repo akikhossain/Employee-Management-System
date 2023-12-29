@@ -26,6 +26,8 @@
             <tr>
                 <th>SL NO</th>
                 <th>Employee Name</th>
+                <th>Department</th>
+                <th>Designation</th>
                 <th>Leave Type</th>
                 <th>Start Date</th>
                 <th>End Date</th>
@@ -43,6 +45,8 @@
                     </div>
                 </td>
                 <td>{{ $leave->employee_name }}</td>
+                <td>{{ $leave->department_name }}</td>
+                <td>{{ $leave->designation_name }}</td>
                 <td>{{ $leave->type->leave_type_id }}</td>
                 <td>{{ $leave->from_date }}</td>
                 <td>{{ $leave->to_date }}</td>

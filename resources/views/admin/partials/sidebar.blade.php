@@ -2,28 +2,27 @@
 
     {{-- Dashboard --}}
     <ul class="list-unstyled mb-5">
-        <li class="sidebar-list-item border-top border-bottom"><a class="sidebar-link text-muted active"
-                href="{{ route('dashboard') }}">
+        <li class="sidebar-list-item "><a class="sidebar-link text-muted active" href="{{ route('dashboard') }}">
                 <span class="sidebar-link-title fs-5">Dashboards</span></a>
         </li>
 
         {{-- Notice --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
-                href="{{ route('show.notice') }}"><i class="fa-solid fa-check me-2 text-info"></i>
+        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted" href="{{ route('show.notice') }}"><i
+                    class="fa-solid fa-check me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Notices</span></a>
         </li>
 
         @employee
         {{-- User Profile --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
-                href="{{ route('profile') }}"><i class="fa-regular fa-user me-2 text-info"></i>
+        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted" href="{{ route('profile') }}"><i
+                    class="fa-regular fa-user me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Profile</span></a>
         </li>
         @endemployee
 
         {{-- Attendance --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href=""
-                data-bs-target="#tablesDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
+        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted " href="" data-bs-target="#tablesDropdown"
+                role="button" aria-expanded="false" data-bs-toggle="collapse"><i
                     class="fa-regular fa-clock me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Attendance</span></a>
             <ul class="sidebar-menu   list-unstyled collapse " id="tablesDropdown">
@@ -67,8 +66,8 @@
 
 
         {{-- Employees --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href="#"
-                data-bs-target="#cmsDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
+        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted " href="#" data-bs-target="#cmsDropdown"
+                role="button" aria-expanded="false" data-bs-toggle="collapse"><i
                     class="fa-solid fa-user-group me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Employees</span></a>
             <ul class="sidebar-menu list-unstyled collapse " id="cmsDropdown">
@@ -85,13 +84,13 @@
 
 
         {{-- Task --}}
-        {{-- <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href="#"><i
+        {{-- <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted " href="#"><i
                     class="fa-solid fa-list-check me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Manage Task</span></a>
         </li> --}}
 
         {{-- Manage Leave --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted " href="#"
+        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted " href="#"
                 data-bs-target="#componentsDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
                     class="fa-solid fa-person-walking-arrow-right me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Leave</span></a>
@@ -153,7 +152,7 @@
 
         @admin
         {{-- Salary Structure --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted"
+        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted"
                 href="{{ route('salary.create.form') }}"><i class="fa-solid fa-dollar-sign me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Salary Structure</span></a>
         </li>
@@ -161,7 +160,7 @@
 
 
         {{-- Users --}}
-        <li class="sidebar-list-item py-2 border-top border-bottom"><a class="sidebar-link text-muted "
+        <li class="sidebar-list-item py-2 border-bottom"><a class="sidebar-link text-muted "
                 href="{{ route('users.list') }}"><i class="fa-solid fa-circle-user me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Users</span></a>
         </li>

@@ -24,8 +24,6 @@ class LeaveController extends Controller
     public function leaveList()
     {
 
-        // $designations = Designation::all();
-        // $employees = Employee::all();
         $leaves = Leave::with(['type'])->paginate(5);
         return view('admin.pages.Leave.leaveList', compact('leaves'));
     }
@@ -41,6 +39,60 @@ class LeaveController extends Controller
 
         return view('admin.pages.Leave.myLeave', compact('leaves'));
     }
+
+    // public function store(Request $request)
+    // {
+    //     $validate = Validator::make($request->all(), [
+    //         'from_date' => 'required|date',
+    //         'to_date' => 'required|date|after_or_equal:from_date',
+    //         'leave_type_id' => 'required',
+    //         'description' => 'required',
+    //     ]);
+
+    //     if ($validate->fails()) {
+    //         notify()->error($validate->getMessageBag());
+    //         return redirect()->back();
+    //     }
+
+    //     $fromDate = Carbon::parse($request->from_date);
+    //     $toDate = Carbon::parse($request->to_date);
+    //     $totalDays = $toDate->diffInDays($fromDate) + 1; // Calculate total days
+
+    //     // Fetch the total days for the selected leave type ('leave_days' column)
+    //     $leaveType = LeaveType::findOrFail($request->leave_type_id);
+    //     $leaveTypeTotalDays = $leaveType->leave_days; // Assuming 'leave_days' is the field in the LeaveType model
+
+    //     // Validate if the total days taken for this leave type don't exceed the available days
+    //     $userId = auth()->user()->id;
+    //     $totalTakenDaysForLeaveType = Leave::where('employee_id', $userId)
+    //         ->where('leave_type_id', $request->leave_type_id)
+    //         ->whereYear('from_date', '=', date('Y'))
+    //         ->sum('total_days');
+
+    //     $availableLeaveDays = $leaveTypeTotalDays - $totalTakenDaysForLeaveType;
+
+    //     if ($totalDays > $availableLeaveDays) {
+    //         notify()->error('Exceeded available leave days for this type.');
+    //         return redirect()->back();
+    //     }
+
+    //     Leave::create([
+    //         'employee_name' => auth()->user()->name,
+    //         'employee_id' => auth()->user()->id,
+    //         'department_name' => auth()->user()->employee->department->department_name,
+    //         'designation_name' => auth()->user()->employee->designation->designation_name,
+    //         'from_date' => $fromDate,
+    //         'to_date' => $toDate,
+    //         'total_days' => $totalDays,
+    //         'leave_type_id' => $request->leave_type_id,
+    //         'description' => $request->description,
+    //     ]);
+
+    //     notify()->success('New Leave created');
+    //     return redirect()->back();
+    // }
+
+
 
     public function store(Request $request)
     {
@@ -66,22 +118,44 @@ class LeaveController extends Controller
 
         // Validate if the total days taken for this leave type don't exceed the available days
         $userId = auth()->user()->id;
-        $totalTakenDaysForLeaveType = Leave::where('employee_id', $userId)
-            ->where('leave_type_id', $request->leave_type_id)
-            ->whereYear('from_date', '=', date('Y'))
-            ->sum('total_days');
 
-        $availableLeaveDays = $leaveTypeTotalDays - $totalTakenDaysForLeaveType;
+        // Check if this is the first leave for the employee
+        $firstLeave = Leave::where('employee_id', $userId)->count() === 0;
 
-        if ($totalDays > $availableLeaveDays) {
-            notify()->error('Exceeded available leave days for this type.');
+        if (!$firstLeave) {
+            // Check if the employee's first leave is rejected or approved by the admin
+            $firstLeaveStatus = Leave::where('employee_id', $userId)
+                ->where('status', '!=', 'pending') // Exclude pending status (includes rejected and approved)
+                ->orderBy('created_at', 'asc')
+                ->value('status');
+
+            if ($firstLeaveStatus === 'rejected') {
+                // Allow reapplication if the first leave was rejected
+                $firstLeaveStatus = 'approved';
+            }
+
+            if ($firstLeaveStatus !== 'approved') {
+                notify()->error('You cannot take leave until your first leave is approved by the admin.');
+                return redirect()->back();
+            }
+        }
+
+        // Check if the previous leave's end date has passed
+        $previousLeaveEndDate = Leave::where('employee_id', $userId)
+            ->where('status', 'approved')
+            ->orderBy('to_date', 'desc')
+            ->value('to_date');
+
+        if ($previousLeaveEndDate && Carbon::parse($previousLeaveEndDate)->isFuture()) {
+            notify()->error('You cannot take leave until your previous leave date is over.');
             return redirect()->back();
         }
 
         Leave::create([
             'employee_name' => auth()->user()->name,
-            'employee_id' => auth()->user()->id,
-            // 'department_name' => auth()->user()->employee->department->department_name,
+            'department_name' => auth()->user()->employee->department->department_name,
+            'designation_name' => auth()->user()->employee->designation->designation_name,
+            'employee_id' => $userId,
             'from_date' => $fromDate,
             'to_date' => $toDate,
             'total_days' => $totalDays,
@@ -92,6 +166,11 @@ class LeaveController extends Controller
         notify()->success('New Leave created');
         return redirect()->back();
     }
+
+
+
+
+
 
 
     // Approve and Reject Leave
@@ -247,7 +326,6 @@ class LeaveController extends Controller
     {
         $searchTerm = $request->search;
 
-        // Query builder for Leave model
         $query = Leave::with(['type']);
 
         if ($searchTerm) {
@@ -259,14 +337,20 @@ class LeaveController extends Controller
                     ->orWhere('from_date', 'LIKE', '%' . $searchTerm . '%')
                     ->orWhere('to_date', 'LIKE', '%' . $searchTerm . '%')
                     ->orWhere('total_days', 'LIKE', '%' . $searchTerm . '%')
-                    ->orWhere('description', 'LIKE', '%' . $searchTerm . '%');
+                    ->orWhere('description', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('department_name', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('designation_name', 'LIKE', '%' . $searchTerm . '%');
             });
         }
 
-        $leaves = $query->paginate(5); // Use paginate instead of get()
+        $leaves = $query->paginate(5);
 
         return view('admin.pages.Leave.searchLeaveList', compact('leaves'));
     }
+
+
+
+
 
     // search my leave
     public function searchMyLeave(Request $request)
