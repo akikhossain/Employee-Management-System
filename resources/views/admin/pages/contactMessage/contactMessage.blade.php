@@ -15,7 +15,6 @@
                 <th>Phone Number</th>
                 <th>Subject</th>
                 <th>Message</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -32,18 +31,11 @@
                 <td>{{ $message->phone }}</td>
                 <td>{{ $message->subject }}</td>
                 <td>{{ $message->message }}</td>
-                <td>
-                    <a class="btn btn-success rounded-pill" href="">Contact</a>
-                    <a class="btn btn-danger rounded-pill" href="">Delete</a>
-
-                </td>
-
             </tr>
             @endforeach
         </tbody>
     </table>
     <div class="w-25 mx-auto mt-4">
-        {{-- {{ $leaves->links() }} --}}
     </div>
 </div>
 @endsection

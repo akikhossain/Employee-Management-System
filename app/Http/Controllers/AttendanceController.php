@@ -16,7 +16,7 @@ class AttendanceController extends Controller
     }
     public function attendanceList()
     {
-        $attendances = Attendance::paginate(3);
+        $attendances = Attendance::paginate(10);
         return view('admin.pages.attendance.viewAttendance', compact('attendances'));
     }
 
@@ -77,7 +77,7 @@ class AttendanceController extends Controller
         if ($existingAttendance) {
             $checkInTime = Carbon::createFromTimeString($existingAttendance->check_in);
             $checkOutTime = now();
-            $regularWorkingHours = $checkInTime->copy()->setTime(17, 0, 0); // Assuming 5 PM as regular working hours
+            $regularWorkingHours = $checkInTime->copy()->setTime(17, 0, 0);
 
             // Calculate overtime
             $overtime = $checkOutTime->diff($regularWorkingHours)->format('%H:%I:%S');
@@ -126,14 +126,14 @@ class AttendanceController extends Controller
 
         // Retrieve leave records for the authenticated user only
         $attendances = Attendance::where('employee_id', $userId)
-            ->paginate(3);
+            ->paginate(10);
         return view('admin.pages.attendance.myAttendance', compact('attendances'));
     }
 
     // report of all attendance record
     public function attendanceReport()
     {
-        $attendances = Attendance::paginate(3);
+        $attendances = Attendance::paginate(10);
         return view('admin.pages.attendance.attendanceReport', compact('attendances'));
     }
 
@@ -144,7 +144,7 @@ class AttendanceController extends Controller
 
         // Retrieve leave records for the authenticated user only
         $attendances = Attendance::where('employee_id', $userId)
-            ->paginate(3);
+            ->paginate(10);
         return view('admin.pages.attendance.myAttendanceReport', compact('attendances'));
     }
 
@@ -188,7 +188,7 @@ class AttendanceController extends Controller
             });
         }
 
-        $attendances = $query->paginate(10); // Change 10 to the desired number of items per page
+        $attendances = $query->paginate(10);
 
         return view('admin.pages.attendance.searchMyAttendance', compact('attendances'));
     }

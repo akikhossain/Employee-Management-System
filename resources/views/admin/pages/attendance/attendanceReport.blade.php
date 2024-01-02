@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center">
-    <h4 class="text-uppercase">Attendance Record</h4>
+    <h4 class="text-uppercase">Print Attendance Record</h4>
 </div>
 <div class="container my-5 py-5">
 
@@ -12,10 +12,11 @@
             data-mdb-ripple-color="dark"><i class="fa-solid fa-print me-1"></i>Print</button>
     </div>
     <div id="printDiv">
-        <div class="col-md-12 mt-5">
+        <div class="col-md-12 mt-5 mb-2">
             <div class="text-center">
-                <h4 class="pt-0">Employee Attendance Records</h4>
-                <p class="pt-0"></p>
+                <img src="{{ asset('assests/image/logo.jpeg') }}" alt="" class="img-fluid rounded-circle mx-auto"
+                    style="max-width: 100px;">
+                {{-- <h4 class="mt-2">Employee Attendance Records</h4> --}}
             </div>
         </div>
         <div class="">

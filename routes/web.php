@@ -39,6 +39,7 @@ Route::get('/clientList', [ClientController::class, 'clientList'])->name('client
 
 // job list section
 Route::get('/JobList', [FrontendHomeController::class, 'jobList'])->name('jobList');
+Route::get('/aboutUs', [FrontendHomeController::class, 'aboutUs'])->name('aboutUs');
 
 // Notice section
 // Route::get('/notice', [FrontendHomeController::class, 'notice'])->name('notice');

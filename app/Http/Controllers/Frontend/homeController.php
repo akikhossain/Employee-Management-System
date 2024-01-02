@@ -155,4 +155,11 @@ class homeController extends Controller
             return redirect()->back();
         }
     }
+
+
+    // about  us
+    public function aboutUs()
+    {
+        return view('Frontend.AboutUs.aboutUs');
+    }
 }

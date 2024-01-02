@@ -23,12 +23,18 @@
                             <img src="{{ url('/uploads//' . $user->image) }}" alt="Avatar"
                                 class="img-fluid my-5 mx-auto rounded-circle"
                                 style="width: 150px; height: 150px; object-fit: cover;" />
-                            @else ($employee && $employee->employee_image)
+                            @elseif ($employee && $employee->employee_image)
                             <img src="{{ url('/uploads//' . $employee->employee_image) }}" alt="Avatar"
+                                class="img-fluid my-5 mx-auto rounded-circle"
+                                style="width: 150px; height: 150px; object-fit: cover;" />
+                            @else
+                            <img src="{{ asset('assets/image/default.png') }}" alt="Default Avatar"
                                 class="img-fluid my-5 mx-auto rounded-circle"
                                 style="width: 150px; height: 150px; object-fit: cover;" />
                             @endif
                         </div>
+
+
                         <div class="col-md-8">
                             <div class="card-body p-4">
                                 <h6>Information</h6>

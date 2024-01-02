@@ -122,7 +122,7 @@
                 dayOfWeekElement.innerHTML = day; // Display the day of the week in uppercase
 
                 var x1 = month + "-" + dt + "-" + x.getFullYear();
-                x1 = x1 + " - " + hours + ":" + minutes + " " + ampm;
+                x1 = x1 + " - " + hours + ":" + minutes + " " +  ampm;
                 document.getElementById('ct7').innerHTML = x1;
                 display_c7();
             }
@@ -196,7 +196,7 @@
 
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)" ;>
-            © 2023 Copyright: Employee Management System |
+            Copyright © All Rights Reserved 2023 | Employee Management System |
             <a class="text-white" href="https://github.com/akikhossain">Akik Hossain</a>
         </div>
     </footer>

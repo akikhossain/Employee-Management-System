@@ -33,4 +33,11 @@ class User extends Authenticatable
     {
         return $this->employee && in_array($this->employee->role, $roles);
     }
+
+    // User.php (or your User model)
+
+    public function isAdmin()
+    {
+        return $this->role === 'Admin';
+    }
 }

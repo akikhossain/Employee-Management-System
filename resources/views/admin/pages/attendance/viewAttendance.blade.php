@@ -4,7 +4,7 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">View Attendance List</h4>
 </div>
-<div class="  my-5 py-5">
+<div class="my-5 py-5">
     <div class="d-flex justify-content-between align-items-center mb-5">
         <div class="input-group rounded w-50">
             <form action="{{ route('searchAttendanceReport') }}" method="get">
@@ -34,7 +34,7 @@
                 <th>Late</th>
                 <th>Check Out</th>
                 <th>Overtime</th>
-                <th>Actions</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -59,7 +59,6 @@
                 <td>{{ $attendance->check_out }}</td>
                 <td>{{ $attendance->overtime }}</td>
                 <td>
-                    <a class="btn btn-success rounded-pill " href="">Edit</a>
                     <a class="btn btn-danger rounded-pill " href="">Delete</a>
                 </td>
             </tr>

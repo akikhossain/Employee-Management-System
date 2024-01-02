@@ -11,14 +11,15 @@
                 class="fas fa-print text-primary me-2 text-white  rounded-pill"></i>Print</button>
     </div>
 
-    <div class="col-md-12 mt-5">
-        <div class="text-center">
-            <h4 class="pt-0">Payroll Records</h4>
-            <p class="pt-0"></p>
-        </div>
-    </div>
 
     <div id="printDiv">
+        <div class="col-md-12 mt-5">
+            <div class="text-center">
+                <img src="{{ asset('assests/image/logo.jpeg') }}" alt="" class="img-fluid rounded-circle mx-auto"
+                    style="max-width: 100px;">
+                <h4 class="me-5 mt-2">Employee Payroll Records</h4>
+            </div>
+        </div>
         <table class="table align-middle mb-4 text-center bg-white">
             <thead class="bg-light">
                 <tr>

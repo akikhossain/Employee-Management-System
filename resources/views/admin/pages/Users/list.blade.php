@@ -31,7 +31,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Image</th>
+                {{-- <th scope="col">Image</th> --}}
                 <th scope="col">Email</th>
                 <th scope="col">Role</th>
                 <th scope="col">Action</th>
@@ -42,7 +42,7 @@
             <tr>
                 <td>{{ $key + 1 }}</td>
                 <td>{{ $user->name }}</td>
-                <td><img class="avatar p-1" src="{{ url('/uploads//' . $user->image) }}" alt=""></td>
+                {{-- <td><img class="avatar p-1" src="{{ url('/uploads//' . $user->image) }}" alt=""></td> --}}
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->role }}</td>
                 <td>

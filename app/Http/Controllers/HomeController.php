@@ -6,6 +6,7 @@ use App\Models\Contact;
 use App\Models\Department;
 use App\Models\Employee;
 use App\Models\Leave;
+use App\Models\Payroll;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -16,10 +17,33 @@ class HomeController extends Controller
     {
         $employees = Employee::count();
         $departments = Department::count();
-        $leaves = Leave::count();
+
+        $pendingLeaves = 0; // Default value for pending leaves
+
+        $user = auth()->user();
+
+        if ($user && $user->role === 'Admin') {
+            // For admin, count all pending leave requests
+            $totalLeaves = Leave::count();
+            $approvedLeaves = Leave::where('status', 'approved')->count();
+            $rejectedLeaves = Leave::where('status', 'rejected')->count();
+            $pendingLeaves = $totalLeaves - ($approvedLeaves + $rejectedLeaves);
+            // $payrolls = Payroll::count();
+        } else {
+            // For authenticated users who are not admins, count their own pending leave requests
+            $userId = $user ? $user->id : null;
+            $totalLeaves = Leave::where('employee_id', $userId)->count();
+            $approvedLeaves = Leave::where('employee_id', $userId)->where('status', 'approved')->count();
+            $rejectedLeaves = Leave::where('employee_id', $userId)->where('status', 'rejected')->count();
+            $pendingLeaves = $totalLeaves - ($approvedLeaves + $rejectedLeaves);
+        }
+
         $users = User::count();
-        return view('admin.pages.dashboard', compact('employees', 'departments', 'leaves', 'users'));
+
+        return view('admin.pages.dashboard', compact('employees', 'departments', 'pendingLeaves', 'users'));
     }
+
+
 
     public function showHeader()
     {

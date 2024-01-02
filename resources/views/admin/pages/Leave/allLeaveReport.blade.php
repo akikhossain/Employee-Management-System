@@ -14,8 +14,9 @@
     <div id="printDiv">
         <div class="col-md-12 mt-5">
             <div class="text-center">
-                <h4 class="pt-0">Employee Leave Records</h4>
-                <p class="pt-0"></p>
+                <img src="{{ asset('assests/image/logo.jpeg') }}" alt="" class="img-fluid rounded-circle mx-auto"
+                    style="max-width: 100px;">
+                <h4 class="pt-2">Employee Leave Records</h4>
             </div>
         </div>
         <div class="">

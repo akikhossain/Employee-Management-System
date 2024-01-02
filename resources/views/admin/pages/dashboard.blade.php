@@ -25,7 +25,7 @@
 
 
         <!-- Widget Type 1-->
-        <div class="mb-4 col-sm-6 col-lg-3 mb-4">
+        <div class="col-sm-6 col-lg-3 mb-4">
             <div class="card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
@@ -56,7 +56,7 @@
         </div>
         <!-- /Widget Type 1-->
         <!-- Widget Type 1-->
-        <div class="mb-4 col-sm-6 col-lg-3 mb-4">
+        <div class="col-sm-6 col-lg-3 mb-4">
             <div class="card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
@@ -87,12 +87,12 @@
         </div>
 
         <!-- Widget Type 1-->
-        <div class="mb-4 col-sm-6 col-lg-3 mb-4">
+        <div class="col-sm-6 col-lg-3 mb-4">
             <div class="card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
-                            <h4 class="fw-normal text-primary">{{ $leaves }}</h4>
+                            <h4 class="fw-normal text-primary">{{ $pendingLeaves }}</h4>
                             <p class="subtitle text-sm text-muted mb-0">Leave Request</p>
                         </div>
                         <div class="flex-shrink-0 ms-3">
@@ -118,7 +118,7 @@
         </div>
         <!-- /Widget Type 1-->
 
-        <div class="mb-4 col-sm-6 col-lg-3 mb-4">
+        <div class="col-sm-6 col-lg-3 mb-4">
             <div class="card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
@@ -147,11 +147,41 @@
                 </a>
             </div>
         </div>
+        <div class="col-sm-6 col-lg-3 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h4 class="fw-normal text-success"></h4>
+                            <p class="subtitle text-sm text-muted mb-0">Payrolls History</p>
+                        </div>
+                        <div class="flex-shrink-0 ms-3">
+                            <div>
+                                <img class="img-fluid custom-small-img" src="{{ asset('assests/image/money.png') }}"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="text-decoration-none" href="{{ route('payroll.view') }}">
+                    <div class="card-footer py-3 bg-green-light">
+                        <div class="row align-items-center text-green">
+                            <div class="col-10">
+                                <p class="mb-0">View Details</p>
+                            </div>
+                            <div class="col-2 text-end"><i class="fas fa-caret-up"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
         @endadmin
 
         @employee
         {{-- Employee Only --}}
-        <div class="mb-4 col-sm-6 col-lg-3 mb-4">
+        {{-- my profile --}}
+        <div class="col-sm-6 col-lg-3 mb-4">
             <div class="card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
@@ -178,6 +208,67 @@
                         </div>
                     </div>
                 </a>
+            </div>
+        </div>
+
+        {{-- my payroll --}}
+        <div class="col-sm-6 col-lg-3 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h4 class="fw-normal text-primary"></h4>
+                            <p class="subtitle text-sm text-muted mb-0">My Payroll</p>
+                        </div>
+                        <div class="flex-shrink-0 ms-3">
+                            <div>
+                                <img class="img-fluid custom-small-img" src="{{ asset('assests/image/exchange.png') }}"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="text-decoration-none" href="{{ route('myPayroll') }}">
+                    <div class="card-footer py-3 bg-primary-light">
+                        <div class="row align-items-center text-primary">
+                            <div class="col-10">
+                                <p class="mb-0">View Details</p>
+                            </div>
+                            <div class="col-2 text-end"><i class="fas fa-caret-up"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h4 class="fw-normal text-green">{{ $pendingLeaves }}</h4>
+                            <p class="subtitle text-sm text-muted mb-0">My Leave</p>
+                        </div>
+                        <div class="flex-shrink-0 ms-3">
+                            <div>
+                                <img class="img-fluid custom-small-img" src="{{ asset('assests/image/logout.png') }}"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="text-decoration-none" href="{{ route('leave.myLeave') }}">
+                    <div class="card-footer py-3 bg-dark-light">
+                        <div class="row align-items-center text-dark">
+                            <div class="col-10">
+                                <p class="mb-0">View Details</p>
+                            </div>
+                            <div class="col-2 text-end"><i class="fas fa-caret-up"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
                 @endemployee
             </div>
+
             @endsection

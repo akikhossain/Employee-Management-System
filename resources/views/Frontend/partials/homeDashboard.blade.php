@@ -77,6 +77,13 @@
 <div class="space-medium">
     <div class="container">
         <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="section-title">
+                    <h2>Why Choose Us</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <!-- features-center -->
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="feature-center line">
@@ -84,9 +91,9 @@
                         <i class="fa-solid fa-briefcase fa-xl"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>How We Work</h3>
-                        <p>Maecenas in suscipit veliulerisque mauris oneepurus sedelit spit vennibh.</p>
-                        <a href="#" class="btn-link">learn more</a>
+                        <h3>Industry Leadership</h3>
+                        <p> Pioneering innovation, setting new standards, and shaping our sector's future through
+                            leadership and progress.</p>
                     </div>
                 </div>
             </div>
@@ -98,10 +105,10 @@
                         <i class="fa-solid fa-thumbs-up fa-xl"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>Why Choose Us</h3>
-                        <p>Nulla sit amet ultricies lisis eronunc in diam imperdiet frins quis pretium massa.
+                        <h3>Mission and Values</h3>
+                        <p>Guided by our commitment to innovation and sustainability, our ethos upholds integrity,
+                            values, and inclusivity, ensuring ethical alignment in all endeavors.
                         </p>
-                        <a href="#" class="btn-link">Reasons to experience</a>
                     </div>
                 </div>
             </div>
@@ -113,9 +120,9 @@
                         <i class="fa-solid fa-people-group fa-xl"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>Meet The Team</h3>
-                        <p>Aliquam eget vestisitet lacus sitamet elitf ringilla alieurna eli dignissim.</p>
-                        <a href="#" class="btn-link">Meet leaders</a>
+                        <h3>Employee Satisfaction</h3>
+                        <p> Our culture prioritizes growth, balance, and inclusivity, nurturing a devoted team for
+                            consistent excellence.</p>
                     </div>
                 </div>
             </div>
@@ -125,7 +132,7 @@
 </div>
 <!-- /.features-section -->
 <!-- testimonial-section -->
-<div class="space-medium bg-success">
+{{-- <div class="space-medium bg-success">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -153,7 +160,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 </div>
 <!-- /.testimonial-section -->
 <!-- clients logo -->

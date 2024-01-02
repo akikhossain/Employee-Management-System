@@ -20,6 +20,8 @@
                 <div class="container">
                     <div class="col-md-12">
                         <div class="text-center">
+                            <img src="{{ asset('assests/image/logo.jpeg') }}" alt=""
+                                class="img-fluid rounded-circle mx-auto" style="max-width: 100px;">
                             <h1 class="pt-0">HR HUB 360</h1>
                             <p class="pt-0">Employee Management System</p>
                         </div>
@@ -43,13 +45,11 @@
                         <div class="col-xl-4">
                             <ul class="list-unstyled">
                                 <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
-                                        class="fw-bold">ID:</span>{{ $item->employee->employee_id}}</li>
-                                <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
-                                        class="fw-bold">Designation:</span>{{
+                                        class="fw-bold">Designation: </span>{{
                                     $item->employee->designation->designation_name
                                     }}</li>
                                 <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
-                                        class="fw-bold">Department:</span>{{
+                                        class="fw-bold">Department: </span>{{
                                     $item->employee->department->department_name }}
                                 </li>
                                 <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span

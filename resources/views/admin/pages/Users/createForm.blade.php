@@ -51,6 +51,7 @@
                                             class="form-control">
                                             <option value="manager">Manager</option>
                                             <option value="employee">Employee/Staff</option>
+                                            <option value="Admin">Admin</option>
                                         </select>
                                     </div>
                                     <div class="mt-2">

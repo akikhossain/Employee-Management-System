@@ -9,10 +9,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 fs-5 text-center mb-2 p-2">
-                <p>Your presence counts. Each tick, a commitment. Every day, a step forward.</p>
-                <p>"Please note: Check-in after 9 AM will be considered as late and recorded accordingly. Check-out
-                    after 5 PM
-                    will be counted as overtime. You cannot give attendance after 5 PM. Thank you for your cooperation."
+                {{-- <p>Your presence counts. Each tick, a commitment. Every day, a step forward.</p> --}}
+                <p>"Note: Arriving post 9 AM counts as late. Departing after 5 PM is considered overtime. Attendance
+                    cannot be marked after 5 PM. Thank you for your cooperation."
                 </p>
             </div>
         </div>
