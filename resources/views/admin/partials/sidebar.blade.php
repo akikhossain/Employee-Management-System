@@ -119,6 +119,33 @@
             </ul>
         </li>
 
+
+        {{-- Task Management --}}
+        <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#" data-bs-target="#pagesDropdown"
+                role="button" aria-expanded="false" data-bs-toggle="collapse">
+                <span class="sidebar-link-title fs-5"><i
+                        class="fa-solid fa-list-check me-2 text-info"></i>Task</span></a>
+            <ul class="sidebar-menu list-unstyled collapse" id="pagesDropdown">
+                @admin
+                <li class="sidebar-list-item  py-2 fs-6"><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('createTask') }}"><i
+                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Assign Task</a>
+                </li>
+                <li class="sidebar-list-item  py-2 fs-6"><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('taskList') }}"><i
+                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Task List</a>
+                </li>
+                @endadmin
+
+                @employee
+                <li class="sidebar-list-item  py-2 fs-6"><a class="sidebar-link text-muted ms-3"
+                        href="{{ route('myTask') }}"><i class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>My
+                        Task</a>
+                </li>
+                @endemployee
+            </ul>
+        </li>
+
         {{-- Payroll --}}
         <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#"
                 data-bs-target="#e-commerceDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i

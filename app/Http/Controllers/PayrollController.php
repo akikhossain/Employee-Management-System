@@ -68,6 +68,16 @@ class PayrollController extends Controller
             return redirect()->back()->withErrors($validate)->withInput();
         }
 
+        $salaryStructure = SalaryStructure::findOrFail($request->salary_structure_id);
+        $deduction = $request->input('deduction');
+        $totalPayable = $salaryStructure->total_salary - $deduction;
+
+        // Check if deduction is greater than total payable
+        if ($deduction > $salaryStructure->total_salary) {
+            notify()->error('Deduction cannot be greater than the total payable amount.');
+            return redirect()->back();
+        }
+
         // Check for duplicate entry
         $existingPayroll = Payroll::where('employee_id', $request->employee_id)
             ->where('month', $request->month)
@@ -77,9 +87,6 @@ class PayrollController extends Controller
             notify()->error('Already Employee Payroll Exist');
             return redirect()->back();
         }
-        $salaryStructure = SalaryStructure::findOrFail($request->salary_structure_id);
-        $deduction = $request->input('deduction');
-        $totalPayable = $salaryStructure->total_salary - $deduction;
 
         Payroll::create([
             'employee_id' => $request->employee_id,
@@ -167,6 +174,11 @@ class PayrollController extends Controller
             $deduction = $request->input('deduction');
             $totalPayable = $salaryStructure->total_salary - $deduction;
 
+            if ($deduction > $salaryStructure->total_salary) {
+                notify()->error('Deduction cannot be greater than the total payable amount.');
+                return redirect()->back();
+            }
+
             $payroll->update([
                 'employee_id' => $request->employee_id,
                 'salary_structure_id' => $request->salary_structure_id,
@@ -183,7 +195,7 @@ class PayrollController extends Controller
         }
     }
 
-    // Single Payroll
+    // my payroll list
     public function singlePayroll($id)
     {
         // dd($id);
@@ -208,6 +220,9 @@ class PayrollController extends Controller
         return view('admin.pages.Payroll.allPayrollList', compact('payrolls'));
     }
 
+
+    // my payroll report
+
     public function mySingle($id)
     {
         // dd($id);
@@ -218,6 +233,9 @@ class PayrollController extends Controller
 
         return view('admin.pages.Payroll.mySinglePayroll', compact('employee', 'employeePayrolls'));
     }
+
+
+
 
     // search my payroll
     public function searchMyPayroll(Request $request)

@@ -13,6 +13,7 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\TaskController;
 use App\Http\controllers\viewEmployeeController;
 
 
@@ -126,6 +127,15 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/search-AllPayroll', [PayrollController::class, 'searchAllPayroll'])->name('searchAllPayroll');
 
 
+        // Task Management
+        Route::get('/Task/createTask', [TaskController::class, 'createTask'])->name('createTask');
+        Route::post('/Task/store', [TaskController::class, 'storeTask'])->name('storeTask');
+        Route::get('/Task/TaskList', [TaskController::class, 'taskList'])->name('taskList');
+        Route::get('/Task/delete/{id}', [TaskController::class, 'deleteTask'])->name('deleteTask');
+        Route::get('/Task/edit/{id}', [TaskController::class, 'editTask'])->name('editTask');
+        Route::put('/Task/update/{id}', [TaskController::class, 'updateTask'])->name('updateTask');
+
+
 
 
         // User updated
@@ -178,6 +188,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/Leave/myLeaveBalance', [LeaveController::class, 'showLeaveBalance'])->name('leave.myLeaveBalance');
         Route::get('/Leave/myLeaveReport', [LeaveController::class, 'myLeaveReport'])->name('myLeaveReport');
         Route::get('/searchMyLeave', [LeaveController::class, 'searchMyLeave'])->name('searchMyLeave');
+
+
+        // My Task
+        Route::get('/Task/MyTask', [TaskController::class, 'myTask'])->name('myTask');
+        // Task Complete
+        Route::get('/Task/CompleteInTime/{id}',  [TaskController::class, 'completeTaskOnTime'])->name('taskComplete');
+        Route::get('/Task/CompleteInLate/{id}',  [TaskController::class, 'completeTaskLate'])->name('taskCompleteLate');
+
 
 
         // user profile

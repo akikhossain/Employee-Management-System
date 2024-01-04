@@ -72,9 +72,8 @@
                                             @endphp
                                             @foreach (['January', 'February', 'March', 'April', 'May', 'June', 'July',
                                             'August', 'September', 'October', 'November', 'December'] as $month)
-                                            <option value="{{ strtolower($month) }}" {{
-                                                strtolower($previousMonth)==strtolower($month) ? 'selected' : 'disabled'
-                                                }}>
+                                            <option value="{{ $month }}" {{ $previousMonth==$month ? 'selected'
+                                                : 'disabled' }}>
                                                 {{ $month }}
                                             </option>
                                             @endforeach
@@ -99,7 +98,7 @@
                                 <div class="col-md-4">
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="income_tax">Deduction</label>
-                                        <input required name="deduction" type="number" class="form-control">
+                                        <input name="deduction" type="number" class="form-control">
                                     </div>
                                 </div>
 

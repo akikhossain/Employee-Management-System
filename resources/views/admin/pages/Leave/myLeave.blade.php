@@ -35,7 +35,7 @@
                 <th>End Date</th>
                 <th>Total Days</th>
                 <th>Description</th>
-                <th>Report</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
