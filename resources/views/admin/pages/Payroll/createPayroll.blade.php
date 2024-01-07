@@ -44,7 +44,7 @@
                                             @foreach ($salaryStructures as $structure)
                                             <option value="{{ $structure->id }}"
                                                 data-total-salary="{{ $structure->total_salary }}">
-                                                {{ $structure->salary_class }} - ${{ $structure->total_salary }}
+                                                {{ $structure->salary_class }} - {{ $structure->total_salary }}BDT
                                             </option>
                                             @endforeach
                                         </select>

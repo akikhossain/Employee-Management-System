@@ -59,7 +59,8 @@
                 <td>{{ $attendance->check_out }}</td>
                 <td>{{ $attendance->overtime }}</td>
                 <td>
-                    <a class="btn btn-danger rounded-pill " href="">Delete</a>
+                    <a class="btn btn-danger rounded-pill " href="{{ route('attendanceDelete', $attendance->id) }}"><i
+                            class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach

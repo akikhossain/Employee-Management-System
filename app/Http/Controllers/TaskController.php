@@ -160,13 +160,16 @@ class TaskController extends Controller
     {
         $task = Task::find($id);
         if ($task) {
-            // Assuming completion is recorded at the current time
             $completionDate = now();
             $toDate = \Carbon\Carbon::createFromFormat('Y-m-d', $task->to_date);
+            $fromDate = \Carbon\Carbon::createFromFormat('Y-m-d', $task->from_date);
 
             if ($completionDate->gt($toDate)) {
                 $task->status = 'completed in late';
                 notify()->success('Completed But in Late');
+            } else if ($completionDate->lt($fromDate)) {
+                // Error: Attempted completion before the task's start date
+                notify()->error('Task completion cannot occur before the designated start date');
             } else {
                 $task->status = 'completed on time';
                 notify()->success('Completed on Time');
@@ -176,6 +179,7 @@ class TaskController extends Controller
             return redirect()->back();
         }
     }
+
 
     public function completeTaskLate($id)
     {

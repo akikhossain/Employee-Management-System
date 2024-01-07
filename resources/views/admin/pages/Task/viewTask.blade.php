@@ -4,7 +4,7 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase"> Task List</h4>
 </div>
-<div class="container my-5 py-5">
+<div class="my-5 py-5">
     {{-- Department Table start --}}
     <div class="w-100 mx-auto">
         <div>
@@ -15,6 +15,7 @@
                         <th>Employee</th>
                         <th>Department</th>
                         <th>Designation</th>
+                        <th>Task Name</th>
                         <th>From Date</th>
                         <th>To Date</th>
                         <th>Total Days</th>
@@ -28,6 +29,7 @@
                         <td>{{ $task->employee->name }}</td>
                         <td>{{ $task->employee->department->department_name }}</td>
                         <td>{{ $task->employee->designation->designation_name }}</td>
+                        <td>{{ $task->task_name }}</td>
                         <td>{{ $task->from_date }}</td>
                         <td>{{ $task->to_date }}</td>
                         <td>{{ $task->total_days }}</td>

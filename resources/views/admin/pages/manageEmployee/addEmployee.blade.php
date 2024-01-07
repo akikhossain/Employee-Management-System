@@ -119,7 +119,9 @@
                                     <div class="form-outline mb-4">
                                         <label class="form-label mt-2 fw-bold" for="form11Example5">Email</label>
                                         <input required placeholder="Enter Email" type="email" id="form11Example5"
-                                            name="email" class="form-control" />
+                                            name="email" class="form-control"
+                                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                            title="Enter a valid email address" />
                                     </div>
                                     <div class="mt-2">
                                         @error('email')
@@ -127,11 +129,12 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class=" col-md-4">
+                                <div class="col-md-4">
                                     <div class="form-outline mb-4">
                                         <label class="form-label mt-2 fw-bold" for="form11Example6">Phone</label>
                                         <input required placeholder="Phone Number" type="text" id="form11Example6"
-                                            name="phone" class="form-control" />
+                                            name="phone" class="form-control" pattern="^(?:\+?88|01)?\d{11}$"
+                                            title="Enter a valid Bangladeshi phone number with optional +88 or 01 preceding 11 digits" />
                                     </div>
                                     <div class="mt-2">
                                         @error('phone')
@@ -139,6 +142,7 @@
                                         @enderror
                                     </div>
                                 </div>
+
                                 <div class=" col-md-4">
                                     <div class="form-outline mb-4">
                                         <label class="form-label mt-2 fw-bold" for="form11Example6">Image</label>
@@ -174,7 +178,8 @@
                                     <div class="form-outline mb-4">
                                         <label class="form-label mt-2 fw-bold" for="form11Example7">Location</label>
                                         <input required placeholder="Enter Location" type="text" id="form11Example6"
-                                            name="location" class="form-control" />
+                                            name="location" class="form-control" pattern="[A-Za-z0-9\s]+"
+                                            title="Enter a valid location (letters, numbers, and spaces only)" />
                                     </div>
                                     <div class="mt-2">
                                         @error('location')

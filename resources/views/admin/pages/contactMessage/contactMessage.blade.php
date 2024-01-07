@@ -15,6 +15,7 @@
                 <th>Phone Number</th>
                 <th>Subject</th>
                 <th>Message</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +32,10 @@
                 <td>{{ $message->phone }}</td>
                 <td>{{ $message->subject }}</td>
                 <td>{{ $message->message }}</td>
+                <td>
+                    <a class="btn btn-danger rounded-pill fw-bold text-white" href=""><i
+                            class="fa-solid fa-trash"></i></a>
+                </td>
             </tr>
             @endforeach
         </tbody>

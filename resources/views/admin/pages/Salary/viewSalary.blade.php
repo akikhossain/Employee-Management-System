@@ -46,8 +46,10 @@
                 <!-- Displaying House Rent Allowance -->
                 <td>{{ $totalSalary }} BDT</td>
                 <td>
-                    <a class="btn btn-success rounded-pill" href="{{ route('salaryEdit', $salary->id) }}">Edit</a>
-                    <a class="btn btn-danger rounded-pill" href="{{ route('salaryDelete', $salary->id) }}">Delete</a>
+                    <a class="btn btn-success rounded-pill" href="{{ route('salaryEdit', $salary->id) }}"><i
+                            class="fa-solid fa-pen-to-square"></i></a>
+                    <a class="btn btn-danger rounded-pill" href="{{ route('salaryDelete', $salary->id) }}"><i
+                            class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach

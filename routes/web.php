@@ -75,6 +75,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/Attendance/viewAttendance', [AttendanceController::class, 'attendanceList'])->name('attendance.viewAttendance');
         Route::get('/Attendance/AttendanceReport', [AttendanceController::class, 'attendanceReport'])->name('attendanceReport');
         Route::get('/Attendance/searchAttendanceReport', [AttendanceController::class, 'searchAttendanceReport'])->name('searchAttendanceReport');
+        Route::get('/Attendance/delete/{id}', [AttendanceController::class, 'attendanceDelete'])->name('attendanceDelete');
 
         // department
         Route::get('/Organization/department', [OrganizationController::class, 'department'])->name('organization.department');
@@ -156,6 +157,17 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/Service/serviceDelete/{id}', [ServicesController::class, 'serviceDelete'])->name('serviceDelete');
         Route::get('/Service/serviceEdit/{id}', [ServicesController::class, 'serviceEdit'])->name('serviceEdit');
         Route::put('/Service/serviceUpdate/{id}', [ServicesController::class, 'serviceUpdate'])->name('serviceUpdate');
+
+
+        // Client List
+        Route::get('/Client/create', [ClientController::class, 'clientForm'])->name('client.form');
+        Route::post('/Client/store', [ClientController::class, 'clientStore'])->name('clientStore');
+        Route::get('/Client/ClientList', [ClientController::class, 'viewClientList'])->name('viewClientList');
+        Route::get('/Client/clientDelete/{id}', [ClientController::class, 'clientDelete'])->name('clientDelete');
+        Route::get('/Client/clientEdit/{id}', [ClientController::class, 'clientEdit'])->name('clientEdit');
+        Route::put('/Client/clientUpdate/{id}', [ClientController::class, 'clientUpdate'])->name('clientUpdate');
+
+
 
         // message info
         Route::get('/contactUs/Message', [HomeController::class, 'message'])->name('message');

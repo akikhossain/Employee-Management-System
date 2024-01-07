@@ -32,9 +32,12 @@
                 <td>{{ $item->description }}</td>
                 <td><img class="avatar p-1" src="{{ url('/uploads//' . $item->service_image) }}" alt=""></td>
                 <td>
-                    <a class="btn btn-success rounded-pill" target="_blank" href="{{ route('services') }}">View</a>
-                    <a class="btn btn-warning rounded-pill" href="{{ route('serviceEdit', $item->id) }}">Edit</a>
-                    <a class="btn btn-danger rounded-pill" href="{{ route('serviceDelete', $item->id) }}">Delete</a>
+                    <a class="btn btn-warning rounded-pill" target="_blank" href="{{ route('services') }}"><i
+                            class="fa-regular fa-eye"></i></a>
+                    <a class="btn btn-success rounded-pill" href="{{ route('serviceEdit', $item->id) }}"><i
+                            class="fa-solid fa-pen-to-square"></i></a>
+                    <a class="btn btn-danger rounded-pill" href="{{ route('serviceDelete', $item->id) }}"><i
+                            class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach

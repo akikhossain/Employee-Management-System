@@ -26,7 +26,8 @@
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="salaryClass">Salary Class</label>
                                         <input required value="{{ $salary->salary_class }}" id="salaryClass"
-                                            placeholder="Enter Salary Class" name="salary_class" class="form-control">
+                                            placeholder="Enter Salary Class" name="salary_class" class="form-control"
+                                            pattern="^(?=.*[a-zA-Z])([a-zA-Z0-9]+)$">
                                     </div>
                                     <div class="mt-2">
                                         @error('salary_class')
@@ -38,7 +39,8 @@
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="basicSalary">Basic Salary</label>
                                         <input required value="{{ $salary->basic_salary }}" placeholder="Basic Salary"
-                                            type="number" id="basicSalary" name="basic_salary" class="form-control">
+                                            type="number" id="basicSalary" name="basic_salary" class="form-control"
+                                            min="0">
                                     </div>
                                     <div class="mt-2">
                                         @error('basic_salary')
@@ -54,7 +56,7 @@
                                             Expenses</label>
                                         <input required value="{{ $salary->medical_expenses }}"
                                             placeholder="Enter Amount" type="number" id="medicalExpenses"
-                                            name="medical_expenses" class="form-control" />
+                                            name="medical_expenses" class="form-control" min="0" />
                                     </div>
                                     <div class="mt-2">
                                         @error('medical_expenses')
@@ -68,7 +70,7 @@
                                             Allowance</label>
                                         <input required value="{{ $salary->mobile_allowance }}"
                                             placeholder="Mobile Allowance" type="number" id="mobileAllowance"
-                                            name="mobile_allowance" class="form-control" />
+                                            name="mobile_allowance" class="form-control" min="0" />
                                     </div>
                                     <div class="mt-2">
                                         @error('mobile_allowance')
@@ -82,7 +84,7 @@
                                             Allowance</label>
                                         <input required value="{{ $salary->houseRent_allowance }}"
                                             placeholder="Hourse Rent Allowance" type="number" name="houseRent_allowance"
-                                            class="form-control" />
+                                            class="form-control" min="0" />
                                     </div>
                                     <div class="mt-2">
                                         @error('houseRent_allowance')
@@ -93,7 +95,7 @@
                             </div>
                             <div class="text-center w-25 mx-auto mt-3">
                                 <button type="submit"
-                                    class="btn btn-success p-2 text-lg rounded-pill col-md-10">Create</button>
+                                    class="btn btn-success p-2 text-lg rounded-pill col-md-10">Update</button>
                             </div>
                         </form>
                     </div>

@@ -37,7 +37,7 @@
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="basicSalary">Basic Salary</label>
                                         <input required placeholder="Basic Salary" type="number" id="basicSalary"
-                                            name="basic_salary" class="form-control">
+                                            name="basic_salary" class="form-control" min="0">
                                     </div>
                                     <div class="mt-2">
                                         @error('basic_salary')
@@ -52,7 +52,7 @@
                                         <label class="form-label mt-2 fw-bold" for="medicalExpenses">Medical
                                             Expenses</label>
                                         <input required placeholder="Enter Amount" type="number" id="medicalExpenses"
-                                            name="medical_expenses" class="form-control" />
+                                            name="medical_expenses" class="form-control" min="0" />
                                     </div>
                                     <div class="mt-2">
                                         @error('medical_expenses')
@@ -65,7 +65,7 @@
                                         <label class="form-label mt-2 fw-bold" for="mobileAllowance">Mobile
                                             Allowance</label>
                                         <input required placeholder="Mobile Allowance" type="number"
-                                            id="mobileAllowance" name="mobile_allowance" class="form-control" />
+                                            id="mobileAllowance" name="mobile_allowance" class="form-control" min="0" />
                                     </div>
                                     <div class="mt-2">
                                         @error('mobile_allowance')
@@ -78,7 +78,7 @@
                                         <label class="form-label mt-2 fw-bold" for="mobileAllowance">House Rent
                                             Allowance</label>
                                         <input required placeholder="Hourse Rent Allowance" type="number"
-                                            name="houseRent_allowance" class="form-control" />
+                                            name="houseRent_allowance" class="form-control" min="0" />
                                     </div>
                                     <div class="mt-2">
                                         @error('houseRent_allowance')

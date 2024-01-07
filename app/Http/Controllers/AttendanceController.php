@@ -120,6 +120,18 @@ class AttendanceController extends Controller
     }
 
 
+    // Delete Attendance
+    public function attendanceDelete($id)
+    {
+        $attendance =  Attendance::find($id);
+        if ($attendance) {
+            $attendance->delete();
+        }
+        notify()->success('Deleted Successfully.');
+        return redirect()->back();
+    }
+
+
     public function myAttendance()
     {
         $userId = auth()->user()->id;

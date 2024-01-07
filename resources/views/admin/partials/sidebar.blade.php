@@ -34,6 +34,13 @@
             </ul>
         </li>
 
+
+        {{-- Salary Structure --}}
+        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted"
+                href="{{ route('salary.create.form') }}"><i class="fa-solid fa-dollar-sign me-2 text-info"></i>
+                <span class="sidebar-link-title fs-5">PayGrade</span></a>
+        </li>
+
         {{-- Employees --}}
         <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted " href="#" data-bs-target="#cmsDropdown"
                 role="button" aria-expanded="false" data-bs-toggle="collapse"><i
@@ -174,11 +181,10 @@
 
         @admin
         {{-- Salary Structure --}}
-        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted"
+        {{-- <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted"
                 href="{{ route('salary.create.form') }}"><i class="fa-solid fa-dollar-sign me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Salary Structure</span></a>
-        </li>
-
+                <span class="sidebar-link-title fs-5">PayGrade</span></a>
+        </li> --}}
 
 
         {{-- Users --}}
@@ -209,6 +215,10 @@
         <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('notice.create') }}"><i
                     class="fa-brands fa-hubspot  me-2 text-info"></i>
                 <span class="sidebar-link-title fs-5">Notices Hub</span></a>
+        </li>
+        <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('client.form') }}"><i
+                    class="fa-regular fa-handshake me-2 text-info"></i>
+                <span class="sidebar-link-title fs-5">Clients</span></a>
         </li>
         <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('message') }}"><i
                     class="fa-solid fa-clipboard-question me-2 text-info"></i>

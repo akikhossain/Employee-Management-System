@@ -118,7 +118,9 @@
                                     <div class="form-outline mb-4">
                                         <label class="form-label mt-2 fw-bold" for="form11Example5">Email</label>
                                         <input value="{{ $employee->email }}" required placeholder="Enter Email"
-                                            type="email" id="form11Example5" name="email" class="form-control" />
+                                            type="email" id="form11Example5" name="email" class="form-control"
+                                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                            title="Enter a valid email address" />
                                     </div>
                                     <div class="mt-2">
                                         @error('email')
@@ -130,7 +132,9 @@
                                     <div class="form-outline mb-4">
                                         <label class="form-label mt-2 fw-bold" for="form11Example6">Phone</label>
                                         <input value="{{ $employee->phone }}" required placeholder="Phone Number"
-                                            type="text" id="form11Example6" name="phone" class="form-control" />
+                                            type="text" id="form11Example6" name="phone" class="form-control"
+                                            pattern="^(?:\+?88|01)?\d{11}$"
+                                            title="Enter a valid Bangladeshi phone number with optional +88 or 01 preceding 11 digits" />
                                     </div>
                                     <div class="mt-2">
                                         @error('phone')

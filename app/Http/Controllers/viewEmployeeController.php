@@ -100,15 +100,32 @@ class viewEmployeeController extends Controller
 
     public function search(Request $request)
     {
-        if ($request->search) {
-            $searchTerm = $request->search;
-            $employees = Employee::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
-        } else {
-            $employees = Employee::all();
+        $searchTerm = $request->search;
+
+        // Query builder for Employee model
+        $query = Employee::query();
+
+        if ($searchTerm) {
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('name', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('employee_id', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhereHas('department', function ($departmentQuery) use ($searchTerm) {
+                        $departmentQuery->where('department_name', 'LIKE', '%' . $searchTerm . '%');
+                    })
+                    ->orWhereHas('designation', function ($designationQuery) use ($searchTerm) {
+                        $designationQuery->where('designation_name', 'LIKE', '%' . $searchTerm . '%');
+                    })
+                    ->orWhere('joining_mode', 'LIKE', '%' . $searchTerm . '%');
+                // Add more conditions based on your search requirements
+            });
         }
+
+        $employees = $query->paginate(10); // Change 10 to the desired number of items per page
+
         $departments = Department::all();
         $designations = Designation::all();
         $salaries = SalaryStructure::all();
+
         return view("admin.pages.manageEmployee.searchEmployee", compact('employees', 'departments', 'designations', 'salaries'));
     }
 }

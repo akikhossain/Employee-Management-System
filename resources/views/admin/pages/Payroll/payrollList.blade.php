@@ -58,11 +58,13 @@
                     <td>{{ $payroll->total_payable }}</td>
                     <td>
                         <a class="btn btn-success rounded-pill"
-                            href="{{ route('singlePayroll', $payroll->employee_id) }}">Payslip</a>
+                            href="{{ route('singlePayroll', $payroll->employee_id) }}"><i
+                                class="fa-regular fa-file-lines"></i></a>
 
-                        <a class="btn btn-warning rounded-pill" href="{{ route('payrollEdit', $payroll->id) }}">Edit</a>
-                        <a class="btn btn-danger rounded-pill"
-                            href="{{ route('payrollDelete', $payroll->id) }}">Delete</a>
+                        <a class="btn btn-warning rounded-pill" href="{{ route('payrollEdit', $payroll->id) }}"><i
+                                class="fa-solid fa-pen-to-square"></i></a>
+                        <a class="btn btn-danger rounded-pill" href="{{ route('payrollDelete', $payroll->id) }}"><i
+                                class="fa-solid fa-trash"></i></a>
 
                     </td>
                 </tr>

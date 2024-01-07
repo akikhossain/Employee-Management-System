@@ -50,7 +50,6 @@
                                             Role:</label>
                                         <select required type="text" id="form11Example1" name="role"
                                             class="form-control">
-                                            <option value="manager">Manager</option>
                                             <option value="employee">Employee/Staff</option>
                                             <option value="Admin">Admin</option>
                                         </select>

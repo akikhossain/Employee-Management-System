@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 use App\Models\Contact;
 use App\Models\Notify;
 use App\Models\Service;
@@ -16,7 +17,8 @@ class homeController extends Controller
     {
         $services = Service::all();
         $notices = Notify::all();
-        return view('Frontend.partials.homeDashboard', compact('services', 'notices'));
+        $clients = Client::all();
+        return view('Frontend.partials.homeDashboard', compact('services', 'notices', 'clients'));
     }
 
     public function showNotice()

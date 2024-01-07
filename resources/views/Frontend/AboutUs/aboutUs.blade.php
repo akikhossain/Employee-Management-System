@@ -7,8 +7,8 @@
             <div class="row justify-content-center align-items-center ">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 mb60">
                     <div class="">
-                        <img src="https://i.ibb.co/w7GnVBw/4101adc6-07bf-42cd-9723-b7baa76d9bef.jpg" alt=""
-                            class="img-fluid rounded-circle" style="max-width: 400px;">
+                        <img src="{{ asset('assests/image/service 8.jpg') }}" alt="" class="img-fluid rounded"
+                            style="max-width: 500px;">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 mb60">

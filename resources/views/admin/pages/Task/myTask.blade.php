@@ -4,16 +4,15 @@
 <div class="shadow p-4 d-flex justify-content-between align-items-center">
     <h4 class="text-uppercase">My Task</h4>
 </div>
-<div class="container my-5 py-5">
+<div class="my-5 py-5">
     <div class="w-100 mx-auto">
         <div>
             <table class="table align-middle mb-4 text-center bg-white">
                 <thead class="bg-light">
                     <tr>
                         <th>#</th>
-                        <th>Employee</th>
-                        <th>Department</th>
-                        <th>Designation</th>
+                        <th>Task Name</th>
+                        <th>Task Details</th>
                         <th>From Date</th>
                         <th>To Date</th>
                         <th>Total Days</th>
@@ -24,9 +23,8 @@
                     @foreach ($tasks as $key => $task)
                     <tr>
                         <td>{{ $key + 1 }}</td>
-                        <td>{{ $task->employee->name }}</td>
-                        <td>{{ $task->employee->department->department_name }}</td>
-                        <td>{{ $task->employee->designation->designation_name }}</td>
+                        <td>{{ $task->task_name }}</td>
+                        <td>{{ $task->task_description }}</td>
                         <td>{{ $task->from_date }}</td>
                         <td>{{ $task->to_date }}</td>
                         <td>{{ $task->total_days }}</td>

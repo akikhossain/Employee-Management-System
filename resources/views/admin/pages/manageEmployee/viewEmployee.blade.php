@@ -24,8 +24,7 @@
         </div>
     </div>
 
-
-    <table class="table align-middle text-center w-75 mx-auto bg-white">
+    <table class="table align-middle text-center bg-white">
         <thead class="bg-light">
             <tr>
                 <th>SL NO</th>
@@ -68,11 +67,11 @@
                 {{-- <td>{{ $employee->location }}</td> --}}
                 <td>
                     <a class="btn btn-warning rounded-pill fw-bold text-white"
-                        href="{{ route('Employee.profile', $employee->id) }}">View</a>
+                        href="{{ route('Employee.profile', $employee->id) }}"><i class="fa-regular fa-eye"></i></a>
                     <a class="btn btn-success rounded-pill fw-bold text-white"
-                        href="{{ route('Employee.edit', $employee->id) }}">Edit</a>
+                        href="{{ route('Employee.edit', $employee->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
                     <a class="btn btn-danger rounded-pill fw-bold text-white"
-                        href="{{ route('Employee.delete', $employee->id) }}">Delete</a>
+                        href="{{ route('Employee.delete', $employee->id) }}"><i class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach

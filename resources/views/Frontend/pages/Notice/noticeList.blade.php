@@ -25,8 +25,10 @@
                 <td>{{ $notice->notice_title }}</td>
                 <td>{{ $notice->description }}</td>
                 <td>
-                    <a class="btn btn-success rounded-pill" href="{{ route('noticeEdit', $notice->id) }}">Edit</a>
-                    <a class="btn btn-danger rounded-pill" href="{{ route('noticeDelete', $notice->id) }}">Delete</a>
+                    <a class="btn btn-success rounded-pill" href="{{ route('noticeEdit', $notice->id) }}"><i
+                            class="fa-solid fa-pen-to-square"></i></a>
+                    <a class="btn btn-danger rounded-pill" href="{{ route('noticeDelete', $notice->id) }}"><i
+                            class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach
