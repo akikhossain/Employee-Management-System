@@ -49,15 +49,16 @@
                 <td>{{ $payroll->employee->designation->designation_name }}</td> --}}
                 <td>{{ $payroll->month }}</td>
                 <td>{{ $payroll->year }}</td>
-                <td>{{ $payroll->salaryStructure->salary_class }}</td>
-                <td>{{ $payroll->salaryStructure->total_salary }}</td>
+                <td>{{ optional($payroll->salaryStructure)->salary_class }}</td>
+                <td>{{ optional($payroll->salaryStructure)->total_salary }}</td>
                 <td>{{ $payroll->deduction }}</td>
                 <td>{{ $payroll->reason }}</td>
                 <td>{{ $payroll->total_payable }}</td>
                 <td>
                     <a class="btn btn-warning rounded-pill"
-                        href="{{ route('mySinglePayroll', $payroll->employee_id) }}"><i
-                            class="fa-regular fa-file-lines"></i></a>
+                        href="{{ route('mySinglePayroll', ['employeeID' => $payroll->employee_id, 'month' => $payroll->month]) }}">
+                        Report
+                    </a>
                 </td>
             </tr>
             @endforeach

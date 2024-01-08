@@ -39,7 +39,7 @@
             justify-content: center;
             align-items: center; */
             position: relative;
-            background-image: url('https://i.ibb.co/swbydjh/markus-spiske-i-ABDzn-UDy6c-unsplash.jpg');
+            background-image: url('{{ asset(' assets/image/service%203.jpg') }}');
             background-size: cover;
             /* background-position: center; */
         }
@@ -76,7 +76,7 @@
     </style>
 </head>
 
-<body>
+<body class="bg-dark" style="background-image: url('{{ asset('assests/image/login.jpg') }}'); background-size: cover;">
     {{--
     <!-- Section: Design Block -->
     <section class="text-center">
@@ -146,8 +146,8 @@
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand flex justify-content-center">
-                            <img src="https://i.ibb.co/w7GnVBw/4101adc6-07bf-42cd-9723-b7baa76d9bef.jpg" alt="logo"
-                                width="100" class="shadow-light rounded-circle">
+                            <img src="{{ asset('assests/image/logo.jpeg') }}" alt="logo" width="100"
+                                class="rounded-circle">
                         </div>
                         <div class="card login-card card-primary">
                             <div class="card-header">

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('notifies', function (Blueprint $table) {
             $table->id();
-            $table->string('notice_title', 20);
+            $table->string('notice_title', 50);
             $table->string('description')->nullable();
             $table->date('select_date')->nullable();
             $table->timestamps();

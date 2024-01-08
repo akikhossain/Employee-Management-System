@@ -7,6 +7,7 @@ use App\Models\Department;
 use App\Models\Employee;
 use App\Models\Leave;
 use App\Models\Payroll;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -39,8 +40,14 @@ class HomeController extends Controller
         }
 
         $users = User::count();
+        $completedOnTimeTasks = Task::where('status', 'completed on time')->count();
+        $completedInLateTasks = Task::where('status', 'completed in late')->count();
+        $totalCompletedTasks = $completedOnTimeTasks + $completedInLateTasks;
 
-        return view('admin.pages.dashboard', compact('employees', 'departments', 'pendingLeaves', 'users'));
+        $totalTasks = Task::count() - $totalCompletedTasks;
+
+        // Now you can use $totalTasks in your view or wherever needed
+        return view('admin.pages.dashboard', compact('employees', 'departments', 'pendingLeaves', 'users', 'totalTasks'));
     }
 
 

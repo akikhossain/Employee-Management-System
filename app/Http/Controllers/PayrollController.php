@@ -130,9 +130,17 @@ class PayrollController extends Controller
 
         $payrolls->each(function ($payroll) {
             $employee = $payroll->employee;
-            $employee->load('designation', 'department'); // Assuming you have relationships defined in Employee model
-            $payroll->designation = $employee->designation->name;
-            $payroll->department = $employee->department->name;
+
+            if ($employee) {
+                $employee->load('designation', 'department');
+
+                $payroll->designation = optional($employee->designation)->name;
+                $payroll->department = optional($employee->department)->name;
+            } else {
+                // Handle the case where the employee is not found
+                $payroll->designation = null;
+                $payroll->department = null;
+            }
         });
 
         return view('admin.pages.Payroll.myPayrollList', compact('payrolls'));
@@ -196,16 +204,19 @@ class PayrollController extends Controller
     }
 
     // my payroll list
-    public function singlePayroll($id)
+    public function singlePayroll($employeeId, $month)
     {
-        // dd($id);
-        $employee = Employee::with(['department', 'designation'])->findOrFail($id);
-        $employeePayrolls = Payroll::with(['employee.department', 'employee.designation', 'salaryStructure'])
-            ->where('employee_id', $id)
+        $employeePayrolls = Payroll::where('employee_id', $employeeId)
+            ->where('month', $month)
+            ->orderBy('date', 'asc')
             ->get();
 
-        return view('admin.pages.Payroll.singlePayrollList', compact('employee', 'employeePayrolls'));
+        $employee = $employeePayrolls->first()->employee;
+        $employee->load('designation', 'department');
+
+        return view('admin.pages.Payroll.singlePayrollList', compact('employeePayrolls', 'employee'));
     }
+
 
     // report all payroll list
     public function allPayroll()
@@ -223,12 +234,13 @@ class PayrollController extends Controller
 
     // my payroll report
 
-    public function mySingle($id)
+    public function mySingle($employeeId, $month)
     {
-        // dd($id);
-        $employee = Employee::with(['department', 'designation'])->findOrFail($id);
+        $employee = Employee::with(['department', 'designation'])->findOrFail($employeeId);
+
         $employeePayrolls = Payroll::with(['employee.department', 'employee.designation', 'salaryStructure'])
-            ->where('employee_id', $id)
+            ->where('employee_id', $employeeId)
+            ->where('month', $month)
             ->get();
 
         return view('admin.pages.Payroll.mySinglePayroll', compact('employee', 'employeePayrolls'));

@@ -79,21 +79,31 @@
     <!-- Designation-based message -->
     @if($designation === 'android developer')
     <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
-        <p>Total taken days: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span>. You can take Total
-            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days Leave In a Year.
+        <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
+            leave quota of
+            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
         </p>
     </div>
     @elseif($designation === 'Software Engineer ')
     <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
-        <p>Total taken days: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span>. You can take Total
-            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days Leave In a Year.
+        <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
+            leave quota of
+            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
         </p>
     </div>
     <!-- Add conditions for other designations -->
     @elseif($designation === 'Web Developer')
     <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
-        <p>Total taken days: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span>. You can take Total
-            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days Leave In a Year.
+        <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
+            leave quota of
+            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
+        </p>
+    </div>
+    @elseif($designation === 'Marketing Manager')
+    <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
+        <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
+            leave quota of
+            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
         </p>
     </div>
     @endif

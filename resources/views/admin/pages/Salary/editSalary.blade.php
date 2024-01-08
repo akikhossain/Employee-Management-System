@@ -26,8 +26,8 @@
                                     <div class="form-outline">
                                         <label class="form-label mt-2 fw-bold" for="salaryClass">Salary Class</label>
                                         <input required value="{{ $salary->salary_class }}" id="salaryClass"
-                                            placeholder="Enter Salary Class" name="salary_class" class="form-control"
-                                            pattern="^(?=.*[a-zA-Z])([a-zA-Z0-9]+)$">
+                                            placeholder="Enter Salary Class" name="salary_class" class="form-control">
+                                        {{-- pattern="^(?=.*[a-zA-Z])([a-zA-Z0-9]+)$" --}}
                                     </div>
                                     <div class="mt-2">
                                         @error('salary_class')

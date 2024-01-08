@@ -25,7 +25,7 @@
 
 
         <!-- Widget Type 1-->
-        <div class="col-sm-6 col-lg-3 mb-4">
+        <div class="col-sm-6 col-lg-3 mb-4 ">
             <div class="card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
@@ -35,7 +35,7 @@
                         </div>
                         <div class="flex-shrink-0 ms-3">
                             <div>
-                                <img class="img-fluid custom-small-img" src="https://i.ibb.co/z2mjFD8/teamwork-1.png"
+                                <img class="img-fluid custom-small-img" src="{{ asset('assests/image/teamwork.png') }}"
                                     alt="">
                             </div>
                         </div>
@@ -44,6 +44,35 @@
                 <a class="text-decoration-none" href="{{ route('manageEmployee.ViewEmployee') }}">
                     <div class="card-footer py-3 bg-red-light">
                         <div class="row align-items-center text-red">
+                            <div class="col-10">
+                                <p class="mb-0">View Details</p>
+                            </div>
+                            <div class="col-2 text-end"><i class="fas fa-caret-up"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-4 ">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h4 class="fw-normal text-dark">{{ $totalTasks }}</h4>
+                            <p class="subtitle text-sm text-muted mb-0">Assigned Task</p>
+                        </div>
+                        <div class="flex-shrink-0 ms-3">
+                            <div>
+                                <img class="img-fluid custom-small-img" src="{{ asset('assests/image/task.png') }}"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="text-decoration-none" href="{{ route('taskList') }}">
+                    <div class="card-footer py-3 bg-dark-light">
+                        <div class="row align-items-center text-dark">
                             <div class="col-10">
                                 <p class="mb-0">View Details</p>
                             </div>
@@ -66,8 +95,8 @@
                         </div>
                         <div class="flex-shrink-0 ms-3">
                             <div>
-                                <img class="img-fluid custom-small-img" src="https://i.ibb.co/qDYffn3/department.png"
-                                    alt="">
+                                <img class="img-fluid custom-small-img"
+                                    src="{{ asset('assests/image/department.png') }}" alt="">
                             </div>
                         </div>
                     </div>

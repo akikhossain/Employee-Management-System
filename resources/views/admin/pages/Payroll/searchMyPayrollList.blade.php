@@ -60,7 +60,9 @@
                 <td>{{ $payroll->total_payable }}</td>
                 <td>
                     <a class="btn btn-warning rounded-pill"
-                        href="{{ route('mySinglePayroll', $payroll->employee_id) }}">Report</a>
+                        href="{{ route('mySinglePayroll', ['employeeID' => $payroll->employee_id, 'month' => $payroll->month]) }}">
+                        Report
+                    </a>
                 </td>
             </tr>
             @endforeach

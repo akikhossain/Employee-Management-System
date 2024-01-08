@@ -221,4 +221,25 @@ class TaskController extends Controller
             return redirect()->back();
         }
     }
+
+
+    public function searchTask(Request $request)
+    {
+        $searchTerm = $request->search;
+
+        $tasks = Task::where(function ($query) use ($searchTerm) {
+            $query->where('task_name', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhereHas('employee', function ($q) use ($searchTerm) {
+                    $q->where('name', 'LIKE', '%' . $searchTerm . '%');
+                })
+                ->orWhereHas('employee.designation', function ($q) use ($searchTerm) {
+                    $q->where('designation_name', 'LIKE', '%' . $searchTerm . '%');
+                })
+                ->orWhereHas('employee.department', function ($q) use ($searchTerm) {
+                    $q->where('department_name', 'LIKE', '%' . $searchTerm . '%');
+                });
+        })->paginate(10);
+
+        return view('admin.pages.Task.searchTask', compact('tasks'));
+    }
 }

@@ -64,7 +64,7 @@
                 </tbody>
             </table>
             <div class="card-footer p-2 mt-5 text-center rounded bg-dark-light">
-                <p class="mb-0">© 2023 Copyright: Employee Management System | Akik Hossain</p>
+                <p class="mb-0">© 2024 Copyright: Employee Management System | Akik Hossain</p>
             </div>
         </div>
     </div>

@@ -54,6 +54,11 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="row mt-3">
+            <div class="text-center mx-auto mt-3  bg-dark-light pt-1">
+                <p>© 2024 Copyright: Employee Management System | Akik Hossain</p>
+            </div>
+        </div>
     </div>
     <div class="w-25 mx-auto">
         {{-- {{ $salaries->links() }} --}}

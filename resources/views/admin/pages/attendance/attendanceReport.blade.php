@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="card-footer bg-dark-light p-1 rounded text-center mt-5">
-                    <p class="mb-0">© 2023 Copyright: Employee Management System | Akik Hossain</p>
+                    <p class="mb-0">© 2024 Copyright: Employee Management System | Akik Hossain</p>
                 </div>
             </div>
         </div>

@@ -5,6 +5,21 @@
     <h4 class="text-uppercase"> Task List</h4>
 </div>
 <div class="my-5 py-5">
+
+    <div class="d-flex justify-content-end">
+        <div class="input-group rounded w-25 mb-5">
+            <form action="{{ route('searchTask') }}" method="get">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search..." name="search">
+                    <button type="submit" class="input-group-text border-0 bg-transparent" id="search-addon"
+                        style="display: inline;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     {{-- Department Table start --}}
     <div class="w-100 mx-auto">
         <div>

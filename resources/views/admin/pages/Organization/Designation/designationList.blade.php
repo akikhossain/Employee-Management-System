@@ -30,7 +30,7 @@
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $item->designation_id }}</td>
                     <td>{{ $item->designation_name }}</td>
-                    <td>{{ $item->department->department_name }}</td>
+                    <td>{{ optional($item->department)->department_name }}</td>
                     {{-- <td>{{ $item->salary->salary_class }}</td> --}}
                     <td>{{ optional($item->salary)->salary_class }}</td>
                     <td>

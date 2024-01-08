@@ -47,19 +47,21 @@
                 <tr>
                     <td>{{ $payroll->employee->name }}</td>
                     <td>{{ $payroll->date }}</td>
-                    <td>{{ $payroll->employee->department->department_name }}</td>
-                    <td>{{ $payroll->employee->designation->designation_name }}</td>
+                    <td>{{ optional($payroll->employee->department)->department_name }}</td>
+                    <td>{{ optional($payroll->employee->designation)->designation_name }}</td>
                     <td>{{ $payroll->month }}</td>
                     <td>{{ $payroll->year }}</td>
-                    <td>{{ $payroll->salaryStructure->salary_class }}</td>
-                    <td>{{ $payroll->salaryStructure->total_salary }}</td>
+                    <td>{{ optional($payroll->salaryStructure)->salary_class }}</td>
+                    <td>{{ optional($payroll->salaryStructure)->total_salary }}</td>
                     <td>{{ $payroll->deduction }}</td>
                     <td>{{ $payroll->reason }}</td>
                     <td>{{ $payroll->total_payable }}</td>
                     <td>
                         <a class="btn btn-success rounded-pill"
-                            href="{{ route('singlePayroll', $payroll->employee_id) }}"><i
-                                class="fa-regular fa-file-lines"></i></a>
+                            href="{{ route('singlePayroll', ['employee_id' => $payroll->employee_id, 'month' => $payroll->month]) }}">
+                            Payslip
+                        </a>
+
 
                         <a class="btn btn-warning rounded-pill" href="{{ route('payrollEdit', $payroll->id) }}"><i
                                 class="fa-solid fa-pen-to-square"></i></a>

@@ -54,8 +54,8 @@ class AttendanceController extends Controller
         Attendance::create([
             'employee_id' => auth()->user()->id,
             'name' => auth()->user()->name,
-            'department_name' => auth()->user()->employee->department->department_name,
-            'designation_name' => auth()->user()->employee->designation->designation_name,
+            'department_name' => optional(auth()->user()->employee->department)->department_name ?? 'Not specified',
+            'designation_name' => optional(auth()->user()->employee->designation)->designation_name ?? 'Not specified',
             'check_in' => $currentTime->format('H:i:s'),
             'check_out' => null,
             'select_date' => now(),

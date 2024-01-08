@@ -7,7 +7,7 @@
         <a href="{{ route('payroll.create') }}" class="btn btn-success p-2 text-lg rounded-pill">Create New Payroll</a>
     </div>
 </div>
-<div class="container my-5 py-5">
+<div class=" my-5 py-5">
     <div class="fw-normal mb-4">
         <h2 class="fw-normal fs-5 mx-auto text-center rounded-pill p-2 w-50 mb-5
             @if ($foundCount > 0) bg-success
@@ -58,7 +58,9 @@
                 <td>{{ $payroll->total_payable }}</td>
                 <td>
                     <a class="btn btn-success rounded-pill"
-                        href="{{ route('singlePayroll', $payroll->employee_id) }}">Payslip</a>
+                        href="{{ route('singlePayroll', ['employee_id' => $payroll->employee_id, 'month' => $payroll->month]) }}">
+                        Payslip
+                    </a>
 
                     <a class="btn btn-warning rounded-pill" href="{{ route('payrollEdit', $payroll->id) }}">Edit</a>
                     <a class="btn btn-danger rounded-pill" href="{{ route('payrollDelete', $payroll->id) }}">Delete</a>

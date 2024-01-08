@@ -67,7 +67,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <p>Copyright © All Rights Reserved 2023 Employee Management System by
+                    <p>Copyright © All Rights Reserved 2024 Employee Management System by
                         <a href="https://github.com/akikhossain" target="_blank" class="copyrightlink">Akik Hossain</a>
                     </p>
                 </div>

@@ -56,9 +56,9 @@
                 <td><img class="avatar p-1" src="{{ url('/uploads//' . $employee->employee_image) }}" alt="">
                 </td>
                 <td>{{ $employee->employee_id }}</td>
-                <td>{{ $employee->department->department_name }}</td>
-                <td>{{ $employee->designation->designation_name }}</td>
-                <td>{{ $employee->salaryStructure->salary_class }}</td>
+                <td>{{ optional($employee->department)->department_name }}</td>
+                <td>{{ optional($employee->designation)->designation_name }}</td>
+                <td>{{ optional($employee->salaryStructure)->salary_class }}</td>
                 <td>{{ $employee->joining_mode }}</td>
                 {{-- <td>{{ $employee->password }}</td> --}}
                 {{-- <td>{{ $employee->phone }}</td> --}}
@@ -70,9 +70,12 @@
                         href="{{ route('Employee.profile', $employee->id) }}"><i class="fa-regular fa-eye"></i></a>
                     <a class="btn btn-success rounded-pill fw-bold text-white"
                         href="{{ route('Employee.edit', $employee->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <a class="btn btn-danger rounded-pill fw-bold text-white"
-                        href="{{ route('Employee.delete', $employee->id) }}"><i class="fa-solid fa-trash"></i></a>
+                    <a class="btn btn-danger rounded-pill fw-bold text-white" href="#" data-bs-toggle="modal"
+                        data-bs-target="#deleteEmployeeModal"
+                        onclick="prepareDeleteForm('{{ route('Employee.delete', $employee->id) }}')"><i
+                            class="fa-solid fa-trash"></i></a>
                 </td>
+
             </tr>
             @endforeach
         </tbody>
@@ -81,4 +84,32 @@
         {{ $employees->links() }}
     </div>
 </div>
+
+<div class="modal" id="deleteEmployeeModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this employee?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form id="deleteForm" method="get">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function prepareDeleteForm(deleteUrl) {
+        document.getElementById('deleteForm').setAttribute('action', deleteUrl);
+    }
+</script>
+
 @endsection

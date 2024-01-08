@@ -18,11 +18,11 @@ class SalaryController extends Controller
     {
         // dd($request->all());
         $validate = Validator::make($request->all(), [
-            'salary_class' => 'required',
-            'basic_salary' => 'required',
-            'medical_expenses' => 'required',
-            'mobile_allowance' => 'required',
-            'houseRent_allowance' => 'required',
+            'salary_class' => 'required|string',
+            'basic_salary' => 'required|numeric|min:0',
+            'medical_expenses' => 'required|numeric|min:0',
+            'mobile_allowance' => 'required|numeric|min:0',
+            'houseRent_allowance' => 'required|numeric|min:0',
         ]);
 
         if ($validate->fails()) {

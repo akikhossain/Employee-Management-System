@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('designations', function (Blueprint $table) {
             $table->id();
-            $table->string('designation_name', 20);
+            $table->string('designation_name', 30);
             $table->string('designation_id', 10);
             $table->unsignedBigInteger('salary_structure_id'); // Reference to salary_structures table
             $table->unsignedBigInteger('department_id'); // Assuming a department relationship

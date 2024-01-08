@@ -120,7 +120,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('Payroll/createPayroll', [PayrollController::class, 'createPayroll'])->name('payroll.create');
         Route::get('/Payroll/PayrollList', [PayrollController::class, 'viewPayroll'])->name('payroll.view');
         Route::post('/Payroll/store', [PayrollController::class, 'payrollStore'])->name('payroll.store');
-        Route::get('/Payroll/Single/{id}', [PayrollController::class, 'singlePayroll'])->name('singlePayroll');
+        Route::get('/Payroll/Single/{employee_id}/{month}', [PayrollController::class, 'singlePayroll'])->name('singlePayroll');
         Route::get('/Payroll/allPayrollList', [PayrollController::class, 'allPayroll'])->name('allPayrollList');
         Route::get('/Payroll/delete/{id}', [PayrollController::class, 'deletePayroll'])->name('payrollDelete');
         Route::get('/Payroll/edit/{id}', [PayrollController::class, 'payrollEdit'])->name('payrollEdit');
@@ -135,6 +135,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/Task/delete/{id}', [TaskController::class, 'deleteTask'])->name('deleteTask');
         Route::get('/Task/edit/{id}', [TaskController::class, 'editTask'])->name('editTask');
         Route::put('/Task/update/{id}', [TaskController::class, 'updateTask'])->name('updateTask');
+        Route::get('/Task/Search', [TaskController::class, 'searchTask'])->name('searchTask');
 
 
 
@@ -215,7 +216,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         // payroll
         Route::get('/Payroll/MyPayrollList', [PayrollController::class, 'myPayroll'])->name('myPayroll');
-        Route::get('/Payroll/mySingle/{id}', [PayrollController::class, 'MySingle'])->name('mySinglePayroll');
+        Route::get('/Payroll/mySingle/{employeeID}/{month}', [PayrollController::class, 'MySingle'])->name('mySinglePayroll');
         Route::get('/search-myPayroll', [PayrollController::class, 'searchMyPayroll'])->name('searchMyPayroll');
 
 

@@ -137,7 +137,7 @@
 
 <body>
     <div class="loader">
-        <img src="{{ asset('assests/image/ball-triangle.svg') }}" alt="">
+        <img src="{{ asset('assests/image/puff.svg') }}" alt="">
     </div>
 
     {{-- notify --}}
@@ -196,7 +196,7 @@
 
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)" ;>
-            Copyright © All Rights Reserved 2023 | Employee Management System |
+            Copyright © All Rights Reserved 2024 | Employee Management System |
             <a class="text-white" href="https://github.com/akikhossain">Akik Hossain</a>
         </div>
     </footer>
@@ -251,8 +251,8 @@
     <script>
         $(function() {
             setTimeout(() => {
-                $('.loader').fadeOut(10); // Set an extremely quick fade-out time (e.g., 10 milliseconds)
-            }, 50); // Adjust the initial delay as needed
+                $('.loader').fadeOut(30); // Set an extremely quick fade-out time (e.g., 10 milliseconds)
+            }, 150); // Adjust the initial delay as needed
         });
     </script>
 

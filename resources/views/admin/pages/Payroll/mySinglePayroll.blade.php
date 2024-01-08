@@ -44,13 +44,16 @@
                         </div>
                         <div class="col-xl-4">
                             <ul class="list-unstyled">
-                                <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
-                                        class="fw-bold">Designation: </span>{{
-                                    $item->employee->designation->designation_name
-                                    }}</li>
-                                <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
-                                        class="fw-bold">Department: </span>{{
-                                    $item->employee->department->department_name }}
+                                <li class="text-muted">
+                                    <i class="fas fa-circle" style="color:#84B0CA ;"></i>
+                                    <span class="fw-bold">Designation: </span>
+                                    {{ optional($item->employee->designation)->designation_name ?? 'Not specified' }}
+                                </li>
+
+                                <li class="text-muted">
+                                    <i class="fas fa-circle" style="color:#84B0CA ;"></i>
+                                    <span class="fw-bold">Department: </span>
+                                    {{ optional($item->employee->department)->department_name ?? 'Not specified' }}
                                 </li>
                                 <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
                                         class="fw-bold">Creation Date: </span>{{ $item->date }}</li>
@@ -101,7 +104,8 @@
                         </div>
                         <div class="col-xl-3">
                             <ul class="list-unstyled">
-                                <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Deduction(15%)</span>{{
+                                <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Deduction({{
+                                        $item->reason }})</span>{{
                                     $item->deduction }} BDT</li>
                             </ul>
                             <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span
@@ -111,7 +115,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-xl-10">
-                            <p>© 2023 Copyright: Employee Management System | Akik Hossain</p>
+                            <p>© 2024 Copyright: Employee Management System | Akik Hossain</p>
                         </div>
                     </div>
                 </div>

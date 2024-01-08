@@ -26,7 +26,7 @@
                             class="rounded-circle mx-auto img-fluid"
                             style="width: 150px; height: 150px; object-fit: cover;">
                         <h5 class="my-3">{{ $employee->name }}</h5>
-                        <p class="text-muted mb-1">{{ $employee->designation->designation_name }}</p>
+                        <p class="text-muted mb-1">{{ optional($employee->designation)->designation_name }}</p>
                         <p class="text-muted mb-4">{{ $employee->location }}</p>
                         <div class="d-flex justify-content-center mb-2">
                             {{-- <button type="button" class="btn btn-primary">Follow</button> --}}
@@ -88,7 +88,7 @@
                                 <p class="mb-0">Department</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{ $employee->department->department_name }}</p>
+                                <p class="text-muted mb-0">{{ optional($employee->department)->department_name }}</p>
                             </div>
                         </div>
                         <hr>
@@ -124,7 +124,7 @@
                                 <p class="mb-0">Salary</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{ $employee->salaryStructure->salary_class }}</p>
+                                <p class="text-muted mb-0">{{ optional($employee->salaryStructure)->salary_class }}</p>
                             </div>
                         </div>
                         <hr>

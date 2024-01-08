@@ -172,8 +172,8 @@ class LeaveController extends Controller
 
         Leave::create([
             'employee_name' => auth()->user()->name,
-            'department_name' => auth()->user()->employee->department->department_name,
-            'designation_name' => auth()->user()->employee->designation->designation_name,
+            'department_name' => optional(auth()->user()->employee->department)->department_name ?? 'Not specified',
+            'designation_name' => optional(auth()->user()->employee->designation)->designation_name ?? 'Not specified',
             'employee_id' => $userId,
             'from_date' => $fromDate,
             'to_date' => $toDate,
@@ -326,9 +326,9 @@ class LeaveController extends Controller
 
         // Define leave days based on designations
         $designationLeaveDays = [
-            'android developer' => 20,
+            'Android Developer' => 20,
             'Web Developer' => 21,
-            'Coordinator' => 22,
+            'Marketing Manager' => 25,
             'Manager' => 23,
             'Director' => 24,
             'Vice President' => 25,
