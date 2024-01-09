@@ -109,12 +109,30 @@ class PayrollController extends Controller
         $payrolls = Payroll::with(['employee', 'salaryStructure'])->get();
         $payrolls->each(function ($payroll) {
             $employee = $payroll->employee;
-            $employee->load('designation', 'department'); // Assuming you have relationships defined in Employee model
-            $payroll->designation = $employee->designation->name;
-            $payroll->department = $employee->department->name;
+
+            if ($employee) {
+                $employee->load('designation', 'department'); // Assuming relationships in Employee model
+
+                if ($employee->designation) {
+                    $payroll->designation = $employee->designation->name;
+                } else {
+                    $payroll->designation = 'Unknown'; // Placeholder if designation is missing
+                }
+
+                if ($employee->department) {
+                    $payroll->department = $employee->department->name;
+                } else {
+                    $payroll->department = 'Unknown'; // Placeholder if department is missing
+                }
+            } else {
+                $payroll->designation = 'Employee not found'; // Placeholder for missing employee
+                $payroll->department = 'Employee not found'; // Placeholder for missing employee
+            }
         });
+
         return view('admin.pages.Payroll.payrollList', compact('payrolls'));
     }
+
 
     public function myPayroll()
     {
@@ -224,12 +242,30 @@ class PayrollController extends Controller
         $payrolls = Payroll::with(['employee', 'salaryStructure'])->get();
         $payrolls->each(function ($payroll) {
             $employee = $payroll->employee;
-            $employee->load('designation', 'department'); // Assuming you have relationships defined in Employee model
-            $payroll->designation = $employee->designation->name;
-            $payroll->department = $employee->department->name;
+
+            if ($employee) {
+                $employee->load('designation', 'department'); // Assuming relationships in Employee model
+
+                if ($employee->designation) {
+                    $payroll->designation = $employee->designation->name;
+                } else {
+                    $payroll->designation = 'Unknown'; // Placeholder if designation is missing
+                }
+
+                if ($employee->department) {
+                    $payroll->department = $employee->department->name;
+                } else {
+                    $payroll->department = 'Unknown'; // Placeholder if department is missing
+                }
+            } else {
+                $payroll->designation = 'Employee not found'; // Placeholder for missing employee
+                $payroll->department = 'Employee not found'; // Placeholder for missing employee
+            }
         });
+
         return view('admin.pages.Payroll.allPayrollList', compact('payrolls'));
     }
+
 
 
     // my payroll report

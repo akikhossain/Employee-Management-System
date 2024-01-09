@@ -48,6 +48,7 @@ Route::get('/aboutUs', [FrontendHomeController::class, 'aboutUs'])->name('aboutU
 
 // Contact Us Section
 Route::get('/contacts', [FrontendHomeController::class, 'contact'])->name('contacts');
+Route::get('/contacts/delete/{id}', [FrontendHomeController::class, 'deleteContact'])->name('deleteContact');
 Route::post('/contact/store', [FrontendHomeController::class, 'contactStore'])->name('contactStore');
 
 
@@ -83,6 +84,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/Organization/delete/{id}', [OrganizationController::class, 'delete'])->name('Organization.delete');
         Route::get('/Organization/edit/{id}', [OrganizationController::class, 'edit'])->name('Organization.edit');
         Route::put('/Organization/update/{id}', [OrganizationController::class, 'update'])->name('Organization.update');
+        Route::get('/Organization/Search/Department', [OrganizationController::class, 'searchDepartment'])->name('searchDepartment');
 
         // designation
         Route::get('/Organization/designation', [DesignationController::class, 'designation'])->name('organization.designation');
@@ -91,6 +93,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/designation/delete/{id}', [DesignationController::class, 'delete'])->name('designation.delete');
         Route::get('/designation/edit/{id}', [DesignationController::class, 'edit'])->name('designation.edit');
         Route::put('/Designation/update/{id}', [DesignationController::class, 'update'])->name('Designation.update');
+        Route::get('/Designation/Search/Designation', [DesignationController::class, 'searchDesignation'])->name('searchDesignation');
 
         // Leave
         Route::get('/Leave/LeaveStatus', [LeaveController::class, 'leaveList'])->name('leave.leaveStatus');

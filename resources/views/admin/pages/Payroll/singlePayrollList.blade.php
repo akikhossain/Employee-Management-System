@@ -28,7 +28,6 @@
 
                     </div>
 
-
                     <div class="row">
                         <div class="col-xl-8">
                             <ul class="list-unstyled">
@@ -101,7 +100,8 @@
                         </div>
                         <div class="col-xl-3">
                             <ul class="list-unstyled">
-                                <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Deduction(15%)</span>{{
+                                <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Deduction({{
+                                        $item->reason }})</span>{{
                                     $item->deduction }} BDT</li>
                             </ul>
                             <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span

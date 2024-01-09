@@ -33,8 +33,8 @@
                 <td>{{ $message->subject }}</td>
                 <td>{{ $message->message }}</td>
                 <td>
-                    <a class="btn btn-danger rounded-pill fw-bold text-white" href=""><i
-                            class="fa-solid fa-trash"></i></a>
+                    <a class="btn btn-danger rounded-pill fw-bold text-white"
+                        href="{{ route('deleteContact', $message->id) }}"><i class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach

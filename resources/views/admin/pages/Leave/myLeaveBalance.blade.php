@@ -77,14 +77,14 @@
     </table>
 
     <!-- Designation-based message -->
-    @if($designation === 'android developer')
+    @if($designation === 'Android Developer')
     <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
         <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
             leave quota of
             <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
         </p>
     </div>
-    @elseif($designation === 'Software Engineer ')
+    @elseif($designation === 'Software Developer ')
     <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
         <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
             leave quota of
@@ -99,7 +99,56 @@
             <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
         </p>
     </div>
-    @elseif($designation === 'Marketing Manager')
+    @elseif($designation === 'Manager')
+    <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
+        <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
+            leave quota of
+            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
+        </p>
+    </div>
+    @elseif($designation === 'IT Director')
+    <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
+        <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
+            leave quota of
+            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
+        </p>
+    </div>
+    @elseif($designation === 'System Administrator')
+    <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
+        <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
+            leave quota of
+            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
+        </p>
+    </div>
+    @elseif($designation === 'Content Creator')
+    <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
+        <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
+            leave quota of
+            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
+        </p>
+    </div>
+    @elseif($designation === 'Chief Financial Officer')
+    <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
+        <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
+            leave quota of
+            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
+        </p>
+    </div>
+    @elseif($designation === 'Sales Director')
+    <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
+        <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
+            leave quota of
+            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
+        </p>
+    </div>
+    @elseif($designation === 'Sales Support Specialist')
+    <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
+        <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
+            leave quota of
+            <span class="fw-bold text-primary">{{ $designationLeaveDays[$designation] }}</span> Days.
+        </p>
+    </div>
+    @elseif($designation === 'Customer Support')
     <div class="text-center bg-success rounded-pill w-50 mx-auto p-1 pt-3 fs-5">
         <p>You have utilized: <span class="fw-bold text-danger">{{ $totalTakenDays }}</span> Days out of your annual
             leave quota of

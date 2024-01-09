@@ -79,8 +79,8 @@ class homeController extends Controller
         // dd($request->all());
         $validate = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|string|max:20|min:11|regex:/^(?:\+?88)?01[3-9]\d{8}$/',
             'subject' => 'required',
             'message' => 'required',
         ]);
@@ -99,6 +99,17 @@ class homeController extends Controller
             'message' => $request->message,
         ]);
         notify()->success('Message Sent Successfully');
+        return redirect()->back();
+    }
+
+    // Delete contact
+    public function deleteContact($id)
+    {
+        $message = Contact::find($id);
+        if ($message) {
+            $message->delete();
+        }
+        notify()->success('Deleted Successfully.');
         return redirect()->back();
     }
 

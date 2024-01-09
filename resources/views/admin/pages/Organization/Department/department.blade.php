@@ -8,6 +8,20 @@
 
     <!--Section: Form Design Block-->
     <section>
+
+        <div class="d-flex justify-content-end">
+            <div class="input-group rounded w-25 mb-5">
+                <form action="{{ route('searchDepartment') }}" method="get">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..." name="search">
+                        <button type="submit" class="input-group-text border-0 bg-transparent" id="search-addon"
+                            style="display: inline;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="d-flex gap-5 justify-content-center align-content-center ">
 
             {{-- Department Form start --}}

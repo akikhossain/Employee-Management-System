@@ -13,9 +13,17 @@ use Illuminate\Support\Facades\Validator;
 
 class viewEmployeeController extends Controller
 {
+    // public function viewEmployee()
+    // {
+    //     $employees = Employee::with(['department', 'designation', 'salaryStructure'])->paginate(5);
+    //     return view('admin.pages.manageEmployee.viewEmployee', compact('employees'));
+    // }
     public function viewEmployee()
     {
-        $employees = Employee::with(['department', 'designation', 'salaryStructure'])->paginate(5);
+        $employees = Employee::with(['department', 'designation', 'salaryStructure'])
+            ->latest('id')
+            ->paginate(10);
+
         return view('admin.pages.manageEmployee.viewEmployee', compact('employees'));
     }
 
@@ -58,6 +66,26 @@ class viewEmployeeController extends Controller
     {
         $employee = Employee::find($id);
         if ($employee) {
+
+            $validate = Validator::make($request->all(), [
+                'name' => 'required',
+                'employee_id' => 'required',
+                'department_id' => 'required',
+                'designation_id' => 'required',
+                'salary_structure_id' => 'required',
+                'date_of_birth' => 'required|date',
+                'hire_date' => 'required|date',
+                'email' => 'required|email|max:255|unique:employees,email,' . $id,
+                'phone' => 'required|string|max:20|min:11|regex:/^(?:\+?88)?01[3-9]\d{8}$/',
+                'joining_mode' => 'required',
+                'location' => 'required|string|max:100',
+            ]);
+
+            if ($validate->fails()) {
+
+                notify()->error($validate->getMessageBag());
+                return redirect()->back();
+            }
 
             $fileName = $employee->employee_image;
             if ($request->hasFile('employee_image')) {

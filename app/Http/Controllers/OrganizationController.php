@@ -68,4 +68,17 @@ class OrganizationController extends Controller
             return redirect()->route('organization.department');
         }
     }
+
+
+    public function searchDepartment(Request $request)
+    {
+        $searchTerm = $request->search;
+
+        $departments = Department::where(function ($query) use ($searchTerm) {
+            $query->where('department_name', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhere('department_id', 'LIKE', '%' . $searchTerm . '%');
+        })->paginate(10);
+
+        return view('admin.pages.Organization.Department.searchDepartment', compact('departments'));
+    }
 }

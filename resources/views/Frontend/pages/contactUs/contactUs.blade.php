@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="text-center w-25 mx-auto mt-3">
-                                <button type="submit" class="btn btn-info p-2 text-lg  rounded col-md-10">Send
+                                <button type="submit" class="btn btn-success p-2 text-lg  rounded col-md-10">Send
                                     Message</button>
                             </div>
                         </form>
@@ -56,7 +56,7 @@
                 </div>
                 <!-- /.contact-form-->
                 <!-- contact-info-->
-                <div class="row align-items-center justify-content-center ">
+                <div class="row align-items-center justify-content-center">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="section-title">
                             <h2>Our Contact Info</h2>
@@ -100,7 +100,7 @@
         </div>
     </div>
     <!-- /.contact-section -->
-    <div class="space-medium bg-light">
+    <div class="space-medium">
         <div class="container">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="section-title">
@@ -110,7 +110,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="location-block">
-                        <div class="location-content">
+                        <div class="location-content  ">
                             <h3>HRHUB360, Dhaka</h3>
                             <p>1230 Uttara, Dhaka, Bangladesh</p>
                             <ul>
@@ -155,5 +155,4 @@
         </div>
     </div>
 </div>
-<!-- /.consultation form -->
 @endsection

@@ -46,7 +46,9 @@ class DesignationController extends Controller
 
     public function  designationList()
     {
-        $designations = Designation::with(['department', 'salary'])->get();
+        $designations = Designation::with(['department', 'salary'])
+            ->latest('id')
+            ->get();
         return view('admin.pages.Organization.Designation.designationList',  compact('designations'));
     }
     public function delete($id)
@@ -92,5 +94,20 @@ class DesignationController extends Controller
             notify()->success('Updated successfully.');
             return redirect()->route('organization.designation');
         }
+    }
+
+    public function searchDesignation(Request $request)
+    {
+        $searchTerm = $request->search;
+
+        $designations = Designation::where(function ($query) use ($searchTerm) {
+            $query->where('designation_id', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhere('designation_name', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhereHas('department', function ($departmentQuery) use ($searchTerm) {
+                    $departmentQuery->where('department_name', 'LIKE', '%' . $searchTerm . '%');
+                });
+        })->paginate(10);
+
+        return view('admin.pages.Organization.Designation.searchDesignation', compact('designations'));
     }
 }

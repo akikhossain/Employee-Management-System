@@ -36,12 +36,7 @@
                                     style="width: 70px;"> --}}
                                 </div>
                                 <div class="flex-grow-1">
-                                    {{-- <div>
-                                        <button type="button" class="btn btn-outline-dark btn-rounded btn-sm"
-                                            data-mdb-ripple-color="dark">{{ auth()->user()->name }}</button><br>
-                                        <button type="button" class="btn btn-outline-dark btn-rounded btn-sm mt-2"
-                                            data-mdb-ripple-color="dark">{{ auth()->user()->role }}</button>
-                                    </div> --}}
+
                                     <p class="small mb-0 text-center"><i class="far fa-clock me-2"></i>Schedule: 09 AM -
                                         05 PM</p>
                                 </div>

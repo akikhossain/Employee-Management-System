@@ -327,11 +327,16 @@ class LeaveController extends Controller
         // Define leave days based on designations
         $designationLeaveDays = [
             'Android Developer' => 20,
-            'Web Developer' => 21,
-            'Marketing Manager' => 25,
-            'Manager' => 23,
-            'Director' => 24,
-            'Vice President' => 25,
+            'Web Developer' => 20,
+            'Manager' => 25,
+            'Software Developer' => 20,
+            'IT Director' => 25,
+            'System Administrator' => 25,
+            'Content Creator' => 20,
+            'Chief Financial Officer' => 25,
+            'Sales Director' => 25,
+            'Sales Support Specialist' => 20,
+            'Customer Support' => 20,
         ];
 
         $leaveTypeBalances = [];

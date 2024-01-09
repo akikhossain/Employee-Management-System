@@ -30,7 +30,7 @@ class manageEmployeeController extends Controller
             'salary_structure_id' => 'required',
             'date_of_birth' => 'required|date',
             'hire_date' => 'required|date',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|max:255|unique:employees,email',
             'phone' => 'required|string|max:20|min:11|regex:/^(?:\+?88)?01[3-9]\d{8}$/',
             'joining_mode' => 'required',
             'location' => 'required|string|max:100',

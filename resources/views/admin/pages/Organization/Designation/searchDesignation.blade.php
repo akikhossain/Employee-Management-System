@@ -11,19 +11,23 @@
 </div>
 <div class="container my-5 py-5">
 
-    <div class="d-flex justify-content-end">
-        <div class="input-group rounded w-25 mb-5">
-            <form action="{{ route('searchDesignation') }}" method="get">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search..." name="search">
-                    <button type="submit" class="input-group-text border-0 bg-transparent" id="search-addon"
-                        style="display: inline;">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
+    <div class="fw-normal mb-4">
+        <h2 class="fw-normal fs-5 mx-auto text-center rounded-pill p-2 w-50 mb-5
+            @if ($designations->count() > 0) bg-success
+            @else
+                bg-danger text-white @endif">
+            @if ($designations->count() === 1)
+            Found 1 matching data for "{{ request()->search }}"
+            @elseif ($designations->count() > 1)
+            Found {{ $designations->count() }} matching data for "{{ request()->search }}"
+            @else
+            No Data found for "{{ request()->search }}"
+            @endif
+        </h2>
     </div>
+
+    @if ($designations->count() > 0)
+
     {{-- Department Table start --}}
     <div>
         <table class="table align-middle mb-4 text-center bg-white">
@@ -57,5 +61,6 @@
             </tbody>
         </table>
     </div>
+    @endif
 </div>
 @endsection
