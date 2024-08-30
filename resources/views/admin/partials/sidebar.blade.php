@@ -89,6 +89,12 @@
             </ul>
         </li>
 
+        @employee
+        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted"
+                href="{{ route('employeeProvident') }}"><i class="fa-solid fa-dollar-sign me-2 text-info"></i>
+                <span class="sidebar-link-title fs-5">Provident Fund</span></a>
+        </li>
+        @endemployee
 
         {{-- Task --}}
         {{-- <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted " href="#"><i

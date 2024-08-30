@@ -228,6 +228,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/Payroll/mySingle/{employeeID}/{month}', [PayrollController::class, 'MySingle'])->name('mySinglePayroll');
         Route::get('/search-myPayroll', [PayrollController::class, 'searchMyPayroll'])->name('searchMyPayroll');
 
+        // Provident Fund
+        Route::get('/Provident-Fund/my-provident-fund', [ProvidentController::class, 'employeeProvident'])->name('employeeProvident');
+
 
 
         // Notices for Employee

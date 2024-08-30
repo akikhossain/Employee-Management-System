@@ -21,9 +21,9 @@ class Employee extends Model
         return $this->hasMany(Attendance::class, 'employee_id', 'id');
     }
 
-    public function payroll()
+    public function payrolls()
     {
-        return $this->hasOne(Payroll::class, 'employee_id', 'id');
+        return $this->hasMany(Payroll::class, 'employee_id', 'id');
     }
 
     public function department()
