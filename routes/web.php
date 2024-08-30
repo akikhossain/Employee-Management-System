@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\ProvidentController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\DesignationController;
@@ -171,6 +172,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/Client/clientEdit/{id}', [ClientController::class, 'clientEdit'])->name('clientEdit');
         Route::put('/Client/clientUpdate/{id}', [ClientController::class, 'clientUpdate'])->name('clientUpdate');
 
+
+
+        // Provident Route
+        // Route::get('/provident/list', [ProvidentController::class, 'providentList'])->name('provident.list');
+        Route::get('/provident-list', [ProvidentController::class, 'providentList'])->name('providentList');
 
 
         // message info

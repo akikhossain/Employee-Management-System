@@ -24,19 +24,19 @@ class AttendanceController extends Controller
     {
         $currentTime = now();
         $nineAm = Carbon::createFromTime(9, 0, 0); // 9 AM
-        $fivePm = Carbon::createFromTime(17, 0, 0); // 5 PM
+        // $fivePm = Carbon::createFromTime(17, 0, 0); // 5 PM
 
-        if ($currentTime->greaterThan($fivePm)) {
-            // Outside working hours, can't check in
-            notify()->error('You cannot check-in after 5 PM.');
-            return redirect()->back();
-        }
+        // if ($currentTime->greaterThan($fivePm)) {
+        //     // Outside working hours, can't check in
+        //     notify()->error('You cannot check-in after 5 PM.');
+        //     return redirect()->back();
+        // }
 
-        if ($currentTime->lessThan($nineAm)) {
-            // Outside working hours, can't check in yet
-            notify()->error('You can check-in from 9 AM.');
-            return redirect()->back();
-        }
+        // if ($currentTime->lessThan($nineAm)) {
+        //     // Outside working hours, can't check in yet
+        //     notify()->error('You can check-in from 9 AM.');
+        //     return redirect()->back();
+        // }
 
         $existingAttendance = Attendance::where('employee_id', auth()->user()->id)
             ->whereDate('select_date', now()->toDateString())

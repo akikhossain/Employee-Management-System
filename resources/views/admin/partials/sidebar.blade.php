@@ -56,6 +56,11 @@
                             class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>View Employee</a></li>
             </ul>
         </li>
+
+        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted" href="{{ route('providentList') }}"><i
+                    class="fa-solid fa-dollar-sign me-2 text-info"></i>
+                <span class="sidebar-link-title fs-5">Provident Fund</span></a>
+        </li>
         @endadmin
 
         {{-- Attendance --}}
