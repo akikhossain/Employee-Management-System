@@ -20,37 +20,34 @@ class AttendanceController extends Controller
         return view('admin.pages.attendance.viewAttendance', compact('attendances'));
     }
 
-    public function checkIn()
+    public function checkIn(Request $request)
     {
+        // Get the date from the form (either the selected date or today's date)
+        $selectedDate = $request->input('attendance_date') ?? now()->toDateString();
+
+        // Get the current time for calculating late attendance
         $currentTime = now();
-        $nineAm = Carbon::createFromTime(9, 0, 0); // 9 AM
-        // $fivePm = Carbon::createFromTime(17, 0, 0); // 5 PM
+        $nineAm = Carbon::createFromTime(9, 0, 0);
+        $currentMonth = Carbon::now()->monthName;
 
-        // if ($currentTime->greaterThan($fivePm)) {
-        //     // Outside working hours, can't check in
-        //     notify()->error('You cannot check-in after 5 PM.');
-        //     return redirect()->back();
-        // }
-
-        // if ($currentTime->lessThan($nineAm)) {
-        //     // Outside working hours, can't check in yet
-        //     notify()->error('You can check-in from 9 AM.');
-        //     return redirect()->back();
-        // }
-
+        // Check if the attendance for the selected date already exists
         $existingAttendance = Attendance::where('employee_id', auth()->user()->id)
-            ->whereDate('select_date', now()->toDateString())
+            ->whereDate('select_date', $selectedDate)
             ->first();
 
         if ($existingAttendance) {
-            notify()->error('Attendance already given.');
+            // Attendance for this date already exists, show error message
+            notify()->error('Attendance already given for the selected date.');
             return redirect()->back();
         }
 
-        $late = $currentTime->diff($nineAm)->format('%H:%I:%S');
-        $currentMonth = Carbon::now()->monthName;
+        // Check if the user is late (only for current date)
+        $late = null;
+        if ($selectedDate == now()->toDateString() && $currentTime->greaterThan($nineAm)) {
+            $late = $currentTime->diff($nineAm)->format('%H:%I:%S');
+        }
 
-
+        // Create the attendance record for the selected date
         Attendance::create([
             'employee_id' => auth()->user()->id,
             'name' => auth()->user()->name,
@@ -58,14 +55,15 @@ class AttendanceController extends Controller
             'designation_name' => optional(auth()->user()->employee->designation)->designation_name ?? 'Not specified',
             'check_in' => $currentTime->format('H:i:s'),
             'check_out' => null,
-            'select_date' => now(),
+            'select_date' => $selectedDate,
             'month' => $currentMonth,
-            'late' => $late, // Save late time
+            'late' => $late, // Save late time if applicable
         ]);
 
-        notify()->success('Attendance given successfully.');
+        notify()->success('Attendance given successfully for ' . $selectedDate);
         return redirect()->back();
     }
+
 
 
     public function checkOut()

@@ -9,10 +9,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 fs-5 text-center mb-2 p-2">
-                {{-- <p>Your presence counts. Each tick, a commitment. Every day, a step forward.</p> --}}
                 <p>"Note: Arriving post 9 AM counts as late. Departing after 5 PM is considered overtime. Attendance
-                    cannot be marked after 5 PM. Thank you for your cooperation."
-                </p>
+                    cannot be marked after 5 PM. Thank you for your cooperation."</p>
             </div>
         </div>
     </div>
@@ -25,18 +23,10 @@
                         <div class="card-body p-4 text-black">
                             <div>
                                 <h6 class="mb-4 text-center">Stamp Your Attendance</h6>
-                                <div class="d-flex align-items-center justify-content-between mb-3">
-
-                                </div>
+                                <div class="d-flex align-items-center justify-content-between mb-3"></div>
                             </div>
                             <div class="d-flex align-items-center mb-4">
-                                <div class="flex-shrink-0">
-                                    {{-- <img src={{ auth()->user()->image }} alt="Generic placeholder image"
-                                    class="img-fluid rounded-circle border border-dark border-3"
-                                    style="width: 70px;"> --}}
-                                </div>
                                 <div class="flex-grow-1">
-
                                     <p class="small mb-0 text-center"><i class="far fa-clock me-2"></i>Schedule: 09 AM -
                                         05 PM</p>
                                 </div>
@@ -44,19 +34,53 @@
                             <hr>
                             <div class="text-center">
                                 <p class="my-4 pb-1 text-center">Give your today's attendance by clicking here👇</p>
-                                <a href="{{ route('check-in') }}"
-                                    class="btn btn-success rounded-pill btn-block btn-lg"><i
-                                        class="far fa-clock me-2"></i>Check In</a>
-                                <a href="{{ route('check-out') }}"
-                                    class="btn btn-danger rounded-pill btn-block btn-lg"><i
-                                        class="far fa-clock me-2"></i>Check Out</a>
+                                <!-- Normal Attendance for Today -->
+                                <div class="d-flex justify-content-center items-center">
+                                    <a href="{{ route('check-in') }}"
+                                        class="btn btn-success rounded-pill btn-block btn-lg"><i
+                                            class="far fa-clock me-2"></i>Check In</a>
+                                    <a href="{{ route('check-out') }}"
+                                        class="btn btn-danger rounded-pill btn-block btn-lg mt-3"><i
+                                            class="far fa-clock me-2"></i>Check Out</a>
+                                </div>
+
+                                <hr>
+                                <!-- Button to Show Previous Attendance Form -->
+                                <button id="previous-attendance-btn"
+                                    class="btn btn-warning rounded-pill btn-block btn-lg mt-3">
+                                    <i class="far fa-clock me-2"></i>Give Previous Attendance
+                                </button>
+
+                                <!-- Previous Attendance Form, hidden by default -->
+                                <div id="previous-attendance-form" style="display: none;" class="mt-4">
+                                    <form action="{{ route('check-in.post') }}" method="POST">
+                                        @csrf
+                                        <div class="mb-3">
+                                            <label for="attendance_date" class="form-label">Select Date for Previous
+                                                Attendance</label>
+                                            <input type="date" name="attendance_date" class="form-control" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary rounded-pill btn-block btn-lg">
+                                            <i class="far fa-clock me-2"></i>Submit Previous Attendance
+                                        </button>
+                                    </form>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 </div>
-</section>
-</div>
+
+<!-- Script to Toggle Previous Attendance Form -->
+<script>
+    document.getElementById('previous-attendance-btn').addEventListener('click', function () {
+        document.getElementById('previous-attendance-form').style.display = 'block';
+    });
+</script>
+
 @endsection

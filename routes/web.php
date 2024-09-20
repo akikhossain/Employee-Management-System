@@ -204,6 +204,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/attendance/myAttendance', [AttendanceController::class, 'myAttendance'])->name('attendance.myAttendance');
         Route::get('/attendance/myAttendanceReport', [AttendanceController::class, 'myAttendanceReport'])->name('myAttendanceReport');
         Route::get('/attendance/searchMyAttendance', [AttendanceController::class, 'searchMyAttendance'])->name('searchMyAttendance');
+        Route::post('/check-in', [AttendanceController::class, 'checkIn'])->name('check-in.post'); // For previous attendance (POST)
+
 
 
         // Leave Routes for Employee
