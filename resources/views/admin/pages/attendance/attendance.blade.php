@@ -35,14 +35,16 @@
                             <div class="text-center">
                                 <p class="my-4 pb-1 text-center">Give your today's attendance by clicking here👇</p>
                                 <!-- Normal Attendance for Today -->
-                                <div class="d-flex justify-content-center items-center">
-                                    <a href="{{ route('check-in') }}"
-                                        class="btn btn-success rounded-pill btn-block btn-lg"><i
-                                            class="far fa-clock me-2"></i>Check In</a>
-                                    <a href="{{ route('check-out') }}"
-                                        class="btn btn-danger rounded-pill btn-block btn-lg mt-3"><i
-                                            class="far fa-clock me-2"></i>Check Out</a>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <a href="{{ route('check-in') }}" class="btn btn-success rounded-pill btn-lg mx-2">
+                                        <i class="far fa-clock me-2"></i>Check In
+                                    </a>
+                                    <a href="{{ route('check-out') }}" class="btn btn-danger rounded-pill btn-lg mx-2">
+                                        <i class="far fa-clock me-2"></i>Check Out
+                                    </a>
                                 </div>
+
+
 
                                 <hr>
                                 <!-- Button to Show Previous Attendance Form -->
