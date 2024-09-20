@@ -177,6 +177,9 @@ Route::group(['middleware' => 'auth'], function () {
         // Provident Route
         // Route::get('/provident/list', [ProvidentController::class, 'providentList'])->name('provident.list');
         Route::get('/provident-list', [ProvidentController::class, 'providentList'])->name('providentList');
+        // Route::delete('/provident/delete/{id}', [ProvidentController::class, 'destroy'])->name('provident.destroyFund');
+
+
 
 
         // message info

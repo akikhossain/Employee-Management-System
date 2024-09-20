@@ -23,7 +23,6 @@
                 <th>Department</th>
                 <th>Total Salary</th>
                 <th>Total Provident Fund</th>
-                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -35,10 +34,7 @@
                 <td>{{ $employee->department_name }}</td>
                 <td>{{ number_format($employee->total_salary, 2) }} BDT</td>
                 <td>{{ number_format($employee->total_provident_fund, 2) }} BDT</td>
-                <td>
-                    <!-- Add your action buttons here -->
-                    <a class="btn btn-danger rounded-pill" href="#"><i class="fa-solid fa-trash"></i></a>
-                </td>
+
             </tr>
             @endforeach
         </tbody>
