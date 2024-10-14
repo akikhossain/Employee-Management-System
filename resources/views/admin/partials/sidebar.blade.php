@@ -1,241 +1,261 @@
-<div class="sidebar" id="sidebar">
-
-    {{-- Dashboard --}}
-    <ul class="list-unstyled mb-5">
-        <li class="sidebar-list-item "><a class="sidebar-link text-muted active" href="{{ route('dashboard') }}">
-                <span class="sidebar-link-title fs-5">Dashboards</span></a>
-        </li>
-
-
-        @employee
-        {{-- User Profile --}}
-        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted" href="{{ route('profile') }}"><i
-                    class="fa-regular fa-user me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Profile</span></a>
-        </li>
-        @endemployee
-
-
-        @admin
-        {{-- Organization --}}
-        <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#"
-                data-bs-target="#widgetsDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
-                    class="fa-solid fa-building me-2  text-info"></i>
-                <span class="sidebar-link-title fs-5">Organization</span></a>
-            <ul class="sidebar-menu   list-unstyled collapse " id="widgetsDropdown">
-                <li class="sidebar-list-item py-2  fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('organization.department') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Department</a>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href=" " class="brand-link">
+        <img src=" " class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">EMPLOYEE MANAGEMENT</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user (optional) -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a href="{{ route('dashboard') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Dashboard</p>
+                    </a>
                 </li>
-                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('organization.designationList') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Designation</a>
-                </li>
-            </ul>
-        </li>
 
-
-        {{-- Salary Structure --}}
-        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted"
-                href="{{ route('salary.create.form') }}"><i class="fa-solid fa-dollar-sign me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">PayGrade</span></a>
-        </li>
-
-        {{-- Employees --}}
-        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted " href="#" data-bs-target="#cmsDropdown"
-                role="button" aria-expanded="false" data-bs-toggle="collapse"><i
-                    class="fa-solid fa-user-group me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Employees</span></a>
-            <ul class="sidebar-menu list-unstyled collapse " id="cmsDropdown">
-                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('manageEmployee.addEmployee') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Add
-                        Employee</a></li>
-                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('manageEmployee.ViewEmployee') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>View Employee</a></li>
-            </ul>
-        </li>
-
-        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted" href="{{ route('providentList') }}"><i
-                    class="fa-solid fa-dollar-sign me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Provident Fund</span></a>
-        </li>
-        @endadmin
-
-        {{-- Attendance --}}
-        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted " href="" data-bs-target="#tablesDropdown"
-                role="button" aria-expanded="false" data-bs-toggle="collapse"><i
-                    class="fa-regular fa-clock me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Attendance</span></a>
-            <ul class="sidebar-menu   list-unstyled collapse " id="tablesDropdown">
-                @admin
-                <li class="sidebar-list-item py-2 fs-6 "><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('attendance.viewAttendance') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Attendance
-                        Record</a>
-                </li>
-                @endadmin
+                <!-- Profile (Employee only) -->
                 @employee
-                <li class="sidebar-list-item py-2 fs-6 "><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('attendance.giveAttendance') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Give Attendance</a>
-                </li>
-                <li class="sidebar-list-item py-2 fs-6 "><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('attendance.myAttendance') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>My Attendance</a>
-                </li>
-                @endemployee
-            </ul>
-        </li>
-
-        @employee
-        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted"
-                href="{{ route('employeeProvident') }}"><i class="fa-solid fa-dollar-sign me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Provident Fund</span></a>
-        </li>
-        @endemployee
-
-        {{-- Task --}}
-        {{-- <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted " href="#"><i
-                    class="fa-solid fa-list-check me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Manage Task</span></a>
-        </li> --}}
-
-        {{-- Manage Leave --}}
-        <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted " href="#"
-                data-bs-target="#componentsDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
-                    class="fa-solid fa-person-walking-arrow-right me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Leave</span></a>
-            <ul class="sidebar-menu   list-unstyled collapse " id="componentsDropdown">
-                @employee
-                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('leave.leaveForm') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Apply
-                        Leave</a>
-                </li>
-                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('leave.myLeave') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>My Leave</a>
-                </li>
-                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('leave.myLeaveBalance') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>My Leave Balance</a>
+                <li class="nav-item">
+                    <a href="{{ route('profile') }}" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>Profile</p>
+                    </a>
                 </li>
                 @endemployee
 
+                <!-- Organization (Admin only) -->
                 @admin
-                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('leave.leaveStatus') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Leave Request</a>
-                </li>
-                <li class="sidebar-list-item fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('leave.leaveType') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Leave Type</a>
-                </li>
-                @endadmin
-            </ul>
-        </li>
-
-
-        {{-- Task Management --}}
-        <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#" data-bs-target="#pagesDropdown"
-                role="button" aria-expanded="false" data-bs-toggle="collapse">
-                <span class="sidebar-link-title fs-5"><i
-                        class="fa-solid fa-list-check me-2 text-info"></i>Task</span></a>
-            <ul class="sidebar-menu list-unstyled collapse" id="pagesDropdown">
-                @admin
-                <li class="sidebar-list-item  py-2 fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('createTask') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Assign Task</a>
-                </li>
-                <li class="sidebar-list-item  py-2 fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('taskList') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Task List</a>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-bs-target="#organizationDropdown" role="button"
+                        data-bs-toggle="collapse" aria-expanded="false">
+                        <i class="nav-icon fas fa-building"></i>
+                        <p>Organization</p>
+                    </a>
+                    <ul class="nav nav-treeview collapse" id="organizationDropdown">
+                        <li class="nav-item">
+                            <a href="{{ route('organization.department') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Department</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('organization.designationList') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Designation</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 @endadmin
 
-                @employee
-                <li class="sidebar-list-item  py-2 fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('myTask') }}"><i class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>My
-                        Task</a>
-                </li>
-                @endemployee
-            </ul>
-        </li>
-
-        {{-- Payroll --}}
-        <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="#"
-                data-bs-target="#e-commerceDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"><i
-                    class="fa-solid fa-file-invoice-dollar me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Payroll</span></a>
-            <ul class="sidebar-menu list-unstyled collapse " id="e-commerceDropdown">
-
+                <!-- PayGrade (Admin only) -->
                 @admin
-                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('payroll.create') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Create Payroll</a>
-                </li>
-                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('payroll.view') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>Payroll List</a>
+                <li class="nav-item">
+                    <a href="{{ route('salary.create.form') }}" class="nav-link">
+                        <i class="nav-icon fas fa-dollar-sign"></i>
+                        <p>PayGrade</p>
+                    </a>
                 </li>
                 @endadmin
-                @employee
-                <li class="sidebar-list-item py-2 fs-6"><a class="sidebar-link text-muted ms-3"
-                        href="{{ route('myPayroll') }}"><i
-                            class="fa-regular fa-circle-right fa-sm me-1 text-info"></i>My Payroll</a>
+
+                <!-- Employees (Admin only) -->
+                @admin
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-bs-target="#employeesDropdown" role="button"
+                        data-bs-toggle="collapse" aria-expanded="false">
+                        <i class="nav-icon fas fa-user-group"></i>
+                        <p>Employees</p>
+                    </a>
+                    <ul class="nav nav-treeview collapse" id="employeesDropdown">
+                        <li class="nav-item">
+                            <a href="{{ route('manageEmployee.addEmployee') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Employee</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('manageEmployee.ViewEmployee') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Employee</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                @endemployee
+                @endadmin
+
+                <!-- Provident Fund (Admin and Employee) -->
+                <li class="nav-item">
+                    @admin
+                    <a href="{{ route('providentList') }}" class="nav-link">
+                        <i class="nav-icon fas fa-dollar-sign"></i>
+                        <p>Provident Fund</p>
+                    </a>
+                    @endadmin
+                    @employee
+                    <a href="{{ route('employeeProvident') }}" class="nav-link">
+                        <i class="nav-icon fas fa-dollar-sign"></i>
+                        <p>Provident Fund</p>
+                    </a>
+                    @endemployee
+                </li>
+
+                <!-- Attendance -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-bs-target="#attendanceDropdown" role="button"
+                        data-bs-toggle="collapse" aria-expanded="false">
+                        <i class="nav-icon fas fa-clock"></i>
+                        <p>Attendance</p>
+                    </a>
+                    <ul class="nav nav-treeview collapse" id="attendanceDropdown">
+                        @admin
+                        <li class="nav-item">
+                            <a href="{{ route('attendance.viewAttendance') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Attendance Record</p>
+                            </a>
+                        </li>
+                        @endadmin
+                        @employee
+                        <li class="nav-item">
+                            <a href="{{ route('attendance.giveAttendance') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Give Attendance</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('attendance.myAttendance') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>My Attendance</p>
+                            </a>
+                        </li>
+                        @endemployee
+                    </ul>
+                </li>
+
+                <!-- Leave -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-bs-target="#leaveDropdown" role="button" data-bs-toggle="collapse"
+                        aria-expanded="false">
+                        <i class="nav-icon fas fa-person-walking-arrow-right"></i>
+                        <p>Leave</p>
+                    </a>
+                    <ul class="nav nav-treeview collapse" id="leaveDropdown">
+                        @employee
+                        <li class="nav-item">
+                            <a href="{{ route('leave.leaveForm') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Apply Leave</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('leave.myLeave') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>My Leave</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('leave.myLeaveBalance') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>My Leave Balance</p>
+                            </a>
+                        </li>
+                        @endemployee
+                        @admin
+                        <li class="nav-item">
+                            <a href="{{ route('leave.leaveStatus') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Leave Request</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('leave.leaveType') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Leave Type</p>
+                            </a>
+                        </li>
+                        @endadmin
+                    </ul>
+                </li>
+
+                <!-- Task Management -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-bs-target="#taskDropdown" role="button" data-bs-toggle="collapse"
+                        aria-expanded="false">
+                        <i class="nav-icon fas fa-list-check"></i>
+                        <p>Task</p>
+                    </a>
+                    <ul class="nav nav-treeview collapse" id="taskDropdown">
+                        @admin
+                        <li class="nav-item">
+                            <a href="{{ route('createTask') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Assign Task</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('taskList') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Task List</p>
+                            </a>
+                        </li>
+                        @endadmin
+                        @employee
+                        <li class="nav-item">
+                            <a href="{{ route('myTask') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>My Task</p>
+                            </a>
+                        </li>
+                        @endemployee
+                    </ul>
+                </li>
+
+                <!-- Payroll -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-bs-target="#payrollDropdown" role="button"
+                        data-bs-toggle="collapse" aria-expanded="false">
+                        <i class="nav-icon fas fa-file-invoice-dollar"></i>
+                        <p>Payroll</p>
+                    </a>
+                    <ul class="nav nav-treeview collapse" id="payrollDropdown">
+                        @admin
+                        <li class="nav-item">
+                            <a href="{{ route('payroll.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Create Payroll</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('payroll.view') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Payroll List</p>
+                            </a>
+                        </li>
+                        @endadmin
+                        @employee
+                        <li class="nav-item">
+                            <a href="{{ route('myPayroll') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>My Payroll</p>
+                            </a>
+                        </li>
+                        @endemployee
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    @admin
+                    <a href="{{ route('users.list') }}" class="nav-link">
+                        <i class="nav-icon fas fa-dollar-sign"></i>
+                        <p>Users</p>
+                    </a>
+                    @endadmin
+                </li>
             </ul>
-        </li>
-
-        @admin
-        {{-- Salary Structure --}}
-        {{-- <li class="sidebar-list-item py-2 "><a class="sidebar-link text-muted"
-                href="{{ route('salary.create.form') }}"><i class="fa-solid fa-dollar-sign me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">PayGrade</span></a>
-        </li> --}}
-
-
-        {{-- Users --}}
-        <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted " href="{{ route('users.list') }}"><i
-                    class="fa-solid fa-circle-user me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Users</span></a>
-        </li>
-        @endadmin
-
-        {{-- Notice --}}
-        <li class="sidebar-list-item py-2"><a class="sidebar-link text-muted" href="{{ route('show.notice') }}"><i
-                    class="fa-solid fa-check me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Notices</span></a>
-        </li>
-
-
-    </ul>
-    @admin
-    <hr>
-    @endadmin
-
-    @admin
-    <div class="mt-5">
-        <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('service.form') }}"><i
-                    class="fa-brands fa-servicestack  me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Services</span></a>
-        </li>
-        <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('notice.create') }}"><i
-                    class="fa-brands fa-hubspot  me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Notices Hub</span></a>
-        </li>
-        <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('client.form') }}"><i
-                    class="fa-regular fa-handshake me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Clients</span></a>
-        </li>
-        <li class="list-unstyled"><a class="sidebar-link text-muted " href="{{ route('message') }}"><i
-                    class="fa-solid fa-clipboard-question me-2 text-info"></i>
-                <span class="sidebar-link-title fs-5">Query Corner</span></a>
-        </li>
+        </nav>
     </div>
-    @endadmin
-
-</div>
+    <!-- /.sidebar -->
+</aside>

@@ -60,7 +60,7 @@ class AttendanceController extends Controller
             'late' => $late, // Save late time if applicable
         ]);
 
-        notify()->success('Attendance given successfully for ' . $selectedDate);
+        notify()->success(message: 'Attendance given successfully for ' . $selectedDate);
         return redirect()->back();
     }
 

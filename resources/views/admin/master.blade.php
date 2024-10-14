@@ -1,28 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    @notifyCss
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Employee Management System</title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex">
-    <!-- Google fonts - Popppins for copy-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&amp;display=swap"
-        rel="stylesheet">
-    <!-- Prism Syntax Highlighting-->
+    <title>Laravel Shop :: Administrative Panel</title>
+    <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
-        href="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/prismjs/plugins/toolbar/prism-toolbar.css">
-    <link rel="stylesheet"
-        href="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/prismjs/themes/prism-okaidia.css">
-    <!-- The Main Theme stylesheet (Contains also Bootstrap CSS)-->
-    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/css/style.default.63c85ff9.css"
-        id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/css/custom.0a822280.css">
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('admin-assets/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('admin-assets/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-assets/plugins/dropzone/min/dropzone.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-assets/plugins/summernote/summernote-bs4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-assets/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-assets/css/datetimepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-assets/css/custom.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    @notifyCss
 
     <style>
         /* stye for dashboard icon */
@@ -135,73 +132,112 @@
     </script>
 </head>
 
-<body>
-    <div class="loader">
-        <img src="{{ asset('assests/image/puff.svg') }}" alt="">
-    </div>
-
-    {{-- notify --}}
-    @include('notify::components.notify')
-
-
-
-    <!-- navbar-->
-    @include('admin.partials.header')
-
-
-    <div class="d-flex align-items-stretch">
-        <!-- sidebar -->
-        @include('admin.partials.sidebar')
-
-
-
-        <div class="page-holder bg-gray-100">
-            <div class="container-fluid mb-xxl-5 flex-grow-1 h-75   px-lg-4 px-xl-5">
-
-
-                @yield('content')
-
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Right navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+            <div class="navbar-nav pl-2">
+                <!-- <ol class="breadcrumb p-0 m-0 bg-white">
+						<li class="breadcrumb-item active">Dashboard</li>
+					</ol> -->
             </div>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link p-0 pr-3 avatar p-1" data-toggle="dropdown" href="#">
+                        <img src="{{ isset(auth()->user()->employee) && auth()->user()->employee->employee_image ? url('/uploads//' . auth()->user()->employee->employee_image) : asset('assests/image/default.png') }}"
+                            class='img-circle elevation-2' width="40" height="40" alt="">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-3">
+                        <h4 class="h4 mb-0"><strong> </strong></h4>
+                        <div class="mb-3"> </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="  text-gray-700">
+                            <h6 class="text-uppercase font-weight-bold">{{ auth()->user()->name }}</h6><small
+                                class="text-uppercase">{{ auth()->user()->role }}</small>
+                        </div>
+
+
+                        <div class="dropdown-divider" style="margin-top: 15px"></div>
+                        <a href="{{ route('admin.logout') }}" class="text-danger" style="margin-top: 15px">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        @include('notify::components.notify')
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        @include('Admin.partials.sidebar')
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="padding: 20px">
+            @yield('content')
         </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+
+            <strong>Copyright &copy; 2024 OnlineShop All rights reserved By Akik Hossain.
+        </footer>
+
     </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="{{ asset('admin-assets/plugins/jquery/jquery.min.js') }}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ asset('admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    {{-- footer starts from here --}}
-    <footer class="bg-dark flex-grow-0  text-center text-white w-100">
-        <!-- Grid container -->
-        <div class="container p-4 pb-0">
-            <!-- Section: Social media -->
-            <section class="mb-4">
-                <!-- Facebook -->
-                <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/akikhossain.abid"
-                    role="button"><i class="fab fa-facebook-f"></i></a>
+    <script src="{{ asset('admin-assets/plugins/dropzone/min/dropzone.min.js') }}"></script>
+    <script src={{ asset('admin-assets/plugins/summernote/summernote.min.js') }}></script>
+    <script src={{ asset('admin-assets/plugins/select2/js/select2.min.js') }}></script>
+    <script src={{ asset('admin-assets/js/datetimepicker.js') }}></script>
 
-                <!-- Twitter -->
-                <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/AKHS87" role="button"><i
-                        class="fab fa-twitter"></i></a>
+    <!-- AdminLTE App -->
+    <script src="{{ asset('admin-assets/js/adminlte.min.js') }}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="js/demo.js"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
 
-                <!-- Instagram -->
-                <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/akikwho/"
-                    role="button"><i class="fab fa-instagram"></i></a>
+        $(document).ready(function() {
+            $('.summernote').summernote({
+                height: 200,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
 
-                <!-- Linkedin -->
-                <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/akikhossain/"
-                    role="button"><i class="fab fa-linkedin-in"></i></a>
+            $('.dropzone').dropzone({
+                url: "/file/post",
+                maxFilesize: 2,
+                addRemoveLinks: true
+            });
+        });
 
-                <!-- Github -->
-                <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/akikhossain" role="button"><i
-                        class="fab fa-github"></i></a>
-            </section>
-        </div>
-        <!-- Grid container -->
-
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)" ;>
-            Copyright © All Rights Reserved 2024 | Employee Management System |
-            <a class="text-white" href="https://github.com/akikhossain">Akik Hossain</a>
-        </div>
-    </footer>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
 
     <!-- JavaScript files-->
     <script src="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/vendor/bootstrap/js/bootstrap.bundle.min.js">
@@ -257,6 +293,8 @@
     </script>
 
     @stack('yourJsCode')
+    </script>
+    @yield('customJs')
 </body>
 
 </html>
